@@ -1,10 +1,10 @@
 object FormKF: TFormKF
   Left = 145
-  Height = 500
+  Height = 501
   Top = 232
   Width = 750
   Caption = 'FormKF'
-  ClientHeight = 500
+  ClientHeight = 501
   ClientWidth = 750
   Color = clWindow
   Constraints.MinHeight = 500
@@ -69,12 +69,12 @@ object FormKF: TFormKF
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 0
-    Height = 500
+    Height = 501
     Top = 0
     Width = 750
     Anchors = [akTop, akLeft, akRight, akBottom]
     BevelOuter = bvNone
-    ClientHeight = 500
+    ClientHeight = 501
     ClientWidth = 750
     ParentBackground = False
     TabOrder = 0
@@ -87,7 +87,7 @@ object FormKF: TFormKF
       AnchorSideBottom.Control = ButtonPanel1
       Left = 15
       Height = 80
-      Top = 360
+      Top = 361
       Width = 720
       Anchors = [akLeft, akRight, akBottom]
       BorderSpacing.Bottom = 15
@@ -95,7 +95,7 @@ object FormKF: TFormKF
       ClientHeight = 55
       ClientWidth = 716
       ParentBackground = False
-      TabOrder = 0
+      TabOrder = 7
       OnMouseMove = GroupBoxKFMouseMove
       object EditEnt: TEdit
         AnchorSideLeft.Control = GroupBoxKF
@@ -150,7 +150,7 @@ object FormKF: TFormKF
       BorderSpacing.Top = 15
       BorderSpacing.Bottom = 8
       Caption = 'Create KeyFile'
-      TabOrder = 1
+      TabOrder = 4
       OnClick = ButtonKFClick
     end
     object EditSuggestPW: TEdit
@@ -167,7 +167,7 @@ object FormKF: TFormKF
       BorderSpacing.Top = 30
       BorderSpacing.Right = 8
       BorderSpacing.Bottom = 15
-      TabOrder = 2
+      TabOrder = 0
     end
     object SpinEditSuggestPW: TSpinEdit
       AnchorSideTop.Control = EditSuggestPW
@@ -183,7 +183,7 @@ object FormKF: TFormKF
       BorderSpacing.Right = 15
       MaxValue = 64
       MinValue = 4
-      TabOrder = 3
+      TabOrder = 1
       Value = 12
     end
     object ButtonSuggestPW: TButton
@@ -201,13 +201,13 @@ object FormKF: TFormKF
       AutoSize = True
       BorderSpacing.Top = 8
       Caption = 'Suggest password'
-      TabOrder = 4
+      TabOrder = 2
       OnClick = ButtonSuggestPWClick
     end
     object ButtonPanel1: TButtonPanel
       Left = 15
       Height = 30
-      Top = 455
+      Top = 456
       Width = 720
       Anchors = [akRight, akBottom]
       BorderSpacing.Left = 15
@@ -225,8 +225,9 @@ object FormKF: TFormKF
       CancelButton.Name = 'CancelButton'
       CancelButton.DefaultCaption = True
       CancelButton.Enabled = False
-      TabOrder = 5
+      TabOrder = 8
       ShowButtons = [pbClose]
+      ShowGlyphs = []
       ShowBevel = False
       object ProgressBar1: TProgressBar
         AnchorSideLeft.Control = ImageInfoArchive1
@@ -269,7 +270,7 @@ object FormKF: TFormKF
       Caption = 'Limit characters to letters and numbers'
       Checked = True
       State = cbChecked
-      TabOrder = 6
+      TabOrder = 3
     end
     object EditPWfromhash: TEdit
       AnchorSideLeft.Control = PanelKeyfile
@@ -285,7 +286,7 @@ object FormKF: TFormKF
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Left = 15
       BorderSpacing.Top = 15
-      TabOrder = 7
+      TabOrder = 5
     end
     object ButtonPWfromhash: TButton
       AnchorSideLeft.Control = EditSuggestPW
@@ -302,7 +303,7 @@ object FormKF: TFormKF
       AutoSize = True
       BorderSpacing.Top = 8
       Caption = 'Password from hash'
-      TabOrder = 8
+      TabOrder = 6
       OnClick = ButtonPWfromhashClick
     end
     object Shape1: TShape

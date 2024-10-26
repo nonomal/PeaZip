@@ -96,6 +96,9 @@ type
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
+    Separator1: TMenuItem;
     Notebook1: TPageControl;
     InputT: TTabSheet;
     OutputT: TTabSheet;
@@ -126,6 +129,8 @@ type
     procedure MenuItem1Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
+    procedure MenuItem4Click(Sender: TObject);
+    procedure MenuItem5Click(Sender: TObject);
     procedure StringGrid1HeaderClick(Sender: TObject; IsColumn: Boolean;
       Index: Integer);
     procedure StringGrid1MouseDown(Sender: TObject; Button: TMouseButton;
@@ -140,6 +145,7 @@ type
 
 procedure save_report(s,reptype,modparam,out_path:ansistring);
 procedure clicklabel_rep(var a: TLabel; var b:TShape);
+procedure save_hashfn;
   
 var
   Form_report: TForm_report;
@@ -147,8 +153,9 @@ var
    //theming
    conf:text;
    opacity,grid1index,grid2index,alttabstyle,highlighttabs:integer;
+   desk_env:byte;
    confpath,csvsep:ansistring;
-   grid1switch,grid2switch:boolean;
+   grid1switch,grid2switch,needclose,noreportdetails:boolean;
    executable_path,dummy,color1,color2,color3,color4,color5:string;
    Binfo,Bloadlayout:TBitmap;
    activelabel_rep:TLabel;
@@ -198,7 +205,9 @@ var
 begin
 Form_report.Memo1.lines.BeginUpdate;;
 Form_report.Memo1.Clear;
-if Form_report.Caption<>'Hex preview' then
+Form_report.StringGrid1.BeginUpdate;
+Form_report.StringGrid2.BeginUpdate;
+if noreportdetails=false then
 begin
 for x:=1 to Form_report.StringGrid1.RowCount-1 do
    begin
@@ -211,6 +220,7 @@ for x:=1 to Form_report.StringGrid1.RowCount-1 do
          Form_report.Memo1.Append(Form_report.StringGrid1.Cells[y,0]+': -');
    Form_report.Memo1.Append('');
    end;
+Application.ProcessMessages;
 if Form_report.StringGrid2.Cells[0,0]<>'' then
 for x:=1 to Form_report.StringGrid2.RowCount-1 do
    begin
@@ -228,6 +238,8 @@ Form_report.Memo1.Append(Form_report.Label2.Caption);
 Form_report.Memo1.Append(Form_report.Label3.Caption);
 Form_report.Memo1.Append(Form_report.Label4.Caption);
 Form_report.Memo1.lines.EndUpdate;
+Form_report.StringGrid1.EndUpdate;
+Form_report.StringGrid2.EndUpdate;
 Form_report.Memo1.SelStart:=0;
 Form_report.Memo1.SelLength:=0;
 end;
@@ -369,18 +381,23 @@ end;
 
 procedure save_hashfn;
 var
-x,y:dword;
-fname,p:ansistring;
+x,hcol:dword;
+fname:ansistring;
 begin
 if Form_report.StringGrid1.Cells[0,Form_report.StringGrid1.Row]='* Digest *' then exit;
-fname:=Form_report.StringGrid1.Cells[Form_report.StringGrid1.Col,0]+'.txt';
+hcol:=Form_report.StringGrid1.Col;
+fname:=Form_report.StringGrid1.Cells[hcol,0]+'.txt';
 assignfile(t,fname);
 rewrite(t);
 //write_header(t);
 for x:=1 to Form_report.StringGrid1.RowCount-1 do
    begin
    if Form_report.StringGrid1.Cells[0,x]='* Digest *' then break;
-   write(t,Form_report.StringGrid1.Cells[Form_report.StringGrid1.Col,x]+'  '+Form_report.StringGrid1.Cells[1,x]+char($0A));
+   if Form_report.StringGrid1.Cells[hcol,x]<>'' then
+      if (hcol>8) and (hcol<13) then
+         write(t,Form_report.StringGrid1.Cells[hcol,x]+' '+Form_report.StringGrid1.Cells[4,x]+' '+Form_report.StringGrid1.Cells[1,x]+char($0A))
+      else
+         write(t,Form_report.StringGrid1.Cells[hcol,x]+'  '+Form_report.StringGrid1.Cells[1,x]+char($0A));
    end;
 closefile(t);
 end;
@@ -396,6 +413,8 @@ if Form_report.Caption='Checksum and hash' then Application.Terminate;
 if Form_report.Caption='Analyze' then Application.Terminate;
 if Form_report.Caption='Environment variables' then Application.Terminate;
 if Form_report.Caption='Hex preview' then Application.Terminate;
+if Form_report.Caption='Text preview' then Application.Terminate;
+if needclose=true then Application.Terminate;
 end;
 
 procedure TForm_report.Button2Click(Sender: TObject);
@@ -416,6 +435,8 @@ grid1index:=0;
 grid2index:=0;
 grid1switch:=true;
 grid2switch:=true;
+needclose:=false;
+noreportdetails:=false;
 end;
 
 procedure TForm_report.FormShow(Sender: TObject);
@@ -577,6 +598,49 @@ begin
 save_hashfn;
 end;
 
+function webopen(s:ansistring):integer;
+var
+   w:widestring;
+begin
+webopen:=-1;
+if s='' then exit;
+{$IFDEF MSWINDOWS}
+w:=utf8decode(s);
+webopen:=ShellExecuteW(Form_report.Handle, PWideChar ('open'), PWideChar(w), PWideChar (''), PWideChar (''), SW_SHOWNORMAL);
+{$ENDIF}
+{$IFDEF LINUX}webopen:=cp_open_linuxlike(s,desk_env);{$ENDIF}//try to open via Gnome or KDE
+{$IFDEF FREEBSD}webopen:=cp_open_linuxlike(s,desk_env);{$ENDIF}
+{$IFDEF NETBSD}webopen:=cp_open_linuxlike(s,desk_env);{$ENDIF}
+{$IFDEF OPENBSD}webopen:=cp_open_linuxlike(s,desk_env);{$ENDIF}
+{$IFDEF DARWIN}webopen:=cp_open_linuxlike(s,desk_env);{$ENDIF}
+end;
+
+procedure TForm_report.MenuItem4Click(Sender: TObject);
+var
+  s:ansistring;
+begin
+if StringGrid1.Row>0 then
+   if (StringGrid1.Col>7) and (StringGrid1.Col<25) then
+      begin
+      s:=StringGrid1.Cells[StringGrid1.Col,StringGrid1.Row];
+      if StringGrid1.Cells[0,StringGrid1.Row]='* Digest *' then exit;
+      webopen('https://www.virustotal.com/gui/file/'+s);
+      end;
+end;
+
+procedure TForm_report.MenuItem5Click(Sender: TObject);
+var
+  s:ansistring;
+begin
+if StringGrid1.Row>0 then
+   if (StringGrid1.Col>7) and (StringGrid1.Col<25) then
+      begin
+      s:=StringGrid1.Cells[StringGrid1.Col,StringGrid1.Row];
+      if StringGrid1.Cells[0,StringGrid1.Row]='* Digest *' then exit;
+      webopen('https://www.google.com/search?q='+s);
+      end;
+end;
+
 procedure TForm_report.StringGrid1HeaderClick(Sender: TObject;
   IsColumn: Boolean; Index: Integer);
 var i:integer;
@@ -592,6 +656,8 @@ end;
 
 procedure crcmenuenable(en:boolean);
 begin
+Form_report.MenuItem4.Enabled:=en;
+Form_report.MenuItem5.Enabled:=en;
 Form_report.MenuItem3.Enabled:=en;
 Form_report.MenuItem1.Enabled:=en;
 Form_report.MenuItem2.Enabled:=en;
@@ -608,14 +674,20 @@ if (StringGrid1.Col>7) and (StringGrid1.Col<25) then
    crcmenuenable(true);
    MenuItem1.Caption:='Save '+StringGrid1.Cells[StringGrid1.Col,0]+' value of this file';
    MenuItem3.Caption:='Save '+StringGrid1.Cells[StringGrid1.Col,0]+' values and file names';
+   MenuItem4.Caption:='Search '+StringGrid1.Cells[StringGrid1.Col,0]+' value on VirusTotal';
+   MenuItem5.Caption:='Search '+StringGrid1.Cells[StringGrid1.Col,0]+' value on Google';
    end
 else
    begin
    crcmenuenable(true);
    MenuItem1.Caption:='Save selected CRC or hash value of this file';
    MenuItem3.Caption:='Save selected CRC or hash values and file names';
+   MenuItem4.Caption:='Search selected CRC or hash value on VirusTotal';
+   MenuItem5.Caption:='Search selected CRC or hash value value on Google';
    MenuItem1.Enabled:=false;
    MenuItem3.Enabled:=false;
+   MenuItem4.Enabled:=false;
+   MenuItem5.Enabled:=false;
    end;
 if StringGrid1.Cells[0,StringGrid1.Row]='* Digest *' then crcmenuenable(false);
 end;

@@ -206,6 +206,15 @@ unit Unit_pea;
                                 (Windows 10+) Can now be manually forced to light or dark mode regardless system colors, accordingly to peazip app
  1.19     20240617  G.Tani      New PEA format revision 1.4
                                  Introduced support for variable number of extra KDF rounds for cascaded encryption (up to 100 K to 25,5 M for each algorithm)
+ 1.20     20241002  G.Tani      Recompiled with updated theming
+                                Added Report window context menu items to search hash value on Google and Virustotal
+                                Added command line options for CHECK switch to
+                                 Directly save CRC32 and MD5, SHA1, SHA256, BLAKE2B hash values GNU Coreutils compatible file (eg SHA256SAVE)
+                                 Search SHA256 hash value on Google and Virustotal (SHA256G, SHA256V)
+                                Fixed CRC16, 24, 32, and 64 are now saved in cksum compatible format instead of *sum compatible format
+                                Fixed can skip missing .check file for raw file join
+                                Added TEXTPREVIEW command line switch for text preeview, try to parse input file (up to 1GB) as text and display line numbers in separate column on the right
+                                (Windows) Fixed moving to recycle bin items from paths containing extended characters
 
 (C) Copyright 2006 Giorgio Tani giorgio.tani.software@gmail.com
 
@@ -237,7 +246,7 @@ interface
 
 uses
 {$IFDEF MSWINDOWS}
-Windows, activex, ShlObj,
+Windows, activex, shellapi, ShlObj,
 {$ENDIF}
 {$IFDEF DARWIN}MacOSAll, CocoaAll,{$ENDIF}
   Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs, ExtCtrls, Process, UTF8Process, Spin,
@@ -388,7 +397,7 @@ type
   Type fileofbyte = file of byte;
 
 const
-  P_RELEASE          = '1.19'; //declares release version for the whole build
+  P_RELEASE          = '1.20'; //declares release version for the whole build
   PEAUTILS_RELEASE   = '1.3'; //declares for reference last peautils release
   PEA_FILEFORMAT_VER = 1;
   PEA_FILEFORMAT_REV = 4; //version and revision declared to be implemented must match with the ones in pea_utils, otherwise a warning will be raised (form caption)
@@ -4514,11 +4523,12 @@ try
    assignfile(f_check,in_folder+in_name+'.check');
    filemode:=0;
    {$I-}reset(f_check);{$I+}
-   if IOResult<>0 then internal_error('IO error opening check file '+in_folder+in_name+'.check');
+   //if IOResult<>0 then internal_error('IO error opening check file '+in_folder+in_name+'.check');
    try
    blockread (f_check,sbuf1,4,numread);
    except
-   internal_error('IO error reading from check file '+in_folder+in_name+'.check');
+   //internal_error('IO error reading from check file '+in_folder+in_name+'.check');
+   volume_algo:='NOALGO';
    end;
    if rfs_parse_archive_header (sbuf1,volume_algo)<>0 then volume_algo:='NOALGO';
 except
@@ -4673,20 +4683,19 @@ end;
 {$IFDEF MSWINDOWS}
 function recyclefile_fromname(fname:ansistring):integer;
 var
-   FStruct: TSHFileOpStruct;
-   fnamearr: array[0..255] of char;
+  FStruct: TSHFILEOPSTRUCTW;
+  tmpfname: widestring;
 begin
 //file already checked when the function is called
-fillchar(fnamearr,sizeof(fnamearr),0) ;
-StrPcopy(fnamearr,expandfilename(fname)+#0#0) ;
-FStruct.hwnd:=0;
+tmpfname:=WideString(expandfilename(fname))+#0;
+FStruct.wnd:=0;
 FStruct.wFunc:=FO_DELETE;
-FStruct.pFrom:=fnamearr;
+FStruct.pFrom:=PWChar((tmpfname)+#0);
 FStruct.pTo:=nil;
 FStruct.fFlags:= FOF_ALLOWUNDO or FOF_NOCONFIRMATION or FOF_SILENT;
 FStruct.fAnyOperationsAborted := false;
 FStruct.hNameMappings := nil;
-Result:=ShFileOperation(FStruct);
+Result:=ShFileOperationW(@FStruct);
 end;
 {$ENDIF}
 
@@ -5628,6 +5637,7 @@ var
    i,j,t,td,te,k,dmax,dmin,x,icount,iver,rc,dup,icol:integer;
    f_size,nfiles,ntfiles,ndirs,ctsize,etsize,tsize,nfound,ntotalexp,time,speed,compest,compsize:qword;
    smax,smin:int64;
+   specop:ansistring;
    exp_files:TFoundList;
    exp_fsizes:TFoundListSizes;
    exp_ftimes:TFoundListAges;
@@ -5689,6 +5699,7 @@ tsin:=datetimetotimestamp(now);
 Form_pea.PanelPW1.height:=2;
 Form_pea.ButtonToolsCancel.visible:=true;
 Form_report.Notebook1.PageIndex:=0;
+specop:='';
 Form_pea.LabelTools2.Caption:='Checking file(s)...';
 Form_pea.ProgressBar1.Position:=0;
 Form_report.InputT.Caption:='Input';
@@ -5766,17 +5777,17 @@ repeat
    'ADLER32': Adler32_on:=true;
    'CRC16': CRC16_on:=true;
    'CRC24': CRC24_on:=true;
-   'CRC32': CRC32_on:=true;
+   'CRC32','CRC32SAVE': begin CRC32_on:=true; specop:=upcase(paramstr(j)); end;
    'CRC64': CRC64_on:=true;
    'ED2K': ED2K_on:=true;
    'MD4': MD4_on:=true;
-   'MD5': MD5_on:=true;
+   'MD5','MD5SAVE': begin MD5_on:=true; specop:=upcase(paramstr(j)); end;
    'RIPEMD160': RIPEMD160_on:=true;
-   'SHA1': SHA1_on:=true;
-   'BLAKE2S': Blake2s_on:=true;//'SHA224': SHA224_on:=true;
-   'SHA256': SHA256_on:=true;
+   'SHA1','SHA1SAVE': begin SHA1_on:=true; specop:=upcase(paramstr(j)); end;
+   'BLAKE2S': Blake2s_on:=true;
+   'SHA256','SHA256SAVE','SHA256G','SHA256V': begin SHA256_on:=true; specop:=upcase(paramstr(j)); end;
    'SHA3_256': SHA3_256_on:=true;
-   'BLAKE2B': Blake2b_on:=true;//'SHA384': SHA384_on:=true;
+   'BLAKE2B','BLAKE2BSAVE': begin Blake2b_on:=true; specop:=upcase(paramstr(j)); end;
    'SHA512': SHA512_on:=true;
    'SHA3_512': SHA3_512_on:=true;
    'WHIRLPOOL': WHIRLPOOL_on:=true;
@@ -6612,6 +6623,15 @@ Form_pea.LabelLog1.Visible:=true;
 Form_report.Visible:=true;
 Form_pea.Visible:=false;
 exitcode:=0;
+case specop of
+   'CRC32SAVE': begin Form_report.StringGrid1.Col:=11; save_hashfn; halt; end;
+   'MD5SAVE': begin Form_report.StringGrid1.Col:=15; save_hashfn; halt; end;
+   'SHA1SAVE': begin Form_report.StringGrid1.Col:=17; save_hashfn; halt; end;
+   'SHA256SAVE': begin Form_report.StringGrid1.Col:=19; save_hashfn; halt; end;
+   'BLAKE2BSAVE': begin Form_report.StringGrid1.Col:=21; save_hashfn; halt; end;
+   'SHA256G': begin Form_report.StringGrid1.Col:=19; Form_report.MenuItem5Click(nil); halt; end;
+   'SHA256V': begin Form_report.StringGrid1.Col:=19; Form_report.MenuItem4Click(nil); halt; end;
+end;
 end;
 
 //procedure to display environment variables strings
@@ -6737,7 +6757,93 @@ Form_pea.Visible:=false;
 exitcode:=0;
 end;
 
-//hex preview: slow, limited to 64 MB
+//text preview: limited to 1 GB
+procedure textpreview;
+var
+   astr:ansistring;
+   fa:text;
+   sizea:qword;
+   prows:integer;
+begin
+exitcode:=-1;
+if directoryexists(paramstr(2)) then
+   begin
+   Form_pea.LabelTools2.Caption:=paramstr(2)+' is a directory, cannot be previewed';
+   exit;
+   end;
+Form_report.StringGrid1.BeginUpdate;
+Form_pea.PanelPW1.height:=2;
+Form_report.Notebook1.PageIndex:=0;
+Form_pea.Caption:='Text preview';
+Form_report.Caption:='Text preview '+extractfilename(paramstr(2));
+needclose:=true;
+noreportdetails:=true;
+Form_pea.LabelTools2.Caption:=(paramstr(2));
+Form_pea.LabelTools3.Caption:='';
+Form_pea.LabelTools4.Caption:='';
+Form_pea.ProgressBar1.Position:=0;
+Form_report.StringGrid1.RowCount:=1;
+Form_report.StringGrid1.ColCount:=2;
+Form_report.StringGrid1.Cells[0,0]:='Line';
+Form_report.StringGrid1.Cells[1,0]:='Text';
+Form_report.StringGrid1.ColWidths[0]:=96;
+Form_report.StringGrid1.ColWidths[1]:=640;
+sizea:=0;
+try
+assignfile(fa,(paramstr(2)));
+filemode:=0;
+reset(fa);
+srcfilesize((paramstr(2)),sizea);
+if sizea=0 then begin internal_error('The file is empty, cannot be previewed'); exit; end;
+setcurrentdir(extractfilepath((paramstr(2))));
+except
+MessageDlg((paramstr(2))+' is not accessible (or not a file)', mtError, [mbOK], 0);
+halt(-3);
+exit;
+end;
+if sizea>1024*1024*1024 then
+  begin
+  MessageDlg('Text preview is currently limited to files up to 1 GB', mtWarning, [mbOK], 0);
+  exit;
+  end;
+Form_pea.LabelTools3.Caption:='Size '+nicenumber(inttostr(sizea),0)+' ('+inttostr(sizea)+' B)';
+Form_report.StringGrid1.RowCount:=1024;
+application.ProcessMessages;
+prows:=1;
+while not eof(fa) do
+   begin
+   readln(fa,astr);
+   if prows>=Form_report.StringGrid1.RowCount then
+      begin
+      Form_report.StringGrid1.RowCount:=prows+16*1024;
+      application.ProcessMessages;
+      end;
+   Form_report.StringGrid1.Cells[0,prows]:=addchar('0',inttostr(prows),9);
+   Form_report.StringGrid1.Cells[1,prows]:=astr;
+   prows:=prows+1;
+   end;
+Form_pea.ProgressBar1.Position:=95;
+application.ProcessMessages;
+Form_report.StringGrid1.RowCount:=prows;
+//Form_report.StringGrid1.AutosizeColumns;
+Form_report.StringGrid1.EndUpdate;
+Form_pea.ProgressBar1.Position:=100;
+application.ProcessMessages;
+closefile(fa);
+Form_pea.Visible:=false;
+Form_report.visible:=true;
+Form_report.Label1.Caption:=Form_pea.Caption;
+Form_report.Label2.Caption:=Form_pea.LabelTools2.Caption;
+Form_report.Label3.Caption:=Form_pea.LabelTools3.Caption;
+Form_report.Label4.Caption:='';
+{$IFDEF MSWINDOWS}Form_report.OutputT.TabVisible:=false;{$ENDIF}Form_report.Notebook1.ShowTabs:=false;
+Form_pea.ButtonDone1.Visible:=true;
+Form_pea.LabelOpen.Visible:=true;
+Form_pea.LabelOpen.Enabled:=false;
+Form_pea.LabelLog1.Visible:=true;
+exitcode:=0;
+end;
+
 procedure hexpreview;
 var
    hexs,hexs1,astr,offs,s:ansistring;
@@ -6756,8 +6862,10 @@ if directoryexists(paramstr(2)) then
 Form_report.StringGrid1.BeginUpdate;
 Form_pea.PanelPW1.height:=2;
 Form_report.Notebook1.PageIndex:=0;
-Form_report.Caption:='Hex preview';
 Form_pea.Caption:='Hex preview';
+Form_report.Caption:='Hex preview '+extractfilename(paramstr(2));
+needclose:=true;
+noreportdetails:=true;
 Form_pea.LabelTools2.Caption:=(paramstr(2));
 Form_pea.LabelTools3.Caption:='';
 Form_pea.LabelTools4.Caption:='';
@@ -6765,8 +6873,8 @@ Form_pea.ProgressBar1.Position:=0;
 Form_report.StringGrid1.RowCount:=1;
 Form_report.StringGrid1.ColCount:=3;
 Form_report.StringGrid1.Cells[0,0]:='Offset';
-Form_report.StringGrid1.Cells[1,0]:='Hex';
-Form_report.StringGrid1.Cells[2,0]:='Possible UTF8';
+Form_report.StringGrid1.Cells[1,0]:='00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F';
+Form_report.StringGrid1.Cells[2,0]:='Possible text';
 Form_report.StringGrid1.Font.Name:='Courier';
 Form_report.StringGrid1.Font.Size:=10;
 Form_report.StringGrid1.ColWidths[0]:=96;
@@ -6785,9 +6893,9 @@ MessageDlg((paramstr(2))+' is not accessible (or not a file)', mtError, [mbOK], 
 halt(-3);
 exit;
 end;
-if sizea>64*1024*1024 then
+if sizea>256*1024*1024 then
   begin
-  MessageDlg('Hex preview is currently limited to small files, up to 64 MB', mtWarning, [mbOK], 0);
+  MessageDlg('Hex preview is currently limited to files up to 256 MB', mtWarning, [mbOK], 0);
   exit;
   end;
 Form_pea.LabelTools3.Caption:='Size '+nicenumber(inttostr(sizea),0)+' ('+inttostr(sizea)+' B)';
@@ -6795,6 +6903,7 @@ Form_report.StringGrid1.RowCount:=(sizea div 16) +2;
 total:=0;
 prows:=1;
 wrbytes:=0;
+application.ProcessMessages;
 repeat
    numreada:=0;
    blockread (fa,bufa,65536,numreada);
@@ -6833,12 +6942,10 @@ repeat
              hexs[9]+hexs[10]+' '+hexs[11]+hexs[12]+' '+hexs[13]+hexs[14]+' '+hexs[15]+hexs[16]+' '+
              hexs[17]+hexs[18]+' '+hexs[19]+hexs[20]+' '+hexs[21]+hexs[22]+' '+hexs[23]+hexs[24]+' '+
              hexs[25]+hexs[26]+' '+hexs[27]+hexs[28]+' '+hexs[29]+hexs[30]+' '+hexs[31]+hexs[32];
-      //setlength(hexs,length(hexs)-1);
       wrbytes:=wrbytes+16;
       Form_report.StringGrid1.Cells[1,y+prows]:=hexs1;
-      Form_report.StringGrid1.Cells[2,y+prows]:=ansitoutf8(astr);
+      Form_report.StringGrid1.Cells[2,y+prows]:=astr;
       end;
-   ///
    inc(total,numreada);
    prows:=prows+nrows;
    Form_pea.ProgressBar1.Position:=(total*100) div sizea;
@@ -6868,6 +6975,8 @@ GUI procedures
 
 procedure parse_action;
 begin
+needclose:=false;
+noreportdetails:=false;
 case upcase(paramstr(1))of
 'PEA' : pea;
 'UNPEA' : unpea;
@@ -6882,6 +6991,7 @@ case upcase(paramstr(1))of
 'ENVSTR' : envstr;
 'LIST' : listfiles;
 'HEXPREVIEW' : hexpreview;
+'TEXTPREVIEW' : textpreview;
 else internal_error('Incorrect request for Pea, the action "'+paramstr(1)+'" is not supported');
 end;
 end;
@@ -7075,6 +7185,14 @@ Form_pea.PanelTools.visible:=true;
 interacting:=false;
 end;
 
+procedure call_textpreview;
+begin
+Form_pea.Visible:=true;
+Form_pea.PanelRFSinteractive.visible:=false;
+Form_pea.PanelTools.visible:=true;
+interacting:=false;
+end;
+
 { TForm_pea }
 
 procedure TForm_pea.ButtonDone1Click(Sender: TObject);
@@ -7217,9 +7335,9 @@ for i:=0 to ListMemo.Lines.Count do
    if length(ListMemo.Lines[i])>1 then
       in_param:=in_param+stringdelim(ListMemo.Lines[i])+' ';
 case ComboBoxUtils.ItemIndex of
-   20: begin end;
    21: begin end;
    22: begin end;
+   23: begin end;
    else if in_param='' then exit;
    end;
 case ComboBoxUtils.ItemIndex of
@@ -7242,7 +7360,8 @@ case ComboBoxUtils.ItemIndex of
    16: cl:=bin_name+' RFJ '+stringdelim(ListMemo.Lines[0])+' BATCH AUTONAME'; //one file (strictly)
    17: cl:=bin_name+' COMPARE '+in_param; //two files or one file (ask for second file, ignores more files)
    18: cl:=bin_name+' HEXPREVIEW '+stringdelim(ListMemo.Lines[0]);  //one file
-   19: begin
+   19: cl:=bin_name+' TEXTPREVIEW '+stringdelim(ListMemo.Lines[0]);  //one file
+   20: begin
       if MessageDlg('Do you want to securely delete selected file(s)? The operation can''t be undone and files will be not recoverable', mtWarning, [mbYes,mbNo], 0)=6 then
          begin
          cl:=bin_name+' WIPE MEDIUM '+in_param;
@@ -7267,7 +7386,7 @@ case ComboBoxUtils.ItemIndex of
          end
       else exit;
       end;
-   20: begin
+   21: begin
       {$IFDEF MSWINDOWS}
       in_param:=ComboBoxUnits.Caption;
       if MessageDlg('The operation can take some time, depending on the size of the disk, continue?', mtInformation, [mbYes,mbNo], 0)=6 then
@@ -7278,7 +7397,7 @@ case ComboBoxUtils.ItemIndex of
       exit;
       {$ENDIF}
       end;
-   21: begin
+   22: begin
       {$IFDEF MSWINDOWS}
       in_param:=ComboBoxUnits.Caption;
       if MessageDlg('The operation can take some time, depending on the size of the disk, continue?', mtInformation, [mbYes,mbNo], 0)=6 then
@@ -7289,7 +7408,7 @@ case ComboBoxUtils.ItemIndex of
       exit;
       {$ENDIF}
       end;
-   22: cl:=bin_name+' ENVSTR';
+   23: cl:=bin_name+' ENVSTR';
 end;
 P:=TProcessUTF8.Create(nil);
 {$IFDEF MSWINDOWS}
@@ -7374,7 +7493,7 @@ LabelOpenFile0.Visible:=False;
 LabelOpenFile2.Visible:=False;
 LabelOpenFile3.Visible:=False;
 ButtonUtilsReset.Enabled:=False;
-if ComboBoxUtils.ItemIndex<>22 then
+if ComboBoxUtils.ItemIndex<>23 then
    begin
    ComboBoxUnits.Visible:=true;
    getunits;
@@ -7407,9 +7526,10 @@ case ComboBoxUtils.ItemIndex of
    17: enabledropmenu;
    18: enabledropmenu;
    19: enabledropmenu;
-   20: disabledropmenu;
+   20: enabledropmenu;
    21: disabledropmenu;
    22: disabledropmenu;
+   23: disabledropmenu;
 end;
 end;
 
@@ -7575,15 +7695,15 @@ i16res:=(qscaleimages*16) div 100;
    Form_pea.Image5.Picture.Bitmap:=Binfo;
    Form_pea.Image7.Picture.Bitmap:=Binfo;
    Form_pea.ImageUtils.Picture.Bitmap:=Binfo;
-   Form_pea.buttonpw1.Glyph:=Bok;
-   Form_pea.buttonpw2.Glyph:=Bcancel;
-   Form_pea.ButtonPeaExit.Glyph:=Bcancel;
-   Form_pea.ButtonPeaExit1.Glyph:=Bcancel;
-   Form_pea.buttonrfsinteractive.Glyph:=Bok;
-   Form_pea.buttonrfsinteractive1.Glyph:=Bcancel;
-   Form_pea.buttonutilsok.Glyph:=Bok;
-   Form_pea.buttonutilscancel.Glyph:=Bcancel;
-   Form_pea.buttontoolscancel.Glyph:=Bcancel;
+   //Form_pea.buttonpw1.Glyph:=Bok;
+   //Form_pea.buttonpw2.Glyph:=Bcancel;
+   //Form_pea.ButtonPeaExit.Glyph:=Bcancel;
+   //Form_pea.ButtonPeaExit1.Glyph:=Bcancel;
+   //Form_pea.buttonrfsinteractive.Glyph:=Bok;
+   //Form_pea.buttonrfsinteractive1.Glyph:=Bcancel;
+   //Form_pea.buttonutilsok.Glyph:=Bok;
+   //Form_pea.buttonutilscancel.Glyph:=Bcancel;
+   //Form_pea.buttontoolscancel.Glyph:=Bcancel;
    except
    //MessageDlg('some icons not found', mtWarning, [mbOK], 0);  //it's deactivated in final compilation to allow the program to work outside of PeaZip package
    end;
@@ -7639,6 +7759,7 @@ setcurrentdir(executable_path);
 {$ENDIF}
 SetFocusedControl(EditPW1);
 getdesk_env(desk_env,caption_build,delimiter);
+unit_report.desk_env:=desk_env;
 height_set:=false;
 toolactioncancelled:=false;
 Form_pea.Caption:='PEA '+P_RELEASE+' ('+PEAUTILS_RELEASE+') / specs '+inttostr(PEA_FILEFORMAT_VER)+'.'+inttostr(PEA_FILEFORMAT_REV);
@@ -7906,6 +8027,8 @@ if paramcount>0 then
    else
       begin
       funutil:=0;
+      needclose:=false;
+      noreportdetails:=false;
       case upcase(paramstr(1)) of
          'PEA' : call_pea;
          'UNPEA' : call_unpea;
@@ -7920,6 +8043,7 @@ if paramcount>0 then
          'ENVSTR' : call_envstr;
          'LIST' : call_list;
          'HEXPREVIEW' : call_hexpreview;
+         'TEXTPREVIEW' : call_textpreview;
       else funutil:=1;//internal_error('Incorrect request for Pea, the action "'+paramstr(1)+'" is not supported');
       end;
       if funutil=0 then Form_pea.PanelUtils.visible:=false

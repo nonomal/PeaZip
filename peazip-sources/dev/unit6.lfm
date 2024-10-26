@@ -1,11 +1,11 @@
 object FormInput: TFormInput
   Left = 77
-  Height = 250
+  Height = 251
   Top = 547
   Width = 700
   AutoSize = True
   Caption = 'PeaZip'
-  ClientHeight = 250
+  ClientHeight = 251
   ClientWidth = 700
   Color = clWindow
   Constraints.MinHeight = 250
@@ -60,7 +60,7 @@ object FormInput: TFormInput
   }
   Position = poScreenCenter
   ShowHint = True
-  LCLVersion = '3.0.0.3'
+  LCLVersion = '3.4.0.0'
   object PanelInput: TPanel
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
@@ -68,14 +68,14 @@ object FormInput: TFormInput
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = ButtonPanel1
     Left = 0
-    Height = 175
+    Height = 176
     Top = 0
     Width = 700
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Bottom = 30
     BevelOuter = bvNone
-    ClientHeight = 175
+    ClientHeight = 176
     ClientWidth = 700
     ParentBackground = False
     TabOrder = 0
@@ -86,13 +86,13 @@ object FormInput: TFormInput
       AnchorSideBottom.Side = asrBottom
       Left = 15
       Height = 24
-      Top = 151
+      Top = 152
       Width = 254
       Anchors = [akLeft, akBottom]
       Caption = 'Recoursive: search in subdirectories'
       Checked = True
       State = cbChecked
-      TabOrder = 0
+      TabOrder = 1
     end
     object LabelWarning: TLabel
       AnchorSideLeft.Control = Editinputquery
@@ -240,7 +240,7 @@ object FormInput: TFormInput
       BorderSpacing.Top = 30
       BorderSpacing.Right = 15
       ItemHeight = 20
-      TabOrder = 1
+      TabOrder = 0
       OnKeyPress = EditinputqueryKeyPress
     end
     object LabelMoveTo: TLabel
@@ -279,7 +279,7 @@ object FormInput: TFormInput
   object ButtonPanel1: TButtonPanel
     Left = 15
     Height = 30
-    Top = 205
+    Top = 206
     Width = 670
     BorderSpacing.Left = 15
     BorderSpacing.Right = 15
@@ -297,6 +297,7 @@ object FormInput: TFormInput
     CancelButton.DefaultCaption = True
     TabOrder = 1
     ShowButtons = [pbOK, pbCancel]
+    ShowGlyphs = []
     ShowBevel = False
     object Labelrenamereset: TLabel
       AnchorSideLeft.Control = ButtonPanel1
@@ -322,7 +323,7 @@ object FormInput: TFormInput
     AnchorSideBottom.Side = asrCenter
     Left = 15
     Height = 30
-    Top = 205
+    Top = 206
     Width = 120
     Anchors = [akLeft, akBottom]
     AutoSize = True
@@ -341,7 +342,7 @@ object FormInput: TFormInput
     AnchorSideBottom.Side = asrCenter
     Left = 15
     Height = 30
-    Top = 205
+    Top = 206
     Width = 120
     Anchors = [akLeft, akBottom]
     AutoSize = True

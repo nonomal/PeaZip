@@ -420,10 +420,10 @@ begin
                               if qscale<880 then qscale:=800 //128
                               else qscale:=1000; //160
 qscaleimages:=qscale;
-case qscaleimages of //avoid some multiples that usually does not scale well, falling back to alternative similar scaling factor
+{case qscaleimages of //avoid some multiples that usually does not scale well, falling back to alternative similar scaling factor
    125: qscaleimages:=115;
    250: qscaleimages:=200;
-end;
+end;}
 end;
 
 function setpbitmap(var abitmap:TBitmap; virtualsize:integer):integer;//wrapper for resize_bitmap for square icons

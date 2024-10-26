@@ -1,11 +1,11 @@
 object FormImgRes: TFormImgRes
-  Left = 1200
-  Height = 375
-  Top = 708
+  Left = 543
+  Height = 376
+  Top = 492
   Width = 600
   AutoSize = True
   Caption = 'Resize'
-  ClientHeight = 375
+  ClientHeight = 376
   ClientWidth = 600
   Color = clWindow
   Constraints.MinHeight = 375
@@ -45,11 +45,11 @@ object FormImgRes: TFormImgRes
   OnCreate = FormCreate
   Position = poScreenCenter
   ShowHint = True
-  LCLVersion = '2.2.0.4'
+  LCLVersion = '3.4.0.0'
   object ButtonPanel1: TButtonPanel
     Left = 15
     Height = 30
-    Top = 330
+    Top = 331
     Width = 570
     BorderSpacing.Left = 15
     BorderSpacing.Right = 15
@@ -67,6 +67,7 @@ object FormImgRes: TFormImgRes
     CancelButton.DefaultCaption = True
     TabOrder = 0
     ShowButtons = [pbOK, pbCancel]
+    ShowGlyphs = []
     ShowBevel = False
     object ImageInfoArchive4: TImage
       AnchorSideLeft.Control = ButtonPanel1
@@ -88,15 +89,16 @@ object FormImgRes: TFormImgRes
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = ButtonPanel1
     Left = 0
-    Height = 300
+    Height = 301
     Top = 0
     Width = 600
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Bottom = 30
     BevelOuter = bvNone
-    ClientHeight = 300
+    ClientHeight = 301
     ClientWidth = 600
+    ParentBackground = False
     TabOrder = 1
     object SpinEditW: TSpinEdit
       AnchorSideLeft.Control = LabelW
@@ -112,7 +114,7 @@ object FormImgRes: TFormImgRes
       MaxValue = 64000
       MinValue = 1
       OnChange = SpinEditWChange
-      TabOrder = 0
+      TabOrder = 1
       Value = 1024
     end
     object SpinEditH: TSpinEdit
@@ -127,7 +129,7 @@ object FormImgRes: TFormImgRes
       MaxValue = 64000
       MinValue = 1
       OnChange = SpinEditHChange
-      TabOrder = 1
+      TabOrder = 2
       Value = 768
     end
     object CheckBoxPercent: TCheckBox
@@ -138,12 +140,12 @@ object FormImgRes: TFormImgRes
       Left = 381
       Height = 24
       Top = 90
-      Width = 36
+      Width = 33
       BorderSpacing.Left = 20
       BorderSpacing.Top = 15
       Caption = '%'
+      TabOrder = 3
       OnChange = CheckBoxPercentChange
-      TabOrder = 2
     end
     object CheckBoxAspectRatio: TCheckBox
       AnchorSideLeft.Control = LabelW
@@ -152,13 +154,13 @@ object FormImgRes: TFormImgRes
       Left = 15
       Height = 24
       Top = 131
-      Width = 164
+      Width = 161
       BorderSpacing.Top = 15
       Caption = 'Maintain aspect ratio'
       Checked = True
-      OnClick = CheckBoxAspectRatioClick
       State = cbChecked
-      TabOrder = 3
+      TabOrder = 4
+      OnClick = CheckBoxAspectRatioClick
     end
     object LabelW: TLabel
       AnchorSideLeft.Control = ComboBoxAction
@@ -204,10 +206,10 @@ object FormImgRes: TFormImgRes
         'PPM'
         'XPM'
       )
-      OnChange = ComboBoxConvertChange
       Style = csDropDownList
-      TabOrder = 4
+      TabOrder = 5
       Text = 'No'
+      OnChange = ComboBoxConvertChange
     end
     object LabelConvert: TLabel
       AnchorSideLeft.Control = LabelW
@@ -252,10 +254,10 @@ object FormImgRes: TFormImgRes
         'Fit to'
         'Fit to largest'
       )
-      OnChange = ComboBoxActionChange
       Style = csDropDownList
-      TabOrder = 5
+      TabOrder = 0
       Text = 'Resize'
+      OnChange = ComboBoxActionChange
     end
   end
 end

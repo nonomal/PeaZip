@@ -1,10 +1,10 @@
 object FormPM: TFormPM
   Left = 214
-  Height = 500
-  Top = 513
+  Height = 501
+  Top = 490
   Width = 750
   Caption = 'Password manager'
-  ClientHeight = 500
+  ClientHeight = 501
   ClientWidth = 750
   Color = clWindow
   Constraints.MinHeight = 500
@@ -44,7 +44,7 @@ object FormPM: TFormPM
   OnCreate = FormCreate
   Position = poScreenCenter
   ShowHint = True
-  LCLVersion = '2.2.0.4'
+  LCLVersion = '3.4.0.0'
   object ButtonPanel1: TButtonPanel
     AnchorSideLeft.Control = Owner
     AnchorSideLeft.Side = asrBottom
@@ -52,7 +52,7 @@ object FormPM: TFormPM
     AnchorSideBottom.Control = Owner
     Left = 15
     Height = 30
-    Top = 455
+    Top = 456
     Width = 720
     BorderSpacing.Left = 15
     BorderSpacing.Top = 15
@@ -71,6 +71,7 @@ object FormPM: TFormPM
     CancelButton.DefaultCaption = True
     TabOrder = 0
     ShowButtons = [pbOK, pbCancel]
+    ShowGlyphs = []
     ShowBevel = False
     object ImageInfoPM1: TImage
       AnchorSideLeft.Control = ButtonPanel1
@@ -131,13 +132,14 @@ object FormPM: TFormPM
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 0
-    Height = 395
+    Height = 396
     Top = 45
     Width = 750
     Anchors = [akTop, akLeft, akRight, akBottom]
     BevelOuter = bvNone
-    ClientHeight = 395
+    ClientHeight = 396
     ClientWidth = 750
+    ParentBackground = False
     ParentFont = False
     TabOrder = 1
     object TabSheetMasterPW: TPanel
@@ -148,13 +150,14 @@ object FormPM: TFormPM
       AnchorSideBottom.Control = PageControl1
       AnchorSideBottom.Side = asrBottom
       Left = 0
-      Height = 395
+      Height = 396
       Top = 0
       Width = 750
       Anchors = [akTop, akLeft, akRight, akBottom]
       BevelOuter = bvNone
-      ClientHeight = 395
+      ClientHeight = 396
       ClientWidth = 750
+      ParentBackground = False
       ParentFont = False
       TabOrder = 0
       object PanelPWMaster: TPanel
@@ -165,13 +168,14 @@ object FormPM: TFormPM
         AnchorSideBottom.Control = TabSheetMasterPW
         AnchorSideBottom.Side = asrBottom
         Left = 0
-        Height = 395
+        Height = 396
         Top = 0
         Width = 750
         Anchors = [akTop, akLeft, akRight, akBottom]
         BevelOuter = bvNone
-        ClientHeight = 395
+        ClientHeight = 396
         ClientWidth = 750
+        ParentBackground = False
         ParentFont = False
         TabOrder = 0
         object LableListPath1: TLabel
@@ -257,10 +261,10 @@ object FormPM: TFormPM
           Anchors = [akTop, akRight, akBottom]
           BorderSpacing.InnerBorder = 5
           Caption = '...'
-          OnClick = ButtonEditName3Click
           ParentFont = False
           PopupMenu = PopupMenupwm
           TabOrder = 2
+          OnClick = ButtonEditName3Click
         end
         object EditUn7zaPW1: TEdit
           AnchorSideLeft.Control = EditUn7zaPW
@@ -339,13 +343,14 @@ object FormPM: TFormPM
       AnchorSideBottom.Control = PageControl1
       AnchorSideBottom.Side = asrBottom
       Left = 0
-      Height = 395
+      Height = 396
       Top = 0
       Width = 750
       Anchors = [akTop, akLeft, akRight, akBottom]
       BevelOuter = bvNone
-      ClientHeight = 395
+      ClientHeight = 396
       ClientWidth = 750
+      ParentBackground = False
       ParentFont = False
       TabOrder = 1
       object StringGridPM1: TStringGrid
@@ -354,7 +359,7 @@ object FormPM: TFormPM
         AnchorSideRight.Control = TabSheetPWlist
         AnchorSideRight.Side = asrBottom
         Left = 0
-        Height = 355
+        Height = 356
         Top = 0
         Width = 750
         Anchors = [akTop, akLeft, akRight, akBottom]
@@ -384,7 +389,7 @@ object FormPM: TFormPM
         AnchorSideBottom.Control = TabSheetPWlist
         AnchorSideBottom.Side = asrBottom
         Left = 0
-        Height = 395
+        Height = 396
         Top = 0
         Width = 750
         Anchors = [akTop, akLeft, akRight, akBottom]
@@ -412,7 +417,7 @@ object FormPM: TFormPM
         AnchorSideBottom.Side = asrBottom
         Left = 0
         Height = 38
-        Top = 349
+        Top = 350
         Width = 750
         Anchors = [akLeft, akRight, akBottom]
         BorderSpacing.Bottom = 8
@@ -436,6 +441,7 @@ object FormPM: TFormPM
     BevelOuter = bvNone
     ClientHeight = 45
     ClientWidth = 750
+    ParentBackground = False
     ParentFont = False
     TabOrder = 2
     object ShapeTitlePMb2: TShape
@@ -530,6 +536,7 @@ object FormPM: TFormPM
       Top = 0
       Width = 391
       BevelOuter = bvNone
+      ParentBackground = False
       TabOrder = 0
     end
     object Shapelinkpm1: TShape

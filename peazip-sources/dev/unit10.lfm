@@ -1,11 +1,11 @@
 object FormCrop: TFormCrop
-  Left = 1200
-  Height = 275
-  Top = 788
+  Left = 772
+  Height = 276
+  Top = 532
   Width = 600
   AutoSize = True
   Caption = 'Crop'
-  ClientHeight = 275
+  ClientHeight = 276
   ClientWidth = 600
   Color = clWindow
   Constraints.MinHeight = 275
@@ -44,11 +44,11 @@ object FormCrop: TFormCrop
   }
   Position = poScreenCenter
   ShowHint = True
-  LCLVersion = '2.2.0.4'
+  LCLVersion = '3.4.0.0'
   object ButtonPanel1: TButtonPanel
     Left = 15
     Height = 30
-    Top = 230
+    Top = 231
     Width = 570
     BorderSpacing.Left = 15
     BorderSpacing.Right = 15
@@ -66,6 +66,7 @@ object FormCrop: TFormCrop
     CancelButton.DefaultCaption = True
     TabOrder = 0
     ShowButtons = [pbOK, pbCancel]
+    ShowGlyphs = []
     ShowBevel = False
     object ImageInfoArchive4: TImage
       AnchorSideLeft.Control = ButtonPanel1
@@ -87,15 +88,16 @@ object FormCrop: TFormCrop
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = ButtonPanel1
     Left = 0
-    Height = 200
+    Height = 201
     Top = 0
     Width = 600
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Bottom = 30
     BevelOuter = bvNone
-    ClientHeight = 200
+    ClientHeight = 201
     ClientWidth = 600
+    ParentBackground = False
     TabOrder = 1
     object LabelL: TLabel
       AnchorSideLeft.Control = PanelCrop
@@ -122,7 +124,7 @@ object FormCrop: TFormCrop
       BorderSpacing.Bottom = 30
       MaxValue = 64000
       OnChange = SpinEditLChange
-      TabOrder = 0
+      TabOrder = 1
       Value = 10
     end
     object SpinEditR: TSpinEdit
@@ -139,7 +141,7 @@ object FormCrop: TFormCrop
       BorderSpacing.Top = 30
       BorderSpacing.Right = 15
       MaxValue = 64000
-      TabOrder = 1
+      TabOrder = 3
       Value = 10
     end
     object LabelR: TLabel
@@ -166,7 +168,7 @@ object FormCrop: TFormCrop
       BorderSpacing.Left = 8
       BorderSpacing.Top = 30
       MaxValue = 64000
-      TabOrder = 2
+      TabOrder = 0
       Value = 10
     end
     object LabelT: TLabel
@@ -186,15 +188,15 @@ object FormCrop: TFormCrop
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = SpinEditL
       AnchorSideTop.Side = asrCenter
-      Left = 282
+      Left = 284
       Height = 24
       Top = 90
-      Width = 36
+      Width = 33
       Caption = '%'
       Checked = True
-      OnChange = CheckBoxPercentChange
       State = cbChecked
-      TabOrder = 3
+      TabOrder = 2
+      OnChange = CheckBoxPercentChange
     end
     object SpinEditB: TSpinEdit
       AnchorSideLeft.Control = PanelCrop

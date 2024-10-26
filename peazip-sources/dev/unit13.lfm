@@ -1,11 +1,11 @@
 object FormSelect: TFormSelect
   Left = 819
-  Height = 275
+  Height = 276
   Top = 655
   Width = 600
   AutoSize = True
   Caption = 'Select'
-  ClientHeight = 275
+  ClientHeight = 276
   ClientWidth = 600
   Color = clWindow
   Constraints.MinHeight = 275
@@ -43,13 +43,13 @@ object FormSelect: TFormSelect
     2332
   }
   Position = poScreenCenter
-  LCLVersion = '2.2.0.4'
+  LCLVersion = '3.4.0.0'
   object ButtonPanel1: TButtonPanel
     AnchorSideLeft.Control = Owner
     AnchorSideRight.Control = Owner
     Left = 15
     Height = 30
-    Top = 230
+    Top = 231
     Width = 570
     BorderSpacing.Left = 15
     BorderSpacing.Right = 15
@@ -67,6 +67,7 @@ object FormSelect: TFormSelect
     CancelButton.DefaultCaption = True
     TabOrder = 0
     ShowButtons = [pbOK, pbCancel]
+    ShowGlyphs = []
     ShowBevel = False
   end
   object PanelSelect: TPanel
@@ -76,15 +77,16 @@ object FormSelect: TFormSelect
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = ButtonPanel1
     Left = 0
-    Height = 200
+    Height = 201
     Top = 0
     Width = 600
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Bottom = 30
     BevelOuter = bvNone
-    ClientHeight = 200
+    ClientHeight = 201
     ClientWidth = 600
+    ParentBackground = False
     TabOrder = 1
     object ComboBox1: TComboBox
       AnchorSideLeft.Control = ComboBox2
@@ -101,7 +103,7 @@ object FormSelect: TFormSelect
       DropDownCount = 24
       ItemHeight = 20
       Style = csDropDownList
-      TabOrder = 0
+      TabOrder = 1
     end
     object ComboBox2: TComboBox
       AnchorSideLeft.Control = PanelSelect
@@ -118,7 +120,7 @@ object FormSelect: TFormSelect
       BorderSpacing.Right = 15
       ItemHeight = 20
       Style = csDropDownList
-      TabOrder = 1
+      TabOrder = 0
     end
     object Label1: TLabel
       AnchorSideLeft.Control = ComboBox2

@@ -1,7 +1,9 @@
-﻿Notes to 9.9 release
+﻿Notes to 10.0 release
 
 Modified existing text
-txt_7_9_zooming: Zoom
+txt_showhints: Show hints and tooltips
+Recycle bin (term used mostry on Windows) reworded as Trash, which is the English term used on most Operating Systems.
+Please note the term was not modified in the names of variables, only the text strings were changed.
 
 = GENERAL NOTES =
 
