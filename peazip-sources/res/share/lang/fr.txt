@@ -3,20 +3,20 @@ Français
 10.0
 Traduit par: Drake4478
 Dernière version par: Drake4478
-Date du: 11.05.2024
+Date du: 26.10.2024
 
 === PeaZip text group ===
 
-txt_10_0_exptrash: Explore Trash
-txt_10_0_ptarzst: Fastest compression, TAR.ZST
-txt_10_0_ptarxz: High compression, TAR.XZ
-txt_10_0_ptargz: Medium compression, TAR.GZ
-txt_10_0_comp: Pure compression formats only accept a single file as input. Archive conversion towards those formats will fail if the source contains multiple files or folders, which cannot be determined in advance.
-txt_10_0_save: Save
-txt_10_0_tp: Text preview
-txt_9_9_uac: Current user cannot write to this output path. Do you want to run PeaZip with UAC elevation?
-TXT_9_9_kdf: KDF rounds
-txt_9_9_utc: Show timestamps as UTC
+txt_10_0_exptrash: Explorer la corbeille
+txt_10_0_ptarzst: Compression la plus rapide, TAR. ZST
+txt_10_0_ptarxz: Compression élevée, TAR. XZ
+txt_10_0_ptargz: Compression moyenne, TAR. GZ
+txt_10_0_comp: Les formats de compression purs n’acceptent qu’un seul fichier en entrée. La conversion d’archives vers ces formats échouera si la source contient plusieurs fichiers ou dossiers, qui ne peuvent pas être déterminés à l’avance.
+txt_10_0_save: Enregistrer
+txt_10_0_tp: Aperçu du texte
+txt_9_9_uac: L’utilisateur actuel ne peut pas écrire dans ce chemin de sortie. Voulez-vous exécuter PeaZip avec l’élévation UAC ?
+TXT_9_9_kdf: Arrondit KDF
+txt_9_9_utc: Afficher les horodatages au format UTC
 txt_9_8_alwaysflat: Toujours ouvrir les archives en vue plane
 txt_9_8_fnew: Extraire ici (dans un nouveau dossier)
 txt_9_8_fsmart: Extraire ici (nouveau dossier intelligent)
@@ -1387,7 +1387,7 @@ Pour masquer les noms des fichiers et des répertoires contenue dans la vérific
 Noter que dans l'interface de création archive, à côté de l'icône du cadenas, il y a un avertissement pour informer visuellement si le chiffrement n'est définie et si le format d'archive actuel prend en charge le cryptage.
 
 CRÉER DES ARCHIVES DISTINCTS
-Ajouter des objets à être archivés (avec bouton de “Ajouter“ du PeaZip ou du menu contextuel ou envoyer à du système) et de confirmer avant avec l'option “Ajouter chaque objet dans une archive distincte“ de cocher “Ok“.
+Ajouter des objets à être archivés (avec bouton de “Ajouter“ du PeaZip ou du menu contextuel ou envoyer à du système) et de confirmer avant avec l'option "Ajouter chaque objet dans une archive distincte" de cocher “Ok“.
 
 CONVERTIR DES ARCHIVES
 FPeaZip ROM sélectionner archives à convertir et cliquer sur “Convertir“ sur la barre d'outils ou menu contextuel, non-archive les fichiers et les dossiers peuvent être ajoutés ainsi, la différence étant dans les archives sont extraites avant la phase de compression.
@@ -1404,9 +1404,8 @@ Si aucun mot de passe maître n'est définie pour le gestionnaire de mot de pass
 
 CONFIGURER L'APPLICATION
 Options > Localisation (et dans les options > paramètres, le premier onglet) permet de définir la langue de l'application.
-Options > Paramètres permet de modifier les paramètres des applications
-Options > Thème permet de modifier l'apparence et les icônes de l'application
 Options > Intégration du système démarre une procédure pour configurer les associations de fichiers, menu contextuel et entrées de menu Envoyer À (sous Windows)
+Options > Paramètres permet de modifier les paramètres des applications
 Organiser menu contient entrée pour personnaliser, d'activer ou de désactiver les fonctionnalités du navigateur, comme la barre d'outils, barre d'adresse, barre de navigation, etc.
 
 F1 	aide
