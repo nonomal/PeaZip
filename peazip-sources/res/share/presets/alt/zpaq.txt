@@ -5,10 +5,10 @@ Displayed name, below, can be edited and will be shown in presets menu in place 
 
 GENERAL OPTIONS
 Type
-7Z
-0
+*PAQ
+17
 Compression level
-5
+-1
 Action
 0
 Spanning
@@ -45,15 +45,15 @@ Add timestamp to archive name
 
 BACKEND OPTIONS: 7z/p7zip
 Method
-1
+0
 Dictionary
-12
+0
 Word
-6
+4
 Passes
--1
+0
 Solid block size
-15
+0
 Sort by name for solid compression
 1
 Compress files open for writing
