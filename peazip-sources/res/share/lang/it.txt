@@ -1,12 +1,19 @@
 ﻿=== PeaZip language file ===
 Italian - Italiano
-9.9
+10.0
 Tradotto da: Giorgio Tani
 Ultima rev. di: Giorgio Tani
 Ultima rev.: 20240803
 
 === PeaZip text group ===
 
+txt_10_0_exptrash: Esplora Cestino
+txt_10_0_ptarzst: Compressione velocissima, TAR.ZST
+txt_10_0_ptarxz: Compressione alta, TAR.XZ
+txt_10_0_ptargz: Compressione media, TAR.GZ
+txt_10_0_comp: I formati di compressione pura accettano un solo file come input. La conversione di archivi verso tali formati fallirà se l'input è composto da più file o da cartelle (non determinabile in anticipo).
+txt_10_0_save: Salva
+txt_10_0_tp: Visualizza come testo
 txt_9_9_uac: L'utente non ha i diritti di scrittura per questa destinazione. Riavviare PeaZip con elevazione UAC?
 TXT_9_9_kdf: Iterazioni KDF
 txt_9_9_utc: Data e ora UTC
@@ -672,7 +679,7 @@ txt_2_4_deletebookmarks: Si desidera cancellare la lista di file e cartelle pref
 txt_2_4_documents: Documenti
 txt_2_4_wenc: Enciclopedia
 txt_2_4_extractfrom: Estrai da
-txt_2_4_hexp: Contenuto esadecimale
+txt_2_4_hexp: Visualizza esadecimale
 txt_2_4_operation: Operazione
 txt_2_4_path: non è scrivibile (mancante o in sola lettura), selezionare un percorso accessibile in scrittura per l'output
 txt_2_4_removefromclipboard: Rimuovi dalla clipboard

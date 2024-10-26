@@ -1,12 +1,19 @@
 ﻿=== PeaZip language file ===
 Korean - 한국어
-9.9
+10.0
 번역자: Sleepy, EhangB
 최근 교정: 20240805 by EhangB
 교정 일자: 20110531 by Sleep
 
 === PeaZip text group ===
 
+txt_10_0_exptrash: Explore Trash
+txt_10_0_ptarzst: Fastest compression, TAR.ZST
+txt_10_0_ptarxz: High compression, TAR.XZ
+txt_10_0_ptargz: Medium compression, TAR.GZ
+txt_10_0_comp: Pure compression formats only accept a single file as input. Archive conversion towards those formats will fail if the source contains multiple files or folders, which cannot be determined in advance.
+txt_10_0_save: Save
+txt_10_0_tp: Text preview
 txt_9_9_uac: 현재 사용자는 이 출력 경로에 쓸 수 없습니다. UAC 권한 상승으로 PeaZip을 실행하시겠습니까?
 txt_9_9_kdf: KDF 라운드
 txt_9_9_utc: 타임스탬프를 UTC로 표시

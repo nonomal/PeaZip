@@ -1,12 +1,19 @@
 ﻿=== PeaZip language file ===
 Русский
-9.9
+10.0
 Перевод: Rytikov Slava, Dmitry Tsvetkov, xoxmodav, ViktorOn , Aleksandr (yupiter43@gmail.com)
 Посл. пров.: Aleksandr (yupiter43@gmail.com)
 Посл. ред.: 19.10.2024
 
 === PeaZip text group ===
 
+txt_10_0_exptrash: Explore Trash
+txt_10_0_ptarzst: Fastest compression, TAR.ZST
+txt_10_0_ptarxz: High compression, TAR.XZ
+txt_10_0_ptargz: Medium compression, TAR.GZ
+txt_10_0_comp: Pure compression formats only accept a single file as input. Archive conversion towards those formats will fail if the source contains multiple files or folders, which cannot be determined in advance.
+txt_10_0_save: Save
+txt_10_0_tp: Text preview
 txt_9_9_uac: Текущий пользователь не может писать по этому выходному пути. Хотите запустить PeaZip с повышением прав UAC?
 TXT_9_9_kdf: KDF раунды
 txt_9_9_utc: Показывать временные метки в формате UTC
