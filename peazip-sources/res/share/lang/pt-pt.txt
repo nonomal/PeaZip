@@ -2,21 +2,21 @@
 Portuguese (Portugal) - Português
 10.0
 Tradução: Hugo Carvalho, José Carlos, Sérgio Marques
-Revisão: Sérgio Marques
-Revisto em: 20240605
+Revisão: Hugo Carvalho
+Revisto em: 20241029
 
 === PeaZip text group ===
 
-txt_10_0_exptrash: Explore Trash
-txt_10_0_ptarzst: Fastest compression, TAR.ZST
-txt_10_0_ptarxz: High compression, TAR.XZ
-txt_10_0_ptargz: Medium compression, TAR.GZ
-txt_10_0_comp: Pure compression formats only accept a single file as input. Archive conversion towards those formats will fail if the source contains multiple files or folders, which cannot be determined in advance.
-txt_10_0_save: Save
-txt_10_0_tp: Text preview
-txt_9_9_uac: Current user cannot write to this output path. Do you want to run PeaZip with UAC elevation?
-TXT_9_9_kdf: KDF rounds
-txt_9_9_utc: Show timestamps as UTC
+txt_10_0_exptrash: Explorar o Lixo
+txt_10_0_ptarzst: Compressão mais rápida, TAR.ZST
+txt_10_0_ptarxz: Compressão alta, TAR.XZ
+txt_10_0_ptargz: Compressão média, TAR.GZ
+txt_10_0_comp: Os formatos de compressão pura apenas aceitam um ficheiro como entrada. A conversão de ficheiros para estes formatos falhará se a entrada consistir em vários ficheiros ou pastas (não determináveis ​​antecipadamente).
+txt_10_0_save: Guardar
+txt_10_0_tp: Pré-visualização do texto
+txt_9_9_uac: O utilizador atual não possui direitos de gravação para este destino. Deseja executar o PeaZip com elevação de UAC?
+TXT_9_9_kdf: Iterações KDF
+txt_9_9_utc: Data/hora como UTC
 txt_9_8_alwaysflat: Abrir ficheiros na vista plana
 txt_9_8_fnew: Extrair aqui (em nova pasta)
 txt_9_8_fsmart: Extrair aqui (nova pasta inteligente)
