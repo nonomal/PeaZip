@@ -6,7 +6,7 @@ clWindow
 $00CC5511
 clAppWorkspace
 clWindowText
-000010204
+0000102040
 100
 6
 0
@@ -800,5 +800,8 @@ CRC32 CRC64 MD5 RIPEMD160 SHA1 BLAKE2S SHA256 SHA3_256
 [7z / p7zip display timestamps as UTC]
 0
 
-[Level of extra KDF rounds for PEA cascaded encryption]
+[KDF work load for PEA cascaded encryption]
+0
+
+[KDF type for PEA cascaded encryption]
 0
