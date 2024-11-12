@@ -1,12 +1,15 @@
 ﻿=== PeaZip language file ===
 - Euskara (Basque)
-10.0
+10.1
 - Itzultzailea: Xabier Aramendi
 - Azken berrikustzailea: Xabier Aramendi
 - Azken berrikuspena: 2018-03-03
 
 === PeaZip text group ===
 
+txt_10_1_full: Full
+txt_10_1_kdfw: KDF work load
+txt_10_1_under: Underlined
 txt_10_0_exptrash: Explore Trash
 txt_10_0_ptarzst: Fastest compression, TAR.ZST
 txt_10_0_ptarxz: High compression, TAR.XZ

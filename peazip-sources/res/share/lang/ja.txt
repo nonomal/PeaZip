@@ -1,12 +1,15 @@
 ﻿=== PeaZip language file ===
 Japanese - 日本語
-10.0
+10.1
 Translated by: Dan Tanaka
 Last rev. by: Umoxfo
 Last rev.: 2022-04-15
 
 === PeaZip text group ===
 
+txt_10_1_full: Full
+txt_10_1_kdfw: KDF work load
+txt_10_1_under: Underlined
 txt_10_0_exptrash: Explore Trash
 txt_10_0_ptarzst: Fastest compression, TAR.ZST
 txt_10_0_ptarxz: High compression, TAR.XZ

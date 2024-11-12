@@ -1,12 +1,15 @@
 === PeaZip language file ===
 German - Deutsch
-10.0
+10.1
 Translated by: Vacon
 Last rev. by: Andrain
 Last rev.: 20241029
 
 === PeaZip text group ===
 
+txt_10_1_full: Full
+txt_10_1_kdfw: KDF work load
+txt_10_1_under: Underlined
 txt_10_0_exptrash: Papierkorb öffnen
 txt_10_0_ptarzst: Schnellste Komprimierung, TAR.ZST
 txt_10_0_ptarxz: Hohe Komprimierung, TAR.XZ

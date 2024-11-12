@@ -1,12 +1,15 @@
 ﻿=== PeaZip language file ===
 Polski
-10.0
+10.1
 Tłumaczenie: M. Trzebiatowski, M. Kacprzak, M. Kałużny, Jono13 <meerkat at interia dot eu>, CzakNorris <czaknorris małpa gmail kropka com>
 Ostatnia wersja: CzakNorris
 Data akt.: 12.02.2024
 
 === PeaZip text group ===
 
+txt_10_1_full: Full
+txt_10_1_kdfw: KDF work load
+txt_10_1_under: Underlined
 txt_10_0_exptrash: Explore Trash
 txt_10_0_ptarzst: Fastest compression, TAR.ZST
 txt_10_0_ptarxz: High compression, TAR.XZ

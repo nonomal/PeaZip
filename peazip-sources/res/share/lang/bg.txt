@@ -1,12 +1,15 @@
 === PeaZip language file ===
 Български / Bulgarian
-10.0
+10.1
 Превод: Любомир Симеонов
 Корекция: Живко Жеков
 Последна корекция: 26/10/2024
 
 === PeaZip text group ===
 
+txt_10_1_full: Full
+txt_10_1_kdfw: KDF work load
+txt_10_1_under: Underlined
 txt_10_0_exptrash: Отвори кошчето
 txt_10_0_ptarzst: Най-бърза компресия, TAR.ZST
 txt_10_0_ptarxz: Висока компресия, TAR.XZ

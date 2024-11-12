@@ -1,12 +1,15 @@
 ﻿=== PeaZip language file ===
 Greek - Ελληνικά
-10.0
+10.1
 Translated by: George Georgiou (geonetor@yahoo.gr)
 Last rev. by: George Georgiou
 Last rev.: 20201229
 
 === PeaZip text group ===
 
+txt_10_1_full: Full
+txt_10_1_kdfw: KDF work load
+txt_10_1_under: Underlined
 txt_10_0_exptrash: Explore Trash
 txt_10_0_ptarzst: Fastest compression, TAR.ZST
 txt_10_0_ptarxz: High compression, TAR.XZ

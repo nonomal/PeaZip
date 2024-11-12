@@ -1,12 +1,15 @@
 ﻿=== PeaZip language file ===
 Français
-10.0
+10.1
 Translated by: Jean-Michel Coinus
 Last rev. by: Jean-Michel Coinus
 Last rev.: 20241026
 
 === PeaZip text group ===
 
+txt_10_1_full: Full
+txt_10_1_kdfw: KDF work load
+txt_10_1_under: Underlined
 txt_10_0_exptrash: Ouvrir la corbeille
 txt_10_0_ptarzst: Compression rapide, (TAR.ZST)
 txt_10_0_ptarxz: Haute compression (TAR.XZ)

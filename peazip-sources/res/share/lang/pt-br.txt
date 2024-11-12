@@ -1,12 +1,15 @@
 ﻿=== PeaZip language file ===
 Portuguese (Brazil) - Português
-10.0
+10.1
 Translated by: Havokdan
 Last rev. by: Giorgio Tani
 Last rev.: 20240716
 
 === PeaZip text group ===
 
+txt_10_1_full: Full
+txt_10_1_kdfw: KDF work load
+txt_10_1_under: Underlined
 txt_10_0_exptrash: Explorar Lixeira
 txt_10_0_ptarzst: Compressão mais rápida, TAR.ZST
 txt_10_0_ptarxz: Alta compressão, TAR.XZ

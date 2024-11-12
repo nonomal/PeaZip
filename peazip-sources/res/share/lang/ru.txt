@@ -1,12 +1,15 @@
 ﻿=== PeaZip language file ===
 Русский
-10.0
+10.1
 Перевод: Rytikov Slava, Dmitry Tsvetkov, xoxmodav, ViktorOn , Aleksandr (yupiter43@gmail.com)
 Посл. пров.: Aleksandr (yupiter43@gmail.com)
 Посл. ред.: 19.10.2024
 
 === PeaZip text group ===
 
+txt_10_1_full: Full
+txt_10_1_kdfw: KDF work load
+txt_10_1_under: Underlined
 txt_10_0_exptrash: Explore Trash
 txt_10_0_ptarzst: Fastest compression, TAR.ZST
 txt_10_0_ptarxz: High compression, TAR.XZ

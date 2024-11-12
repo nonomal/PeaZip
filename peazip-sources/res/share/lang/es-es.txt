@@ -1,12 +1,15 @@
 ﻿=== PeaZip language file ===
 Spanish - Español
-10.0
+10.1
 Traducido por: Francisco Javier F. Serrador, Mario López, Nosi_982, Anonymous, José M. Ciordia, ChrisTVH
 Última rev. Por: ChrisTVH
 Última rev.: 8/12/2023
 
 === PeaZip text group ===
 
+txt_10_1_full: Full
+txt_10_1_kdfw: KDF work load
+txt_10_1_under: Underlined
 txt_10_0_exptrash: Explore Trash
 txt_10_0_ptarzst: Fastest compression, TAR.ZST
 txt_10_0_ptarxz: High compression, TAR.XZ

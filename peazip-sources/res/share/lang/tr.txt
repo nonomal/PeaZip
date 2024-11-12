@@ -1,12 +1,15 @@
 ﻿=== PeaZip language file ===
 Turkish (Türkçe)
-10.0
+10.1
 Çeviren: Osman Öz, Cihan Alkan, Muhammed Emin Subaşı
 Son güncelleyen: Muhammed Emin Subaşı
 Son güncelleme: 04 Ağustos 2024
 
 === PeaZip text group ===
 
+txt_10_1_full: Full
+txt_10_1_kdfw: KDF work load
+txt_10_1_under: Underlined
 txt_10_0_exptrash: Explore Trash
 txt_10_0_ptarzst: Fastest compression, TAR.ZST
 txt_10_0_ptarxz: High compression, TAR.XZ

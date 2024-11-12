@@ -1,12 +1,15 @@
 ﻿=== PeaZip language file ===
 Italian - Italiano
-10.0
+10.1
 Tradotto da: Giorgio Tani
 Ultima rev. di: Giorgio Tani
-Ultima rev.: 20240803
+Ultima rev.: 20241106
 
 === PeaZip text group ===
 
+txt_10_1_full: Completo
+txt_10_1_kdfw: Carico di lavoro KDF
+txt_10_1_under: Sottolineato
 txt_10_0_exptrash: Esplora Cestino
 txt_10_0_ptarzst: Compressione velocissima, TAR.ZST
 txt_10_0_ptarxz: Compressione alta, TAR.XZ

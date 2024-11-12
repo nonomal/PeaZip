@@ -1,12 +1,15 @@
 ﻿=== PeaZip language file ===
 Chinese Traditional - 繁體中文
-10.0
+10.1
 譯者: Sophina Liu, Hsiu-Ming Chang, @ifloppy
 Last rev. by: @ifloppy
 Last rev.: 20240126
 
 === PeaZip text group ===
 
+txt_10_1_full: Full
+txt_10_1_kdfw: KDF work load
+txt_10_1_under: Underlined
 txt_10_0_exptrash: Explore Trash
 txt_10_0_ptarzst: Fastest compression, TAR.ZST
 txt_10_0_ptarxz: High compression, TAR.XZ
