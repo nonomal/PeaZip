@@ -108,7 +108,7 @@ type
 
 const
 PEA_FILEFORMAT_VER = 1;
-PEA_FILEFORMAT_REV = 4; //version and revision declared to be implemented must match with the ones in unit_pea, otherwise a warning will be raised (unit_pea)
+PEA_FILEFORMAT_REV = 5; //version and revision declared to be implemented must match with the ones in unit_pea, otherwise a warning will be raised (unit_pea)
 SUCCESS = 0;
 INCOMPLETE_FUNCTION = 1;
 NOT_PEA_HEADER = 2;
@@ -134,13 +134,13 @@ PTACOL        = $00CC5511;
 
 var
 plblue,pblue,pvlblue,pvmlblue,pvvvmlblue,pvvvvlblue,pvvvlblue,pvvmlblue,pvvlblue,pgray,psilver,ptextaccent,pltextaccent:tcolor;
-colhigh,colmid,collow,colvlow,colbtnhigh,colalert:string;
+colhigh,colmid,collow,colvlow,colbtnhigh,colalert,colalertb,colalertp:string;
 
 //get SHA256 hash of file from name
 function getchash(fname:ansistring):ansistring;
 
 //decode PeaZip binary theme string
-procedure decodebintheming(s: ansistring; var usealtcolor,highlighttabs,accenttoolbar,toolcentered,altaddressstyle,solidaddressstyle,alttabstyle,ensmall,contrast:integer);
+procedure decodebintheming(s: ansistring; var usealtcolor,highlighttabs,accenttoolbar,toolcentered,altaddressstyle,solidaddressstyle,alttabstyle,ensmall,contrast,decostyle:integer);
 
 // get program's colors
 procedure getpcolors(basappcol,baseformcol,baselinkcol:TColor; temperature,contrast:integer);
@@ -250,7 +250,8 @@ function pea_eax256_subhdrP ( var cxe:TAES_EAXContext;                          
                              var hdr:TFCA256Hdr;                                //control algorithm header
                              var hdr_data:array of byte;                        //buffer for header data as array of byte
                              var hdr_size:dword;                                //size, in byte of the header
-                             niter: byte                                     //number of iterations
+                             niter: byte;                                       //number of iterations
+                             tkdf:ansistring                                    //type of key derivation function
                              ):integer;
 //Twofish 256 variant
 function pea_tfeax256_subhdrP ( var cxf:TTF_EAXContext;                          //control algorithm context
@@ -263,7 +264,8 @@ function pea_tfeax256_subhdrP ( var cxf:TTF_EAXContext;                         
                              var hdr:TFCf256Hdr;                                //control algorithm header
                              var hdr_data:array of byte;                        //buffer for header data as array of byte
                              var hdr_size:dword;                                //size, in byte of the header
-                             niter: byte                                     //number of iterations
+                             niter: byte;                                       //number of iterations
+                             tkdf:ansistring                                    //type of key derivation function
                              ):integer;
 //Serpent 256 variant
 function pea_speax256_subhdrP ( var cxs:TSP_EAXContext;                           //control algorithm context
@@ -276,7 +278,8 @@ function pea_speax256_subhdrP ( var cxs:TSP_EAXContext;                         
                              var hdr:TFCs256Hdr;                                //control algorithm header
                              var hdr_data:array of byte;                        //buffer for header data as array of byte
                              var hdr_size:dword;                                //size, in byte of the header
-                             niter: byte                                     //number of iterations
+                             niter: byte;                                       //number of iterations
+                             tkdf:ansistring                                    //type of key derivation function
                              ):integer;
 
 //initializes Authenticated Encryption and generate a FCA style header to append to PEA stream header if HMAC is used as control algorithm; uses salt from generate_salt
@@ -508,9 +511,9 @@ SHA256Final(SHA256Context,SHA256Digest);
 result:=upcase(hexstr(@SHA256Digest,sizeof(SHA256Digest)));
 end;
 
-procedure decodebintheming(s: ansistring; var usealtcolor,highlighttabs,accenttoolbar,toolcentered,altaddressstyle,solidaddressstyle,alttabstyle,ensmall,contrast:integer);
+procedure decodebintheming(s: ansistring; var usealtcolor,highlighttabs,accenttoolbar,toolcentered,altaddressstyle,solidaddressstyle,alttabstyle,ensmall,contrast,decostyle:integer);
 begin
-if length(s)<9 then
+if length(s)<10 then
    begin
    usealtcolor:=0;
    highlighttabs:=0;
@@ -521,6 +524,7 @@ if length(s)<9 then
    alttabstyle:=2;
    ensmall:=0;
    contrast:=0;
+   decostyle:=0;
    end
 else
    begin
@@ -533,6 +537,7 @@ else
    alttabstyle:=strtoint(s[7]);//use alternative tabs style
    ensmall:=strtoint(s[8]);//enlarge small icons
    contrast:=strtoint(s[9]);//contrast level
+   decostyle:=strtoint(s[10]);//address bar breadcrumb decoration
    end;
 end;
 
@@ -547,6 +552,7 @@ if evalcolor(baseformcol)>128 then
    begin
    pltextaccent:=modpropcolor(baselinkcol,160,0);
    pblue:=modpropcolor(basappcol,-60,0);
+   colalertb:=colortostring(modpropcolor(basappcol,80,0));
    pvlblue:=modpropcolor(basappcol,100,0);
    pvmlblue:=modpropcolor(basappcol,140,0);
    pvvlblue:=modpropcolor(basappcol,160,0);
@@ -567,6 +573,7 @@ else
    begin
    pltextaccent:=modpropcolor(baselinkcol,-80,0);
    pblue:=modpropcolor(basappcol,80,0);
+   colalertb:=colortostring(modpropcolor(basappcol,-30,0));
    pvlblue:=modpropcolor(basappcol,-40,0);
    pvmlblue:=modpropcolor(basappcol,-60,0);
    pvvlblue:=modpropcolor(basappcol,-80,0);
@@ -884,7 +891,8 @@ function pea_eax256_subhdrP ( var cxe:TAES_EAXContext;                          
                              var hdr:TFCA256Hdr;                                //control algorithm header
                              var hdr_data:array of byte;                        //buffer for header data as array of byte
                              var hdr_size:dword;                                //size, in byte of the header
-                             niter: byte                                     //number of iterations
+                             niter: byte;                                       //number of iterations
+                             tkdf:ansistring                                    //type of key derivation function
                              ):integer;
 var
    salt:TSHA512Digest;
@@ -899,7 +907,7 @@ SHA1Update(SHA1Context, @salt, sizeof(salt));
 SHA1Final(SHA1Context, shortsalt);
 move(shortsalt, hdr.salt, sizeof(hdr.salt));
 // init the context headers
-FCA_EAX256_initP(cxe, @pw_array, pw_len, hdr, niter);
+FCA_EAX256_initP(cxe, @pw_array, pw_len, hdr, niter, tkdf);
 // generate the encryption header
 hdr_data[0]:=$00; //hdr.FCAsig;
 hdr_data[1]:=$00; //hdr.Flags;
@@ -915,7 +923,7 @@ pw_len:=0;
 if pea_eax256_subhdrP=INCOMPLETE_FUNCTION then pea_eax256_subhdrP:=SUCCESS;
 end;
 
-function pea_tfeax256_subhdrP ( var cxf:TTF_EAXContext;                           //control algorithm context
+function pea_tfeax256_subhdrP ( var cxf:TTF_EAXContext;                         //control algorithm context
                              persistent_source:ansistring;                      //path of persistent source of random data
                              fingerprint:TSHA512Digest;                         //system fingerprint
                              ment,kent,fent:THashContext;                       //entropy sources
@@ -925,7 +933,8 @@ function pea_tfeax256_subhdrP ( var cxf:TTF_EAXContext;                         
                              var hdr:TFCf256Hdr;                                //control algorithm header
                              var hdr_data:array of byte;                        //buffer for header data as array of byte
                              var hdr_size:dword;                                //size, in byte of the header
-                             niter: byte                                     //number of iterations
+                             niter: byte;                                       //number of iterations
+                             tkdf:ansistring                                    //type of key derivation function
                              ):integer;
 var
    salt:TSHA512Digest;
@@ -940,7 +949,7 @@ SHA1Update(SHA1Context, @salt, sizeof(salt));
 SHA1Final(SHA1Context, shortsalt);
 move(shortsalt, hdr.salt, sizeof(hdr.salt));
 // init the context headers
-FCf_EAX256_initP(cxf, @pw_array, pw_len, hdr, niter);
+FCf_EAX256_initP(cxf, @pw_array, pw_len, hdr, niter, tkdf);
 // generate the encryption header
 hdr_data[0]:=$00; //hdr.FCAsig;
 hdr_data[1]:=$00; //hdr.Flags;
@@ -956,7 +965,7 @@ pw_len:=0;
 if pea_tfeax256_subhdrP=INCOMPLETE_FUNCTION then pea_tfeax256_subhdrP:=SUCCESS;
 end;
 
-function pea_speax256_subhdrP ( var cxs:TSP_EAXContext;                          //control algorithm context
+function pea_speax256_subhdrP ( var cxs:TSP_EAXContext;                         //control algorithm context
                              persistent_source:ansistring;                      //path of persistent source of random data
                              fingerprint:TSHA512Digest;                         //system fingerprint
                              ment,kent,fent:THashContext;                       //entropy sources
@@ -966,7 +975,8 @@ function pea_speax256_subhdrP ( var cxs:TSP_EAXContext;                         
                              var hdr:TFCs256Hdr;                                //control algorithm header
                              var hdr_data:array of byte;                        //buffer for header data as array of byte
                              var hdr_size:dword;                                //size, in byte of the header
-                             niter: byte                                     //number of iterations
+                             niter: byte;                                       //number of iterations
+                             tkdf:ansistring                                    //type of key derivation function
                              ):integer;
 var
    salt:TSHA512Digest;
@@ -981,7 +991,7 @@ SHA1Update(SHA1Context, @salt, sizeof(salt));
 SHA1Final(SHA1Context, shortsalt);
 move(shortsalt, hdr.salt, sizeof(hdr.salt));
 // init the context headers
-FCS_EAX256_initP(cxs, @pw_array, pw_len, hdr, niter);
+FCS_EAX256_initP(cxs, @pw_array, pw_len, hdr, niter, tkdf);
 // generate the encryption header
 hdr_data[0]:=$00; //hdr.FCAsig;
 hdr_data[1]:=$00; //hdr.Flags;
@@ -1172,6 +1182,9 @@ case read_data[8] of
   68: algo:='TRIATS'; //hex 44
   69: algo:='TRITSA'; //hex 45
   70: algo:='TRISAT'; //hex 46
+  71: algo:='SRIATS'; //hex 47
+  72: algo:='SRITSA'; //hex 48
+  73: algo:='SRISAT'; //hex 49
    else
       begin
       pea_parse_stream_header:=UNKNOWN_CONTROL_ALGORITHM;
@@ -1271,7 +1284,7 @@ function decode_control_algo ( var algo:ansistring;                             
                                var headersize:byte;                             //size of the header needed
                                var authsize:byte;                               //authntication tag size
                                var pwneeded:boolean;                            //password is required by the control algorithm
-                               var niter:byte                                //number iterations
+                               var niter:byte                                   //number iterations
                                ):integer;
 var nalgo:ansistring;
 begin
@@ -1415,7 +1428,7 @@ else
          try niter:=strtoint(copy((algo),7,length(algo)-6)) except end;
       end;
    case nalgo of
-      'TRIATS','TRITSA','TRISAT':
+      'TRIATS','TRITSA','TRISAT','SRIATS','SRITSA','SRISAT':
       begin
       algo:=nalgo;
       headersize:=10+16+16+16;
@@ -1526,6 +1539,9 @@ case upcase(stream_control_algorithm) of
    'TRIATS': code:=$44;
    'TRITSA': code:=$45;
    'TRISAT': code:=$46;
+   'SRIATS': code:=$47;
+   'SRITSA': code:=$48;
+   'SRISAT': code:=$49;
    else encode_algo_stream:=UNKNOWN_CONTROL_ALGORITHM;
    end;
 if encode_algo_stream=INCOMPLETE_FUNCTION then encode_algo_stream:=SUCCESS;

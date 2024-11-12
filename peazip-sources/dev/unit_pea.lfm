@@ -1,15 +1,16 @@
 object Form_pea: TForm_pea
   Left = 30
-  Height = 270
+  Height = 338
   Top = 50
-  Width = 560
+  Width = 700
   ActiveControl = EditPW1
   AllowDropFiles = True
   Caption = 'PEA'
-  ClientHeight = 270
-  ClientWidth = 560
+  ClientHeight = 338
+  ClientWidth = 700
   Color = clForm
   DefaultMonitor = dmPrimary
+  DesignTimePPI = 120
   Icon.Data = {
     7E03000000000100010010100000010018006803000016000000280000001000
     0000200000000100180000000000000300006400000064000000000000000000
@@ -53,10 +54,10 @@ object Form_pea: TForm_pea
     AnchorSideTop.Control = Owner
     AnchorSideTop.Side = asrBottom
     AnchorSideBottom.Side = asrBottom
-    Left = 181
-    Height = 25
-    Top = 270
-    Width = 62
+    Left = 226
+    Height = 30
+    Top = 338
+    Width = 72
     AutoSize = True
     Caption = 'PeaZip'
     ParentFont = False
@@ -64,24 +65,24 @@ object Form_pea: TForm_pea
   end
   object ProgressBar1: TProgressBar
     AnchorSideBottom.Control = Bevel9
-    Left = 8
-    Height = 10
-    Top = 211
-    Width = 544
+    Left = 10
+    Height = 12
+    Top = 265
+    Width = 680
     Anchors = [akLeft, akRight, akBottom]
-    BorderSpacing.Bottom = 3
+    BorderSpacing.Bottom = 4
     ParentFont = False
     Step = 1
     TabOrder = 8
   end
   object LabelTime1: TLabel
     AnchorSideBottom.Control = ProgressBar1
-    Left = 8
-    Height = 15
-    Top = 193
-    Width = 280
+    Left = 10
+    Height = 20
+    Top = 241
+    Width = 350
     Anchors = [akLeft, akRight, akBottom]
-    BorderSpacing.Bottom = 3
+    BorderSpacing.Bottom = 4
     Caption = ' '
     ParentFont = False
   end
@@ -91,15 +92,15 @@ object Form_pea: TForm_pea
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = ButtonDone1
-    Left = 12
+    Left = 15
     Height = 2
-    Top = 224
-    Width = 536
+    Top = 281
+    Width = 670
     Anchors = [akLeft, akRight, akBottom]
-    BorderSpacing.Left = 12
+    BorderSpacing.Left = 15
     BorderSpacing.Top = 2
-    BorderSpacing.Right = 12
-    BorderSpacing.Bottom = 12
+    BorderSpacing.Right = 15
+    BorderSpacing.Bottom = 15
     Shape = bsBottomLine
   end
   object ButtonDone1: TBitBtn
@@ -107,13 +108,13 @@ object Form_pea: TForm_pea
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 438
-    Height = 26
-    Top = 238
-    Width = 110
+    Left = 547
+    Height = 32
+    Top = 298
+    Width = 138
     Anchors = [akRight, akBottom]
-    BorderSpacing.Right = 12
-    BorderSpacing.Bottom = 6
+    BorderSpacing.Right = 15
+    BorderSpacing.Bottom = 8
     Caption = 'Close'
     OnClick = ButtonDone1Click
     ParentFont = False
@@ -125,14 +126,14 @@ object Form_pea: TForm_pea
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Cursor = crHandPoint
-    Left = 322
-    Height = 26
+    Left = 401
+    Height = 32
     Hint = 'Open output path or file'
-    Top = 238
-    Width = 110
+    Top = 298
+    Width = 138
     Anchors = [akRight, akBottom]
-    BorderSpacing.Right = 6
-    BorderSpacing.Bottom = 6
+    BorderSpacing.Right = 8
+    BorderSpacing.Bottom = 8
     Caption = 'Explore'
     OnClick = LabelOpenClick
     ParentFont = False
@@ -143,14 +144,14 @@ object Form_pea: TForm_pea
     AnchorSideRight.Control = LabelOpen
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 206
-    Height = 26
+    Left = 255
+    Height = 32
     Hint = 'Display job log'
-    Top = 238
-    Width = 110
+    Top = 298
+    Width = 138
     Anchors = [akRight, akBottom]
-    BorderSpacing.Right = 6
-    BorderSpacing.Bottom = 6
+    BorderSpacing.Right = 8
+    BorderSpacing.Bottom = 8
     Caption = 'Log'
     OnClick = LabelLog1Click
     ParentFont = False
@@ -162,13 +163,13 @@ object Form_pea: TForm_pea
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = LabelTime1
     Left = 0
-    Height = 193
+    Height = 241
     Top = 0
-    Width = 560
+    Width = 700
     Anchors = [akTop, akLeft, akRight, akBottom]
     BevelOuter = bvNone
-    ClientHeight = 193
-    ClientWidth = 560
+    ClientHeight = 241
+    ClientWidth = 700
     ParentBackground = False
     ParentFont = False
     TabOrder = 7
@@ -178,26 +179,26 @@ object Form_pea: TForm_pea
       AnchorSideTop.Control = Image7
       AnchorSideRight.Control = PanelTools
       AnchorSideRight.Side = asrBottom
-      Left = 52
-      Height = 15
-      Top = 24
-      Width = 496
+      Left = 61
+      Height = 20
+      Top = 30
+      Width = 624
       Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Left = 12
-      BorderSpacing.Right = 12
+      BorderSpacing.Left = 15
+      BorderSpacing.Right = 15
       Caption = 'Input:'
       ParentFont = False
     end
     object Image7: TImage
       AnchorSideLeft.Control = PanelTools
       AnchorSideTop.Control = PanelTools
-      Left = 24
+      Left = 30
       Height = 16
-      Top = 24
+      Top = 30
       Width = 16
       AutoSize = True
-      BorderSpacing.Left = 24
-      BorderSpacing.Top = 24
+      BorderSpacing.Left = 30
+      BorderSpacing.Top = 30
       Transparent = True
     end
     object LabelTools3: TLabel
@@ -206,13 +207,13 @@ object Form_pea: TForm_pea
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = PanelTools
       AnchorSideRight.Side = asrBottom
-      Left = 52
+      Left = 61
       Height = 1
-      Top = 42
-      Width = 496
+      Top = 54
+      Width = 624
       Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Top = 3
-      BorderSpacing.Right = 12
+      BorderSpacing.Top = 4
+      BorderSpacing.Right = 15
       ParentFont = False
     end
     object LabelTools4: TLabel
@@ -221,13 +222,13 @@ object Form_pea: TForm_pea
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = PanelTools
       AnchorSideRight.Side = asrBottom
-      Left = 52
+      Left = 61
       Height = 1
-      Top = 46
-      Width = 496
+      Top = 59
+      Width = 624
       Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Top = 3
-      BorderSpacing.Right = 12
+      BorderSpacing.Top = 4
+      BorderSpacing.Right = 15
       ParentFont = False
     end
     object ButtonToolsCancel: TBitBtn
@@ -235,14 +236,14 @@ object Form_pea: TForm_pea
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = PanelTools
       AnchorSideBottom.Side = asrBottom
-      Left = 468
-      Height = 25
-      Top = 162
-      Width = 80
+      Left = 594
+      Height = 30
+      Top = 203
+      Width = 94
       Anchors = [akRight, akBottom]
       AutoSize = True
-      BorderSpacing.Right = 12
-      BorderSpacing.Bottom = 6
+      BorderSpacing.Right = 15
+      BorderSpacing.Bottom = 8
       Caption = '   Cancel   '
       OnClick = ButtonToolsCancelClick
       ParentFont = False
@@ -255,13 +256,13 @@ object Form_pea: TForm_pea
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = PanelTools
       AnchorSideRight.Side = asrBottom
-      Left = 52
+      Left = 61
       Height = 1
-      Top = 50
-      Width = 496
+      Top = 64
+      Width = 624
       Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Top = 3
-      BorderSpacing.Right = 12
+      BorderSpacing.Top = 4
+      BorderSpacing.Right = 15
       ParentFont = False
     end
   end
@@ -271,13 +272,13 @@ object Form_pea: TForm_pea
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 0
-    Height = 270
+    Height = 338
     Top = 0
-    Width = 560
+    Width = 700
     Anchors = [akTop, akLeft, akRight, akBottom]
     BevelOuter = bvNone
-    ClientHeight = 270
-    ClientWidth = 560
+    ClientHeight = 338
+    ClientWidth = 700
     ParentBackground = False
     ParentFont = False
     TabOrder = 6
@@ -286,12 +287,12 @@ object Form_pea: TForm_pea
       AnchorSideTop.Control = ComboBox1
       AnchorSideTop.Side = asrCenter
       AnchorSideRight.Control = ComboBox1
-      Left = 51
-      Height = 15
-      Top = 28
-      Width = 65
+      Left = 63
+      Height = 20
+      Top = 34
+      Width = 82
       Anchors = [akTop, akRight]
-      BorderSpacing.Right = 12
+      BorderSpacing.Right = 15
       Caption = 'Volume size:'
       ParentFont = False
     end
@@ -299,12 +300,12 @@ object Form_pea: TForm_pea
       AnchorSideTop.Control = ComboBox3
       AnchorSideTop.Side = asrCenter
       AnchorSideRight.Control = ComboBox1
-      Left = 35
-      Height = 15
-      Top = 57
-      Width = 81
+      Left = 46
+      Height = 20
+      Top = 70
+      Width = 99
       Anchors = [akTop, akRight]
-      BorderSpacing.Right = 12
+      BorderSpacing.Right = 15
       Caption = 'Integrity check:'
       ParentFont = False
     end
@@ -313,12 +314,12 @@ object Form_pea: TForm_pea
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = ComboBox1
       AnchorSideTop.Side = asrCenter
-      Left = 362
+      Left = 453
       Height = 16
-      Top = 27
+      Top = 36
       Width = 16
       AutoSize = True
-      BorderSpacing.Left = 12
+      BorderSpacing.Left = 15
       BorderSpacing.Top = 1
       Transparent = True
     end
@@ -328,25 +329,25 @@ object Form_pea: TForm_pea
       AnchorSideRight.Control = PanelRFSinteractive
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Panelsp2
-      Left = 12
+      Left = 15
       Height = 2
-      Top = 220
-      Width = 536
+      Top = 276
+      Width = 670
       Anchors = [akLeft, akRight, akBottom]
-      BorderSpacing.Left = 12
+      BorderSpacing.Left = 15
       BorderSpacing.Top = 2
-      BorderSpacing.Right = 12
+      BorderSpacing.Right = 15
       Shape = bsBottomLine
     end
     object ComboBox1: TComboBox
       AnchorSideTop.Control = PanelRFSinteractive
-      Left = 128
-      Height = 23
-      Top = 24
-      Width = 222
-      BorderSpacing.Top = 24
+      Left = 160
+      Height = 28
+      Top = 30
+      Width = 278
+      BorderSpacing.Top = 30
       DropDownCount = 15
-      ItemHeight = 15
+      ItemHeight = 20
       ItemIndex = 0
       Items.Strings = (
         'Custom size'
@@ -373,12 +374,12 @@ object Form_pea: TForm_pea
       AnchorSideLeft.Control = SpinEdit1
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = ComboBox1
-      Left = 462
-      Height = 23
-      Top = 24
-      Width = 72
-      BorderSpacing.Left = 12
-      ItemHeight = 15
+      Left = 578
+      Height = 28
+      Top = 30
+      Width = 90
+      BorderSpacing.Left = 15
+      ItemHeight = 20
       ItemIndex = 2
       Items.Strings = (
         'B'
@@ -395,13 +396,13 @@ object Form_pea: TForm_pea
       AnchorSideLeft.Control = ComboBox1
       AnchorSideTop.Control = ComboBox1
       AnchorSideTop.Side = asrBottom
-      Left = 128
-      Height = 23
-      Top = 53
-      Width = 222
-      BorderSpacing.Top = 6
+      Left = 160
+      Height = 28
+      Top = 66
+      Width = 278
+      BorderSpacing.Top = 8
       DropDownCount = 14
-      ItemHeight = 15
+      ItemHeight = 20
       ItemIndex = 13
       Items.Strings = (
         'WHIRLPOOL'
@@ -428,11 +429,11 @@ object Form_pea: TForm_pea
       AnchorSideLeft.Control = ComboBox1
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = ComboBox1
-      Left = 362
-      Height = 23
-      Top = 24
-      Width = 88
-      BorderSpacing.Left = 12
+      Left = 453
+      Height = 28
+      Top = 30
+      Width = 110
+      BorderSpacing.Left = 15
       MaxValue = 1000000000
       MinValue = 1
       ParentFont = False
@@ -443,14 +444,14 @@ object Form_pea: TForm_pea
       AnchorSideRight.Control = ButtonRFSinteractive1
       AnchorSideBottom.Control = Panelsp2
       AnchorSideBottom.Side = asrCenter
-      Left = 402
-      Height = 25
-      Top = 233
-      Width = 60
+      Left = 513
+      Height = 30
+      Top = 293
+      Width = 70
       Anchors = [akRight, akBottom]
       AutoSize = True
-      BorderSpacing.Right = 6
-      BorderSpacing.Bottom = 12
+      BorderSpacing.Right = 8
+      BorderSpacing.Bottom = 15
       Caption = '   OK   '
       OnClick = ButtonRFSinteractiveClick
       ParentFont = False
@@ -461,14 +462,14 @@ object Form_pea: TForm_pea
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Panelsp2
       AnchorSideBottom.Side = asrCenter
-      Left = 468
-      Height = 25
-      Top = 233
-      Width = 80
+      Left = 591
+      Height = 30
+      Top = 293
+      Width = 94
       Anchors = [akRight, akBottom]
       AutoSize = True
-      BorderSpacing.Right = 12
-      BorderSpacing.Bottom = 12
+      BorderSpacing.Right = 15
+      BorderSpacing.Bottom = 15
       Caption = '   Cancel   '
       OnClick = ButtonRFSinteractive1Click
       ParentFont = False
@@ -479,8 +480,8 @@ object Form_pea: TForm_pea
       AnchorSideBottom.Control = PanelRFSinteractive
       AnchorSideBottom.Side = asrBottom
       Left = 0
-      Height = 48
-      Top = 222
+      Height = 60
+      Top = 278
       Width = 2
       Anchors = [akLeft, akBottom]
       BevelOuter = bvNone
@@ -494,13 +495,13 @@ object Form_pea: TForm_pea
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = LabelTime1
     Left = 0
-    Height = 193
+    Height = 241
     Top = 0
-    Width = 560
+    Width = 700
     Anchors = [akTop, akLeft, akRight, akBottom]
     BevelOuter = bvNone
-    ClientHeight = 193
-    ClientWidth = 560
+    ClientHeight = 241
+    ClientWidth = 700
     ParentBackground = False
     ParentFont = False
     TabOrder = 2
@@ -510,14 +511,14 @@ object Form_pea: TForm_pea
       AnchorSideTop.Control = PanelEncrypt1
       AnchorSideRight.Control = PanelEncrypt1
       AnchorSideRight.Side = asrBottom
-      Left = 52
-      Height = 15
-      Top = 24
-      Width = 496
+      Left = 61
+      Height = 20
+      Top = 30
+      Width = 624
       Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Left = 12
-      BorderSpacing.Top = 24
-      BorderSpacing.Right = 12
+      BorderSpacing.Left = 15
+      BorderSpacing.Top = 30
+      BorderSpacing.Right = 15
       Caption = 'Input:'
       ParentFont = False
     end
@@ -525,12 +526,12 @@ object Form_pea: TForm_pea
       AnchorSideLeft.Control = LabelEncrypt2
       AnchorSideTop.Control = LabelEncrypt2
       AnchorSideTop.Side = asrBottom
-      Left = 52
-      Height = 15
-      Top = 45
-      Width = 500
+      Left = 61
+      Height = 20
+      Top = 58
+      Width = 629
       Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Top = 6
+      BorderSpacing.Top = 8
       Caption = 'Output:'
       ParentFont = False
     end
@@ -538,12 +539,12 @@ object Form_pea: TForm_pea
       AnchorSideLeft.Control = LabelEncrypt2
       AnchorSideTop.Control = LabelEncrypt3
       AnchorSideTop.Side = asrBottom
-      Left = 52
-      Height = 15
-      Top = 72
-      Width = 500
+      Left = 61
+      Height = 20
+      Top = 93
+      Width = 629
       Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Top = 12
+      BorderSpacing.Top = 15
       Caption = 'Using:'
       ParentFont = False
     end
@@ -551,12 +552,12 @@ object Form_pea: TForm_pea
       AnchorSideLeft.Control = LabelEncrypt2
       AnchorSideTop.Control = LabelEncrypt4
       AnchorSideTop.Side = asrBottom
-      Left = 52
-      Height = 15
-      Top = 93
-      Width = 500
+      Left = 61
+      Height = 20
+      Top = 121
+      Width = 629
       Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Top = 6
+      BorderSpacing.Top = 8
       Caption = 'Input details:'
       ParentFont = False
     end
@@ -564,12 +565,12 @@ object Form_pea: TForm_pea
       AnchorSideLeft.Control = LabelEncrypt2
       AnchorSideTop.Control = LabelEncrypt5
       AnchorSideTop.Side = asrBottom
-      Left = 52
-      Height = 15
-      Top = 114
-      Width = 500
+      Left = 61
+      Height = 20
+      Top = 149
+      Width = 629
       Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Top = 6
+      BorderSpacing.Top = 8
       Caption = 'Output details:'
       ParentFont = False
     end
@@ -579,16 +580,16 @@ object Form_pea: TForm_pea
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = Panel1
       Cursor = crHandPoint
-      Left = 26
-      Height = 28
-      Top = 72
-      Width = 14
+      Left = 28
+      Height = 35
+      Top = 93
+      Width = 18
       Anchors = [akTop, akRight]
-      BorderSpacing.Top = 12
-      BorderSpacing.Right = 12
+      BorderSpacing.Top = 15
+      BorderSpacing.Right = 15
       Caption = '+'
       Font.Color = clGrayText
-      Font.Height = -20
+      Font.Height = -25
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = LabelE1Click
@@ -597,12 +598,12 @@ object Form_pea: TForm_pea
       AnchorSideLeft.Control = PanelEncrypt1
       AnchorSideTop.Control = LabelEncrypt2
       AnchorSideTop.Side = asrCenter
-      Left = 24
+      Left = 30
       Height = 16
-      Top = 23
+      Top = 32
       Width = 16
       AutoSize = True
-      BorderSpacing.Left = 24
+      BorderSpacing.Left = 30
       Transparent = True
     end
     object Panel1: TPanel
@@ -610,39 +611,39 @@ object Form_pea: TForm_pea
       AnchorSideTop.Control = LabelEncrypt3
       AnchorSideTop.Side = asrBottom
       AnchorSideBottom.Control = ButtonPeaExit
-      Left = 52
-      Height = 96
-      Top = 72
-      Width = 500
+      Left = 61
+      Height = 118
+      Top = 93
+      Width = 629
       Anchors = [akTop, akLeft, akRight, akBottom]
-      BorderSpacing.Top = 12
+      BorderSpacing.Top = 15
       BevelOuter = bvNone
-      ClientHeight = 96
-      ClientWidth = 500
+      ClientHeight = 118
+      ClientWidth = 629
       ParentBackground = False
       ParentFont = False
       TabOrder = 0
       object ShapeE1: TShape
         Left = 0
-        Height = 5
-        Top = 10
-        Width = 200
+        Height = 6
+        Top = 12
+        Width = 250
       end
       object ShapeE2: TShape
         Left = 0
-        Height = 5
-        Top = 10
-        Width = 200
+        Height = 6
+        Top = 12
+        Width = 250
         Brush.Color = clHighlight
       end
       object LabelOut1: TLabel
         AnchorSideTop.Control = ShapeE1
         AnchorSideTop.Side = asrBottom
         Left = 0
-        Height = 15
-        Top = 21
-        Width = 170
-        BorderSpacing.Top = 6
+        Height = 20
+        Top = 26
+        Width = 209
+        BorderSpacing.Top = 8
         Caption = 'Compression ratio: calculating...'
         ParentFont = False
       end
@@ -653,13 +654,13 @@ object Form_pea: TForm_pea
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = PanelEncrypt1
       AnchorSideBottom.Side = asrBottom
-      Left = 468
-      Height = 25
-      Top = 168
-      Width = 80
+      Left = 591
+      Height = 30
+      Top = 211
+      Width = 94
       Anchors = [akRight, akBottom]
       AutoSize = True
-      BorderSpacing.Right = 12
+      BorderSpacing.Right = 15
       Caption = '   Cancel   '
       OnClick = ButtonPeaExitClick
       ParentFont = False
@@ -671,13 +672,13 @@ object Form_pea: TForm_pea
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = LabelTime1
     Left = 0
-    Height = 193
+    Height = 241
     Top = 0
-    Width = 560
+    Width = 700
     Anchors = [akTop, akLeft, akRight, akBottom]
     BevelOuter = bvNone
-    ClientHeight = 193
-    ClientWidth = 560
+    ClientHeight = 241
+    ClientWidth = 700
     ParentBackground = False
     ParentFont = False
     TabOrder = 1
@@ -687,14 +688,14 @@ object Form_pea: TForm_pea
       AnchorSideTop.Control = PanelDecrypt1
       AnchorSideRight.Control = PanelDecrypt1
       AnchorSideRight.Side = asrBottom
-      Left = 52
-      Height = 15
-      Top = 24
-      Width = 496
+      Left = 61
+      Height = 20
+      Top = 30
+      Width = 624
       Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Left = 12
-      BorderSpacing.Top = 24
-      BorderSpacing.Right = 12
+      BorderSpacing.Left = 15
+      BorderSpacing.Top = 30
+      BorderSpacing.Right = 15
       Caption = 'Input:'
       ParentFont = False
     end
@@ -704,13 +705,13 @@ object Form_pea: TForm_pea
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = PanelDecrypt1
       AnchorSideRight.Side = asrBottom
-      Left = 52
-      Height = 15
-      Top = 45
-      Width = 496
+      Left = 61
+      Height = 20
+      Top = 58
+      Width = 624
       Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Top = 6
-      BorderSpacing.Right = 12
+      BorderSpacing.Top = 8
+      BorderSpacing.Right = 15
       Caption = 'Output:'
       ParentFont = False
     end
@@ -720,13 +721,13 @@ object Form_pea: TForm_pea
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = PanelDecrypt1
       AnchorSideRight.Side = asrBottom
-      Left = 52
-      Height = 15
-      Top = 84
-      Width = 496
+      Left = 61
+      Height = 20
+      Top = 108
+      Width = 624
       Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Top = 24
-      BorderSpacing.Right = 12
+      BorderSpacing.Top = 30
+      BorderSpacing.Right = 15
       Caption = 'Using:'
       ParentFont = False
     end
@@ -736,13 +737,13 @@ object Form_pea: TForm_pea
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = PanelDecrypt1
       AnchorSideRight.Side = asrBottom
-      Left = 52
-      Height = 15
-      Top = 105
-      Width = 496
+      Left = 61
+      Height = 20
+      Top = 136
+      Width = 624
       Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Top = 6
-      BorderSpacing.Right = 12
+      BorderSpacing.Top = 8
+      BorderSpacing.Right = 15
       Caption = ' '
       ParentFont = False
     end
@@ -752,13 +753,13 @@ object Form_pea: TForm_pea
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = PanelDecrypt1
       AnchorSideRight.Side = asrBottom
-      Left = 52
-      Height = 15
-      Top = 126
-      Width = 496
+      Left = 61
+      Height = 20
+      Top = 164
+      Width = 624
       Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Top = 6
-      BorderSpacing.Right = 12
+      BorderSpacing.Top = 8
+      BorderSpacing.Right = 15
       Caption = ' '
       ParentFont = False
     end
@@ -766,12 +767,12 @@ object Form_pea: TForm_pea
       AnchorSideLeft.Control = PanelDecrypt1
       AnchorSideTop.Control = LabelDecrypt2
       AnchorSideTop.Side = asrCenter
-      Left = 24
+      Left = 30
       Height = 16
-      Top = 23
+      Top = 32
       Width = 16
       AutoSize = True
-      BorderSpacing.Left = 24
+      BorderSpacing.Left = 30
       Transparent = True
     end
     object ButtonPeaExit1: TBitBtn
@@ -780,13 +781,13 @@ object Form_pea: TForm_pea
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = PanelDecrypt1
       AnchorSideBottom.Side = asrBottom
-      Left = 468
-      Height = 25
-      Top = 168
-      Width = 80
+      Left = 591
+      Height = 30
+      Top = 211
+      Width = 94
       Anchors = [akRight, akBottom]
       AutoSize = True
-      BorderSpacing.Right = 12
+      BorderSpacing.Right = 15
       Caption = '   Cancel   '
       OnClick = ButtonPeaExitClick
       ParentFont = False
@@ -799,25 +800,25 @@ object Form_pea: TForm_pea
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 0
-    Height = 270
+    Height = 338
     Top = 0
-    Width = 560
+    Width = 700
     Anchors = [akTop, akLeft, akRight, akBottom]
     BevelOuter = bvNone
-    ClientHeight = 270
-    ClientWidth = 560
+    ClientHeight = 338
+    ClientWidth = 700
     ParentBackground = False
     ParentFont = False
     TabOrder = 9
     object LabelUtilsFun: TLabel
       AnchorSideLeft.Control = PanelUtils
       AnchorSideTop.Side = asrCenter
-      Left = 12
-      Height = 15
+      Left = 15
+      Height = 20
       Hint = 'Type a memorizable passphrase, avoiding words either too common or too easy to guess.'#13#10'You should use mixed upcase and lowcase letters, numbers and special characters.'
-      Top = 11
-      Width = 47
-      BorderSpacing.Left = 12
+      Top = 14
+      Width = 56
+      BorderSpacing.Left = 15
       Caption = 'Function'
       ParentFont = False
       Visible = False
@@ -827,13 +828,13 @@ object Form_pea: TForm_pea
       AnchorSideTop.Side = asrCenter
       AnchorSideRight.Control = ButtonUtilsCancel
       AnchorSideBottom.Side = asrBottom
-      Left = 402
-      Height = 25
-      Top = 234
-      Width = 60
+      Left = 513
+      Height = 30
+      Top = 293
+      Width = 70
       Anchors = [akTop, akRight]
       AutoSize = True
-      BorderSpacing.Right = 6
+      BorderSpacing.Right = 8
       Caption = '   OK   '
       OnClick = ButtonUtilsOKClick
       ParentFont = False
@@ -844,12 +845,12 @@ object Form_pea: TForm_pea
       AnchorSideTop.Control = ButtonUtilsOK
       AnchorSideTop.Side = asrCenter
       Cursor = crHandPoint
-      Left = 12
+      Left = 15
       Height = 16
-      Top = 238
+      Top = 300
       Width = 16
       AutoSize = True
-      BorderSpacing.Left = 12
+      BorderSpacing.Left = 15
       OnClick = ImageUtilsClick
       Transparent = True
     end
@@ -861,12 +862,12 @@ object Form_pea: TForm_pea
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = ButtonUtilsOK
       AnchorSideBottom.Side = asrCenter
-      Left = 34
-      Height = 15
-      Top = 238
-      Width = 126
+      Left = 39
+      Height = 20
+      Top = 298
+      Width = 160
       Anchors = [akLeft, akBottom]
-      BorderSpacing.Left = 6
+      BorderSpacing.Left = 8
       Caption = 'Drag here input files, or '
       ParentFont = False
     end
@@ -878,9 +879,9 @@ object Form_pea: TForm_pea
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Panelsp0
       Left = 0
-      Height = 186
-      Top = 36
-      Width = 560
+      Height = 233
+      Top = 45
+      Width = 700
       Anchors = [akTop, akLeft, akRight, akBottom]
       ParentColor = True
       ParentFont = False
@@ -891,13 +892,13 @@ object Form_pea: TForm_pea
     object ComboBoxUnits: TComboBox
       AnchorSideTop.Control = PanelUtilsTitle
       AnchorSideTop.Side = asrBottom
-      Left = 12
-      Height = 23
-      Top = 48
-      Width = 100
-      BorderSpacing.Top = 12
+      Left = 15
+      Height = 28
+      Top = 60
+      Width = 125
+      BorderSpacing.Top = 15
       DropDownCount = 26
-      ItemHeight = 15
+      ItemHeight = 20
       ItemIndex = 0
       Items.Strings = (
         'Units'
@@ -913,13 +914,13 @@ object Form_pea: TForm_pea
       AnchorSideRight.Control = PanelUtils
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Side = asrBottom
-      Left = 468
-      Height = 25
-      Top = 234
-      Width = 80
+      Left = 591
+      Height = 30
+      Top = 293
+      Width = 94
       Anchors = [akTop, akRight]
       AutoSize = True
-      BorderSpacing.Right = 12
+      BorderSpacing.Right = 15
       Caption = '   Cancel   '
       OnClick = ButtonUtilsCancelClick
       ParentFont = False
@@ -931,10 +932,10 @@ object Form_pea: TForm_pea
       AnchorSideTop.Control = LabelUtilsInput
       AnchorSideTop.Side = asrCenter
       Cursor = crHandPoint
-      Left = 160
-      Height = 15
-      Top = 238
-      Width = 54
+      Left = 199
+      Height = 20
+      Top = 298
+      Width = 69
       Caption = 'select files'
       Font.Color = 13391121
       ParentFont = False
@@ -945,10 +946,10 @@ object Form_pea: TForm_pea
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = LabelUtilsInput
       AnchorSideTop.Side = asrCenter
-      Left = 214
-      Height = 15
-      Top = 238
-      Width = 9
+      Left = 268
+      Height = 20
+      Top = 298
+      Width = 12
       Caption = ' | '
       ParentFont = False
     end
@@ -960,11 +961,11 @@ object Form_pea: TForm_pea
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Side = asrBottom
       Cursor = crHandPoint
-      Left = 223
-      Height = 15
-      Top = 238
-      Width = 35
-      BorderSpacing.Bottom = 6
+      Left = 280
+      Height = 20
+      Top = 298
+      Width = 44
+      BorderSpacing.Bottom = 8
       Caption = 'Search'
       Font.Color = 13391121
       ParentFont = False
@@ -975,8 +976,8 @@ object Form_pea: TForm_pea
       AnchorSideBottom.Control = PanelUtils
       AnchorSideBottom.Side = asrBottom
       Left = 0
-      Height = 48
-      Top = 222
+      Height = 60
+      Top = 278
       Width = 1
       Anchors = [akLeft, akBottom]
       BevelOuter = bvNone
@@ -990,27 +991,27 @@ object Form_pea: TForm_pea
       AnchorSideRight.Control = PanelUtils
       AnchorSideRight.Side = asrBottom
       Left = 0
-      Height = 36
+      Height = 45
       Top = 0
-      Width = 560
+      Width = 700
       Anchors = [akTop, akLeft, akRight]
       BevelOuter = bvNone
-      ClientHeight = 36
-      ClientWidth = 560
+      ClientHeight = 45
+      ClientWidth = 700
       ParentBackground = False
       TabOrder = 5
       object ComboBoxUtils: TComboBox
         AnchorSideLeft.Control = PanelUtilsTitle
         AnchorSideTop.Control = PanelUtilsTitle
         AnchorSideTop.Side = asrCenter
-        Left = 12
-        Height = 23
-        Top = 7
-        Width = 400
-        BorderSpacing.Left = 12
-        BorderSpacing.Right = 6
+        Left = 15
+        Height = 28
+        Top = 8
+        Width = 500
+        BorderSpacing.Left = 15
+        BorderSpacing.Right = 8
         DropDownCount = 23
-        ItemHeight = 15
+        ItemHeight = 20
         ItemIndex = 12
         Items.Strings = (
           'CRC32 checksum'
@@ -1049,13 +1050,13 @@ object Form_pea: TForm_pea
         AnchorSideTop.Side = asrCenter
         AnchorSideRight.Control = peautilsbtn
         AnchorSideBottom.Side = asrBottom
-        Left = 438
-        Height = 19
-        Top = 9
-        Width = 50
+        Left = 547
+        Height = 24
+        Top = 10
+        Width = 63
         Anchors = [akTop, akRight]
         AutoSize = True
-        BorderSpacing.Right = 24
+        BorderSpacing.Right = 30
         Caption = 'Reset list'
         Flat = True
         OnClick = ButtonUtilsResetClick
@@ -1067,10 +1068,10 @@ object Form_pea: TForm_pea
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = PanelUtilsTitle
         AnchorSideBottom.Side = asrBottom
-        Left = 512
-        Height = 36
+        Left = 640
+        Height = 45
         Top = 0
-        Width = 48
+        Width = 60
         Anchors = [akTop, akRight, akBottom]
         Flat = True
         OnClick = peautilsbtnClick
@@ -1084,13 +1085,13 @@ object Form_pea: TForm_pea
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 0
-    Height = 270
+    Height = 338
     Top = 0
-    Width = 560
+    Width = 700
     Anchors = [akTop, akLeft, akRight, akBottom]
     BevelOuter = bvNone
-    ClientHeight = 270
-    ClientWidth = 560
+    ClientHeight = 338
+    ClientWidth = 700
     ParentBackground = False
     ParentFont = False
     TabOrder = 0
@@ -1101,12 +1102,12 @@ object Form_pea: TForm_pea
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = LabelPS1
       AnchorSideTop.Side = asrBottom
-      Left = 52
-      Height = 15
-      Top = 144
-      Width = 249
-      BorderSpacing.Left = 12
-      BorderSpacing.Top = 12
+      Left = 61
+      Height = 20
+      Top = 182
+      Width = 312
+      BorderSpacing.Left = 15
+      BorderSpacing.Top = 15
       Caption = 'Move the mouse to improve entropy of the salt'
       ParentFont = False
       Visible = False
@@ -1115,13 +1116,13 @@ object Form_pea: TForm_pea
       AnchorSideTop.Control = EditPW1
       AnchorSideTop.Side = asrCenter
       AnchorSideRight.Control = EditPW1
-      Left = 58
-      Height = 15
+      Left = 74
+      Height = 20
       Hint = 'Type a memorizable passphrase, avoiding words either too common or too easy to guess.'#13#10'You should use mixed upcase and lowcase letters, numbers and special characters.'
-      Top = 55
-      Width = 58
+      Top = 69
+      Width = 71
       Anchors = [akTop, akRight]
-      BorderSpacing.Right = 12
+      BorderSpacing.Right = 15
       Caption = 'Passphrase'
       ParentFont = False
     end
@@ -1129,12 +1130,12 @@ object Form_pea: TForm_pea
       AnchorSideTop.Control = EditConfirm1
       AnchorSideTop.Side = asrCenter
       AnchorSideRight.Control = EditConfirm1
-      Left = 72
-      Height = 15
-      Top = 84
-      Width = 44
+      Left = 92
+      Height = 20
+      Top = 105
+      Width = 53
       Anchors = [akTop, akRight]
-      BorderSpacing.Right = 12
+      BorderSpacing.Right = 15
       Caption = 'Confirm'
       ParentFont = False
       Visible = False
@@ -1144,13 +1145,13 @@ object Form_pea: TForm_pea
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = LabelHint1
       AnchorSideTop.Side = asrBottom
-      Left = 100
-      Height = 15
-      Top = 165
-      Width = 46
+      Left = 122
+      Height = 20
+      Top = 210
+      Width = 58
       Alignment = taRightJustify
-      BorderSpacing.Left = 6
-      BorderSpacing.Top = 6
+      BorderSpacing.Left = 8
+      BorderSpacing.Top = 8
       Caption = '[sample]'
       ParentFont = False
       Visible = False
@@ -1158,24 +1159,24 @@ object Form_pea: TForm_pea
     object Shape2: TShape
       AnchorSideTop.Control = EditConfirm1
       AnchorSideTop.Side = asrBottom
-      Left = 128
-      Height = 5
-      Top = 109
-      Width = 5
-      BorderSpacing.Top = 6
+      Left = 160
+      Height = 6
+      Top = 137
+      Width = 6
+      BorderSpacing.Top = 8
       Brush.Color = clRed
     end
     object LabelPS1: TLabel
       AnchorSideLeft.Control = Shape2
       AnchorSideTop.Control = Shape2
       AnchorSideTop.Side = asrBottom
-      Left = 128
-      Height = 15
+      Left = 160
+      Height = 20
       Hint = 'Esteem of entropy contained in the typed'#13#10'passphrase, has only an informative value'
-      Top = 117
-      Width = 3
+      Top = 147
+      Width = 4
       Alignment = taRightJustify
-      BorderSpacing.Top = 3
+      BorderSpacing.Top = 4
       Caption = ' '
       ParentFont = False
     end
@@ -1183,14 +1184,14 @@ object Form_pea: TForm_pea
       AnchorSideTop.Control = PanelPW1
       AnchorSideRight.Control = LabelKeyFileName1
       Cursor = crHandPoint
-      Left = 78
-      Height = 15
+      Left = 96
+      Height = 20
       Hint = 'You can use a file as key, a randomly generated keyfile is highly recommended'
-      Top = 24
-      Width = 38
+      Top = 30
+      Width = 49
       Anchors = [akTop, akRight]
-      BorderSpacing.Top = 24
-      BorderSpacing.Right = 12
+      BorderSpacing.Top = 30
+      BorderSpacing.Right = 15
       Caption = 'Key file'
       Font.Color = clNavy
       Font.Style = [fsUnderline]
@@ -1199,10 +1200,10 @@ object Form_pea: TForm_pea
     end
     object LabelKeyFileName1: TLabel
       AnchorSideTop.Control = LabelKeyFile1
-      Left = 128
-      Height = 15
-      Top = 24
-      Width = 43
+      Left = 160
+      Height = 20
+      Top = 30
+      Width = 53
       Caption = '<none>'
       ParentFont = False
     end
@@ -1211,12 +1212,12 @@ object Form_pea: TForm_pea
       AnchorSideTop.Control = LabelHint1
       AnchorSideTop.Side = asrCenter
       Cursor = crHandPoint
-      Left = 24
+      Left = 30
       Height = 16
-      Top = 143
+      Top = 184
       Width = 16
       AutoSize = True
-      BorderSpacing.Left = 24
+      BorderSpacing.Left = 30
       Transparent = True
       Visible = False
     end
@@ -1224,12 +1225,12 @@ object Form_pea: TForm_pea
       AnchorSideLeft.Control = LabelHint1
       AnchorSideTop.Control = LabelHint1
       AnchorSideTop.Side = asrBottom
-      Left = 52
-      Height = 15
-      Top = 165
-      Width = 42
+      Left = 61
+      Height = 20
+      Top = 210
+      Width = 53
       Alignment = taRightJustify
-      BorderSpacing.Top = 6
+      BorderSpacing.Top = 8
       Caption = 'Sample:'
       ParentFont = False
       Visible = False
@@ -1240,13 +1241,13 @@ object Form_pea: TForm_pea
       AnchorSideRight.Control = PanelPW1
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Panelsp1
-      Left = 12
-      Height = 8
-      Top = 214
-      Width = 536
+      Left = 15
+      Height = 10
+      Top = 268
+      Width = 670
       Anchors = [akLeft, akRight, akBottom]
-      BorderSpacing.Left = 12
-      BorderSpacing.Right = 12
+      BorderSpacing.Left = 15
+      BorderSpacing.Right = 15
       Shape = bsBottomLine
     end
     object EditPW1: TEdit
@@ -1255,13 +1256,13 @@ object Form_pea: TForm_pea
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = PanelPW1
       AnchorSideRight.Side = asrBottom
-      Left = 128
-      Height = 23
-      Top = 51
-      Width = 420
+      Left = 160
+      Height = 28
+      Top = 65
+      Width = 525
       Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Top = 12
-      BorderSpacing.Right = 12
+      BorderSpacing.Top = 15
+      BorderSpacing.Right = 15
       EchoMode = emPassword
       ParentFont = False
       PasswordChar = '*'
@@ -1274,13 +1275,13 @@ object Form_pea: TForm_pea
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = PanelPW1
       AnchorSideRight.Side = asrBottom
-      Left = 128
-      Height = 23
-      Top = 80
-      Width = 420
+      Left = 160
+      Height = 28
+      Top = 101
+      Width = 525
       Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Top = 6
-      BorderSpacing.Right = 12
+      BorderSpacing.Top = 8
+      BorderSpacing.Right = 15
       EchoMode = emPassword
       ParentFont = False
       PasswordChar = '*'
@@ -1292,13 +1293,13 @@ object Form_pea: TForm_pea
       AnchorSideRight.Control = ButtonPW2
       AnchorSideBottom.Control = Panelsp1
       AnchorSideBottom.Side = asrCenter
-      Left = 402
-      Height = 25
-      Top = 233
-      Width = 60
+      Left = 513
+      Height = 30
+      Top = 293
+      Width = 70
       Anchors = [akRight, akBottom]
       AutoSize = True
-      BorderSpacing.Right = 6
+      BorderSpacing.Right = 8
       Caption = '   OK   '
       OnClick = ButtonPW1Click
       ParentFont = False
@@ -1310,13 +1311,13 @@ object Form_pea: TForm_pea
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Panelsp1
       AnchorSideBottom.Side = asrCenter
-      Left = 468
-      Height = 25
-      Top = 233
-      Width = 80
+      Left = 591
+      Height = 30
+      Top = 293
+      Width = 94
       Anchors = [akRight, akBottom]
       AutoSize = True
-      BorderSpacing.Right = 12
+      BorderSpacing.Right = 15
       Caption = '   Cancel   '
       OnClick = ButtonPW2Click
       ParentFont = False
@@ -1327,8 +1328,8 @@ object Form_pea: TForm_pea
       AnchorSideBottom.Control = PanelPW1
       AnchorSideBottom.Side = asrBottom
       Left = 0
-      Height = 48
-      Top = 222
+      Height = 60
+      Top = 278
       Width = 2
       Anchors = [akLeft, akBottom]
       BevelOuter = bvNone
@@ -1340,138 +1341,113 @@ object Form_pea: TForm_pea
   object Timer1: TTimer
     Interval = 100
     OnTimer = Timer1Timer
-    Left = 192
-    Top = 192
+    Left = 240
+    Top = 240
   end
   object OpenDialog1: TOpenDialog
     FilterIndex = 0
-    Left = 282
-    Top = 154
+    Left = 353
+    Top = 193
   end
   object ImageList1: TImageList
     Height = 48
     Width = 48
-    Left = 346
-    Top = 154
+    Left = 433
+    Top = 193
     Bitmap = {
-      4C7A0B00000030000000300000004B0D00000000000078DAED9C596F1BD715C7
-      FB1DFA158AD6288A3CB8485340409BE7B6E8F2115A184580B6E90768FA9887C2
-      686D4BD5C2885AA0C5D0526DD002910C1770C9908424C81664C135AC18769136
-      7DF18363C74D6C9DDEFF95663CA248CEC259EE1D9D871F1C2BE2CCEFDC39F7DC
-      33F73221A26F10C3300CC3300CC3300CC330978E2B57AE90899B9FB33FFB77E2
-      E9D3A764A2E35C607FCE7FF6D7B7FE300CC3300CC3300CC3300C132C7FFAE0CF
-      6472F5EA558B85F7DFB298F9EDB76D7C2720DE5C73EE0F6F59D81DEC6EECAFA6
-      BFFDF7EDFCF7E1DD58E8E4C3FE7AF9BF7E456D79F5F5890DB2F1DA1327AFA92D
-      EC9F3CFFFFBD7861F1F2F973FF3C7B66F195F8BBC9C9D75F59B07FF2FC5F3EFF
-      D2E285B8B76FBEF8C2E2E5F31716EC9F6C7FCFF9FFCCCEB3B6283D7FD93F507F
-      7A7DF28657AF82E1E4C422ECF597FDA3F77F70B01B0BEC9F0CFFF4E8A8456A70
-      C862E0D62D8BB1A1618B91BF0F5AA447462CC63EFAE80DA994C584B8AEC9D0CD
-      7E0BF64F867FE3934F6281FDD99FFDD99FFDD99FFDD93F6CFFC9748A4CECE765
-      2337FE1A0B761F37E7BFEC1FAF3FC3300CC330CC65E678F85BA4123ABB7B8941
-      55773731A8EEEE1403FBF33C08A2FEA81487AEEB412F8E71C6D18B5F9CB5D6CB
-      BDBC3A8519879F6BFB7509328E5EAED5AB4318F70EE2FE71E46C90F7D5656D89
-      632E46711F5DFAABA86B3AF79FECCFFEECCFFEEC7FD9F78092BE7F98B4FD1386
-      611886611886619CD9DDDD2595D0D9DD6B0C3AFBABEAEE3606F68FCF5F7577A7
-      18D83F3E7F5DDC3BC5C0FEF1F9EBE6DE1A03FBC7E7AFAB3BA30ED7AF5FD7129D
-      DD934AA7FFE659157476778A81FD7BE7071F7ECFA2EFC1CF2CEC3F57D9FF9DE9
-      772CFA9EFCC2C2FE7395FD7F98F9B145DFE7BFB2B0FF5CE9FCD9F89145DFE7BF
-      B4B0FF5C65FFB7D36F5BF43DFEB985FDE72AFB7FFF83EF5AF4DDFFA985FDE75C
-      3F790D0EC39D891EBC03EBECCE300CA3EDFF67E1F801358C2AAD2E2FD2D4D418
-      0D0D0ED0586A84C6C6462D4687876878689066A7A7696B6D8DF6F67662AF7D8D
-      4683E6666769686040BA4D8C8FD2CAE21C65B35932CA55AA560D2AE64FC9152A
-      B4B9B64C8B73B7697C34257F1F712E8B98EF1D1C441A4BB95CA4742A4503B76E
-      D0F4D43895B25BB4D728D35EB34ACD5A9D6AB5E6390AA5BAA45C34A82AE2AA97
-      0B6494F2B4BEB22C63191CECA7E9C971C27884E97D777F9F26442E60DC96E6E7
-      C82866E96EA34207C2FB4EBD4A86B87FABBBDDDFA454A951BD523A45C492DB5C
-      13793529C763FEF60C3D78F020F038B6B636ACF1AE9772D2D94EBB71EFE40FE4
-      733063101895226DAFAFD2587A448E4FA552092C8699A9091A11F30FD7DF6F56
-      2EB8EF348C8EEE9DFC914B46F17C0C320E9157984383FDFDB4BEBADC730CD393
-      93349E4E51A392BFE00D761BB5AEEE9DFC4151C4D0EA6F92DD58A5E181DE6270
-      72070DA3E1E8DF2D86D63CB29311F3C26F0CC81927F73D87BC71E35FEEF20CEC
-      316C6CAC9197B98A7CEFE6EE3467DDFA835AA9D63586ADF515391F765CD4D73B
-      7B7BE2776FD2B6C8BF6EEE779A9DEBA5D718CED5D336A036CDCFCE502A354C4F
-      9E1C778D61223D2A6BA459D783C89D5E730894F2191A1E1C143D4AE7B9502A15
-      68A8FF96A861D9AEEE5E73C74D0C4E3904B05E0FF4DFA0C3C3C3B631A0E75AB8
-      3DEDE87EE02277CAD506150A75CAE56A5428D7C57A54EFBE1E74A943F6B57A6C
-      74845696162EF8379B7539F6F572CED11DBD42B7F15D5B5EA0D19121B98E0E0F
-      F5CB5E0DB56C7B7D53C465B48DA1E82287C09A701F14F5083DAFDD1F7DE4CCE4
-      8463DE77CA7D78AD2D2F4957B0B9B64A4DA344FBE27A987F4B624D95718C8938
-      36B77DCD01502D6469448C4B2197237BFF8EB1CF67365DE54EB35EBF902BF373
-      33728C8BB96DBABB53A3FB873B1740CDDADE5AA794886343D4443F7300A0BF18
-      B7FDFF70F1EE8167DD340AAEFCED6B2EC61DEEE84BD13FB7F36EA55ACECBF565
-      6375C5F55ADCBAA6A1C61F9FF5A9786FC2BB879BDC699DBBC819CC7BBBFB3F0F
-      76E9D1F1013DFEF4485E1F7F3EBA7F20FEDD9EF53B95624EE6C1F6769E2AB55D
-      57EB80093E8B39D0300C797DBCF3E199B871470ED8E72AC6312F72C6F48267B7
-      F5E5E1D1BEF5BB788798999E10CF7047C6E0760E603E4D8EA569EBACA740EE14
-      C43B942B7F5BEDC1D8C3FF70AF6E8DBBD3FAFED9E363CBBF26EAA15CEBCF9E41
-      B58A3962B89E03D313E3F27E7816F562CE933FE62C6A24D614D3E7F1A787AE7A
-      AC87F74E9FC1BD831D9A9A1893BD01FC2B4653FABB8901353A3D322CEF97167D
-      C56EBDE4C91F6B13FA42A35AB4FCDDF6878F8EEF599F419F8577E052A5296340
-      6D3663B0D36E0E632D93EBAEA81D6591C34621EBDA1FEB2AD626D477B7B9D32E
-      874AF99CDC5B29561A5DFD5BA9897C8137AE871C46FEC3BF1D6DC75FCC5DCC1B
-      D4C25EC61FF9373991B6E6B05BFFAC5847903732FFC51CC2F3E8E46F8FC3F447
-      3F839A8B1AE2B6F658F97F789AFF8777EAB2F62ECFDFBE90FF4E602FC9CC7FAC
-      EB980F4EFE9262DEAA3FE867F0D93B56EDDF73F4C75A60C65BCC65651DCFE78D
-      73F5C70DD8079B9D9D96F7C39E1E6A805BFF4CAE66ADBDE867D0EB984EA8EFC8
-      EF4EEE982766ED999D9AA485B9D9D3B1F7E0BF277200733E9FDD96F7C17E24FE
-      5E2B655CC590CD572993398D01BD586AB0FFDC3C9071881A897AFAF8E1A1FCD3
-      CC197074D09475077D9039F6A0E1D21FEB17727E6FE774CE612F15FD5B6E7BC3
-      93BF245B91BD186A00D675A7DE07E36EBA67CED62DAFFE98BBC83BFBB3452D59
-      597437070AB9CA1B7F3306D18B8D9CED2B625D85A7DD1B7315F12167DAB9831D
-      D117BAF147BF88FD11BB3FF681DDE6D005FFB318D007A09FC1B3C5BA8A71467D
-      478D449DC11821DFED39E3D5BF5ACACBEB1BD5EA397FEC61631F786B75C9D1BF
-      942B5CF417C81E4CE440365390CFE1F6EC14CD891A813F5797E63B7A7BA99DE8
-      7B526775FFE27EDBB8DC7BA81533DEE6404B0C7E305CE47E43CCDB21D9736F52
-      A7F388FE9B7F93CFDBC93FD72E877A88A15E6FBA1AFB76EFBE76B0FF8E3DEC62
-      76DB610E9402F577CAFD522E23F3BE98CF765D237176707A3E31EB3B87BCC6E0
-      943B58AFA626C708FBC96EFA139C1D60BF716365C97B1DF21143B7B1DF6FD444
-      3E2FCA33B6A3A323D73D22F6ACE5BE6F977A543DEB257AF1AF1A3B8EEE18CB6A
-      B5EC790FDD4D0C851EE771B3C3BC3DE75E2EFB3EC33063C0B5DAD655F10CFCD6
-      D24E798F7C0FC2DD046707B8167AD4763D925CCF72DE9FC18E71D11D3D06DECB
-      91EF7E72A613383BC0BA873D6CF449E6FBE6B93CCAB9F7AFD79A17D6A6D373BB
-      9BB207F13257DD82B303ECBF630F5BEE032FCC5131B3D9F53938E53CF6945797
-      1665CDC6DA5410753EECF377ECBFAF9CED03A3E75C14FD20E638DEA18BF9F3F3
-      A1B5C769544FFB77F4C0E823D1B7E3B9E2CCAADBBA1AD6F736E08B5E13CF1D63
-      887D31AC7DC805C484EF3DE4B672D6771FF0DC1037989F99B9D047C605FA57D4
-      0AF44EE841C092C8AFE5C579F9ACCC7FC63B9F0ADF3DD1FAFB3E7FF926C58DCE
-      EE7E6350C9DD6B0C413EC3A073D7CFE7549A7F5E3FA35A0D617FF60FCA5F979A
-      D8EEF775AAEBADBFABDBDA14567F11D5DAA49ABBD7B54945772FB58EFDD99FFD
-      D99FFDD99FFDD9DF8BBFAABD9B1B7F15FBE65EF6C9547FB77533D63AFAF3DE08
-      FBB37FF2F69675DCDB0F72EF45A5F3219DDC83E83DE276F7BA2FADFAD9AE6EEE
-      6EF7A5753E5BD7F9BB013A7FB741E7EF66E8FCDD129DBF1BC3DF15D287773FFC
-      07F985FD93EDFFC7C267E4442FFE4ED70EDB3D6C7FBF31B8758FC2DF4F0C5EFC
-      FDF0FB8FBDFDBE8AFE5E6208D3FFFDFCBF3DFBFFEEE353741D7FAFB03FFBB33F
-      FBB33FFBC7E5FF9F81770381FDD99FFDD99FFDD99FFDD99FFDD99FFDD99FFDD9
-      9FFDD99FFDD5F48F72FF4AA518A2380356D19D6118866162F95EDAFE6FC84467
-      77DD6268E7AE4B0CDDDC558FC18DBBAA317871572D063FEEAAC4D08B7BDCFEBD
-      BA77F30F3BC6A8DCC388216AF7206388CB3D8818E276EF250655DCFDC4A09ABB
-      9718C2740F7BFD08DB3DCC7B44E11ED6BDA2740FFA9E71B8071943DCFD98CEEE
-      71C6A0627F18770FAFB37B1431E8F49E14F77B9FCEEE71AEABBCD791ACBDA624
-      ECF52561AF35097BDD49386B48C2590FC3300C930C7EF2EB7F911D9D1C5A3F17
-      470C7E1D3A7D2ECA18FC3A387D2E8A18FC3AB8FD5C9831F4E2E0F5B341C7D0EB
-      FDFD7C3EA81882B8B7DF6BF41A4390F78D3A8630EE17550C61DE27EC18A218A3
-      B0EE11658E067DAF386A4450F78CABBE0571EF38DD8388216EF7386288BB3F54
-      D13D8A18E27E3FD2C13D8C185479CFD7C95D85B5E9328F3FCFDDE4D4CE24AC5D
-      49E81D92D0BBA9D43BEBFEEE928477C724BCBB2761EF24097B5749D83B4CC2DE
-      AD2AF54DE7FD7F9DCF5F543BFFD2FDFC3109E7BF49387F4FC2F71F1886611886
-      6118866118866182E6DAB56BE484CAD7617FF6677FF667FFCBE9CF300CC3300C
-      C3300CC3E8C57BEFBD475ED0D55B95387AF58E2B8E5EDDE28A23E8B18D2A8EB0
-      7323AC38A2CEED20E388736E863D0E51D5963072318EDAE8E57A2AFAB7F3D2CD
-      BFD58DFDD99FFDD99FFDD93F0AFFA8C683FDD5F157EDFDFEB2F987D1B7B3BFB7
-      773015FD837AD761FF68F66254F20FFA7D99FDA3D907D3717F3DE8CFC7EDAFD3
-      1E6A1031E8B8FF18867F586718719F7B841D838AE77951BDCB457DFE18A47F5C
-      67A8419FB3C61D830EE7F0DD3C74F92E84AEDF7FD065AEAAFEFD99FF032A3B35
-      13
+      4C7A0B00000030000000300000002F0A00000000000078DAED9D4D8B1C4518C7
+      F31DFC0AA2412487488CB0A039ABF8F211942001357E002339E52059D1249364
+      379990808E88D837FB20A43D3678C8200A0B12CC41458D971C361B63B2BBED3C
+      DD5D3535BDDDD355DDF5DAFB5FF8916498E9FA3D554FBD8F6B96650732000000
+      000000000000EC3B0E1E3C9831645E873FFC9BB877EF5EC608B12FC01FF90FFF
+      70C71F000000000000000000E8E5C3531F658CC3870F73BE3E7988F3C53B4F09
+      3CAD89F933BF7AFF10477410DDE0EFA7BFF87E917F7EFDC9094D3EF00FCB7F67
+      3BAB65FBF1AE4026B0A3C4EE4E560BFC87E7FFDF83079C875B5BDDD9DCE43C9A
+      FD9BB1FBF81107FEC3F37FB8F52FE7C1ACECCEDCBFCF79B8F58003FF61FB2BE7
+      FFA6C8662D5EF75FF86BF5CF7676E76C6FEB617797637AFE85BF7DFFDB3FDF72
+      02FC87E13FBE7A95B37EF112E7C2B9739C6B972E73D6461739E3B535CEB52B57
+      E6ACAF73AECF9ECBB8F4D9790EFC87E1FF439A3A01FEF0873FFCE10F7FF8C3DF
+      B4FF8DF17AC610EFCBD63EFDC409A28FCCFD2FFCDDFA0300000000EC67EE5C7E
+      32F38990DD5562F0D55D2606DFDDDB62803FFA818EF1C7A738429D0FFA38BA8C
+      A38F9FCBB156A52C5527937174797657179D71F479565F071365EB28DF45CEEA
+      2C3794B9C5455FB4514E28EB2BDB633AD69FF0873FFCE10FFFFD7E0634F4F3C3
+      A19D9F00000000000000DAB975EB56E61321BBABC610B2BFAFEEB231C0DF9DBF
+      EFEE6D31C0DF9D7F28EE4D31C0DF9D7F68EED518E0EFCE3F5477E00F67CF9E0D
+      9290DD874AD37FF3EC0B21BBB7C500FFFE3C7FE659CECAED5739E2EB3EFB1FFD
+      FC2867E5F7D739E2EB3EFBBFF0DD4B9C95BB6F72C4D7BDCE9F6F5FE4ACDC7D83
+      23BEEEB3FF91F111CECA6FAF71C4D77DF67FEED4339C955F5EE188AF63FCC41C
+      6CC21DD887F6C021BB0300802B74FC5CBE70FE741445D96432CE46A351361E13
+      E339B3D7E8F5C96492C5B3F7D1FB0F38FCA1F209F219956EE41945932C49922C
+      4DD39C249943DED1ECFDF43EF699C8722C54569A26A5C36A5EDF491267D399EB
+      B474AEC2FCD384BD368B6F1623C5C36299CCFE341907AB6F561ED5233990F3C6
+      B4D9BDDA063C168AA12489E332EF56F3FCD21D073D2F9E95C1EA9BBCC9592455
+      F65F8C8188E328EF37543FBA622872BCA8737A3EAB6F916575DFE8CFF3693106
+      AA1BEA4379793DFB46EE5E8E1FF4ECAAB78C7B937F5D1E55DBA24F0C32EE6D79
+      2313435D1EE9888172A6CD7D9A6AF05FD2060B31CCFE94752FFAEA68A9BB4ADD
+      B7E690640C326D40EFA171863EB3CC5DA5EEFBF403C6249FF796C7C0C677CA9D
+      BA71C6947F2AE14F73249BAF9BFC69DECFF326599E37AAB9A32B06EAC7941B4D
+      6D40ED43F36A9BBBACFFDE71466D3EAB2377AC698322EFDBFBACCC5A819ECFD6
+      9BE2DA8EC605D93545135154DF97A97FD078DF96F7CBFCD9B3D9984DE54DCB7A
+      65732A8BA34BFEB0F9999E43B92EFAE7AFCD9EDB357726E5BA385F8BD2FB36A6
+      7BA058C87D5C8EE75D63A0BAA0B2BAE44E9D3F73CFDBAEC6BB0A95C3DAA84B1F
+      28E68355EE1F95EB7099DCA9FA179F1DB5BADFD9D8588C81E5414C4E53A53EC0
+      3ECBFA008DF7D42632EED34A5F2D7231AE733E5DC3C27B68ACCBD7E3E9B440D6
+      BFDC3FB135057750F467FD75636FBED78ECFD5188A3C5AE56D404C53F93E3029
+      FB80EC9C55F51F97392CE3DE14C3249FEF27A57F2AEC43DBC7512A9FCD5BD354
+      CD9FE54EDEE77BF8177BAED9B825D47F1D4D7BB5C29FF684B1541B54FD6BFAAD
+      923F8DE3548F6DFE7BE249123E86B2FCA7D7EA305AFFE5D8972AFAD35CC5EA9F
+      AD979BFCC53816F29FCE7B68BDD4D57F9A666CCD55CDFF366221FFD9BAB4CD9F
+      53FAB37D8E6C0ED5E54ED1F6A972FD1763EF24E36B9FF23C4706713D998FC37B
+      C720A9F13F9F7778DDABF9B3B54ABE5F6439B8A40F54FD590C6C3D53D30F2AF3
+      EFE2BFF3F1A352F7B2FE6CDE60F32F5BFF509F50F1E7E79AE5FE34EF2312EB1F
+      EE2ECC5B2AFE4999B7E21A5AA50FD4ADDDE3722E2EF2A1268E6931E6E5E71A3D
+      DCA7E57A919E23F6AD4821871AF7E171323FC72CD727093FA71DF1F8AA39A394
+      3B49913B94B775FBAF58A20D9286189807C5C1C6074671AE5EEFAD3276166BFF
+      FA73884979F6D0A70D9AFDDA91EBB7A3BCEEEBFCF9D98F541BA49A6390ABFBB6
+      732C764E94B4B441A2B90D5AC79C24E679DF768625DE4FD86A83D63187725BF2
+      8E46B62F2FF357894166ADB32CEFEB7EBEBC713DEB1B830EFF2EEEFCCE288A5A
+      63E8EFAFDFBD398658FB586ACA7DF1EE2EE277CF756BA4AE6351D3FC3A198FB5
+      B8EF3D5B9FDF3957DB42DD7FEFDC548CEFC51DA74EF7EA7704A88CE21C78B13D
+      EADAA1CD5D3C9315EBDCF45DB65866547EA781E6986A0C556F764658DC594FF8
+      77256C78D7C591F07C5D9D7F07A25CAFF1F3CD3811BEFB303F536777EDAEBFCB
+      511DAFC4356741C4FF4E6DE48BAF2F3FCABFB3F9E32732D774FE7DD31EB8778D
+      C12777D51874B661AFFF0744470F1FDCFBB8F8E2DED507FEF097F109654CAC7B
+      7F48E37AF5BDA1CD4DA6D617B6E626DFDC55E7261FDD55C63AF8C31FFEF0873F
+      FCE10F7F157F5FD76E32FE3EAE9BFB9C93F9BEB795A9EB10FD7136027FF80FEF
+      6C39C4B37D9D672F3EDD0F85E4AE63EDE1DA5DF55CDAC7DF05217B2EEDEBEFB2
+      903997F6F9777184B0BEEEEA1FC2EF4209D93DC47CF7792D6463ED07FCE0D899
+      6FB2AEC07FD8FE1F7CFF67D6461FFFB6679B7637EDDF350659771BFE5D6250F1
+      EFC27B37D5DEEFA3BF4A0C26FD4F267F29FBBF7BB320D4FA5705FEF0873FFCE1
+      0F7F57FE7F5F38A605F8C31FFEF0873FFCE10F7FF8C31FFEF0873FFCE10F7FF8
+      FBE96FF3FCCAA7186CDC01FBE80E00000038F95EDA8F6F678C90DD438BA1CE3D
+      941896B9FB1E838CBBAF31A8B8FB164317775F62E8E3EEDABFAFFB327FD331DA
+      723711836D779D31B872D711836BF73E31F8E2DE2506DFDC556230E96E7AFE30
+      ED6EB20C1BEEA6CAB2E9AEBB4C17EE3A6370BD1E0BD9DD650C3EAE0F5DAFE143
+      76B7114348FB24D7FBBE90DD5DCEAB38EB18D659D310CEFA8670D63A84B3EE21
+      DC350CE1AE070000C03078F9AD3F3291901CAA9F7311435787A6CFD98CA1AB43
+      DBE76CC4D0D541F6732663E8E3A0FA59DD31F42DBFCBE775C5A0A3ECAECFE81B
+      83CE726DC760A23C5B31982CC7740C36EAC8541936735477592EC6085D65BA1A
+      DF7494EDD25D470CAEDD5DC4E07A7DE8A3BB8D185CEF8F42703711832FFBFC90
+      DC7D989BF673FDA3EF0E67EC1CC2DC3584B5C310D66E3EAD9D43DFBB0C61EF38
+      84BDFB10CE4E8670763584B3C3219CDDFA32BE857CFE1FF2FD8B6FF75FA1DF3F
+      0EE1FE7708F7EF43F8FE03000000000000000000806E8E1F3F9EB5E1F373E00F
+      7FF8C31FFEFBD31F0000000000000040589C3871225321546F5FE2E8EBED2A8E
+      BE6EAEE2D05DB7B6E2309D1BA6E2B09DDB3AE370D9374DD783ADB1C5442EBA18
+      1B559EE7A37F9D5768FE5537F8C31FFEF0873FFC6DF8DBAA0FF8FBE3EFDBFE7E
+      BFF99B58B7C35F6D0FE6A3BFAEBD0EFCED9CC5F8E4AF7BBF0C7F3BE760219EAF
+      EBFEBC6BFF90CE5075C410E2F9A3097F537718AEEF3D4CC7E0E37D9EADBD9CED
+      FB479DFEAEEE5075DFB3BA8E21847BF8651EA17C1722D4EF3F84D2577DFFFECC
+      FF6521ABF5
     }
   end
   object OpenDialog2: TOpenDialog
     Options = [ofAllowMultiSelect, ofEnableSizing, ofViewDetail]
-    Left = 230
-    Top = 154
+    Left = 288
+    Top = 193
   end
   object peautilsmenu: TPopupMenu
-    Left = 496
-    Top = 17
+    Left = 620
+    Top = 21
     object pmhelp: TMenuItem
       Caption = 'Online support (F1)'
       OnClick = pmhelpClick
@@ -1493,8 +1469,8 @@ object Form_pea: TForm_pea
     end
   end
   object MainMenu1: TMainMenu
-    Left = 432
-    Top = 16
+    Left = 540
+    Top = 20
     object mainmenuhelp: TMenuItem
       Caption = 'Help (F1)'
       ShortCut = 112

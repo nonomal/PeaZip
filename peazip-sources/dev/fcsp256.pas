@@ -60,7 +60,7 @@ uses
        CH_INTF, SP_INTF;
      {$endif}
   {$else}
-    Hash, HMAC, Whirl512, KDF, SP_base, SP_CTR, SP_EAX;
+    Hash, HMAC, Whirl512, KDF, SP_base, SP_CTR, SP_EAX, scrypt;
   {$endif}
 
 
@@ -91,7 +91,7 @@ type
 
 
 function FCS_EAX256_init(var cx: TSP_EAXContext; pPW: pointer; pLen: word; var hdr: TFCS256Hdr): integer;
-function FCS_EAX256_initP(var cx: TSP_EAXContext; pPW: pointer; pLen: word; var hdr: TFCS256Hdr; niter:byte): integer;
+function FCS_EAX256_initP(var cx: TSP_EAXContext; pPW: pointer; pLen: word; var hdr: TFCS256Hdr; niter:byte; tkdf:ansistring): integer;
   {-Initialize crypt context using password pointer pPW and hdr.salt}
 
 function FCS_EAX256_initS(var cx: TSP_EAXContext; sPW: Str255; var hdr: TFCS256Hdr): integer;
@@ -235,18 +235,43 @@ begin
   fillchar(XKey, sizeof(XKey),0);
 end;
 
-function FCS_EAX256_initP(var cx: TSP_EAXContext; pPW: pointer; pLen: word; var hdr: TFCS256Hdr; niter:byte): integer;
+function FCS_EAX256_initP(var cx: TSP_EAXContext; pPW: pointer; pLen: word; var hdr: TFCS256Hdr; niter:byte; tkdf:ansistring): integer;
   {-Initialize crypt context using password pointer pPW and hdr.salt}
 var
   XKey: TX256Key;
   Err : integer;
-  intiter:longint;
+  intiter,memiter,piter:longint;
 begin
 
   intiter:=(niter*100000)+75000;
+  case niter of
+  1: memiter:=128*1024;
+  2: memiter:=256*1024;
+  3: memiter:=512*1024;
+  4: memiter:=1024*1024;
+  5: memiter:=1024*1024;
+  6: memiter:=1024*1024;
+  7: memiter:=1024*1024;
+  else memiter:=64*1024;
+  end;
+  case niter of
+  5: piter:=2;
+  6: piter:=4;
+  7: piter:=8;
+  else piter:=1;
+  end;
 
   {derive the EAX key / nonce and pw verifier}
-  Err := pbkdf2(FindHash_by_ID(_SHA3_512), pPW, pLen, @hdr.salt, sizeof(TFCS256Salt), intiter, XKey, sizeof(XKey));
+    case tkdf of
+  'scrypt': Err := scrypt_kdf(pPW, pLen, @hdr.salt, sizeof(TFCS256Salt), memiter, 8, piter, XKey, sizeof(XKey));
+  'pbkdf2': Err := pbkdf2(FindHash_by_ID(_SHA3_512), pPW, pLen, @hdr.salt, sizeof(TFCS256Salt), intiter, XKey, sizeof(XKey));
+  else
+    begin
+    Err:=-1;
+    FCS_EAX256_initP := Err;
+    exit;
+    end;
+  end;
 
   {init SP EAX mode with ak/hk}
   if Err=0 then Err := SP_EAX_Init(XKey.ak, 8*sizeof(XKey.ak), xkey.hk, sizeof(XKey.hk), cx);;

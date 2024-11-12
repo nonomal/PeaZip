@@ -1,11 +1,10 @@
-﻿Notes to 10.0 release
+﻿Notes to 10.1 release
 
-Modified existing text
-txt_showhints: Show hints and tooltips
-Recycle bin (term used mostry on Windows) reworded as Trash, which is the English term used on most Operating Systems.
-Please note the term was not modified in the names of variables, only the text strings were changed.
+No existing text was modified.
 
 = GENERAL NOTES =
+
+PLEASE NOTE: if you are updating or modifying an existing translation, especially an actively maintained one, it is recommended to try to discuss the changes with prior translators, which can be identified (if they want) by name and email, which can be provided in the first lines of each language file.
 
 Language files needs to be saved as "UTF-8 with BOM" txt files, and can be found in (peazip)/res/share/lang subfolder of PeaZip application.
 If you see untransalted strings in the app or in the language file, most likely newly added text lines, it means the language needs a translator to take care updating the language file: your help is always welcome!
