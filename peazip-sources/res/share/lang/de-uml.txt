@@ -3,13 +3,13 @@ German - Deutsch
 10.1
 Translated by: Vacon
 Last rev. by: Andrain
-Last rev.: 20241029
+Last rev.: 20241116
 
 === PeaZip text group ===
 
-txt_10_1_full: Full
-txt_10_1_kdfw: KDF work load
-txt_10_1_under: Underlined
+txt_10_1_full: Voll
+txt_10_1_kdfw: KDF-Arbeitslast
+txt_10_1_under: Unterstrichen
 txt_10_0_exptrash: Papierkorb öffnen
 txt_10_0_ptarzst: Schnellste Komprimierung, TAR.ZST
 txt_10_0_ptarxz: Hohe Komprimierung, TAR.XZ
