@@ -23,7 +23,7 @@ uses
 {$R *.res}
 
 begin
-Application.Scaled:=True;
+  Application.Scaled:=True;
 {$IFDEF MSWINDOWS}//W10+ dark mode, can be manually forced to light or dark mode (not integrated with themes due to technical limitations)
 if fileexists(Programdirectory+'light') then
    begin
@@ -42,7 +42,7 @@ else
       umetadarkstyle.ApplyMetaDarkStyle(DefaultDark);
       end;
 {$ENDIF}
-Application.Title:='PeaZip';
+  Application.Title:='PeaZip';
 Application.Initialize;
 Application.CreateForm(TForm_peach, Form_peach);
 {$IFDEF MSWINDOWS}
