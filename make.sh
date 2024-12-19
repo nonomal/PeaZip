@@ -55,7 +55,7 @@ function priv_lazbuild
         if ! (lazbuild --no-write-project --recursive --no-write-project --widgetset=qt5 --build-mode=release "${REPLY}"); then
             lazbuild --no-write-project --recursive --no-write-project --widgetset=qt5 --build-mode=release "${REPLY}" 1>&2
         fi
-    done < <(find 'peazip-sources' -type 'f' -name '*.lpi' -and ! -name 'dragdropfilesdll.lpi' | sort)
+    done < <(find 'peazip-sources' -type 'f' -name '*.lpi' -and ! -name 'dragdropfilesdll.lpi'  -and ! -name 'project_demo_lib.lpi' | sort)
 )
 
 function priv_main
