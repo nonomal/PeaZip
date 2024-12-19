@@ -76,7 +76,7 @@ Function Build-Project {
         "    build project $($_)" | Out-Host
         If (& $VAR.Cmd --no-write-project --recursive $_) {
             & $VAR.Cmd --no-write-project --recursive $_ | Out-Host
-            Throw "Error!!!"
+            Throw $LASTEXITCODE
         }
     }
     "Done!" | Out-Host
