@@ -23,7 +23,9 @@ function priv_lazbuild
     fi
     declare -r COMPONENTS='use/components.txt'
     if [[ -d "${COMPONENTS%%/*}" ]]; then
-        git submodule update --init --recursive --force --remote
+        #if [[ -f '.gitmodules' ]]; then
+        #    git submodule update --init --recursive --force --remote
+        #fi
         if [[ -f "${COMPONENTS}" ]]; then
             printf '\x1b[32mDownwoad packages\x1b[0m\n' 1>&2
             while read -r; do
@@ -55,7 +57,7 @@ function priv_lazbuild
         if ! (lazbuild --no-write-project --recursive --no-write-project --widgetset=qt5 --build-mode=release "${REPLY}"); then
             lazbuild --no-write-project --recursive --no-write-project --widgetset=qt5 --build-mode=release "${REPLY}" 1>&2
         fi
-    done < <(find 'peazip-sources' -type 'f' -name '*.lpi' -and ! -name 'dragdropfilesdll.lpi'  -and ! -name 'project_demo_lib.lpi' | sort)
+    done < <(find 'peazip-sources' -type 'f' -name '*.lpi' | grep -vE '(backup|dragdropfilesdll|project_demo_lib)' | sort --revers)
 )
 
 function priv_main
