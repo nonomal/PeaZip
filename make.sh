@@ -32,14 +32,10 @@ function priv_main
 
 function pub_build
 (
-    if {
-        pushd 'peazip-sources/dev'
-    }; then
-        lazbuild --add-package 'metadarkstyle/metadarkstyle.lpk'
-        lazbuild 'project_peach.lpi'
-        lazbuild 'project_pea.lpi'
-        strip peach pea
-    fi
+    git submodule update --init --recursive --force --remote
+    lazbuild --add-package 'use/metadarkstyle/metadarkstyle.lpk'
+    lazbuild 'peazip-sources/dev/project_peach.lpi'
+    lazbuild 'peazip-sources/dev/project_pea.lpi'
 )
 
 priv_main "${@}"
