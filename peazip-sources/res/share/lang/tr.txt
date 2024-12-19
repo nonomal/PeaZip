@@ -3,20 +3,20 @@ Turkish (Türkçe)
 10.1
 Çeviren: Osman Öz, Cihan Alkan, Muhammed Emin Subaşı
 Son güncelleyen: Muhammed Emin Subaşı
-Son güncelleme: 04 Ağustos 2024
+Son güncelleme: 20 Aralık 2024
 
 === PeaZip text group ===
 
-txt_10_1_full: Full
-txt_10_1_kdfw: KDF work load
-txt_10_1_under: Underlined
-txt_10_0_exptrash: Explore Trash
-txt_10_0_ptarzst: Fastest compression, TAR.ZST
-txt_10_0_ptarxz: High compression, TAR.XZ
-txt_10_0_ptargz: Medium compression, TAR.GZ
-txt_10_0_comp: Pure compression formats only accept a single file as input. Archive conversion towards those formats will fail if the source contains multiple files or folders, which cannot be determined in advance.
-txt_10_0_save: Save
-txt_10_0_tp: Text preview
+txt_10_1_full: Tam
+txt_10_1_kdfw: KDF iş yükü
+txt_10_1_under: Altı çizili
+txt_10_0_exptrash: Çöpü keşfet
+txt_10_0_ptarzst: Hızlı sıkıştır, TAR.ZST
+txt_10_0_ptarxz: Yüksek düzeyde sıkıştır, TAR.XZ
+txt_10_0_ptargz: Orta düzeyde sıkıştır, TAR.GZ
+txt_10_0_comp: Saf sıkıştırma formatları girdi olarak yalnızca tek bir dosya kabul eder. Kaynak önceden belirlenemeyen birden fazla dosya veya klasör içeriyorsa, bu biçimlere yönelik arşiv dönüştürme başarısız olacaktır.
+txt_10_0_save: Kaydet
+txt_10_0_tp: Metin görünümü
 txt_9_9_uac: Mevcut kullanıcı bu çıktı yoluna yazamaz. PeaZip'i UAC yükseltmesi ile mi çalıştırmak istiyorsunuz?
 TXT_9_9_kdf: KDF rounds
 txt_9_9_utc: Zamanı UTC olarak göster
