@@ -33,9 +33,9 @@ function priv_main
 function pub_build
 (
     git submodule update --init --recursive --force --remote
-    lazbuild --add-package 'use/metadarkstyle/metadarkstyle.lpk'
-    lazbuild 'peazip-sources/dev/project_peach.lpi'
-    lazbuild 'peazip-sources/dev/project_pea.lpi'
+    lazbuild --add-package-link 'use/metadarkstyle/metadarkstyle.lpk'
+    lazbuild --no-write-project --recursive --no-write-project --widgetset=qt5 'peazip-sources/dev/project_peach.lpi'
+    lazbuild --no-write-project --recursive --no-write-project --widgetset=qt5 'peazip-sources/dev/project_pea.lpi'
 )
 
 priv_main "${@}"
