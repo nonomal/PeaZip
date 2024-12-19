@@ -16,8 +16,83 @@
       </XPManifest>
       <Icon Value="0"/>
     </General>
-    <BuildModes Count="1">
+    <BuildModes Count="3" Active="Debug">
       <Item1 Name="default" Default="True"/>
+      <Item2 Name="Debug">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <PathDelim Value="\"/>
+          <Target>
+            <Filename Value="peazip"/>
+          </Target>
+          <SearchPaths>
+            <SrcPath Value="$(LazarusDir)\lcl;$(LazarusDir)\lcl\interfaces\$(LCLWidgetType)"/>
+          </SearchPaths>
+          <Parsing>
+            <SyntaxOptions>
+              <CStyleOperator Value="False"/>
+              <IncludeAssertionCode Value="True"/>
+            </SyntaxOptions>
+          </Parsing>
+          <CodeGeneration>
+            <Checks>
+              <IOChecks Value="True"/>
+              <RangeChecks Value="True"/>
+              <OverflowChecks Value="True"/>
+              <StackChecks Value="True"/>
+            </Checks>
+            <VerifyObjMethodCallValidity Value="True"/>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <DebugInfoType Value="dsDwarf3"/>
+              <UseHeaptrc Value="True"/>
+              <TrashVariables Value="True"/>
+              <UseExternalDbgSyms Value="True"/>
+            </Debugging>
+            <Options>
+              <Win32>
+                <GraphicApplication Value="True"/>
+              </Win32>
+            </Options>
+          </Linking>
+        </CompilerOptions>
+      </Item2>
+      <Item3 Name="Release">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <PathDelim Value="\"/>
+          <Target>
+            <Filename Value="peazip"/>
+          </Target>
+          <SearchPaths>
+            <SrcPath Value="$(LazarusDir)\lcl;$(LazarusDir)\lcl\interfaces\$(LCLWidgetType)"/>
+          </SearchPaths>
+          <Parsing>
+            <SyntaxOptions>
+              <CStyleOperator Value="False"/>
+            </SyntaxOptions>
+          </Parsing>
+          <CodeGeneration>
+            <SmartLinkUnit Value="True"/>
+            <Optimizations>
+              <OptimizationLevel Value="3"/>
+            </Optimizations>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <GenerateDebugInfo Value="False"/>
+              <RunWithoutDebug Value="True"/>
+            </Debugging>
+            <LinkSmart Value="True"/>
+            <Options>
+              <Win32>
+                <GraphicApplication Value="True"/>
+              </Win32>
+            </Options>
+          </Linking>
+        </CompilerOptions>
+      </Item3>
     </BuildModes>
     <PublishOptions>
       <Version Value="2"/>
@@ -51,7 +126,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="19"/>
         <TopLine Value="7"/>
-        <CursorPos X="27" Y="18"/>
+        <CursorPos X="19" Y="18"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -84,7 +159,7 @@
         <Filename Value="pea_utils.pas"/>
         <EditorIndex Value="18"/>
         <TopLine Value="515"/>
-        <CursorPos X="66" Y="537"/>
+        <CursorPos X="60" Y="537"/>
         <UsageCount Value="100"/>
         <Loaded Value="True"/>
       </Unit3>
@@ -127,7 +202,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
         <EditorIndex Value="3"/>
-        <CursorPos X="29" Y="6"/>
+        <CursorPos Y="6"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -141,7 +216,7 @@
         <UnitName Value="Unit2"/>
         <EditorIndex Value="4"/>
         <TopLine Value="31"/>
-        <CursorPos X="33" Y="33"/>
+        <CursorPos X="13" Y="33"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -155,7 +230,7 @@
         <UnitName Value="Unit3"/>
         <EditorIndex Value="5"/>
         <TopLine Value="190"/>
-        <CursorPos X="15" Y="193"/>
+        <CursorPos Y="193"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -186,7 +261,7 @@
         <UnitName Value="Unit5"/>
         <EditorIndex Value="6"/>
         <TopLine Value="221"/>
-        <CursorPos X="54" Y="226"/>
+        <CursorPos X="28" Y="226"/>
         <UsageCount Value="202"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -200,7 +275,7 @@
         <UnitName Value="Unit6"/>
         <EditorIndex Value="7"/>
         <TopLine Value="33"/>
-        <CursorPos X="16" Y="44"/>
+        <CursorPos X="10" Y="44"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -563,7 +638,7 @@
         <UnitName Value="Unit8"/>
         <EditorIndex Value="9"/>
         <TopLine Value="22"/>
-        <CursorPos X="39" Y="36"/>
+        <CursorPos X="25" Y="36"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -634,7 +709,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit9"/>
         <EditorIndex Value="10"/>
-        <CursorPos X="55" Y="3"/>
+        <CursorPos X="15" Y="3"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -648,7 +723,7 @@
         <UnitName Value="Unit10"/>
         <EditorIndex Value="11"/>
         <TopLine Value="35"/>
-        <CursorPos X="20" Y="36"/>
+        <CursorPos Y="36"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -667,7 +742,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit11"/>
         <EditorIndex Value="12"/>
-        <CursorPos X="59" Y="4"/>
+        <CursorPos Y="4"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -778,7 +853,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit12"/>
         <EditorIndex Value="13"/>
-        <CursorPos X="41" Y="10"/>
+        <CursorPos Y="10"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -792,7 +867,7 @@
         <UnitName Value="Unit13"/>
         <EditorIndex Value="14"/>
         <TopLine Value="6"/>
-        <CursorPos X="95" Y="12"/>
+        <CursorPos Y="12"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
