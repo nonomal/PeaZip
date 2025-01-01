@@ -11,3 +11,4 @@ As general suggestion, File > Get info screen allows to drag&drop a custom icon 
 WINDOWS
 On Windows systems, replacing the .ico and .icl files in this folder changes PeaZip system icons for context menu and file type associations.
 Windows may need to rebuild its icon cache before showing the updated icons, in this case please refer to a guide for your specific system version https://www.google.com/search?q=rebuild+icon+cache+windows
+
