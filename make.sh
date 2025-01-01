@@ -17,7 +17,7 @@ function priv_lazbuild
             debian | ubuntu)
                 printf '\x1b[32mInstall Lazarus.\x1b[0m\n' 1>&2
                 sudo apt-get update
-                sudo apt-get install -y lazarus{-ide-qt6,}
+                sudo apt-get install -y lazarus{-ide-qt5,}
                 ;;
         esac
     fi
@@ -52,7 +52,7 @@ function priv_lazbuild
         declare -A VAR=(
             [out]=$(mktemp)
         )
-        if (lazbuild --recursive --no-write-project --widgetset='qt6' --build-all "${REPLY}" > "${VAR[out]}"); then
+        if (lazbuild --recursive --no-write-project --widgetset='qt5' --build-all "${REPLY}" > "${VAR[out]}"); then
             printf '\x1b[32m\t[%s]\tbuild project\t%s\x1b[0m\n' "${?}" "${REPLY}"
             grep --color='always' 'Linking' "${VAR[out]}"
         else
