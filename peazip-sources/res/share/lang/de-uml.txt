@@ -3,11 +3,11 @@ German - Deutsch
 10.2
 Translated by: Vacon
 Last rev. by: Andrain
-Last rev.: 20241116
+Last rev.: 20250101
 
 === PeaZip text group ===
 
-txt_10_2_savecopy: Save a copy
+txt_10_2_savecopy: Kopie speichern
 txt_10_1_full: Voll
 txt_10_1_kdfw: KDF-Arbeitslast
 txt_10_1_under: Unterstrichen
