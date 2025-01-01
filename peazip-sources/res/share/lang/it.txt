@@ -1,12 +1,13 @@
 ﻿=== PeaZip language file ===
 Italian - Italiano
-10.1
+10.2
 Tradotto da: Giorgio Tani
 Ultima rev. di: Giorgio Tani
-Ultima rev.: 20241106
+Ultima rev.: 20241216
 
 === PeaZip text group ===
 
+txt_10_2_savecopy: Salva una copia
 txt_10_1_full: Completo
 txt_10_1_kdfw: Carico di lavoro KDF
 txt_10_1_under: Sottolineato

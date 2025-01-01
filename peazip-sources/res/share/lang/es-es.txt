@@ -1,12 +1,13 @@
 ﻿=== PeaZip language file ===
 Spanish - Español
-10.1
+10.2
 Traducido por: Francisco Javier F. Serrador, Mario López, Nosi_982, Anonymous, José M. Ciordia, ChrisTVH
 Última rev. Por: ChrisTVH
 Última rev.: 8/12/2023
 
 === PeaZip text group ===
 
+txt_10_2_savecopy: Save a copy
 txt_10_1_full: Full
 txt_10_1_kdfw: KDF work load
 txt_10_1_under: Underlined

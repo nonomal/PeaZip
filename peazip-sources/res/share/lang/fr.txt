@@ -1,12 +1,13 @@
 ﻿=== PeaZip language file ===
 Français
-10.1
+10.2
 Traduit par: Drake4478
 Dernière version par: Drake4478
 Date du: 12.11.2024
 
 === PeaZip text group ===
 
+txt_10_2_savecopy: Save a copy
 txt_10_1_full: Complet
 txt_10_1_kdfw: KDF charge de travail
 txt_10_1_under: Souligné

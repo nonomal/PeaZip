@@ -1,12 +1,13 @@
 ﻿=== PeaZip language file ===
 Portuguese (Portugal) - Português
-10.1
+10.2
 Tradução: Hugo Carvalho, José Carlos, Sérgio Marques
 Revisão: Hugo Carvalho
 Revisto em: 20241029
 
 === PeaZip text group ===
 
+txt_10_2_savecopy: Save a copy
 txt_10_1_full: Full
 txt_10_1_kdfw: KDF work load
 txt_10_1_under: Underlined

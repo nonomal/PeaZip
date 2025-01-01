@@ -1,12 +1,13 @@
 ﻿=== PeaZip language file ===
 Česky
-10.1
+10.2
 Translated by: José Sabata
 Last rev. by: José Sabata
 Last rev.: 20150505
 
 === PeaZip text group ===
 
+txt_10_2_savecopy: Save a copy
 txt_10_1_full: Full
 txt_10_1_kdfw: KDF work load
 txt_10_1_under: Underlined

@@ -1,12 +1,13 @@
 ﻿=== PeaZip language file ===
 Greek - Ελληνικά
-10.1
+10.2
 Translated by: George Georgiou (geonetor@yahoo.gr)
 Last rev. by: George Georgiou
 Last rev.: 20201229
 
 === PeaZip text group ===
 
+txt_10_2_savecopy: Save a copy
 txt_10_1_full: Full
 txt_10_1_kdfw: KDF work load
 txt_10_1_under: Underlined

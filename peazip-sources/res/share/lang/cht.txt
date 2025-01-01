@@ -1,12 +1,13 @@
 ﻿=== PeaZip language file ===
 Chinese Traditional - 繁體中文
-10.1
+10.2
 譯者: Sophina Liu, Hsiu-Ming Chang, @ifloppy
 Last rev. by: @ifloppy
 Last rev.: 20240126
 
 === PeaZip text group ===
 
+txt_10_2_savecopy: Save a copy
 txt_10_1_full: Full
 txt_10_1_kdfw: KDF work load
 txt_10_1_under: Underlined
