@@ -206,5 +206,9 @@ Store symbolic links as links (WIM, TAR)
 0
 
 9.9.0 EXTENSION
-Level of extra KDF rounds for PEA cascaded encryption
+KDF work load for PEA cascaded encryption
+0
+
+10.1.0 EXTENSION
+KDF type for PEA cascaded encryption
 0
