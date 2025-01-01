@@ -3,11 +3,11 @@ Français
 10.2
 Translated by: Jean-Michel Coinus
 Last rev. by: Jean-Michel Coinus
-Last rev.: 20241112
+Last rev.: 20250101
 
 === PeaZip text group ===
 
-txt_10_2_savecopy: Save a copy
+txt_10_2_savecopy: Enregistrer une copie
 txt_10_1_full: Intégral
 txt_10_1_kdfw: Impact KDF
 txt_10_1_under: Souligné
