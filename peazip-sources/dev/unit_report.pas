@@ -42,7 +42,7 @@ unit Unit_report;
  0.23     20101105  G.Tani      Updated look and feel
  0.24     20200414  G.Tani      New function to save crc/hash value(s) to file
  0.25     20210502  G.Tani      Batch and hidden *_report modes now save report to output path without requiring user interaction
- 0.26     20231206  G.Tani      Updated theming
+ 0.26     20231216  G.Tani      Updated theming
 
 (C) Copyright 2006 Giorgio Tani giorgio.tani.software@gmail.com
 The program is released under GNU LGPL http://www.gnu.org/licenses/lgpl.txt
@@ -86,11 +86,13 @@ type
     Label3: TLabel;
     Label4: TLabel;
     LabelCase: TLabel;
+    LabelSave1: TLabel;
+    LabelSaveTxt: TLabel;
     LabelTitleREP1: TLabel;
     LabelSave: TLabel;
-    LabelSaveTxt: TLabel;
+    LabelSaveTsv: TLabel;
     LabelSave2: TLabel;
-    LabelSaveTxt1: TLabel;
+    LabelSaveCsv: TLabel;
     LabelTitleREP2: TLabel;
     Memo1: TMemo;
     MenuItem1: TMenuItem;
@@ -118,7 +120,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure LabelCaseClick(Sender: TObject);
-    procedure LabelSaveTxt1Click(Sender: TObject);
+    procedure LabelSaveCsvClick(Sender: TObject);
+    procedure LabelSaveTsvClick(Sender: TObject);
     procedure LabelSaveTxtClick(Sender: TObject);
     procedure LabelTitleREP1Click(Sender: TObject);
     procedure LabelTitleREP1MouseEnter(Sender: TObject);
@@ -328,7 +331,7 @@ x,y:dword;
 field_delim:string;
 p:ansistring;
 begin
-if reptype='txt' then field_delim:=chr($09)
+if (reptype='txt') or (reptype='tsv') then field_delim:=chr($09)
 else field_delim:=csvsep;
 
 if upcase(modparam)='INTERACTIVE_REPORT' then //interactive
@@ -336,7 +339,8 @@ if upcase(modparam)='INTERACTIVE_REPORT' then //interactive
    {$IFDEF MSWINDOWS}wingetdesk(p);{$ELSE}get_desktop_path(p);{$ENDIF}
    if p[length(p)]<>directoryseparator then p:=p+directoryseparator;
    s:=formatdatetime('yyyymmdd_hh.nn.ss_',now)+s+'.'+reptype;
-   Form_report.SaveDialog1.FileName:=p+s;
+   Form_report.SaveDialog1.FileName:=s;
+   Form_report.SaveDialog1.InitialDir:=p;
    if directoryexists(p) then Form_report.SaveDialog1.InitialDir:=p;
    if Form_report.SaveDialog1.Execute then s:=Form_report.SaveDialog1.FileName
    else s:='';
@@ -513,9 +517,14 @@ clicklabel_rep(LabelTitleREP2,ShapeTitleREPb2);
 if orig_activelabel_rep=LabelTitleREP1 then clicklabel_rep(LabelTitleREP1,ShapeTitleREPb1);
 end;
 
-procedure TForm_report.LabelSaveTxt1Click(Sender: TObject);
+procedure TForm_report.LabelSaveCsvClick(Sender: TObject);
 begin
 save_report(Form_report.Caption,'csv','INTERACTIVE_REPORT','');
+end;
+
+procedure TForm_report.LabelSaveTsvClick(Sender: TObject);
+begin
+save_report(Form_report.Caption,'tsv','INTERACTIVE_REPORT','');
 end;
 
 procedure TForm_report.LabelSaveTxtClick(Sender: TObject);

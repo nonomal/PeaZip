@@ -151,7 +151,8 @@ unit Unit_gwrap;
  1.09     20210923  G.Tani      Merged patches for Darwin support
                                 Optimized memory usage for progress and report streams
  1.10     20240204  G.Tani      Improved translations loading
- 1.10     20241006  G.Tani      10.x GUI update
+ 1.11     20241006  G.Tani      10.x GUI update
+ 1.12     20241216  G.Tani      It is now possible to delete input files from Options tab after execution of task, i.e. to delete faulty archive failing test
 
 (C) Copyright 2006 Giorgio Tani giorgio.tani.software@gmail.com
 
@@ -191,7 +192,6 @@ type
   TForm_gwrap = class(TForm)
     ButtonStop1: TSpeedButton;
     ButtonStopAll: TBitBtn;
-    cbAutoOpen: TCheckBox;
     CheckBoxHalt: TCheckBox;
     Image1: TImage;
     ImageButton2: TLabel;
@@ -200,6 +200,7 @@ type
     Button1: TBitBtn;
     ButtonStop: TBitBtn;
     ButtonPause: TBitBtn;
+    ldeleteinput: TLabel;
     l1: TLabel;
     l2: TLabel;
     l3: TLabel;
@@ -223,11 +224,16 @@ type
     LabelWarning1: TLabel;
     Memo1: TMemo;
     Memo2: TMemo;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
     pmmactm: TMenuItem;
     pmgnometm: TMenuItem;
     pmkdetm: TMenuItem;
     pmtop: TMenuItem;
     pmwintm: TMenuItem;
+    PopupMenu3: TPopupMenu;
     Separator1: TMenuItem;
     pmet: TMenuItem;
     pm2et: TMenuItem;
@@ -293,7 +299,6 @@ type
     TrayIcon1: TTrayIcon;
     procedure ButtonStop1Click(Sender: TObject);
     procedure ButtonStopAllClick(Sender: TObject);
-    procedure cbAutoOpenClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormDestroy(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -322,6 +327,11 @@ type
     procedure LabelTitle4MouseEnter(Sender: TObject);
     procedure LabelTitle4MouseLeave(Sender: TObject);
     procedure LabelWarning1Click(Sender: TObject);
+    procedure ldeleteinputClick(Sender: TObject);
+    procedure MenuItem1Click(Sender: TObject);
+    procedure MenuItem2Click(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);
+    procedure MenuItem4Click(Sender: TObject);
     procedure pm2cancelallClick(Sender: TObject);
     procedure pm2cancelClick(Sender: TObject);
     procedure pm2eiClick(Sender: TObject);
@@ -388,13 +398,13 @@ var
   cl,cl1,outpath,executable_path,resource_path,binpath,sharepath,graphicsfolder,dummy,Color1,Color2,Color3,
   Color4,Color5,caption_build,delimiter,confpath,peazippath,in_name,rarcomment,ppipepw:ansistring;
   insize,progress,pinsize:qword;
-  opacity,desk_env,pcount,optype,filesizebase,pautoclose:byte;
+  opacity,desk_env,pcount,optype,filesizebase,pautoclose,perasepasses:byte;
   T,conf:text;
   f:file of byte;
   tsin:TTimestamp;
   activelabel_launcher :TLabel;
   //imported strings
-  txt_7_4_recover,txt_rr,txt_7_8_dd,txt_8_2_keep:ansistring;
+  txt_7_4_recover,txt_rr,txt_7_8_dd,txt_8_2_keep,txt_2_5_delete:ansistring;
   //translations
   txt_6_9_remaining,txt_6_5_abort,txt_6_5_error,txt_6_5_no,txt_6_5_yes,txt_6_5_yesall,txt_6_5_warning,
   txt_5_6_update,txt_5_6_cml,txt_5_6_donations,txt_5_6_localization,txt_5_6_runasadmin,
@@ -416,7 +426,7 @@ var
   txt_2_3_keyfile,txt_2_3_kf_not_found_gwrap,txt_2_3_moreoptions,txt_2_3_nopaths,
   txt_2_3_pw,txt_2_3_skipexisting,txt_2_3_overexisting,txt_2_3_renameextracted,
   txt_2_3_renameexisting,txt_2_3_options,
-  txt_status,txt_jobstatus,txt_rating,txt_threads,txt_input,
+  txt_status,txt_jobstatus,txt_rating,txt_threads,txt_input,txt_delete,
   txt_output,txt_time,txt_isrunning,txt_autoclose,txt_halt,txt_report,txt_console,
   txt_explore,txt_ok,txt_stop,txt_pause,txt_rt,txt_high,txt_normal,txt_idle,txt_priority,
   txt_savejob,txt_savelog,txt_bench,txt_saveas,txt_job_success,txt_job1,txt_job2,
@@ -742,7 +752,6 @@ LabelTitle2.Caption:='      '+txt_report+'      ';
 LabelTitle3.Caption:='      '+txt_console+'      ';
 LabelTitle4.Caption:='      '+txt_2_3_options+'      ';
 CheckBoxHalt.Caption:=txt_halt;
-cbAutoOpen.Caption:=txt_2_8_oop;
 Button1.Caption:='   '+txt_ok+'   ';
 ButtonStop.Caption:='   '+txt_2_3_cancel+'   ';
 ButtonStopAll.Caption:='   '+txt_5_5_cancelall+'   ';
@@ -1690,7 +1699,8 @@ Form_gwrap.ShapeProgress.Width:=3;
 progress:=0;
 Form_gwrap.Memo2.Clear;
 Form_gwrap.Memo2.Lines.Append(cl);
-Form_gwrap.LabelTitle4.Visible:=true;
+//Form_gwrap.LabelTitle4.Visible:=false;
+Form_gwrap.ldeleteinput.Visible:=false;
 ipercp:=0;
 iperc:=0;
 remtime:=0;
@@ -2145,7 +2155,9 @@ if Form_gwrap.CheckBoxHalt.State=cbChecked then
 if autoopen=1 then
    if (modeofuse<>1) and (modeofuse<>4) and (modeofuse<>5) and (modeofuse<>2) then
       if (psubfun<>'extract') and (psubfun<>'convert') then explore_out(''); //deferred (in peach unit) to let run move after extraction operations if needed
-Form_gwrap.LabelTitle4.Visible:=false;
+//Form_gwrap.LabelTitle4.Visible:=true;
+Form_gwrap.ldeleteinput.caption:=txt_2_5_delete+' '+ExtractFileName(in_name);
+if in_name='' then Form_gwrap.ldeleteinput.visible:=false else Form_gwrap.ldeleteinput.visible:=true;
 Form_gwrap.PanelTitlePLTabAlign.Width:=getalignw(3);
 end;
 
@@ -2309,12 +2321,6 @@ end;
 procedure TForm_gwrap.ButtonStopAllClick(Sender: TObject);
 begin
 gostopall;
-end;
-
-procedure TForm_gwrap.cbAutoOpenClick(Sender: TObject);
-begin
-if autoopen=1 then autoopen:=0
-else autoopen:=1;
 end;
 
 procedure TForm_gwrap.FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -2733,6 +2739,69 @@ else
 s:=s+char($0D)+char($0A)+char($0D)+char($0A)+txt_3_0_details;
 if stopped=true then s:=txt_jobstopped+char($0D)+char($0A)+char($0D)+char($0A)+txt_3_0_details;
 pMessageWarningOK(s);
+end;
+
+procedure erase_fromlauncher(erasemode:integer);//0: quick delete 1: secure delete 2: zero delete 3: recycle (Windows, macOS)
+var
+   P:tprocessutf8;
+   bin_name,in_param,eraselevel,s,cl:ansistring;
+begin
+if in_name='' then exit;
+if erasemode<>3 then
+   if pMessageWarningYesNo(txt_delete+char($0D)+char($0A)+char($0D)+char($0A)+in_name)<>6 then exit;
+P:=tprocessutf8.Create(nil);
+in_param:=stringdelim(escapefilename(in_name,desk_env));
+bin_name:=stringdelim(escapefilename(executable_path,desk_env)+'pea'+EXEEXT);
+if in_param<>'' then
+   if in_param[length(in_param)]='*' then exit;//additional security against unexpected errors: input must be a file
+if in_param<>'' then
+   if in_param[length(in_param)]=DirectorySeparator then exit;//additional security against unexpected errors: input must be a file
+case perasepasses of
+   0: eraselevel:='VERY_FAST';
+   1: eraselevel:='FAST';
+   2: eraselevel:='MEDIUM';
+   3: eraselevel:='SLOW';
+   4: eraselevel:='VERY_SLOW';
+   end;
+if erasemode=0 then eraselevel:='QUICK';
+if erasemode=2 then eraselevel:='ZERO';
+if erasemode=3 then eraselevel:='RECYCLE';
+{$IFDEF MSWINDOWS}P.Options := [poNoConsole, poWaitOnExit];{$ELSE}P.Options := [poWaitOnExit];{$ENDIF}
+cl:=bin_name+' WIPE '+eraselevel+' '+in_param;
+P.CommandLine:=cl;
+if validatecl(cl)<>0 then begin pMessageWarningOK(txt_2_7_validatecl+' '+cl); exit; end;
+P.Execute;
+P.Free;
+end;
+
+procedure TForm_gwrap.ldeleteinputClick(Sender: TObject);
+var
+   p:TPoint;
+begin
+p.x:=ldeleteinput.Left;
+p.y:=page4.top+ldeleteinput.top+ldeleteinput.Height;
+p:=clienttoscreen(p);
+popupmenu3.popup(p.x,p.y);
+end;
+
+procedure TForm_gwrap.MenuItem1Click(Sender: TObject);
+begin
+erase_fromlauncher(3);
+end;
+
+procedure TForm_gwrap.MenuItem2Click(Sender: TObject);
+begin
+erase_fromlauncher(0);
+end;
+
+procedure TForm_gwrap.MenuItem3Click(Sender: TObject);
+begin
+erase_fromlauncher(2);
+end;
+
+procedure TForm_gwrap.MenuItem4Click(Sender: TObject);
+begin
+erase_fromlauncher(1);
 end;
 
 procedure TForm_gwrap.pm2cancelallClick(Sender: TObject);

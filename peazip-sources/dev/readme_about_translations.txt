@@ -1,4 +1,4 @@
-﻿Notes to 10.1 release
+﻿Notes to 10.2 release
 
 No existing text was modified.
 

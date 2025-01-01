@@ -1,4 +1,4 @@
-TO INSTALL PEAZIP ON MACOS
+HOW TO INSTALL PEAZIP ON MACOS
 
 1) Open PeaZip's DMG and drop peazip.app in Applications directory
 2) Open Terminal, paste and run the following command:
@@ -13,9 +13,20 @@ Running the aforementioned xattr command is needed to remove the "quarantine" at
 
 OPTIONAL: MACOS SERVICE MENUS
 
-Directory "macOS service menus" contains Automator .workflow scripts of context menu items for quickly sending the items selected in Finder to to main PeaZip functions: add to archive, extract (with full options), extract here (without further interaction), and open file or folder with PeaZip.
+The link "macOS service menus alias" in the package root contains Automator .workflow service menu scripts for quickly sending the items selected in Finder to main PeaZip functions, in example add to archive, extract, extract here, open file or folder with PeaZip, etc.
+
+The link points to the folder with the same name in the installed peazip.app, in 
+/Applications/peazip.app/Contents/Resources/share/batch/macOS service menus/
+So, applying the correct attributes to the app with xattr (as explained in the previous point) also applies the attributes to those items, allowing them to be correctly installed.
+
 To install a .workflow item, double-click on it.
-To uninstall a .workflow item, follow system's instruction from context menu customization entry or simply delete it from user's home folder ˜/Library/Services/ directory (which is hidden by default).
+To uninstall a .workflow item, follow system's instruction from context menu customization entry or simply delete or move it from user's home folder ˜/Library/Services/ directory (which is hidden by default, as alternative to Finder it can be conveniently browsed with PeaZip).
+
+
+OPTIONAL: CUSTOMIZE APP ICON
+
+The icon displayed while running the app is hardcoded at compile time, it can be changed with Lazarus IDE from Project Options (applies globally to all forms) or changing the icon for each form.
+The icon displayed in the dock (while app is not running), in Launcher, and in Finder can be customized replacing the app icon (i.e. from Get Info) with one of the .icns files provided in /Applications/peazip.app/Contents/Resources/share/icons folder inside peazip.app (rightclick the app and select "show content" in Finder).
 
 
 MORE INFORMATION

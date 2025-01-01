@@ -261,8 +261,21 @@ begin
   else piter:=1;
   end;
 
+  if tkdf='hybrid' then
+  case niter of
+  1: intiter:=200000+75000;
+  2: intiter:=500000+75000;
+  3: intiter:=1000000+75000;
+  4: intiter:=2000000+75000;
+  5: intiter:=5000000+75000;
+  6: intiter:=10000000+75000;
+  7: intiter:=25000000+75000;
+  else intiter:=75000;
+  end;
+
   {derive the EAX key / nonce and pw verifier}
-    case tkdf of
+  case tkdf of
+  'hybrid': Err := pbkdf2(FindHash_by_ID(_SHA3_512), pPW, pLen, @hdr.salt, sizeof(TFCS256Salt), intiter, XKey, sizeof(XKey));
   'scrypt': Err := scrypt_kdf(pPW, pLen, @hdr.salt, sizeof(TFCS256Salt), memiter, 8, piter, XKey, sizeof(XKey));
   'pbkdf2': Err := pbkdf2(FindHash_by_ID(_SHA3_512), pPW, pLen, @hdr.salt, sizeof(TFCS256Salt), intiter, XKey, sizeof(XKey));
   else

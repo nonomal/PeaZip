@@ -108,7 +108,7 @@ type
 
 const
 PEA_FILEFORMAT_VER = 1;
-PEA_FILEFORMAT_REV = 5; //version and revision declared to be implemented must match with the ones in unit_pea, otherwise a warning will be raised (unit_pea)
+PEA_FILEFORMAT_REV = 6; //version and revision declared to be implemented must match with the ones in unit_pea, otherwise a warning will be raised (unit_pea)
 SUCCESS = 0;
 INCOMPLETE_FUNCTION = 1;
 NOT_PEA_HEADER = 2;
@@ -1185,6 +1185,9 @@ case read_data[8] of
   71: algo:='SRIATS'; //hex 47
   72: algo:='SRITSA'; //hex 48
   73: algo:='SRISAT'; //hex 49
+  74: algo:='HRIATS'; //hex 4A
+  75: algo:='HRITSA'; //hex 4B
+  76: algo:='HRISAT'; //hex 4C
    else
       begin
       pea_parse_stream_header:=UNKNOWN_CONTROL_ALGORITHM;
@@ -1428,7 +1431,7 @@ else
          try niter:=strtoint(copy((algo),7,length(algo)-6)) except end;
       end;
    case nalgo of
-      'TRIATS','TRITSA','TRISAT','SRIATS','SRITSA','SRISAT':
+      'TRIATS','TRITSA','TRISAT','SRIATS','SRITSA','SRISAT','HRIATS','HRITSA','HRISAT':
       begin
       algo:=nalgo;
       headersize:=10+16+16+16;
@@ -1542,6 +1545,9 @@ case upcase(stream_control_algorithm) of
    'SRIATS': code:=$47;
    'SRITSA': code:=$48;
    'SRISAT': code:=$49;
+   'HRIATS': code:=$4A;
+   'HRITSA': code:=$4B;
+   'HRISAT': code:=$4C;
    else encode_algo_stream:=UNKNOWN_CONTROL_ALGORITHM;
    end;
 if encode_algo_stream=INCOMPLETE_FUNCTION then encode_algo_stream:=SUCCESS;

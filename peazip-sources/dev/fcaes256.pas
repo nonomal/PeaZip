@@ -274,6 +274,7 @@ begin
 
   {derive the EAX key / nonce and pw verifier}
   case tkdf of
+  'hybrid': Err := scrypt_kdf(pPW, pLen, @hdr.salt, sizeof(TFCA256Salt), memiter, 8, piter, XKey, sizeof(XKey));
   'scrypt': Err := scrypt_kdf(pPW, pLen, @hdr.salt, sizeof(TFCA256Salt), memiter, 8, piter, XKey, sizeof(XKey));
   'pbkdf2': Err := pbkdf2(FindHash_by_ID(_Whirlpool), pPW, pLen, @hdr.salt, sizeof(TFCA256Salt), intiter, XKey, sizeof(XKey));
   else

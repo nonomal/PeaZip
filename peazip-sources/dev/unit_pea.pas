@@ -217,6 +217,10 @@ unit Unit_pea;
                                 (Windows) Fixed moving to recycle bin items from paths containing extended characters
  1.21     20241105  G.Tani      Recompiled with updated theming
                                 1.5 PEA file format revision introducing scrypt as optional KDF in alternative to PBKDF2 for all triple cascaded encryption modes, scrypt can be set to use from 64MB (default) to 1024MB memory, r set to 8, paralelism 1 to 8 (KDF is repeated for each of the tree layers of encryption)
+ 1.22     20241225  G.Tani      1.6 PEA file format revision introducing hybrid KDF for triple cascaded encryption: AES uses scrypt KDF, Twofish uses scrypt KDF with same memory (half N, double r) and same parallelism, Serpent uses PBKDF2 (SHA3 512 bit) with number of iterations increasing accordingly the work load factor of the KDF
+                                Added option to save reports in TSV format
+                                Improved text preview, 20% faster with -40% memory usage.
+                                Updated icons
 
 (C) Copyright 2006 Giorgio Tani giorgio.tani.software@gmail.com
 
@@ -399,10 +403,10 @@ type
   Type fileofbyte = file of byte;
 
 const
-  P_RELEASE          = '1.21'; //declares release version for the whole build
-  PEAUTILS_RELEASE   = '1.3'; //declares for reference last peautils release
+  P_RELEASE          = '1.22'; //declares release version for the whole build
+  //PEAUTILS_RELEASE   = '1.3'; //declares for reference last peautils release
   PEA_FILEFORMAT_VER = 1;
-  PEA_FILEFORMAT_REV = 5; //version and revision declared to be implemented must match with the ones in pea_utils, otherwise a warning will be raised (form caption)
+  PEA_FILEFORMAT_REV = 6; //version and revision declared to be implemented must match with the ones in pea_utils, otherwise a warning will be raised (form caption)
   SBUFSIZE           = 65535;//32768;
   {32KB of size for reading small buffers, used for ciphers and hashes}
   WBUFSIZE           = 1048576;
@@ -1072,19 +1076,19 @@ procedure update_control_algo(var buf:array of byte; size:word);
 var k:integer;
 begin
 case upcase(algo) of
-'TRIATS','SRIATS':
+'TRIATS','SRIATS','HRIATS':
 begin
 if FCA_EAX256_encrypt(cxe, buf, size)<>0 then internal_error('Stream control algorithm: error in '+algo+' update');
 if FCF_EAX256_encrypt(cxf, buf, size)<>0 then internal_error('Stream control algorithm: error in '+algo+' update');
 if FCS_EAX256_encrypt(cxs, buf, size)<>0 then internal_error('Stream control algorithm: error in '+algo+' update');
 end;
-'TRITSA','SRITSA':
+'TRITSA','SRITSA','HRITSA':
 begin
 if FCF_EAX256_encrypt(cxf, buf, size)<>0 then internal_error('Stream control algorithm: error in '+algo+' update');
 if FCS_EAX256_encrypt(cxs, buf, size)<>0 then internal_error('Stream control algorithm: error in '+algo+' update');
 if FCA_EAX256_encrypt(cxe, buf, size)<>0 then internal_error('Stream control algorithm: error in '+algo+' update');
 end;
-'TRISAT','SRISAT':
+'TRISAT','SRISAT','HRISAT':
 begin
 if FCS_EAX256_encrypt(cxs, buf, size)<>0 then internal_error('Stream control algorithm: error in '+algo+' update');
 if FCA_EAX256_encrypt(cxe, buf, size)<>0 then internal_error('Stream control algorithm: error in '+algo+' update');
@@ -1154,19 +1158,19 @@ end;
 procedure finish_control_algo;
 begin
 case upcase(algo) of
-'TRIATS','SRIATS':
+'TRIATS','SRIATS','HRIATS':
 begin
 FCA_EAX256_final(cxe, auth);
 FCF_EAX256_final(cxf, auth2);
 FCS_EAX256_final(cxs, auth3);
 end;
-'TRITSA','SRITSA':
+'TRITSA','SRITSA','HRITSA':
 begin
 FCF_EAX256_final(cxf, auth);
 FCS_EAX256_final(cxs, auth2);
 FCA_EAX256_final(cxe, auth3);
 end;
-'TRISAT','SRISAT':
+'TRISAT','SRISAT','HRISAT':
 begin
 FCS_EAX256_final(cxs, auth);
 FCA_EAX256_final(cxe, auth2);
@@ -1349,7 +1353,7 @@ tcapt:=Form_pea.Caption;
 Form_pea.Caption:='RUNNING KDF';
 Application.ProcessMessages;
 case upcase(algo) of
-'TRIATS','TRITSA','TRISAT','SRIATS','SRITSA','SRISAT':
+'TRIATS','TRITSA','TRISAT','SRIATS','SRITSA','SRISAT','HRIATS','HRITSA','HRISAT':
 begin
 for i:=0 to pw_len-1 do tsbuf2[i]:=sbuf2[i]; tpw_len:=pw_len;
 case upcase(algo) of
@@ -1359,6 +1363,9 @@ case upcase(algo) of
    'SRIATS': test_pea_error('creating stream crypto subheader with '+algo,pea_eax256_subhdrP (cxe,persistent_source,fingerprint,ment,kent,fent,7,sbuf2,pw_len,hdr256,sbuf1,num_res,niter,'scrypt'));
    'SRITSA': test_pea_error('creating stream crypto subheader with '+algo,pea_tfeax256_subhdrP (cxf,persistent_source,fingerprint,ment,kent,fent,7,sbuf2,pw_len,fhdr256,sbuf1,num_res,niter,'scrypt'));
    'SRISAT': test_pea_error('creating stream crypto subheader with '+algo,pea_speax256_subhdrP (cxs,persistent_source,fingerprint,ment,kent,fent,7,sbuf2,pw_len,shdr256,sbuf1,num_res,niter,'scrypt'));
+   'HRIATS': test_pea_error('creating stream crypto subheader with '+algo,pea_eax256_subhdrP (cxe,persistent_source,fingerprint,ment,kent,fent,7,sbuf2,pw_len,hdr256,sbuf1,num_res,niter,'hybrid'));
+   'HRITSA': test_pea_error('creating stream crypto subheader with '+algo,pea_tfeax256_subhdrP (cxf,persistent_source,fingerprint,ment,kent,fent,7,sbuf2,pw_len,fhdr256,sbuf1,num_res,niter,'hybrid'));
+   'HRISAT': test_pea_error('creating stream crypto subheader with '+algo,pea_speax256_subhdrP (cxs,persistent_source,fingerprint,ment,kent,fent,7,sbuf2,pw_len,shdr256,sbuf1,num_res,niter,'hybrid'));
 end;
 prog_size:=prog_size+num_res;
 prog_compsize:=prog_compsize+num_res;
@@ -1378,6 +1385,9 @@ case upcase(algo) of
    'SRIATS': test_pea_error('creating stream crypto subheader with '+algo,pea_tfeax256_subhdrP (cxf,persistent_source,fingerprint,ment,kent,fent,7,sbuf2,pw_len,fhdr256,sbuf1,num_res,niter,'scrypt'));
    'SRITSA': test_pea_error('creating stream crypto subheader with '+algo,pea_speax256_subhdrP (cxs,persistent_source,fingerprint,ment,kent,fent,7,sbuf2,pw_len,shdr256,sbuf1,num_res,niter,'scrypt'));
    'SRISAT': test_pea_error('creating stream crypto subheader with '+algo,pea_eax256_subhdrP (cxe,persistent_source,fingerprint,ment,kent,fent,7,sbuf2,pw_len,hdr256,sbuf1,num_res,niter,'scrypt'));
+   'HRIATS': test_pea_error('creating stream crypto subheader with '+algo,pea_tfeax256_subhdrP (cxf,persistent_source,fingerprint,ment,kent,fent,7,sbuf2,pw_len,fhdr256,sbuf1,num_res,niter,'hybrid'));
+   'HRITSA': test_pea_error('creating stream crypto subheader with '+algo,pea_speax256_subhdrP (cxs,persistent_source,fingerprint,ment,kent,fent,7,sbuf2,pw_len,shdr256,sbuf1,num_res,niter,'hybrid'));
+   'HRISAT': test_pea_error('creating stream crypto subheader with '+algo,pea_eax256_subhdrP (cxe,persistent_source,fingerprint,ment,kent,fent,7,sbuf2,pw_len,hdr256,sbuf1,num_res,niter,'hybrid'));
 end;
 prog_size:=prog_size+num_res;
 prog_compsize:=prog_compsize+num_res;
@@ -1397,6 +1407,9 @@ case upcase(algo) of
    'SRIATS': test_pea_error('creating stream crypto subheader with '+algo,pea_speax256_subhdrP (cxs,persistent_source,fingerprint,ment,kent,fent,7,sbuf2,pw_len,shdr256,sbuf1,num_res,niter,'scrypt'));
    'SRITSA': test_pea_error('creating stream crypto subheader with '+algo,pea_eax256_subhdrP (cxe,persistent_source,fingerprint,ment,kent,fent,7,sbuf2,pw_len,hdr256,sbuf1,num_res,niter,'scrypt'));
    'SRISAT': test_pea_error('creating stream crypto subheader with '+algo,pea_tfeax256_subhdrP (cxf,persistent_source,fingerprint,ment,kent,fent,7,sbuf2,pw_len,fhdr256,sbuf1,num_res,niter,'scrypt'));
+   'HRIATS': test_pea_error('creating stream crypto subheader with '+algo,pea_speax256_subhdrP (cxs,persistent_source,fingerprint,ment,kent,fent,7,sbuf2,pw_len,shdr256,sbuf1,num_res,niter,'hybrid'));
+   'HRITSA': test_pea_error('creating stream crypto subheader with '+algo,pea_eax256_subhdrP (cxe,persistent_source,fingerprint,ment,kent,fent,7,sbuf2,pw_len,hdr256,sbuf1,num_res,niter,'hybrid'));
+   'HRISAT': test_pea_error('creating stream crypto subheader with '+algo,pea_tfeax256_subhdrP (cxf,persistent_source,fingerprint,ment,kent,fent,7,sbuf2,pw_len,fhdr256,sbuf1,num_res,niter,'hybrid'));
 end;
 for i:=0 to tpw_len-1 do tsbuf2[i]:=0; tpw_len:=0;
 verw:=hdr256.PW_Ver xor fhdr256.PW_Ver xor shdr256.PW_Ver;
@@ -1572,7 +1585,7 @@ var
 begin
 finish_control_algo;
 case upcase(algo) of
-   'TRIATS','TRITSA','TRISAT','SRIATS','SRITSA','SRISAT':
+   'TRIATS','TRITSA','TRISAT','SRIATS','SRITSA','SRISAT','HRIATS','HRITSA','HRISAT':
    begin
    for k:=0 to 15 do sbuf1[k]:=auth[k];
    for k:=16 to 31 do sbuf1[k]:=auth2[k-16];
@@ -1921,7 +1934,7 @@ write2chunks ( num_res,
                ch_size,
                ch_res);
 case upcase(algo) of
-   'TRIATS','TRITSA','TRISAT','SRIATS','SRITSA','SRISAT': //mask exact archive size extending header 1..128 byte with random data (encrypted)
+   'TRIATS','TRITSA','TRISAT','SRIATS','SRITSA','SRISAT','HRIATS','HRITSA','HRISAT': //mask exact archive size extending header 1..128 byte with random data (encrypted)
    begin
    gen_rand(randarr);
    randarr[0]:=randarr[0] div 2;
@@ -2540,6 +2553,93 @@ if fhdr256.PW_ver<>verw then internal_error('Wrong password or keyfile');
 for i:=0 to pw_len-1 do tsbuf2[i]:=0;
 verw:=0;
 end;
+'HRIATS':
+begin
+for i:=0 to pw_len-1 do tsbuf2[i]:=sbuf2[i];
+hdr256.FCAsig:=hdr.FCAsig;
+hdr256.Flags:=hdr.Flags;
+hdr256.Salt:=hdr.Salt;
+hdr256.PW_Ver:=hdr.PW_Ver;
+hdrd256:=hdr256;
+if FCA_EAX256_initP(cxe, @sbuf2, pw_len, hdrd256, niter, 'hybrid')<>0 then internal_error('Stream control algorithm: error in '+algo+' init');
+fhdr256.FCfsig:=fhdr.FCfsig;
+fhdr256.Flags:=fhdr.Flags;
+fhdr256.Salt:=fhdr.Salt;
+fhdr256.PW_Ver:=fhdr.PW_Ver;
+fhdrd256:=fhdr256;
+for i:=0 to pw_len-1 do sbuf2[i]:=tsbuf2[i] xor (pw_len+i) xor ord(upcase(algo[length(algo)-1]));
+if FCf_EAX256_initP(cxf, @sbuf2, pw_len, fhdrd256, niter, 'hybrid')<>0 then internal_error('Stream control algorithm: error in '+algo+' init');
+shdr256.FCssig:=shdr.FCssig;
+shdr256.Flags:=shdr.Flags;
+shdr256.Salt:=shdr.Salt;
+shdr256.PW_Ver:=shdr.PW_Ver;
+shdrd256:=shdr256;
+for i:=0 to pw_len-1 do sbuf2[i]:=tsbuf2[i];
+for i:=0 to pw_len-1 do sbuf2[i]:=sbuf2[i] xor (pw_len xor i) xor ord(upcase(algo[length(algo)]));
+if FCs_EAX256_initP(cxs, @sbuf2, pw_len, shdrd256, niter, 'hybrid')<>0 then internal_error('Stream control algorithm: error in '+algo+' init');
+verw:=hdrd256.PW_Ver xor fhdrd256.PW_Ver xor shdrd256.PW_Ver;
+if shdr256.PW_ver<>verw then internal_error('Wrong password or keyfile');
+for i:=0 to pw_len-1 do tsbuf2[i]:=0;
+verw:=0;
+end;
+'HRITSA':
+begin
+for i:=0 to pw_len-1 do tsbuf2[i]:=sbuf2[i];
+fhdr256.FCfsig:=fhdr.FCfsig;
+fhdr256.Flags:=fhdr.Flags;
+fhdr256.Salt:=fhdr.Salt;
+fhdr256.PW_Ver:=fhdr.PW_Ver;
+fhdrd256:=fhdr256;
+if FCf_EAX256_initP(cxf, @sbuf2, pw_len, fhdrd256, niter, 'hybrid')<>0 then internal_error('Stream control algorithm: error in '+algo+' init');
+shdr256.FCssig:=shdr.FCssig;
+shdr256.Flags:=shdr.Flags;
+shdr256.Salt:=shdr.Salt;
+shdr256.PW_Ver:=shdr.PW_Ver;
+shdrd256:=shdr256;
+for i:=0 to pw_len-1 do sbuf2[i]:=tsbuf2[i] xor (pw_len+i) xor ord(upcase(algo[length(algo)-1]));
+if FCs_EAX256_initP(cxs, @sbuf2, pw_len, shdrd256, niter, 'hybrid')<>0 then internal_error('Stream control algorithm: error in '+algo+' init');
+hdr256.FCAsig:=hdr.FCAsig;
+hdr256.Flags:=hdr.Flags;
+hdr256.Salt:=hdr.Salt;
+hdr256.PW_Ver:=hdr.PW_Ver;
+hdrd256:=hdr256;
+for i:=0 to pw_len-1 do sbuf2[i]:=tsbuf2[i];
+for i:=0 to pw_len-1 do sbuf2[i]:=sbuf2[i] xor (pw_len xor i) xor ord(upcase(algo[length(algo)]));
+if FCA_EAX256_initP(cxe, @sbuf2, pw_len, hdrd256, niter, 'hybrid')<>0 then internal_error('Stream control algorithm: error in '+algo+' init');
+verw:=hdrd256.PW_Ver xor fhdrd256.PW_Ver xor shdrd256.PW_Ver;
+if hdr256.PW_ver<>verw then internal_error('Wrong password or keyfile');
+for i:=0 to pw_len-1 do tsbuf2[i]:=0;
+verw:=0;
+end;
+'HRISAT':
+begin
+for i:=0 to pw_len-1 do tsbuf2[i]:=sbuf2[i];
+shdr256.FCssig:=shdr.FCssig;
+shdr256.Flags:=shdr.Flags;
+shdr256.Salt:=shdr.Salt;
+shdr256.PW_Ver:=shdr.PW_Ver;
+shdrd256:=shdr256;
+if FCs_EAX256_initP(cxs, @sbuf2, pw_len, shdrd256, niter, 'hybrid')<>0 then internal_error('Stream control algorithm: error in '+algo+' init');
+hdr256.FCAsig:=hdr.FCAsig;
+hdr256.Flags:=hdr.Flags;
+hdr256.Salt:=hdr.Salt;
+hdr256.PW_Ver:=hdr.PW_Ver;
+hdrd256:=hdr256;
+for i:=0 to pw_len-1 do sbuf2[i]:=tsbuf2[i] xor (pw_len+i) xor ord(upcase(algo[length(algo)-1]));
+if FCA_EAX256_initP(cxe, @sbuf2, pw_len, hdrd256, niter, 'hybrid')<>0 then internal_error('Stream control algorithm: error in '+algo+' init');
+fhdr256.FCfsig:=fhdr.FCfsig;
+fhdr256.Flags:=fhdr.Flags;
+fhdr256.Salt:=fhdr.Salt;
+fhdr256.PW_Ver:=fhdr.PW_Ver;
+fhdrd256:=fhdr256;
+for i:=0 to pw_len-1 do sbuf2[i]:=tsbuf2[i];
+for i:=0 to pw_len-1 do sbuf2[i]:=sbuf2[i] xor (pw_len xor i) xor ord(upcase(algo[length(algo)]));
+if FCf_EAX256_initP(cxf, @sbuf2, pw_len, fhdrd256, niter, 'hybrid')<>0 then internal_error('Stream control algorithm: error in '+algo+' init');
+verw:=hdrd256.PW_Ver xor fhdrd256.PW_Ver xor shdrd256.PW_Ver;
+if fhdr256.PW_ver<>verw then internal_error('Wrong password or keyfile');
+for i:=0 to pw_len-1 do tsbuf2[i]:=0;
+verw:=0;
+end;
 'EAX256':
 begin
 hdr256.FCAsig:=hdr.FCAsig;
@@ -2661,19 +2761,19 @@ procedure update_control_algo(var buf:array of byte; size:word);
 var k:integer;
 begin
 case upcase(algo) of
-'TRIATS','SRIATS':
+'TRIATS','SRIATS','HRIATS':
 begin
 if FCS_EAX256_decrypt(cxs, buf, size)<>0 then internal_error('Stream control algorithm: error in '+algo+' update');
 if FCF_EAX256_decrypt(cxf, buf, size)<>0 then internal_error('Stream control algorithm: error in '+algo+' update');
 if FCA_EAX256_decrypt(cxe, buf, size)<>0 then internal_error('Stream control algorithm: error in '+algo+' update');
 end;
-'TRITSA','SRITSA':
+'TRITSA','SRITSA','HRITSA':
 begin
 if FCA_EAX256_decrypt(cxe, buf, size)<>0 then internal_error('Stream control algorithm: error in '+algo+' update');
 if FCS_EAX256_decrypt(cxs, buf, size)<>0 then internal_error('Stream control algorithm: error in '+algo+' update');
 if FCF_EAX256_decrypt(cxf, buf, size)<>0 then internal_error('Stream control algorithm: error in '+algo+' update');
 end;
-'TRISAT','SRISAT':
+'TRISAT','SRISAT','HRISAT':
 begin
 if FCF_EAX256_decrypt(cxf, buf, size)<>0 then internal_error('Stream control algorithm: error in '+algo+' update');
 if FCA_EAX256_decrypt(cxe, buf, size)<>0 then internal_error('Stream control algorithm: error in '+algo+' update');
@@ -2743,19 +2843,19 @@ end;
 procedure finish_control_algo;
 begin
 case upcase(algo) of
-'TRIATS','SRIATS':
+'TRIATS','SRIATS','HRIATS':
 begin
 FCA_EAX256_final(cxe, auth);
 FCF_EAX256_final(cxf, auth2);
 FCS_EAX256_final(cxs, auth3);
 end;
-'TRITSA','SRITSA':
+'TRITSA','SRITSA','HRITSA':
 begin
 FCF_EAX256_final(cxf, auth);
 FCS_EAX256_final(cxs, auth2);
 FCA_EAX256_final(cxe, auth3);
 end;
-'TRISAT','SRISAT':
+'TRISAT','SRISAT','HRISAT':
 begin
 FCS_EAX256_final(cxs, auth);
 FCA_EAX256_final(cxe, auth2);
@@ -2833,7 +2933,7 @@ if upcase(algo)<>'NOALGO' then
    begin
    for k:=0 to authsize-1 do exp_auth[k]:=sbuf1[k];
    case upcase(algo) of
-      'TRIATS','TRITSA','TRISAT','SRIATS','SRITSA','SRISAT':
+      'TRIATS','TRITSA','TRISAT','SRIATS','SRITSA','SRISAT','HRIATS','HRITSA','HRISAT':
       begin
       for k:=0 to authsize-1 do sbuf1[k]:=auth[k];
       for k:=16 to 31 do sbuf1[k]:=auth2[k-16];
@@ -2879,6 +2979,7 @@ if upcase(algo)<>'NOALGO' then
       for k:=0 to authsize-1 do s:=s+hexstr(@sbuf1[k],1);
       if (upcase(algo)='TRIATS') or (upcase(algo)='TRITSA') or (upcase(algo)='TRISAT') or
       (upcase(algo)='SRIATS') or (upcase(algo)='SRITSA') or (upcase(algo)='SRISAT') or
+      (upcase(algo)='HRIATS') or (upcase(algo)='HRITSA') or (upcase(algo)='HRISAT') or
       (upcase(algo)='EAX256') or (upcase(algo)='TF256') or (upcase(algo)='SP256') or
       (upcase(algo)='EAX') or (upcase(algo)='TF') or (upcase(algo)='SP') or (upcase(algo)='HMAC') then Form_pea.LabelDecrypt5.Caption:='Archive''s stream correctly authenticated, tag: '+s
       else Form_pea.LabelDecrypt5.Caption:='Archive''s stream correctly verified';
@@ -3152,7 +3253,7 @@ if pwneeded=true then //initialize AE (appending headers to password)
    begin
    //read AE header
    case upcase(algo) of
-   'TRIATS','TRITSA','TRISAT','SRIATS','SRITSA','SRISAT':
+   'TRIATS','TRITSA','TRISAT','SRIATS','SRITSA','SRISAT','HRIATS','HRITSA','HRISAT':
    begin
    case upcase(algo) of
       'TRIATS': test_pea_error('parsing crypto subheader',pea_parse_crypto_subheader(sbuf1,hdr));
@@ -3161,6 +3262,9 @@ if pwneeded=true then //initialize AE (appending headers to password)
       'SRIATS': test_pea_error('parsing crypto subheader',pea_parse_crypto_subheader(sbuf1,hdr));
       'SRITSA': test_pea_error('parsing crypto subheader',pea_parse_crypto_subheaderf(sbuf1,fhdr));
       'SRISAT': test_pea_error('parsing crypto subheader',pea_parse_crypto_subheaders(sbuf1,shdr));
+      'HRIATS': test_pea_error('parsing crypto subheader',pea_parse_crypto_subheader(sbuf1,hdr));
+      'HRITSA': test_pea_error('parsing crypto subheader',pea_parse_crypto_subheaderf(sbuf1,fhdr));
+      'HRISAT': test_pea_error('parsing crypto subheader',pea_parse_crypto_subheaders(sbuf1,shdr));
       end;
    read_from_chunks ( in_folder,in_name,
                    56,
@@ -3176,6 +3280,9 @@ if pwneeded=true then //initialize AE (appending headers to password)
       'SRIATS': test_pea_error('parsing crypto subheader',pea_parse_crypto_subheaderf(sbuf1,fhdr));
       'SRITSA': test_pea_error('parsing crypto subheader',pea_parse_crypto_subheaders(sbuf1,shdr));
       'SRISAT': test_pea_error('parsing crypto subheader',pea_parse_crypto_subheader(sbuf1,hdr));
+      'HRIATS': test_pea_error('parsing crypto subheader',pea_parse_crypto_subheaderf(sbuf1,fhdr));
+      'HRITSA': test_pea_error('parsing crypto subheader',pea_parse_crypto_subheaders(sbuf1,shdr));
+      'HRISAT': test_pea_error('parsing crypto subheader',pea_parse_crypto_subheader(sbuf1,hdr));
       end;
    read_from_chunks ( in_folder,in_name,
                    72,
@@ -3191,6 +3298,9 @@ if pwneeded=true then //initialize AE (appending headers to password)
       'SRIATS': test_pea_error('parsing crypto subheader',pea_parse_crypto_subheaders(sbuf1,shdr));
       'SRITSA': test_pea_error('parsing crypto subheader',pea_parse_crypto_subheader(sbuf1,hdr));
       'SRISAT': test_pea_error('parsing crypto subheader',pea_parse_crypto_subheaderf(sbuf1,fhdr));
+      'HRIATS': test_pea_error('parsing crypto subheader',pea_parse_crypto_subheaders(sbuf1,shdr));
+      'HRITSA': test_pea_error('parsing crypto subheader',pea_parse_crypto_subheader(sbuf1,hdr));
+      'HRISAT': test_pea_error('parsing crypto subheader',pea_parse_crypto_subheaderf(sbuf1,fhdr));
       end;
    end;
    'EAX','EAX256': test_pea_error('parsing crypto subheader',pea_parse_crypto_subheader(sbuf1,hdr));
@@ -3220,11 +3330,12 @@ if pwneeded=true then //initialize AE (appending headers to password)
    //initialize AE
    if (upcase(algo)='TRIATS') or (upcase(algo)='TRITSA') or (upcase(algo)='TRISAT') or
       (upcase(algo)='SRIATS') or (upcase(algo)='SRITSA') or (upcase(algo)='SRISAT') or
+      (upcase(algo)='HRIATS') or (upcase(algo)='HRITSA') or (upcase(algo)='HRISAT') or
       (upcase(algo)='EAX256') or (upcase(algo)='TF256') or (upcase(algo)='SP256') then init_AE256_control_algo
    else init_AE128_control_algo;
    clean_keying_vars;
    case upcase(algo) of
-      'TRIATS','TRITSA','TRISAT','SRIATS','SRITSA','SRISAT': //remove masking of exact archive size, 1..128 byte of random data
+      'TRIATS','TRITSA','TRISAT','SRIATS','SRITSA','SRISAT','HRIATS','HRITSA','HRISAT': //remove masking of exact archive size, 1..128 byte of random data
       begin
       read_from_chunks ( in_folder,in_name,
                    328,
@@ -3242,7 +3353,8 @@ if pwneeded=true then //initialize AE (appending headers to password)
    end;
    end;
    if (upcase(algo)='TRIATS') or (upcase(algo)='TRITSA') or (upcase(algo)='TRISAT') or
-      (upcase(algo)='SRIATS') or (upcase(algo)='SRITSA') or (upcase(algo)='SRISAT')then
+      (upcase(algo)='SRIATS') or (upcase(algo)='SRITSA') or (upcase(algo)='SRISAT') or
+      (upcase(algo)='HRIATS') or (upcase(algo)='HRITSA') or (upcase(algo)='HRISAT') then
       for i:=0 to 3 do sbuf1[i]:=sbuf1[i+69+storead]
    else
       for i:=0 to 3 do sbuf1[i]:=sbuf1[i+16]; //discard 16 bytes of crypto subheader
@@ -6870,7 +6982,7 @@ end;
 //text preview: limited to 1 GB
 procedure textpreview;
 var
-   astr:ansistring;
+   sl:TStringList;
    fa:text;
    sizea:qword;
    prows:integer;
@@ -6899,47 +7011,49 @@ Form_report.StringGrid1.Cells[1,0]:='Text';
 Form_report.StringGrid1.ColWidths[0]:=96;
 Form_report.StringGrid1.ColWidths[1]:=640;
 sizea:=0;
+sl := TStringList.Create;
 try
-assignfile(fa,(paramstr(2)));
-filemode:=0;
-reset(fa);
 srcfilesize((paramstr(2)),sizea);
-if sizea=0 then begin internal_error('The file is empty, cannot be previewed'); exit; end;
-setcurrentdir(extractfilepath((paramstr(2))));
-except
-MessageDlg((paramstr(2))+' is not accessible (or not a file)', mtError, [mbOK], 0);
-halt(-3);
-exit;
-end;
+if sizea=0 then
+   begin
+   internal_error('The file is empty, cannot be previewed');
+   exit;
+   end;
 if sizea>1024*1024*1024 then
   begin
   MessageDlg('Text preview is currently limited to files up to 1 GB', mtWarning, [mbOK], 0);
   exit;
   end;
+setcurrentdir(extractfilepath((paramstr(2))));
+sl.LoadFromFile(paramstr(2));
+except
+sl.Free;
+MessageDlg((paramstr(2))+' is not accessible (or not a file)', mtError, [mbOK], 0);
+halt(-3);
+exit;
+end;
 Form_pea.LabelTools3.Caption:='Size '+nicenumber(inttostr(sizea),0)+' ('+inttostr(sizea)+' B)';
 Form_report.StringGrid1.RowCount:=1024;
+Form_pea.ProgressBar1.Position:=5;
 application.ProcessMessages;
-prows:=1;
-while not eof(fa) do
+for prows:=1 to sl.Count do
    begin
-   readln(fa,astr);
-   if prows>=Form_report.StringGrid1.RowCount then
+      if prows>=Form_report.StringGrid1.RowCount then
       begin
       Form_report.StringGrid1.RowCount:=prows+16*1024;
       application.ProcessMessages;
       end;
    Form_report.StringGrid1.Cells[0,prows]:=addchar('0',inttostr(prows),9);
-   Form_report.StringGrid1.Cells[1,prows]:=astr;
-   prows:=prows+1;
+   Form_report.StringGrid1.Cells[1,prows]:=sl.Strings[prows-1];
    end;
 Form_pea.ProgressBar1.Position:=95;
+SL.Free;
 application.ProcessMessages;
-Form_report.StringGrid1.RowCount:=prows;
+Form_report.StringGrid1.RowCount:=prows+1;
 //Form_report.StringGrid1.AutosizeColumns;
 Form_report.StringGrid1.EndUpdate;
 Form_pea.ProgressBar1.Position:=100;
 application.ProcessMessages;
-closefile(fa);
 Form_pea.Visible:=false;
 Form_report.visible:=true;
 Form_report.Label1.Caption:=Form_pea.Caption;
@@ -7114,6 +7228,7 @@ Form_pea.Panel1.Visible:=true;
 Form_pea.LabelE1.Visible:=true;
 if (upcase(paramstr(7))='TRIATS') or (upcase(paramstr(7))='TRITSA') or (upcase(paramstr(7))='TRISAT') or
    (upcase(paramstr(7))='SRIATS') or (upcase(paramstr(7))='SRITSA') or (upcase(paramstr(7))='SRISAT') or
+   (upcase(paramstr(7))='HRIATS') or (upcase(paramstr(7))='HRITSA') or (upcase(paramstr(7))='HRISAT') or
    (upcase(paramstr(7))='EAX256') or (upcase(paramstr(7))='TF256') or (upcase(paramstr(7))='SP256') or
    (upcase(paramstr(7))='EAX') or (upcase(paramstr(7))='TF') or (upcase(paramstr(7))='SP') or (upcase(paramstr(7))='HMAC') then
    if (upcase(paramstr(8))='INTERACTIVE') or (upcase(paramstr(8))='INTERACTIVE_REPORT') then
@@ -7873,9 +7988,9 @@ getdesk_env(desk_env,caption_build,delimiter);
 unit_report.desk_env:=desk_env;
 height_set:=false;
 toolactioncancelled:=false;
-Form_pea.Caption:='PEA '+P_RELEASE+' ('+PEAUTILS_RELEASE+') / specs '+inttostr(PEA_FILEFORMAT_VER)+'.'+inttostr(PEA_FILEFORMAT_REV);
+Form_pea.Caption:='PEA '+P_RELEASE+' / specs '+inttostr(PEA_FILEFORMAT_VER)+'.'+inttostr(PEA_FILEFORMAT_REV);
 if (PEA_FILEFORMAT_VER <> pea_utils.PEA_FILEFORMAT_VER) or (PEA_FILEFORMAT_REV <> pea_utils.PEA_FILEFORMAT_REV) then
-   Form_pea.Caption:='PEA '+P_RELEASE+' ('+PEAUTILS_RELEASE+') / Warning: inconsistent internal specs level!';
+   Form_pea.Caption:='PEA '+P_RELEASE+' / Warning: inconsistent internal specs level!';
 try
    if FileExists(resource_path+'portable') then //if file exists, assume portable version
       begin
@@ -8058,7 +8173,8 @@ Form_report.Color:=StringToColor(color2);
 Form_report.ShapeTitleREPb1.Brush.Color:=StringToColor(colhigh);
 Form_report.ShapeTitleREPb2.Brush.Color:=StringToColor(colmid);
 Form_report.LabelSaveTxt.Font.Color:=ptextaccent;
-Form_report.LabelSaveTxt1.Font.Color:=ptextaccent;
+Form_report.LabelSaveTsv.Font.Color:=ptextaccent;
+Form_report.LabelSaveCsv.Font.Color:=ptextaccent;
 case highlighttabs of
    0: begin
       PanelUtilsTitle.Color:=stringtocolor(color2);

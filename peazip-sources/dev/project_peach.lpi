@@ -16,83 +16,8 @@
       </XPManifest>
       <Icon Value="0"/>
     </General>
-    <BuildModes Count="3" Active="Debug">
+    <BuildModes Count="1">
       <Item1 Name="default" Default="True"/>
-      <Item2 Name="Debug">
-        <CompilerOptions>
-          <Version Value="11"/>
-          <PathDelim Value="\"/>
-          <Target>
-            <Filename Value="peazip"/>
-          </Target>
-          <SearchPaths>
-            <SrcPath Value="$(LazarusDir)\lcl;$(LazarusDir)\lcl\interfaces\$(LCLWidgetType)"/>
-          </SearchPaths>
-          <Parsing>
-            <SyntaxOptions>
-              <CStyleOperator Value="False"/>
-              <IncludeAssertionCode Value="True"/>
-            </SyntaxOptions>
-          </Parsing>
-          <CodeGeneration>
-            <Checks>
-              <IOChecks Value="True"/>
-              <RangeChecks Value="True"/>
-              <OverflowChecks Value="True"/>
-              <StackChecks Value="True"/>
-            </Checks>
-            <VerifyObjMethodCallValidity Value="True"/>
-          </CodeGeneration>
-          <Linking>
-            <Debugging>
-              <DebugInfoType Value="dsDwarf3"/>
-              <UseHeaptrc Value="True"/>
-              <TrashVariables Value="True"/>
-              <UseExternalDbgSyms Value="True"/>
-            </Debugging>
-            <Options>
-              <Win32>
-                <GraphicApplication Value="True"/>
-              </Win32>
-            </Options>
-          </Linking>
-        </CompilerOptions>
-      </Item2>
-      <Item3 Name="Release">
-        <CompilerOptions>
-          <Version Value="11"/>
-          <PathDelim Value="\"/>
-          <Target>
-            <Filename Value="peazip"/>
-          </Target>
-          <SearchPaths>
-            <SrcPath Value="$(LazarusDir)\lcl;$(LazarusDir)\lcl\interfaces\$(LCLWidgetType)"/>
-          </SearchPaths>
-          <Parsing>
-            <SyntaxOptions>
-              <CStyleOperator Value="False"/>
-            </SyntaxOptions>
-          </Parsing>
-          <CodeGeneration>
-            <SmartLinkUnit Value="True"/>
-            <Optimizations>
-              <OptimizationLevel Value="3"/>
-            </Optimizations>
-          </CodeGeneration>
-          <Linking>
-            <Debugging>
-              <GenerateDebugInfo Value="False"/>
-              <RunWithoutDebug Value="True"/>
-            </Debugging>
-            <LinkSmart Value="True"/>
-            <Options>
-              <Win32>
-                <GraphicApplication Value="True"/>
-              </Win32>
-            </Options>
-          </Linking>
-        </CompilerOptions>
-      </Item3>
     </BuildModes>
     <PublishOptions>
       <Version Value="2"/>
@@ -138,11 +63,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="181"/>
-        <CursorPos X="19" Y="193"/>
+        <TopLine Value="196"/>
+        <CursorPos X="18" Y="213"/>
         <UsageCount Value="200"/>
         <Bookmarks Count="1">
-          <Item0 X="9" Y="40933" ID="8"/>
+          <Item0 X="9" Y="41049" ID="8"/>
         </Bookmarks>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -150,8 +75,8 @@
       <Unit2>
         <Filename Value="list_utils.pas"/>
         <EditorIndex Value="16"/>
-        <TopLine Value="397"/>
-        <CursorPos X="10" Y="415"/>
+        <TopLine Value="1786"/>
+        <CursorPos X="22" Y="1801"/>
         <UsageCount Value="100"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -189,8 +114,8 @@
       <Unit8>
         <Filename Value="ansiutf8_utils.pas"/>
         <EditorIndex Value="15"/>
-        <TopLine Value="77"/>
-        <CursorPos Y="87"/>
+        <TopLine Value="97"/>
+        <CursorPos Y="117"/>
         <UsageCount Value="100"/>
         <Loaded Value="True"/>
       </Unit8>
@@ -1316,8 +1241,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit_gwrap"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="148"/>
-        <CursorPos X="19" Y="154"/>
+        <TopLine Value="139"/>
+        <CursorPos X="63" Y="143"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -1590,123 +1515,123 @@
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="peach.pas"/>
-        <Caret Line="5580" Column="75" TopLine="5576"/>
+        <Caret Line="30829" Column="64" TopLine="30803"/>
       </Position1>
       <Position2>
         <Filename Value="peach.pas"/>
-        <Caret Line="5958" Column="24" TopLine="5931"/>
+        <Caret Line="34705" Column="45" TopLine="34679"/>
       </Position2>
       <Position3>
         <Filename Value="peach.pas"/>
-        <Caret Line="31462" Column="7" TopLine="31435"/>
+        <Caret Line="34714" Column="45" TopLine="34688"/>
       </Position3>
       <Position4>
         <Filename Value="peach.pas"/>
-        <Caret Line="31463" Column="19" TopLine="31436"/>
+        <Caret Line="64313" Column="68" TopLine="64286"/>
       </Position4>
       <Position5>
         <Filename Value="peach.pas"/>
-        <Caret Line="31466" Column="17" TopLine="31439"/>
+        <Caret Line="16342" Column="24" TopLine="16327"/>
       </Position5>
       <Position6>
         <Filename Value="peach.pas"/>
-        <Caret Line="31467" Column="17" TopLine="31440"/>
+        <Caret Line="30445" Column="24" TopLine="30430"/>
       </Position6>
       <Position7>
         <Filename Value="peach.pas"/>
-        <Caret Line="31468" Column="15" TopLine="31441"/>
+        <Caret Line="30825" Column="24" TopLine="30798"/>
       </Position7>
       <Position8>
         <Filename Value="peach.pas"/>
-        <Caret Line="31482" Column="21" TopLine="31456"/>
+        <Caret Line="30826" Column="76" TopLine="30799"/>
       </Position8>
       <Position9>
         <Filename Value="peach.pas"/>
-        <Caret Line="31483" Column="21" TopLine="31457"/>
+        <Caret Line="30828" Column="112" TopLine="30802"/>
       </Position9>
       <Position10>
         <Filename Value="peach.pas"/>
-        <Caret Line="31485" Column="48" TopLine="31459"/>
+        <Caret Line="30829" Column="64" TopLine="30803"/>
       </Position10>
       <Position11>
         <Filename Value="peach.pas"/>
-        <Caret Line="31486" Column="26" TopLine="31460"/>
+        <Caret Line="34705" Column="45" TopLine="34679"/>
       </Position11>
       <Position12>
         <Filename Value="peach.pas"/>
-        <Caret Line="31487" Column="26" TopLine="31461"/>
+        <Caret Line="34714" Column="45" TopLine="34688"/>
       </Position12>
       <Position13>
         <Filename Value="peach.pas"/>
-        <Caret Line="31488" Column="28" TopLine="31462"/>
+        <Caret Line="8" Column="79"/>
       </Position13>
       <Position14>
         <Filename Value="peach.pas"/>
-        <Caret Line="31489" Column="28" TopLine="31463"/>
+        <Caret Line="16342" Column="24" TopLine="16316"/>
       </Position14>
       <Position15>
         <Filename Value="peach.pas"/>
-        <Caret Line="31501" Column="36" TopLine="31475"/>
+        <Caret Line="30442" Column="28" TopLine="30421"/>
       </Position15>
       <Position16>
         <Filename Value="peach.pas"/>
-        <Caret Line="31600" Column="65" TopLine="31574"/>
+        <Caret Line="3" Column="102"/>
       </Position16>
       <Position17>
         <Filename Value="peach.pas"/>
-        <Caret Line="31604" Column="82" TopLine="31578"/>
+        <Caret Line="16342" Column="24" TopLine="16316"/>
       </Position17>
       <Position18>
         <Filename Value="peach.pas"/>
-        <Caret Line="31607" Column="67" TopLine="31581"/>
+        <Caret Line="30445" Column="24" TopLine="30418"/>
       </Position18>
       <Position19>
         <Filename Value="peach.pas"/>
-        <Caret Line="74774" Column="10" TopLine="74748"/>
+        <Caret Line="30829" Column="76" TopLine="30811"/>
       </Position19>
       <Position20>
         <Filename Value="peach.pas"/>
-        <Caret Line="193" Column="51" TopLine="190"/>
+        <Caret Line="34705" Column="45" TopLine="34679"/>
       </Position20>
       <Position21>
         <Filename Value="peach.pas"/>
-        <Caret Line="19081" Column="22" TopLine="19061"/>
+        <Caret Line="34714" Column="45" TopLine="34688"/>
       </Position21>
       <Position22>
         <Filename Value="peach.pas"/>
-        <Caret Line="31362" Column="27" TopLine="31335"/>
+        <Caret Line="64313" Column="68" TopLine="64286"/>
       </Position22>
       <Position23>
         <Filename Value="peach.pas"/>
-        <Caret Line="50366" Column="49" TopLine="50339"/>
+        <Caret Line="16342" Column="24" TopLine="16327"/>
       </Position23>
       <Position24>
         <Filename Value="peach.pas"/>
-        <Caret Line="19050" Column="41" TopLine="19035"/>
+        <Caret Line="30445" Column="24" TopLine="30418"/>
       </Position24>
       <Position25>
         <Filename Value="peach.pas"/>
-        <Caret Line="66260" Column="11" TopLine="66258"/>
+        <Caret Line="195" Column="114" TopLine="187"/>
       </Position25>
       <Position26>
         <Filename Value="peach.pas"/>
-        <Caret Line="8" Column="67"/>
+        <Caret Line="201" Column="25" TopLine="190"/>
       </Position26>
       <Position27>
         <Filename Value="peach.pas"/>
-        <Caret Line="137" Column="6" TopLine="110"/>
+        <Caret Line="194" Column="19" TopLine="178"/>
       </Position27>
       <Position28>
         <Filename Value="peach.pas"/>
-        <Caret Line="5664" Column="32" TopLine="5652"/>
+        <Caret Line="224" Column="104" TopLine="187"/>
       </Position28>
       <Position29>
         <Filename Value="peach.pas"/>
-        <Caret Line="39244" Column="12" TopLine="39217"/>
+        <Caret Line="190" Column="49" TopLine="184"/>
       </Position29>
       <Position30>
         <Filename Value="peach.pas"/>
-        <Caret Line="193" Column="54" TopLine="190"/>
+        <Caret Line="66620" Column="8" TopLine="66618"/>
       </Position30>
     </JumpHistory>
   </ProjectOptions>
