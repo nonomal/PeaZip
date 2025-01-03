@@ -3,14 +3,14 @@
 10.2
 Превод: Любомир Симеонов
 Корекция: Живко Жеков
-Последна корекция: 26/10/2024
+Последна корекция: 3/01/2024
 
 === PeaZip text group ===
 
-txt_10_2_savecopy: Save a copy
-txt_10_1_full: Full
-txt_10_1_kdfw: KDF work load
-txt_10_1_under: Underlined
+txt_10_2_savecopy: Запиши копие
+txt_10_1_full: Пълно
+txt_10_1_kdfw: KDF зарежда
+txt_10_1_under: Подчертано
 txt_10_0_exptrash: Отвори кошчето
 txt_10_0_ptarzst: Най-бърза компресия, TAR.ZST
 txt_10_0_ptarxz: Висока компресия, TAR.XZ
