@@ -3,14 +3,14 @@ Simplified Chinese - 简体中文
 10.2
 Translated by: Aerowolf, Junde Yhi, Dingzhong Chen, yangyangdaji, ddzzkunye, 無情天
 Last rev. by: Junde Yhi
-Last rev.: 20241029
+Last rev.: 20250103
 
 === PeaZip text group ===
 
-txt_10_2_savecopy: Save a copy
-txt_10_1_full: Full
-txt_10_1_kdfw: KDF work load
-txt_10_1_under: Underlined
+txt_10_2_savecopy: 另存为
+txt_10_1_full: 完全
+txt_10_1_kdfw: 密钥派生函数（KDF）工作量
+txt_10_1_under: 下划线
 txt_10_0_exptrash: 浏览回收站
 txt_10_0_ptarzst: 最快压缩，TAR.ZST
 txt_10_0_ptarxz: 高压缩率，TAR.XZ
@@ -19,7 +19,7 @@ txt_10_0_comp: 纯压缩格式只接受单个文件作为输入。如果要将�
 txt_10_0_save: 保存
 txt_10_0_tp: 文字预览
 txt_9_9_uac: 当前用户无法写入此输出路径。您想用“用户账户控制（UAC）”提升 PeaZip 的权限吗？
-TXT_9_9_kdf: 密钥派生函数（KDF）转换次数
+txt_9_9_kdf: 密钥派生函数（KDF）转换次数
 txt_9_9_utc: 以世界协调时（UTC）显示时间戳
 txt_9_8_alwaysflat: 总是以平面视图打开归档文件
 txt_9_8_fnew: 提取到此处（新建文件夹）
