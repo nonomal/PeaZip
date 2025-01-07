@@ -2,15 +2,15 @@
 Korean - 한국어
 10.2
 번역자: Sleepy, EhangB
-최근 교정: 20241029 by EhangB
+최근 교정: 20250102 by EhangB
 교정 일자: 20110531 by Sleep
 
 === PeaZip text group ===
 
-txt_10_2_savecopy: Save a copy
-txt_10_1_full: Full
-txt_10_1_kdfw: KDF work load
-txt_10_1_under: Underlined
+txt_10_2_savecopy: 사본 저장
+txt_10_1_full: 완전
+txt_10_1_kdfw: KDF 작업량
+txt_10_1_under: 밑줄
 txt_10_0_exptrash: 휴지통 탐색
 txt_10_0_ptarzst: 가장 빠른 압축, TAR.ZST
 txt_10_0_ptarxz: 고압축, TAR.XZ
