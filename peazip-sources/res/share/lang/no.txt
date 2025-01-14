@@ -3,21 +3,21 @@ Norwegian - Norsk
 10.2
 Oversatt av: Rune C. Akselsen, Arne Hanssen og Imre Kristoffer Eilertsen
 Sist rev. av: Arne Hanssen
-Sist revidert: 20240804
+Sist revidert: 20250114
 
 === PeaZip text group ===
 
-txt_10_2_savecopy: Save a copy
+txt_10_2_savecopy: Lagre en kopi
 txt_10_1_full: Full
-txt_10_1_kdfw: KDF work load
-txt_10_1_under: Underlined
-txt_10_0_exptrash: Explore Trash
-txt_10_0_ptarzst: Fastest compression, TAR.ZST
-txt_10_0_ptarxz: High compression, TAR.XZ
-txt_10_0_ptargz: Medium compression, TAR.GZ
-txt_10_0_comp: Pure compression formats only accept a single file as input. Archive conversion towards those formats will fail if the source contains multiple files or folders, which cannot be determined in advance.
-txt_10_0_save: Save
-txt_10_0_tp: Text preview
+txt_10_1_kdfw: KDF belastning
+txt_10_1_under: Understreket
+txt_10_0_exptrash: Sjekk søppelkurv
+txt_10_0_ptarzst: Raskeste komprimering, TAR.ZST
+txt_10_0_ptarxz: Høy komprimering, TAR.XZ
+txt_10_0_ptargz: Middels omprimering, TAR.GZ
+txt_10_0_comp: Rene komprimeringsformater godtar bare en enkel fil som input. Arkiv-konvertering til slike formater vil feile hvis kilden inneholder flere filer eller mapper, noe som ikke kan fastslås på forhånd.
+txt_10_0_save: Lagre
+txt_10_0_tp: Tekst forhåndsvisning
 txt_9_9_uac: Innlogget bruker kan ikke skrive til denne filstien. Vil du kjøre PeaZip med opphøyd UAC?
 TXT_9_9_kdf: KDF runder
 txt_9_9_utc: Vis tidsangivelser som UTC
