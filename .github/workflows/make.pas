@@ -179,7 +179,7 @@ type
     try
       for Each in List do
         begin
-          if not ContainsStr(Each, 'dragdropfilesdll') then
+          if not ContainsStr(Each, 'project_demo_lib') {$IFDEF LINUX}and not ContainsStr(Each, 'dragdropfilesdll'){$ENDIF} then
             if ContainsStr(ReadFileToString(ReplaceStr(Each, '.lpi', '.lpr')),
               'consoletestrunner') then
               RunTest(Each)
