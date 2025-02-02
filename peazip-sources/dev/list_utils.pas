@@ -1798,7 +1798,7 @@ begin
   P := TProcessUTF8.Create(nil);
   P.Options := [poWaitOnExit];
   case desk_env of
-     1: P.Executable := 'gnome-search-tool';
+     1: P.CommandLine := 'xdg-open /';//'gnome-search-tool';
      2: P.Executable := 'kfind';
      20: P.CommandLine := 'open /';
      end;

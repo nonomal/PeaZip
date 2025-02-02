@@ -3,7 +3,7 @@
   <ProjectSession>
     <PathDelim Value="\"/>
     <Version Value="12"/>
-    <BuildModes Active="Default"/>
+    <BuildModes Active="Debug"/>
     <Units Count="2">
       <Unit0>
         <Filename Value="dragdropfilesdll.pas"/>
@@ -21,6 +21,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unitdragdropfilesdll"/>
         <UsageCount Value="20"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit1>
     </Units>
     <JumpHistory HistoryIndex="-1"/>
