@@ -3,11 +3,11 @@ Turkish (Türkçe)
 10.2
 Çeviren: Osman Öz, Cihan Alkan, Muhammed Emin Subaşı
 Son güncelleyen: Muhammed Emin Subaşı
-Son güncelleme: 20 Aralık 2024
+Son güncelleme: 19 Şubat 2025
 
 === PeaZip text group ===
 
-txt_10_2_savecopy: Save a copy
+txt_10_2_savecopy: Kopyasını kaydet
 txt_10_1_full: Tam
 txt_10_1_kdfw: KDF iş yükü
 txt_10_1_under: Altı çizili
