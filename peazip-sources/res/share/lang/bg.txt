@@ -1,18 +1,18 @@
-﻿=== PeaZip language file ===
+=== PeaZip language file ===
 Български / Bulgarian
 10.3
 Превод: Любомир Симеонов
 Корекция: Живко Жеков
-Последна корекция: 3/01/2024
+Последна корекция: 20250222
 
 === PeaZip text group ===
 
 txt_10_3_classic: Classic
-txt_10_3_ascii: It is recommended to use only ASCII characters in passwords for the current archive format (mixed case letters, numbers, and special characters).
+txt_10_3_ascii: Препоръчва се използване само на ASCII символи в пароли за текущия формат на архива (смесени букви, цифри и специални знаци).
 txt_10_3_minimal: Minimal
 txt_10_3_m: Modern
 txt_10_3_pm: Postmodern
-txt_10_3_aw: Workaround: check "Force typing password interactively" in the password prompt, or set Console mode for backend binaries.
+txt_10_3_aw: Решение: Проверете интерактивно "Force Typing Password" в подкана за парола или задайте конзолен режим за Backend Binaries.
 txt_10_2_savecopy: Запиши копие
 txt_10_1_full: Пълно
 txt_10_1_kdfw: KDF зарежда
@@ -729,9 +729,9 @@ txt_7z_exitcode1: 1: Внимание: некритична грешка(и); н
 txt_attach10: 10 MB (за прикачване)
 txt_7z_exitcode2: 2: Критична грешка
 txt_7z_exitcode255: 255: Командата е прекъсната
-txt_fat32: 4 GB (ограничение за FAT32)
+txt_fat32: 4 GB FAT32 файл
 txt_dvd: 4.7 GB DVD
-txt_attach5: 5 MB (за прикачване)
+txt_attach5: 5 MB прикачен файл
 txt_cd650: 650 MB CD
 txt_7z_exitcode7: 7: Грешка: невалидна команда
 txt_cd700: 700 MB CD
@@ -1019,7 +1019,7 @@ txt_naming: Именуване
 txt_unit_remote: Мрежово устройство
 txt_newarchive: Създаване (нов архив)
 txt_cnewfolder: Нова папка
-txt_news: Новини
+txt_news: Новости
 txt_no: Не
 txt_noinput: Липсват входящи данни
 txt_nocompress_hint: без компресия (най-бързо)
@@ -1028,8 +1028,8 @@ txt_open_noinput: Нищо не е избрано; изберете архив (
 txt_list_nomatch: Няма съвпадения
 txt_singlethread: Без многопоточност
 txt_none2: не
-txt_nonsolid: Не-монолитен
-txt_level_normal: Нормално
+txt_nonsolid: Non-solid
+txt_level_normal: Normal
 txt_copy_error: Неуспешно копиране или преместване, код на грешката:
 txt_description: Описание
 txt_compare_second: Избор на файл за сравнение:
