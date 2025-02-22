@@ -1,15 +1,32 @@
 ﻿=== PeaZip language file ===
 Portuguese (Portugal) - Português
-9.9
+10.3
 Tradução: Hugo Carvalho, José Carlos, Sérgio Marques
-Revisão: Sérgio Marques
-Revisto em: 20240605
+Revisão: Hugo Carvalho
+Revisto em: 20241029
 
 === PeaZip text group ===
 
-txt_9_9_uac: Current user cannot write to this output path. Do you want to run PeaZip with UAC elevation?
-TXT_9_9_kdf: KDF rounds
-txt_9_9_utc: Show timestamps as UTC
+txt_10_3_classic: Classic
+txt_10_3_ascii: It is recommended to use only ASCII characters in passwords for the current archive format (mixed case letters, numbers, and special characters).
+txt_10_3_minimal: Minimal
+txt_10_3_m: Modern
+txt_10_3_pm: Postmodern
+txt_10_3_aw: Workaround: check "Force typing password interactively" in the password prompt, or set Console mode for backend binaries.
+txt_10_2_savecopy: Save a copy
+txt_10_1_full: Full
+txt_10_1_kdfw: KDF work load
+txt_10_1_under: Underlined
+txt_10_0_exptrash: Explorar o Lixo
+txt_10_0_ptarzst: Compressão mais rápida, TAR.ZST
+txt_10_0_ptarxz: Compressão alta, TAR.XZ
+txt_10_0_ptargz: Compressão média, TAR.GZ
+txt_10_0_comp: Os formatos de compressão pura apenas aceitam um ficheiro como entrada. A conversão de ficheiros para estes formatos falhará se a entrada consistir em vários ficheiros ou pastas (não determináveis ​​antecipadamente).
+txt_10_0_save: Guardar
+txt_10_0_tp: Pré-visualização do texto
+txt_9_9_uac: O utilizador atual não possui direitos de gravação para este destino. Deseja executar o PeaZip com elevação de UAC?
+TXT_9_9_kdf: Iterações KDF
+txt_9_9_utc: Data/hora como UTC
 txt_9_8_alwaysflat: Abrir ficheiros na vista plana
 txt_9_8_fnew: Extrair aqui (em nova pasta)
 txt_9_8_fsmart: Extrair aqui (nova pasta inteligente)
