@@ -3,16 +3,16 @@ Français
 10.3
 Translated by: Jean-Michel Coinus
 Last rev. by: Jean-Michel Coinus
-Last rev.: 20250101
+Last rev.: 20250222
 
 === PeaZip text group ===
 
-txt_10_3_classic: Classic
-txt_10_3_ascii: It is recommended to use only ASCII characters in passwords for the current archive format (mixed case letters, numbers, and special characters).
+txt_10_3_classic: Classique
+txt_10_3_ascii: Il est recommandé d'utiliser uniquement des caractères ASCII pour les mots de passe du format d'archive sélectionné (lettres, chiffres et caractères spéciaux).
 txt_10_3_minimal: Minimal
-txt_10_3_m: Modern
-txt_10_3_pm: Postmodern
-txt_10_3_aw: Workaround: check "Force typing password interactively" in the password prompt, or set Console mode for backend binaries.
+txt_10_3_m: Moderne
+txt_10_3_pm: Post-moderne
+txt_10_3_aw: Alternative : cochez la case « Requérir la saisie d'un mot de passe » lors de la saisie du mot de passe, ou définissez le mode Console pour les programmes en tâche de fond.
 txt_10_2_savecopy: Enregistrer une copie
 txt_10_1_full: Intégral
 txt_10_1_kdfw: Impact KDF
