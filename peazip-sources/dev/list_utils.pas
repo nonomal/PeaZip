@@ -2226,7 +2226,8 @@ begin
     '.ipk': testext := 132; //Freedesktop's Listaller .ipk packages
     '.whl': testext := 133; //Python package
     '.gem': testext := 134; //Ruby gem package
-    '.apk', '.xapk', '.apkm', '.apks', '.aab' : testext := 134; //Android packages (.zip derived)
+    '.apk', '.xapk', '.apkm', '.apks', '.aab': testext := 135; //Android packages (.zip derived)
+    '.mcaddon', '.mcmeta', '.mcpack', '.mcproject', '.mcstructure', '.mctemplate', '.mcworld': testext := 136; //Minecraft packages (.zip derived)
 
     //200..499 filesystems
     '.iso': testext := 200;
@@ -2239,7 +2240,7 @@ begin
     '.mdf': testext := 207; //Alchool 120 image file
     '.gpt':  testext := 208; //GPT GUID Partition Table file
     '.qcow', '.qcow2', '.qcow2c': testext := 209;//QUEMU image file
-    '.vmdk': testext := 210;//VMware Virtual Machine Disk
+    '.vmdk', '.ova': testext := 210;//VMware formats
     '.vdi': testext := 211;//Oracle VirtualBox Virtual Drive Image
     '.mbr': testext := 212;
     '.fat': testext := 213;
@@ -2252,14 +2253,14 @@ begin
     '.scap', '.uefif': testext := 220;
 
     //file types usually not handled as archives, can be supported through 7z backend 500..599
-    '.exe', '.dll', '.sys': testext := 500; //most executables can be opened
+    '.exe', '.dll', '.sys', //most executables can be opened
     '.msi', '.msp', '.msu': testext := 500;
-    '.sxc', '.sxd', '.sxi', '.sxw', '.stc', '.std', '.sti', '.stw', '.sxg', '.sxm': testext := 501; //OOo 1.x legacy filetypes
-    '.ods', '.ots', '.odm', '.oth', '.oxt', '.odb', '.odf', '.odg', '.otg', '.odp', '.otp', '.odt', '.ott': testext := 501; //OOo filetypes
-    '.gnm': testext := 501; //Gnumeric spreadsheet
+    '.sxc', '.sxd', '.sxi', '.sxw', '.stc', '.std', '.sti', '.stw', '.sxg', '.sxm', //OOo 1.x legacy filetypes
+    '.ods', '.ots', '.odm', '.oth', '.oxt', '.odb', '.odf', '.odg', '.otg', '.odp', '.otp', '.odt', '.ott', //OOo filetypes
+    '.gnm', //Gnumeric spreadsheet
     '.pmdx', '.pmvx', '.tmdx', '.prdx': testext := 501; //SoftMaker Office compressed formats
-    '.doc', '.dot', '.xls', '.xlt', '.ppt', '.pps', '.pot': testext := 502; //non executable COMPOUND files
-    '.docx', '.dotx', '.xlsx', '.xltx', '.pptx','.mpp': testext := 502; //MS compressed formats, treated as othes MS Office formats
+    '.doc', '.dot', '.xls', '.xlt', '.ppt', '.pps', '.pot', //non executable COMPOUND files
+    '.docx', '.dotx', '.xlsx', '.xltx', '.pptx','.mpp', //MS compressed formats, treated as othes MS Office formats
     '.iwa','.numbers','.pages','.key': testext := 502; //Apple iWork compressed IWA file types
     //misc formats to be handled primarily as non-archive:
     '.flv', //flash videos
@@ -2322,31 +2323,31 @@ var
 begin
 ext:=lowercase(extractfileext(s));
 case ext of
-   '.lnk','.txt','.rtf','.wri','.ini','.log','.mid': begin result:=10; exit; end;
-   '.htm','.html','.xml','.mht','.url','.css','.xhtml': begin result:=10; exit; end;
-   '.bat','.pif','.scr','.vbs','.cmd','.reg': begin result:=10; exit; end;
+   '.lnk','.txt','.rtf','.wri','.ini','.log','.mid',
+   '.htm','.html','.xml','.mht','.url','.css','.xhtml',
+   '.bat','.pif','.scr','.vbs','.cmd','.reg',
    '.pas','.pp','.h','.c','.hh','.cpp','.cc','.cxx','.hxx','.cs','.java','.pl','.pm','.php','.py','.p','rb',
    '.js','.asp','.aspx','.vb','.manifest': begin result:=10; exit; end;
-   '.xls','.xlt','.gnm','.csv': begin result:=30; exit; end;
-   '.ani','.cur','.ico','.icl': begin result:=35; exit; end;
-   '.eml': begin result:=40; exit; end;
-   '.doc','.dot': begin result:=40; exit; end;
-   '.dll','.sys','.so','.dylib': begin result:=40; exit; end;
-   '.bmp','.tga','.tif','.tiff': begin result:=40; exit; end;
-   '.wav': begin result:=45; exit; end;
-   '.exe': begin result:=50; exit; end;
-   '.db','.dbf','.mdb','.nsf': begin result:=50; exit; end;
+   '.xls','.xlt','.gnm','.csv',
+   '.ani','.cur','.ico','.icl': begin result:=30; exit; end;
+   '.eml',
+   '.doc','.dot',
+   '.dll','.sys','.so','.dylib',
+   '.bmp','.tga','.tif','.tiff',
+   '.wav': begin result:=40; exit; end;
+   '.exe',
+   '.db','.dbf','.mdb','.nsf',
    '.pps','.ppt','.odp': begin result:=50; exit; end;
    '.gif': begin result:=70; exit; end;
-   '.xlsx','.ods','.numbers': begin result:=80; exit; end;
-   '.docx','.odt','.pages': begin result:=80; exit; end;
-   '.pptx','.key': begin result:=80; exit; end;
+   '.xlsx','.ods','.numbers',
+   '.docx','.odt','.pages',
+   '.pptx','.key',
    '.svg','.ps','.eps','.cdr','.ai','.psd','.psp': begin result:=80; exit; end;
-   '.pdf': begin result:=90; exit; end;
-   '.png': begin result:=90; exit; end;
+   '.pdf',
+   '.png',
    '.jpg','.jpe','.jpeg','.jif', '.jfif', '.jfi','.jpx','.jp2','.j2k': begin result:=90; exit; end;
-   '.avi','.mpg','.mpeg','.xvid','.divx','.mp4','.mov','.3gp','.wmv','.swf','.flv','.fla': begin result:=99; exit; end;
-   '.mp3','.wma','.aiff','.ogg': begin result:=99; exit; end;
+   '.avi','.mpg','.mpeg','.xvid','.divx','.mp4','.mov','.3gp','.wmv','.swf','.flv','.fla',
+   '.mp3','.wma','.aiff','.ogg': begin result:=95; exit; end;
   end;
 case testext(s) of //most used special formats are intercepted before
    -1: result:=50; //unknown

@@ -87,6 +87,8 @@ type
     Label4: TLabel;
     LabelCase: TLabel;
     LabelSave1: TLabel;
+    LabelSave3: TLabel;
+    LabelSaveCsv1: TLabel;
     LabelSaveTxt: TLabel;
     LabelTitleREP1: TLabel;
     LabelSave: TLabel;
@@ -120,6 +122,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure LabelCaseClick(Sender: TObject);
+    procedure LabelSaveCsv1Click(Sender: TObject);
     procedure LabelSaveCsvClick(Sender: TObject);
     procedure LabelSaveTsvClick(Sender: TObject);
     procedure LabelSaveTxtClick(Sender: TObject);
@@ -146,7 +149,7 @@ type
     { public declarations }
   end;
 
-procedure save_report(s,reptype,modparam,out_path:ansistring);
+procedure save_report(s,reptype,repopt,modparam,out_path:ansistring);
 procedure clicklabel_rep(var a: TLabel; var b:TShape);
 procedure save_hashfn;
   
@@ -325,14 +328,14 @@ end;
 {$ENDIF}
 end;
 
-procedure save_report(s,reptype,modparam,out_path:ansistring);
+procedure save_report(s,reptype,repopt,modparam,out_path:ansistring);
 var
 x,y:dword;
 field_delim:string;
 p:ansistring;
 begin
 if (reptype='txt') or (reptype='tsv') then field_delim:=chr($09)
-else field_delim:=csvsep;
+else field_delim:=repopt;
 
 if upcase(modparam)='INTERACTIVE_REPORT' then //interactive
    begin
@@ -445,10 +448,9 @@ end;
 
 procedure TForm_report.FormShow(Sender: TObject);
 begin
-Form_report.PanelTitleREPTabAlign.Width:=Form_report.ShapeTitleREPb1.Width+
-Form_report.ShapeTitleREPb2.Width+
-Form_report.LabelTitleREP1.BorderSpacing.Left+Form_report.LabelTitleREP1.BorderSpacing.Left+
-Form_report.LabelTitleREP2.BorderSpacing.Left;
+Form_report.PanelTitleREPTabAlign.Width:=Form_report.LabelTitleREP1.Width+
+Form_report.LabelTitleREP2.Width+
+Form_report.LabelTitleREP1.BorderSpacing.Left*3;
 if alttabstyle<=2 then
    Form_report.PanelTitleREPTabAlign.AnchorSideLeft.Side:=asrleft
 else
@@ -517,19 +519,24 @@ clicklabel_rep(LabelTitleREP2,ShapeTitleREPb2);
 if orig_activelabel_rep=LabelTitleREP1 then clicklabel_rep(LabelTitleREP1,ShapeTitleREPb1);
 end;
 
+procedure TForm_report.LabelSaveCsv1Click(Sender: TObject);
+begin
+save_report(Form_report.Caption,'csv',';','INTERACTIVE_REPORT','');
+end;
+
 procedure TForm_report.LabelSaveCsvClick(Sender: TObject);
 begin
-save_report(Form_report.Caption,'csv','INTERACTIVE_REPORT','');
+save_report(Form_report.Caption,'csv',',','INTERACTIVE_REPORT','');
 end;
 
 procedure TForm_report.LabelSaveTsvClick(Sender: TObject);
 begin
-save_report(Form_report.Caption,'tsv','INTERACTIVE_REPORT','');
+save_report(Form_report.Caption,'tsv','','INTERACTIVE_REPORT','');
 end;
 
 procedure TForm_report.LabelSaveTxtClick(Sender: TObject);
 begin
-save_report(Form_report.Caption,'txt','INTERACTIVE_REPORT','');
+save_report(Form_report.Caption,'txt','','INTERACTIVE_REPORT','');
 end;
 
 procedure TForm_report.LabelTitleREP1Click(Sender: TObject);

@@ -1,7 +1,7 @@
 object FormDrop: TFormDrop
   Left = 1004
   Height = 201
-  Top = 737
+  Top = 730
   Width = 400
   AlphaBlend = True
   AlphaBlendValue = 128

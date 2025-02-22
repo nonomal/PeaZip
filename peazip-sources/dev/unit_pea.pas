@@ -221,6 +221,8 @@ unit Unit_pea;
                                 Added option to save reports in TSV format
                                 Improved text preview, 20% faster with -40% memory usage.
                                 Updated icons
+ 1.23     20250131  G.Tani      Fixed duplicated input on drag and drop from system to app
+                                Can now save reports to CSV selecting , and ; separator on the fly, regardless the configuration
 
 (C) Copyright 2006 Giorgio Tani giorgio.tani.software@gmail.com
 
@@ -403,7 +405,7 @@ type
   Type fileofbyte = file of byte;
 
 const
-  P_RELEASE          = '1.22'; //declares release version for the whole build
+  P_RELEASE          = '1.23'; //declares release version for the whole build
   //PEAUTILS_RELEASE   = '1.3'; //declares for reference last peautils release
   PEA_FILEFORMAT_VER = 1;
   PEA_FILEFORMAT_REV = 6; //version and revision declared to be implemented must match with the ones in pea_utils, otherwise a warning will be raised (form caption)
@@ -2074,7 +2076,7 @@ Form_pea.LabelOpen.visible:=true;
 Form_pea.ButtonDone1.Visible:=true;
 Form_pea.ButtonPeaExit.Visible:=false;
 Application.ProcessMessages;
-if (upcase(pw_param)='INTERACTIVE_REPORT') or (upcase(pw_param)='BATCH_REPORT') or (upcase(pw_param)='HIDDEN_REPORT') then save_report('Auto log PEA','txt',upcase(pw_param),out_path);
+if (upcase(pw_param)='INTERACTIVE_REPORT') or (upcase(pw_param)='BATCH_REPORT') or (upcase(pw_param)='HIDDEN_REPORT') then save_report('Auto log PEA','txt','',upcase(pw_param),out_path);
 if inskipped=true then exitcode:=-2 else exitcode:=0;
 Sleep(500);
 if closepolicy>0 then Form_pea.Close; //error conditions are intercepted before and handled with internal_error procedure
@@ -3890,7 +3892,7 @@ while (chunks_ok=true) and (end_of_archive=false) do
          try
             setcurrentdir(out_path);
             do_report_unpea;
-            save_report('error log','txt',upcase(pw_param),out_path);
+            save_report('error log','txt','',upcase(pw_param),out_path);
          except
          end;
       internal_error('Unexpected error working on volume '+inttostr(j)+'; data is either become non accessible or could be corrupted in a way that not allow the current implementation to extract data from the archive (in that case you should try to obtain a new copy of the archive). Tried to extract available output to: '+out_path+out_file+DirectorySeparator+' and to save the error report in: '+out_path);
@@ -3913,7 +3915,7 @@ Form_pea.LabelOpen.visible:=true;
 Form_pea.ButtonDone1.Visible:=true;
 Form_pea.ButtonPeaExit1.Visible:=false;
 Application.ProcessMessages;
-if (upcase(pw_param)='INTERACTIVE_REPORT') or (upcase(pw_param)='BATCH_REPORT') or (upcase(pw_param)='HIDDEN_REPORT') then save_report('Auto log UnPEA','txt',upcase(pw_param),out_path);
+if (upcase(pw_param)='INTERACTIVE_REPORT') or (upcase(pw_param)='BATCH_REPORT') or (upcase(pw_param)='HIDDEN_REPORT') then save_report('Auto log UnPEA','txt','',upcase(pw_param),out_path);
 if report_errors =0 then
    begin
    exitcode:=0;
@@ -4403,7 +4405,7 @@ output:=out_path;
 Form_pea.LabelOpen.visible:=true;
 Form_pea.ButtonDone1.Visible:=true;
 Form_pea.ButtonPeaExit.Visible:=false;
-if (upcase(pw_param)='INTERACTIVE_REPORT') or (upcase(pw_param)='BATCH_REPORT') or (upcase(pw_param)='HIDDEN_REPORT') then save_report('Auto log Raw File Split','txt',upcase(pw_param),out_path);
+if (upcase(pw_param)='INTERACTIVE_REPORT') or (upcase(pw_param)='BATCH_REPORT') or (upcase(pw_param)='HIDDEN_REPORT') then save_report('Auto log Raw File Split','txt','',upcase(pw_param),out_path);
 exitcode:=0;
 Sleep(500);
 if closepolicy>0 then Form_pea.Close;
@@ -4828,7 +4830,7 @@ Form_pea.LabelOpen.visible:=true;
 Form_pea.LabelLog1.Visible:=true;
 Form_pea.ButtonDone1.Visible:=true;
 Form_pea.ButtonPeaExit1.Visible:=false;
-if (upcase(pw_param)='INTERACTIVE_REPORT') or (upcase(pw_param)='BATCH_REPORT') or (upcase(pw_param)='HIDDEN_REPORT') then save_report('Auto log Raw File Join','txt',upcase(pw_param),out_path);
+if (upcase(pw_param)='INTERACTIVE_REPORT') or (upcase(pw_param)='BATCH_REPORT') or (upcase(pw_param)='HIDDEN_REPORT') then save_report('Auto log Raw File Join','txt','',upcase(pw_param),out_path);
 exitcode:=0;
 Sleep(500);
 if closepolicy>0 then Form_pea.Close;
@@ -8092,6 +8094,20 @@ control:=false;
 interacting:=true;
 end;
 
+function testname(name:ansistring):integer; //test if an object is already listed in ListMemo
+var
+   i:integer;
+begin
+result:=1;
+for i:=0 to Form_pea.ListMemo.Lines.Count-1 do
+   if Form_pea.ListMemo.Lines[i]=name then
+      begin
+      testname:=1;
+      exit;
+      end;
+result:=0;
+end;
+
 procedure TForm_pea.FormDropFiles(Sender: TObject;
   const FileNames: array of String);
 var i:integer;
@@ -8099,9 +8115,8 @@ begin
 if Form_pea.PanelUtils.visible=false then exit;
 if ListMemo.Enabled=false then exit;
 for i := 0 to High(FileNames) do
-     begin
-     ListMemo.Append(FileNames[i]);
-     end;
+     if testname(escapefilename(FileNames[i],desk_env))=0 then
+        ListMemo.Append(escapefilename(FileNames[i],desk_env));
 end;
 
 procedure set_items_height;

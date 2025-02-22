@@ -1,7 +1,7 @@
 object Form_peach: TForm_peach
   Left = 80
   Height = 600
-  Top = 80
+  Top = 42
   Width = 1024
   HelpKeyword = 'fsNormal'
   AllowDropFiles = True
@@ -48,9 +48,9 @@ object Form_peach: TForm_peach
     AnchorSideRight.Control = Options
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = GroupBoxCreateOut
-    Left = 2000
+    Left = 2130
     Height = 256
-    Top = 578
+    Top = 610
     Width = 1024
     Anchors = []
     BorderSpacing.Bottom = 18
@@ -124,9 +124,9 @@ object Form_peach: TForm_peach
     AnchorSideRight.Control = PanelFilters
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Side = asrBottom
-    Left = 381
+    Left = 471
     Height = 80
-    Top = 114
+    Top = 124
     Width = 699
     Anchors = []
     BorderStyle = bsNone
@@ -148,9 +148,9 @@ object Form_peach: TForm_peach
     AnchorSideRight.Control = PanelFilters
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Side = asrBottom
-    Left = 424
+    Left = 511
     Height = 80
-    Top = 115
+    Top = 125
     Width = 693
     Anchors = []
     BorderStyle = bsNone
@@ -222,9 +222,9 @@ object Form_peach: TForm_peach
     AnchorSideRight.Control = PanelFilters
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Side = asrBottom
-    Left = 426
+    Left = 513
     Height = 80
-    Top = 115
+    Top = 125
     Width = 690
     Anchors = []
     BorderStyle = bsNone
@@ -248,9 +248,9 @@ object Form_peach: TForm_peach
     AnchorSideRight.Control = PanelFilters
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Side = asrBottom
-    Left = 426
+    Left = 513
     Height = 80
-    Top = 87
+    Top = 97
     Width = 690
     Anchors = []
     BorderStyle = bsNone
@@ -272,9 +272,9 @@ object Form_peach: TForm_peach
     AnchorSideRight.Control = PanelFilters
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Side = asrBottom
-    Left = 460
+    Left = 540
     Height = 80
-    Top = 31
+    Top = 41
     Width = 652
     Anchors = []
     AutoEdit = False
@@ -296,9 +296,9 @@ object Form_peach: TForm_peach
     AnchorSideRight.Control = PanelFilters
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Side = asrBottom
-    Left = 460
+    Left = 540
     Height = 80
-    Top = 59
+    Top = 69
     Width = 652
     Anchors = []
     BorderStyle = bsNone
@@ -321,9 +321,9 @@ object Form_peach: TForm_peach
     AnchorSideRight.Control = PanelFilters
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Splitter1
-    Left = 520
+    Left = 595
     Height = 451
-    Top = 25
+    Top = 84
     Width = 590
     Anchors = []
     AutoSort = False
@@ -395,9 +395,9 @@ object Form_peach: TForm_peach
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Panelnav
     AnchorSideBottom.Side = asrBottom
-    Left = 825
+    Left = 850
     Height = 329
-    Top = 1470
+    Top = 1510
     Width = 200
     Anchors = []
     BorderStyle = bsNone
@@ -8056,715 +8056,6 @@ object Form_peach: TForm_peach
             ParentFont = False
           end
         end
-        object PageOpt2: TScrollBox
-          AnchorSideLeft.Control = Splitter3
-          AnchorSideLeft.Side = asrBottom
-          AnchorSideTop.Control = Notebook1
-          AnchorSideRight.Control = Notebook1
-          AnchorSideRight.Side = asrBottom
-          AnchorSideBottom.Control = PanelActDefaults
-          Left = 181
-          Height = 552
-          Top = 0
-          Width = 843
-          HorzScrollBar.Page = 1
-          VertScrollBar.Page = 552
-          Anchors = [akTop, akLeft, akRight, akBottom]
-          BorderStyle = bsNone
-          ClientHeight = 552
-          ClientWidth = 826
-          ParentBackground = False
-          ParentFont = False
-          TabOrder = 10
-          object PanelLine2: TPanel
-            AnchorSideLeft.Control = PageOpt2
-            AnchorSideLeft.Side = asrCenter
-            AnchorSideTop.Control = PageOpt2
-            Left = 113
-            Height = 1
-            Top = 0
-            Width = 600
-            BevelOuter = bvNone
-            ParentBackground = False
-            ParentFont = False
-            TabOrder = 19
-          end
-          object BevelTitleOpt2: TPanel
-            AnchorSideLeft.Control = PanelLine2
-            AnchorSideTop.Control = Labelo2
-            AnchorSideTop.Side = asrBottom
-            AnchorSideRight.Control = PanelLine2
-            AnchorSideRight.Side = asrBottom
-            AnchorSideBottom.Side = asrBottom
-            Left = 113
-            Height = 1
-            Top = 47
-            Width = 600
-            Anchors = [akTop, akLeft, akRight]
-            BorderSpacing.Top = 12
-            BevelOuter = bvNone
-            Color = 553621811
-            Constraints.MaxWidth = 800
-            ParentBackground = False
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 18
-          end
-          object ImageInfoDefault2: TImage
-            AnchorSideLeft.Control = CheckBoxEncoding
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = CheckBoxEncoding
-            AnchorSideTop.Side = asrCenter
-            AnchorSideRight.Control = CheckBoxEncoding
-            AnchorSideRight.Side = asrBottom
-            Cursor = crHandPoint
-            Left = 630
-            Height = 16
-            Top = 182
-            Width = 16
-            BorderSpacing.Left = 6
-            OnClick = ImageInfoDefault2Click
-            Transparent = True
-          end
-          object Labelconsoleencoding: TLabel
-            AnchorSideLeft.Control = BevelTitleOpt2
-            AnchorSideTop.Control = ComboBox1
-            AnchorSideTop.Side = asrCenter
-            AnchorSideRight.Control = ComboBox1
-            Left = 113
-            Height = 15
-            Top = 156
-            Width = 156
-            Caption = '7z console text encoding -scc'
-            ParentFont = False
-          end
-          object CheckBoxJobEncoding: TCheckBox
-            AnchorSideLeft.Control = PanelLine2
-            AnchorSideTop.Control = CheckBoxEncoding
-            AnchorSideTop.Side = asrBottom
-            Left = 113
-            Height = 19
-            Top = 206
-            Width = 207
-            BorderSpacing.Top = 6
-            Caption = 'Encode job definitions as UTF-8 text'
-            ParentFont = False
-            TabOrder = 4
-            Visible = False
-            OnClick = CheckBoxJobEncodingClick
-          end
-          object CheckBoxEncoding: TCheckBox
-            AnchorSideLeft.Control = PanelLine2
-            AnchorSideTop.Control = ComboBox1
-            AnchorSideTop.Side = asrBottom
-            Left = 113
-            Height = 19
-            Top = 181
-            Width = 511
-            BorderSpacing.Top = 6
-            Caption = 'Display archived object''s name as UTF-8 text; uncheck to replace extended characters with "?"'
-            Checked = True
-            ParentFont = False
-            State = cbChecked
-            TabOrder = 3
-            OnClick = CheckBoxEncodingClick
-          end
-          object ComboBox1: TComboBox
-            AnchorSideLeft.Control = Labelconsoleencoding
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = cbEncoding1
-            AnchorSideTop.Side = asrBottom
-            Left = 281
-            Height = 23
-            Top = 152
-            Width = 100
-            BorderSpacing.Left = 12
-            BorderSpacing.Top = 6
-            ItemHeight = 15
-            ItemIndex = 0
-            Items.Strings = (
-              'UTF-8'
-              'WIN'
-              'DOS'
-            )
-            ParentFont = False
-            Style = csDropDownList
-            TabOrder = 2
-            Text = 'UTF-8'
-            OnChange = ComboBox1Change
-          end
-          object Labeloaenc: TLabel
-            AnchorSideLeft.Control = PanelLine2
-            AnchorSideTop.Control = BevelTitleOpt2
-            AnchorSideTop.Side = asrBottom
-            Left = 113
-            Height = 15
-            Top = 96
-            Width = 50
-            BorderSpacing.Top = 48
-            Caption = 'Encoding'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object LabelConf: TLabel
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideBottom.Side = asrCenter
-            Left = 776
-            Height = 15
-            Top = -1719808580
-            Width = 3
-            Anchors = []
-            BorderSpacing.Left = 8
-            Caption = ' '
-            ParentFont = False
-            Visible = False
-          end
-          object Labeloaui: TLabel
-            AnchorSideLeft.Control = PanelLine2
-            AnchorSideTop.Control = ComboBoxSD
-            AnchorSideTop.Side = asrBottom
-            Left = 113
-            Height = 15
-            Top = 479
-            Width = 94
-            BorderSpacing.Top = 48
-            Caption = 'Backend binaries'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object ImageInfoDefault1: TImage
-            AnchorSideLeft.Control = Labeloaui
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = Labeloaui
-            AnchorSideTop.Side = asrCenter
-            Cursor = crHandPoint
-            Left = 213
-            Height = 16
-            Top = 478
-            Width = 16
-            BorderSpacing.Left = 6
-            OnClick = ImageInfoDefault1Click
-            Transparent = True
-          end
-          object RadioGroup4: TComboBox
-            AnchorSideLeft.Control = PanelLine2
-            AnchorSideTop.Control = CheckBoxShowVolatile
-            AnchorSideTop.Side = asrBottom
-            Left = 113
-            Height = 23
-            Top = 697
-            Width = 160
-            BorderSpacing.Top = 6
-            Constraints.MaxWidth = 600
-            ItemHeight = 15
-            ItemIndex = 2
-            Items.Strings = (
-              'console: native interface'
-              'graphic + console'
-              'graphic: wrapped by PeaLauncher'
-            )
-            ParentFont = False
-            Style = csDropDownList
-            TabOrder = 15
-            Text = 'graphic: wrapped by PeaLauncher'
-            OnChange = RadioGroup4Change
-          end
-          object RadioGroup6: TComboBox
-            AnchorSideLeft.Control = PanelLine2
-            AnchorSideTop.Control = RadioGroup4
-            AnchorSideTop.Side = asrBottom
-            AnchorSideRight.Side = asrBottom
-            Left = 113
-            Height = 23
-            Top = 726
-            Width = 360
-            BorderSpacing.Top = 6
-            Constraints.MaxWidth = 600
-            ItemHeight = 15
-            Items.Strings = (
-              '0'
-              '1'
-              '2'
-              '3'
-              '4'
-            )
-            ParentFont = False
-            Style = csDropDownList
-            TabOrder = 16
-            OnChange = RadioGroup6Change
-          end
-          object ComboBoxLibre: TComboBox
-            AnchorSideLeft.Control = PanelLine2
-            AnchorSideTop.Control = RadioGroup6
-            AnchorSideTop.Side = asrBottom
-            Left = 113
-            Height = 23
-            Top = 755
-            Width = 320
-            BorderSpacing.Top = 6
-            ItemHeight = 15
-            ItemIndex = 0
-            Items.Strings = (
-              '0'
-              '1'
-              '2'
-            )
-            ParentFont = False
-            Style = csDropDownList
-            TabOrder = 17
-            Text = '0'
-            OnChange = ComboBoxLibreChange
-          end
-          object Labelcb17: TLabel
-            AnchorSideLeft.Control = PanelLine2
-            AnchorSideTop.Control = LabelConfigureSendTo
-            AnchorSideTop.Side = asrBottom
-            AnchorSideRight.Control = EditDesk
-            Cursor = crHandPoint
-            Left = 113
-            Height = 15
-            Top = 381
-            Width = 43
-            BorderSpacing.Top = 12
-            Caption = 'Desktop'
-            Font.Color = 13391121
-            ParentFont = False
-            OnClick = Labelcb17Click
-          end
-          object EditDesk: TEdit
-            AnchorSideLeft.Control = Labelcb19
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = Labelcb17
-            AnchorSideTop.Side = asrCenter
-            Left = 237
-            Height = 23
-            Top = 377
-            Width = 360
-            BorderSpacing.Left = 12
-            BorderSpacing.Top = 12
-            ParentFont = False
-            ReadOnly = True
-            TabOrder = 5
-            Visible = False
-          end
-          object ButtonDesk1: TButton
-            AnchorSideLeft.Control = EditDesk
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = EditDesk
-            AnchorSideRight.Side = asrBottom
-            AnchorSideBottom.Control = EditDesk
-            AnchorSideBottom.Side = asrBottom
-            Left = 597
-            Height = 23
-            Top = 377
-            Width = 24
-            Anchors = [akTop, akLeft, akBottom]
-            BorderSpacing.InnerBorder = 4
-            Caption = '...'
-            ParentFont = False
-            TabOrder = 6
-            Visible = False
-            OnClick = ButtonDesk1Click
-          end
-          object LabelcbSD: TLabel
-            AnchorSideLeft.Control = PanelLine2
-            AnchorSideTop.Control = ComboBoxSD
-            AnchorSideTop.Side = asrCenter
-            AnchorSideRight.Control = EditDesk
-            Left = 113
-            Height = 15
-            Top = 412
-            Width = 105
-            BorderSpacing.Top = 12
-            Caption = 'Start browsing from'
-            ParentFont = False
-          end
-          object ComboBoxSD: TComboBox
-            AnchorSideLeft.Control = LabelcbSD
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = Labelcb17
-            AnchorSideTop.Side = asrBottom
-            Left = 230
-            Height = 23
-            Top = 408
-            Width = 240
-            BorderSpacing.Left = 12
-            BorderSpacing.Top = 12
-            ItemHeight = 15
-            ItemIndex = 0
-            Items.Strings = (
-              'Last visited directory'
-              'Computer''s root'
-              'Home'
-              'Desktop'
-              'Custom directory'
-            )
-            ParentFont = False
-            Style = csDropDownList
-            TabOrder = 7
-            Text = 'Last visited directory'
-            OnChange = ComboBoxSDChange
-          end
-          object LabelcbSDcustom: TLabel
-            AnchorSideLeft.Control = ComboBoxSD
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = ComboBoxSD
-            AnchorSideTop.Side = asrCenter
-            AnchorSideRight.Control = EditDesk
-            Cursor = crHandPoint
-            Left = 482
-            Height = 1
-            Top = 419
-            Width = 1
-            BorderSpacing.Left = 12
-            ParentFont = False
-          end
-          object Labelogpaths: TLabel
-            AnchorSideLeft.Control = PanelLine2
-            AnchorSideTop.Control = CheckBoxJobEncoding
-            AnchorSideTop.Side = asrBottom
-            Left = 113
-            Height = 15
-            Top = 273
-            Width = 30
-            BorderSpacing.Top = 48
-            Caption = 'Paths'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object LabelConf1: TLabel
-            AnchorSideLeft.Control = PanelLine2
-            AnchorSideTop.Control = Labelogpaths
-            AnchorSideTop.Side = asrBottom
-            AnchorSideBottom.Side = asrCenter
-            Cursor = crHandPoint
-            Left = 113
-            Height = 15
-            Top = 300
-            Width = 26
-            BorderSpacing.Top = 12
-            Caption = 'Conf'
-            Font.Color = 13391121
-            ParentFont = False
-            OnClick = LabelConf1Click
-          end
-          object LabelAppPath: TLabel
-            AnchorSideLeft.Control = PanelLine2
-            AnchorSideTop.Control = LabelConf1
-            AnchorSideTop.Side = asrBottom
-            Cursor = crHandPoint
-            Left = 113
-            Height = 15
-            Top = 327
-            Width = 110
-            BorderSpacing.Top = 12
-            Caption = 'Open PeaZip''s folder'
-            Font.Color = 13391121
-            ParentFont = False
-            OnClick = LabelAppPathClick
-          end
-          object LabelConfigureSendTo: TLabel
-            AnchorSideLeft.Control = PanelLine2
-            AnchorSideTop.Control = LabelAppPath
-            AnchorSideTop.Side = asrBottom
-            Cursor = crHandPoint
-            Left = 113
-            Height = 15
-            Top = 354
-            Width = 171
-            BorderSpacing.Top = 12
-            Caption = 'Open user''s SendTo menu folder'
-            Font.Color = 13391121
-            ParentFont = False
-            OnClick = LabelConfigureSendToClick
-          end
-          object CheckBoxShowVolatile: TCheckBox
-            AnchorSideLeft.Control = PanelLine2
-            AnchorSideTop.Control = CheckBoxExtrac32
-            AnchorSideTop.Side = asrBottom
-            Left = 113
-            Height = 19
-            Top = 672
-            Width = 131
-            BorderSpacing.Top = 6
-            Caption = 'Show volatile options'
-            ParentFont = False
-            TabOrder = 14
-            OnClick = CheckBoxShowVolatileClick
-          end
-          object cbEncoding1: TComboBox
-            AnchorSideLeft.Control = Labelenc
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = Labeloaenc
-            AnchorSideTop.Side = asrBottom
-            Left = 302
-            Height = 23
-            Top = 123
-            Width = 220
-            BorderSpacing.Left = 12
-            BorderSpacing.Top = 12
-            ItemHeight = 15
-            ItemIndex = 0
-            Items.Strings = (
-              'Local, UTF-8 for extra symbols'
-              'Force UTF-8'
-              'Force local'
-              'Custom codepage'
-            )
-            ParentFont = False
-            Style = csDropDownList
-            TabOrder = 0
-            Text = 'Local, UTF-8 for extra symbols'
-            OnChange = cbEncoding1Change
-          end
-          object EditEncoding: TEdit
-            AnchorSideLeft.Control = cbEncoding1
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = cbEncoding1
-            Left = 534
-            Height = 23
-            Hint = 'I.e:'#13#10'437 IBM PC'#13#10'850 DOS Latin'#13#10'852 DOS Latin II'#13#10'858 DOS Euro'#13#10'866 DOS Russian'#13#10'874 Thai'#13#10'932 Japanese'#13#10'936 Chinese Simplified'#13#10'949 Korean'#13#10'950 Chinese Traditional'#13#10'1250 Central Europe'#13#10'1251 Cyrillic'#13#10'1252 Western'#13#10'1253 Greek'#13#10'1254 Turkish'#13#10'1255 Hebrew'#13#10'1256 Arabic'#13#10'1257 Baltic'#13#10'1258 Vietnamese'#13#10'20866 Russian'#13#10'21866 Ukrainian'#13#10'65001 UTF-8'#13#10'...'
-            Top = 123
-            Width = 72
-            BorderSpacing.Left = 12
-            ParentFont = False
-            TabOrder = 1
-            Visible = False
-          end
-          object Labelenc: TLabel
-            AnchorSideLeft.Control = BevelTitleOpt2
-            AnchorSideTop.Control = cbEncoding1
-            AnchorSideTop.Side = asrCenter
-            Left = 113
-            Height = 15
-            Top = 127
-            Width = 177
-            Caption = '7z / p7zip ZIP filenames encoding'
-            ParentFont = False
-          end
-          object Labelcb18: TLabel
-            AnchorSideLeft.Control = Labelcb17
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = LabelConfigureSendTo
-            AnchorSideTop.Side = asrBottom
-            AnchorSideRight.Control = EditDesk
-            Cursor = crHandPoint
-            Left = 168
-            Height = 15
-            Top = 381
-            Width = 3
-            BorderSpacing.Left = 12
-            BorderSpacing.Top = 12
-            Caption = '|'
-            ParentFont = False
-            OnClick = Labelcb17Click
-          end
-          object Labelcb19: TLabel
-            AnchorSideLeft.Control = Labelcb18
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = LabelConfigureSendTo
-            AnchorSideTop.Side = asrBottom
-            AnchorSideRight.Control = EditDesk
-            Cursor = crHandPoint
-            Left = 183
-            Height = 15
-            Top = 381
-            Width = 42
-            BorderSpacing.Left = 12
-            BorderSpacing.Top = 12
-            Caption = 'Custom'
-            Font.Color = 13391121
-            ParentFont = False
-            OnClick = Labelcb19Click
-          end
-          object CheckBoxExtrac32: TCheckBox
-            AnchorSideLeft.Control = CheckBox7zunrar5
-            AnchorSideTop.Control = CheckBox7zunrar5
-            AnchorSideTop.Side = asrBottom
-            Left = 113
-            Height = 19
-            Top = 647
-            Width = 148
-            BorderSpacing.Top = 6
-            Caption = '(Windows) Extrac32 CAB'
-            ParentFont = False
-            TabOrder = 13
-            Visible = False
-            OnClick = CheckBoxExtrac32Click
-          end
-          object CheckBox7zunrar5: TCheckBox
-            AnchorSideLeft.Control = Labeloaui
-            AnchorSideTop.Control = ComboBoxSyntaxLevel
-            AnchorSideTop.Side = asrBottom
-            Left = 113
-            Height = 19
-            Top = 622
-            Width = 116
-            BorderSpacing.Top = 6
-            Caption = '7z / p7zip UNRAR5'
-            Checked = True
-            ParentFont = False
-            State = cbChecked
-            TabOrder = 12
-            OnClick = CheckBox7zunrar5Click
-          end
-          object Labelsyntaxlevel: TLabel
-            AnchorSideLeft.Control = BevelTitleOpt2
-            AnchorSideTop.Control = ComboBoxSyntaxLevel
-            AnchorSideTop.Side = asrCenter
-            AnchorSideRight.Control = ComboBox1
-            Left = 113
-            Height = 15
-            Top = 597
-            Width = 114
-            Caption = '7z / p7zip syntax level'
-            ParentFont = False
-          end
-          object ComboBoxSyntaxLevel: TComboBox
-            AnchorSideLeft.Control = Labelsyntaxlevel
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = Editalias
-            AnchorSideTop.Side = asrBottom
-            Left = 239
-            Height = 23
-            Top = 593
-            Width = 100
-            BorderSpacing.Left = 12
-            BorderSpacing.Top = 6
-            ItemHeight = 15
-            ItemIndex = 0
-            Items.Strings = (
-              'Latest'
-              '23.01'
-              '21.07'
-              '17.05'
-              '16.02'
-            )
-            ParentFont = False
-            Style = csDropDownList
-            TabOrder = 11
-            Text = 'Latest'
-            OnChange = ComboBoxSyntaxLevelChange
-          end
-          object Labelo2: TLabel
-            AnchorSideLeft.Control = BevelTitleOpt2
-            AnchorSideTop.Control = PageOpt2
-            Left = 113
-            Height = 23
-            Top = 12
-            Width = 61
-            BorderSpacing.Top = 12
-            BorderSpacing.Right = 128
-            BorderSpacing.Bottom = 12
-            Caption = 'General'
-            Font.Height = -17
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object ComboBoxMaxArg: TComboBox
-            AnchorSideLeft.Control = labelmaxarg
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = ComboBoxSysbin
-            AnchorSideTop.Side = asrBottom
-            Left = 230
-            Height = 23
-            Top = 535
-            Width = 92
-            BorderSpacing.Left = 12
-            BorderSpacing.Top = 6
-            ItemHeight = 15
-            ItemIndex = 2
-            Items.Strings = (
-              '32KB'
-              '64KB'
-              '128KB'
-              '256KB'
-              '512KB'
-              '1MB'
-              '1.5MB'
-              '2MB'
-            )
-            ParentFont = False
-            Style = csDropDownList
-            TabOrder = 9
-            Text = '128KB'
-            OnChange = ComboBoxMaxArgChange
-          end
-          object labelmaxarg: TLabel
-            AnchorSideLeft.Control = PanelLine2
-            AnchorSideTop.Control = ComboBoxMaxArg
-            AnchorSideTop.Side = asrCenter
-            Left = 113
-            Height = 15
-            Top = 539
-            Width = 105
-            Caption = 'Max arguments size'
-            ParentFont = False
-          end
-          object Labelalias: TLabel
-            AnchorSideLeft.Control = BevelTitleOpt2
-            AnchorSideTop.Control = Editalias
-            AnchorSideTop.Side = asrCenter
-            AnchorSideRight.Control = ComboBox1
-            Left = 113
-            Height = 15
-            Top = 568
-            Width = 76
-            Caption = '7z / p7zip alias'
-            ParentFont = False
-          end
-          object Editalias: TEdit
-            AnchorSideLeft.Control = Labelalias
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = ComboBoxMaxArg
-            AnchorSideTop.Side = asrBottom
-            Left = 201
-            Height = 23
-            Top = 564
-            Width = 100
-            BorderSpacing.Left = 12
-            BorderSpacing.Top = 6
-            TabOrder = 10
-            Text = '7z'
-          end
-          object ComboBoxSysbin: TComboBox
-            AnchorSideLeft.Control = cbSys7zlin
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = Labeloaui
-            AnchorSideTop.Side = asrBottom
-            Left = 353
-            Height = 23
-            Top = 506
-            Width = 100
-            BorderSpacing.Left = 12
-            BorderSpacing.Top = 12
-            ItemHeight = 15
-            ItemIndex = 0
-            Items.Strings = (
-              'No'
-              '7z / p7zip'
-              'All'
-            )
-            ParentFont = False
-            Style = csDropDownList
-            TabOrder = 8
-            Text = 'No'
-            OnChange = ComboBoxSysbinChange
-          end
-          object cbSys7zlin: TLabel
-            AnchorSideLeft.Control = PanelLine2
-            AnchorSideTop.Control = ComboBoxSysbin
-            AnchorSideTop.Side = asrCenter
-            Left = 113
-            Height = 15
-            Hint = 'Requires p7zip-full or equivalent to be installed'
-            Top = 510
-            Width = 228
-            BorderSpacing.Top = 6
-            Caption = 'Use system binaries from $PATH if available'
-            ParentFont = False
-          end
-        end
         object PageOpt4: TScrollBox
           AnchorSideLeft.Control = Splitter3
           AnchorSideLeft.Side = asrBottom
@@ -9495,7 +8786,7 @@ object Form_peach: TForm_peach
             ParentFont = False
           end
         end
-        object PageOpt1: TScrollBox
+        object PageOpt7: TScrollBox
           AnchorSideLeft.Control = Splitter3
           AnchorSideLeft.Side = asrBottom
           AnchorSideTop.Control = Notebook1
@@ -9506,317 +8797,130 @@ object Form_peach: TForm_peach
           Height = 552
           Top = 0
           Width = 843
-          HorzScrollBar.Page = 656
-          VertScrollBar.Page = 552
+          HorzScrollBar.Page = 1
+          VertScrollBar.Page = 228
           Anchors = [akTop, akLeft, akRight, akBottom]
+          AutoSize = True
           BorderStyle = bsNone
           ClientHeight = 552
-          ClientWidth = 826
+          ClientWidth = 843
           ParentBackground = False
           ParentFont = False
-          TabOrder = 1
-          object PanelLine1: TPanel
-            AnchorSideLeft.Control = PageOpt1
+          TabOrder = 4
+          object PanelLine7: TPanel
+            AnchorSideLeft.Control = PageOpt7
             AnchorSideLeft.Side = asrCenter
-            AnchorSideTop.Control = PageOpt1
-            Left = 113
+            AnchorSideTop.Control = PageOpt7
+            Left = 121
             Height = 1
             Top = 0
             Width = 600
             BevelOuter = bvNone
             ParentBackground = False
             ParentFont = False
-            TabOrder = 17
+            TabOrder = 2
           end
-          object CheckBoxShowHints: TCheckBox
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = CheckBoxDragDrop
+          object MemoAbout: TMemo
+            AnchorSideLeft.Control = PanelLine7
+            AnchorSideTop.Control = baboutlocalhelp
             AnchorSideTop.Side = asrBottom
-            Left = 113
-            Height = 19
-            Top = 210
-            Width = 76
-            BorderSpacing.Top = 6
-            Caption = 'Show hints'
-            Checked = True
-            ParentFont = False
-            State = cbChecked
-            TabOrder = 4
-            OnClick = CheckBoxShowHintsClick
-          end
-          object LabelLang2: TLabel
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = ComboBoxLanguage
-            AnchorSideTop.Side = asrCenter
-            Cursor = crHandPoint
-            Left = 113
-            Height = 15
-            Top = 127
-            Width = 63
-            BorderSpacing.Top = 24
-            Caption = 'Localization'
-            Font.Color = 13391121
-            ParentFont = False
-            OnClick = LabelLang2Click
-          end
-          object LabelWD: TLabel
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = ComboBoxWD
-            AnchorSideTop.Side = asrCenter
-            AnchorSideRight.Control = ComboBoxWD
-            Cursor = crHandPoint
-            Left = 113
-            Height = 15
-            Top = 564
-            Width = 95
-            Caption = 'Working directory'
-            Font.Color = 13391121
-            ParentFont = False
-            OnClick = LabelWDClick
-          end
-          object CheckBoxWindowStatus: TCheckBox
-            AnchorSideTop.Side = asrBottom
-            Left = 440
-            Height = 19
-            Top = 137
-            Width = 145
-            BorderSpacing.Top = 6
-            Caption = 'Save main window state'
-            Checked = True
-            ParentFont = False
-            State = cbChecked
-            TabOrder = 15
-            Visible = False
-            OnClick = CheckBoxWindowStatusClick
-          end
-          object CheckBoxParallelArchiving: TCheckBox
-            Left = 440
-            Height = 19
-            Top = 112
-            Width = 216
-            BorderSpacing.Top = 8
-            Caption = 'Execute jobs in parallel when possible'
-            ParentFont = False
-            TabOrder = 16
-            Visible = False
-            OnClick = CheckBoxParallelArchivingClick
-          end
-          object CheckBoxzcopy: TCheckBox
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = CheckBoxBrowseNotVerbose
-            AnchorSideTop.Side = asrBottom
-            Left = 113
-            Height = 19
-            Top = 387
-            Width = 275
-            BorderSpacing.Top = 6
-            Caption = '(Windows) Copy files in restartable mode, slower'
-            ParentFont = False
-            TabOrder = 8
-            OnClick = CheckBoxzcopyClick
-          end
-          object ComboBoxWD: TComboBox
-            AnchorSideLeft.Control = LabelWD
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = LabelDoc
-            AnchorSideTop.Side = asrBottom
-            Left = 220
-            Height = 23
-            Top = 560
-            Width = 400
-            BorderSpacing.Left = 12
-            BorderSpacing.Top = 12
-            ItemHeight = 15
-            ItemIndex = 0
-            Items.Strings = (
-              'Output'
-              'Output, preview in system temp'
-              'System temp'
-              'Custom'
-              'None, preview in system temp'
-              'None (no preview)'
-            )
-            ParentFont = False
-            Style = csDropDownList
-            TabOrder = 10
-            Text = 'Output'
-            OnChange = ComboBoxWDChange
-          end
-          object CheckBoxnetworkinfo: TCheckBox
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = CheckBoxzcopy
-            AnchorSideTop.Side = asrBottom
-            Left = 113
-            Height = 19
-            Top = 412
-            Width = 378
-            BorderSpacing.Top = 6
-            Caption = '(Windows) Get volume information for network units, slower startup'
-            ParentFont = False
-            TabOrder = 9
-            OnClick = CheckBoxnetworkinfoClick
-          end
-          object Labelogperf: TLabel
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = CheckBoxShowHints
-            AnchorSideTop.Side = asrBottom
-            Left = 113
-            Height = 15
-            Top = 277
-            Width = 78
-            BorderSpacing.Top = 48
-            Caption = 'Performances'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object Labelcb7: TLabel
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = CheckBoxArchiveHistory
-            AnchorSideTop.Side = asrBottom
+            AnchorSideRight.Control = PanelLine7
             AnchorSideRight.Side = asrBottom
-            Cursor = crHandPoint
-            Left = 113
-            Height = 15
-            Top = 645
-            Width = 105
-            BorderSpacing.Top = 12
-            Caption = 'Reset "Open with..."'
-            Font.Color = 13391121
+            AnchorSideBottom.Control = PageOpt7
+            AnchorSideBottom.Side = asrBottom
+            Left = 121
+            Height = 339
+            Top = 201
+            Width = 600
+            Anchors = [akTop, akLeft, akRight, akBottom]
+            BorderSpacing.Top = 24
+            BorderSpacing.Bottom = 12
+            BorderStyle = bsNone
+            Lines.Strings = (
+              'Tutorial''s translation is missing, please refer to local PDF help file and online resources.'
+            )
+            ParentColor = True
             ParentFont = False
-            OnClick = Labelcb7Click
+            ReadOnly = True
+            ScrollBars = ssAutoBoth
+            TabOrder = 0
           end
-          object LabelResetHistory: TLabel
-            AnchorSideLeft.Control = Labelspac4
+          object baboutsupport: TSpeedButton
+            AnchorSideLeft.Control = baboutweb
             AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = CheckBoxArchiveHistory
-            AnchorSideTop.Side = asrCenter
-            Cursor = crHandPoint
-            Left = 335
-            Height = 15
-            Top = 616
-            Width = 67
+            AnchorSideTop.Control = BevelTitleOpt7
+            AnchorSideTop.Side = asrBottom
+            Left = 218
+            Height = 19
+            Top = 96
+            Width = 46
+            AutoSize = True
             BorderSpacing.Left = 12
-            Caption = 'Reset history'
-            Font.Color = 13391121
-            ParentFont = False
-            OnClick = LabelResetHistoryClick
-          end
-          object LabelResetBookmarks: TLabel
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = Labelcb7
-            AnchorSideTop.Side = asrBottom
-            Cursor = crHandPoint
-            Left = 113
-            Height = 15
-            Top = 672
-            Width = 90
-            BorderSpacing.Top = 12
-            Caption = 'Reset bookmarks'
-            Font.Color = 13391121
-            ParentFont = False
-            OnClick = LabelResetBookmarksClick
-          end
-          object LabelResetPM: TLabel
-            AnchorSideLeft.Control = Labelspac6
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = LabelResetBookmarks
-            AnchorSideTop.Side = asrBottom
-            Cursor = crHandPoint
-            Left = 230
-            Height = 15
-            Top = 699
-            Width = 131
-            BorderSpacing.Left = 12
-            BorderSpacing.Top = 12
-            Caption = 'Reset Password Manager'
-            Font.Color = 13391121
-            ParentFont = False
-            OnClick = LabelResetPMClick
-          end
-          object Labelogreset: TLabel
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = CheckBoxnetworkinfo
-            AnchorSideTop.Side = asrBottom
-            Left = 113
-            Height = 15
-            Top = 479
-            Width = 83
             BorderSpacing.Top = 48
-            Caption = 'Privacy / Reset'
-            Font.Style = [fsBold]
+            Caption = 'Support'
+            Flat = True
+            Spacing = 3
+            OnClick = baboutsupportClick
             ParentFont = False
           end
-          object CheckBoxArchiveHistory: TCheckBox
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = CheckBoxSkipDel
-            AnchorSideTop.Side = asrBottom
-            Left = 113
-            Height = 19
-            Top = 614
-            Width = 195
-            BorderSpacing.Top = 6
-            Caption = 'Save history of latest used archive'
-            Checked = True
-            ParentFont = False
-            State = cbChecked
-            TabOrder = 12
-            OnClick = CheckBoxArchiveHistoryClick
-          end
-          object LabelResetPtmp: TLabel
-            AnchorSideLeft.Control = Labelspac5
+          object baboutfaq: TSpeedButton
+            AnchorSideLeft.Control = baboutsupport
             AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = CheckBoxSkipDel
+            AnchorSideTop.Control = baboutsupport
             AnchorSideTop.Side = asrCenter
-            Cursor = crHandPoint
-            Left = 374
-            Height = 15
-            Top = 591
-            Width = 92
-            BorderSpacing.Left = 12
-            Caption = 'Reset peazip-tmp'
-            Font.Color = 13391121
-            ParentFont = False
-            OnClick = LabelResetPtmpClick
-          end
-          object CheckBoxBrowseNotVerbose: TCheckBox
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = ComboBoxPriority
-            AnchorSideTop.Side = asrBottom
-            Left = 113
+            Left = 276
             Height = 19
-            Top = 362
-            Width = 57
-            BorderSpacing.Top = 6
-            Caption = '7z -bb0'
-            Checked = True
+            Top = 96
+            Width = 26
+            AutoSize = True
+            BorderSpacing.Left = 12
+            Caption = 'FAQ'
+            Flat = True
+            Spacing = 3
+            OnClick = baboutfaqClick
             ParentFont = False
-            State = cbChecked
-            TabOrder = 7
-            OnClick = CheckBoxBrowseNotVerboseClick
           end
-          object LabelConfigurePeaZip: TLabel
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = ComboBoxLanguage
+          object babouttracker: TSpeedButton
+            AnchorSideLeft.Control = baboutfaq
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = baboutsupport
+            AnchorSideTop.Side = asrCenter
+            Left = 314
+            Height = 19
+            Top = 96
+            Width = 41
+            AutoSize = True
+            BorderSpacing.Left = 12
+            Caption = 'Tracker'
+            Flat = True
+            Spacing = 3
+            OnClick = babouttrackerClick
+            ParentFont = False
+          end
+          object baboutlocalhelp: TSpeedButton
+            AnchorSideLeft.Control = PanelLine7
+            AnchorSideTop.Control = baboutchangelog
             AnchorSideTop.Side = asrBottom
-            Cursor = crHandPoint
-            Left = 113
-            Height = 15
+            Left = 121
+            Height = 19
             Top = 158
-            Width = 317
+            Width = 130
+            AutoSize = True
             BorderSpacing.Top = 12
-            Caption = 'Configure file associations, context menu and SendTo menu'
-            Font.Color = 13391121
+            Caption = 'Local help file, EN (.pdf)'
+            Flat = True
+            Spacing = 3
+            OnClick = baboutlocalhelpClick
             ParentFont = False
-            OnClick = LabelConfigurePeaZipClick
           end
-          object BevelTitleOpt1: TPanel
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = Labelo1
+          object BevelTitleOpt7: TPanel
+            AnchorSideLeft.Control = PanelLine7
+            AnchorSideTop.Control = Labelo7
             AnchorSideTop.Side = asrBottom
-            AnchorSideRight.Control = PanelLine1
+            AnchorSideRight.Control = PanelLine7
             AnchorSideRight.Side = asrBottom
             AnchorSideBottom.Side = asrBottom
-            Left = 113
+            Left = 121
             Height = 1
             Top = 47
             Width = 600
@@ -9828,393 +8932,71 @@ object Form_peach: TForm_peach
             ParentBackground = False
             ParentColor = False
             ParentFont = False
-            TabOrder = 14
-          end
-          object Labelspac4: TLabel
-            AnchorSideLeft.Control = CheckBoxArchiveHistory
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = CheckBoxArchiveHistory
-            AnchorSideTop.Side = asrCenter
-            Left = 320
-            Height = 15
-            Top = 616
-            Width = 3
-            BorderSpacing.Left = 12
-            Caption = '|'
-            ParentFont = False
-            OnClick = LabelLang2Click
-          end
-          object ComboBoxprivacy: TComboBox
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = LabelResetPM
-            AnchorSideTop.Side = asrBottom
-            Left = 113
-            Height = 23
-            Top = 726
-            Width = 400
-            BorderSpacing.Top = 12
-            ItemHeight = 15
-            ItemIndex = 0
-            Items.Strings = (
-              'Don''t ask to set pw'
-              'Ask to set pw'
-              'Ask to set pw (mandatory)'
-            )
-            ParentFont = False
-            Style = csDropDownList
-            TabOrder = 13
-            Text = 'Don''t ask to set pw'
-            OnChange = ComboBoxprivacyChange
-          end
-          object Labelcwd: TLabel
-            AnchorSideLeft.Control = ComboBoxWD
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = ComboBoxWD
-            AnchorSideTop.Side = asrCenter
-            Left = 632
-            Height = 1
-            Top = 571
-            Width = 1
-            BorderSpacing.Left = 12
-            ParentFont = False
-          end
-          object CheckBoxDragDrop: TCheckBox
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = LabelConfigurePeaZip
-            AnchorSideTop.Side = asrBottom
-            Left = 113
-            Height = 19
-            Top = 185
-            Width = 221
-            BorderSpacing.Top = 12
-            Caption = 'Use native Drag and Drop on Windows'
-            Checked = True
-            ParentFont = False
-            State = cbChecked
-            TabOrder = 2
-            OnClick = CheckBoxDragDropClick
-          end
-          object ComboBoxBrowser: TComboBox
-            AnchorSideLeft.Control = CheckBoxPrebrowse
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = Labelogperf
-            AnchorSideTop.Side = asrBottom
-            Left = 167
-            Height = 23
-            Top = 304
-            Width = 260
-            BorderSpacing.Left = 12
-            BorderSpacing.Top = 12
-            ItemHeight = 15
-            Items.Strings = (
-              '0'
-              '1'
-              '2'
-              '3'
-              '4'
-              '5'
-            )
-            ParentFont = False
-            Style = csDropDownList
-            TabOrder = 5
-            OnChange = ComboBoxBrowserChange
-          end
-          object CheckBoxPrebrowse: TLabel
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = ComboBoxBrowser
-            AnchorSideTop.Side = asrCenter
-            Left = 113
-            Height = 15
-            Top = 308
-            Width = 42
-            Caption = 'Browser'
-            ParentFont = False
-          end
-          object ComboBoxDrag: TComboBox
-            AnchorSideLeft.Control = CheckBoxDragDrop
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = CheckBoxDragDrop
-            AnchorSideTop.Side = asrCenter
-            Left = 346
-            Height = 23
-            Top = 183
-            Width = 200
-            BorderSpacing.Left = 12
-            ItemHeight = 15
-            ItemIndex = 3
-            Items.Strings = (
-              'Do not lock target'
-              'Lock drop target'
-              'Hide drop target'
-              'Lock and hide target'
-            )
-            ParentFont = False
-            Style = csDropDownList
-            TabOrder = 3
-            Text = 'Lock and hide target'
-            OnChange = ComboBoxDragChange
-          end
-          object Lpriority: TLabel
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = ComboBoxPriority
-            AnchorSideTop.Side = asrCenter
-            Left = 113
-            Height = 15
-            Top = 337
-            Width = 68
-            Caption = 'Tasks priority'
-            ParentFont = False
-          end
-          object ComboBoxPriority: TComboBox
-            AnchorSideLeft.Control = Lpriority
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = ComboBoxBrowser
-            AnchorSideTop.Side = asrBottom
-            Left = 193
-            Height = 23
-            Top = 333
-            Width = 120
-            BorderSpacing.Left = 12
-            BorderSpacing.Top = 6
-            ItemHeight = 15
-            ItemIndex = 2
-            Items.Strings = (
-              'Real time'
-              'High'
-              'Normal'
-              'Idle'
-            )
-            ParentFont = False
-            Style = csDropDownList
-            TabOrder = 6
-            Text = 'Normal'
-            OnChange = ComboBoxPriorityChange
-          end
-          object CheckBoxSkipDel: TCheckBox
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = ComboBoxWD
-            AnchorSideTop.Side = asrBottom
-            Left = 113
-            Height = 19
-            Top = 589
-            Width = 234
-            BorderSpacing.Top = 6
-            Caption = 'Skip delete temporary work files if locked'
-            Checked = True
-            ParentFont = False
-            State = cbChecked
-            TabOrder = 11
-            OnClick = CheckBoxSkipDelClick
-          end
-          object Labelspac5: TLabel
-            AnchorSideLeft.Control = CheckBoxSkipDel
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = CheckBoxSkipDel
-            AnchorSideTop.Side = asrCenter
-            Left = 359
-            Height = 15
-            Top = 591
-            Width = 3
-            BorderSpacing.Left = 12
-            Caption = '|'
-            ParentFont = False
-            OnClick = LabelLang2Click
-          end
-          object ComboBoxLanguage: TComboBox
-            AnchorSideLeft.Control = LabelLang2
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = Labelogmisc
-            AnchorSideTop.Side = asrBottom
-            Left = 188
-            Height = 23
-            Top = 123
-            Width = 120
-            BorderSpacing.Left = 12
-            BorderSpacing.Top = 12
-            DropDownCount = 16
-            ItemHeight = 15
-            ItemIndex = 8
-            Items.Strings = (
-              'ar.txt'
-              'bg.txt'
-              'by-cr.txt'
-              'by-lt.txt'
-              'ca.txt'
-              'chs.txt'
-              'cht.txt'
-              'cz.txt'
-              'default.txt'
-              'de-uml.txt'
-              'en.txt'
-              'en-gb.txt'
-              'es-es.txt'
-              'es-la.txt'
-              'eu.txt'
-              'fi.txt'
-              'fr.txt'
-              'gl.txt'
-              'gr.txt'
-              'he-prototype.txt'
-              'hu.txt'
-              'id.txt'
-              'it.txt'
-              'ja.txt'
-              'ko.txt'
-              'lv.txt'
-              'nl.txt'
-              'no.txt'
-              'pl.txt'
-              'pt-br.txt'
-              'pt-pt.txt'
-              'ro.txt'
-              'ru.txt'
-              'si.txt'
-              'sk.txt'
-              'sl.txt'
-              'sv.txt'
-              'tj.txt'
-              'tr.txt'
-              'uk.txt'
-              'uz.txt'
-              'vn.txt'
-            )
-            ParentFont = False
-            Style = csDropDownList
-            TabOrder = 0
-            Text = 'default.txt'
-            OnCloseUp = ComboBoxLanguageCloseUp
-          end
-          object csvsepchar: TLabel
-            AnchorSideLeft.Control = ComboBoxLanguage
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = LabelLang2
-            AnchorSideTop.Side = asrCenter
-            Left = 321
-            Height = 15
-            Top = 127
-            Width = 73
-            BorderSpacing.Left = 13
-            Caption = 'CSV separator'
-            ParentFont = False
-          end
-          object EditCSVsep: TEdit
-            AnchorSideLeft.Control = csvsepchar
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = csvsepchar
-            AnchorSideTop.Side = asrCenter
-            Left = 407
-            Height = 23
-            Top = 123
-            Width = 26
-            BorderSpacing.Left = 13
             TabOrder = 1
-            Text = ','
           end
-          object Labelo1: TLabel
-            AnchorSideLeft.Control = BevelTitleOpt1
-            AnchorSideTop.Control = PageOpt1
-            Left = 113
+          object Labelo7: TLabel
+            AnchorSideLeft.Control = BevelTitleOpt7
+            AnchorSideTop.Control = PageOpt7
+            Left = 121
             Height = 23
             Top = 12
-            Width = 61
+            Width = 38
             BorderSpacing.Top = 12
             BorderSpacing.Right = 128
             BorderSpacing.Bottom = 12
-            Caption = 'General'
+            Caption = 'Help'
             Font.Height = -17
             Font.Style = [fsBold]
             ParentFont = False
           end
-          object babouttranslations: TSpeedButton
-            AnchorSideLeft.Control = EditCSVsep
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = EditCSVsep
-            AnchorSideTop.Side = asrCenter
-            Left = 445
+          object baboutweb: TSpeedButton
+            AnchorSideLeft.Control = PanelLine7
+            AnchorSideTop.Control = BevelTitleOpt7
+            AnchorSideTop.Side = asrBottom
+            Left = 121
             Height = 19
-            Top = 125
-            Width = 66
+            Top = 96
+            Width = 85
             AutoSize = True
-            BorderSpacing.Left = 12
             BorderSpacing.Top = 48
-            Caption = 'Translations'
+            Caption = 'PeaZip Website'
             Flat = True
             Spacing = 3
-            OnClick = babouttranslationsClick
+            OnClick = baboutwebClick
             ParentFont = False
           end
-          object LabelPMpw: TLabel
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = LabelResetBookmarks
+          object baboutchangelog: TSpeedButton
+            AnchorSideLeft.Control = PanelLine7
+            AnchorSideTop.Control = baboutsupport
             AnchorSideTop.Side = asrBottom
-            Cursor = crHandPoint
-            Left = 113
-            Height = 15
-            Top = 699
-            Width = 90
+            Left = 121
+            Height = 19
+            Top = 127
+            Width = 62
+            AutoSize = True
             BorderSpacing.Top = 12
-            Caption = 'Set PM password'
-            Font.Color = 13391121
+            Caption = 'Changelog'
+            Flat = True
+            Spacing = 3
+            OnClick = baboutchangelogClick
             ParentFont = False
-            OnClick = LabelPMpwClick
           end
-          object Labelspac6: TLabel
-            AnchorSideLeft.Control = LabelPMpw
+          object babouttos: TSpeedButton
+            AnchorSideLeft.Control = baboutchangelog
             AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = LabelPMpw
-            AnchorSideTop.Side = asrCenter
-            Left = 215
-            Height = 15
-            Top = 699
-            Width = 3
+            AnchorSideTop.Control = baboutsupport
+            AnchorSideTop.Side = asrBottom
+            Left = 195
+            Height = 19
+            Top = 127
+            Width = 24
+            AutoSize = True
             BorderSpacing.Left = 12
-            Caption = '|'
-            ParentFont = False
-            OnClick = LabelLang2Click
-          end
-          object LabelUpdates: TLabel
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = Labelogreset
-            AnchorSideTop.Side = asrBottom
-            AnchorSideRight.Control = ComboBoxWD
-            Cursor = crHandPoint
-            Left = 113
-            Height = 15
-            Top = 506
-            Width = 135
             BorderSpacing.Top = 12
-            Caption = 'Updates, binaries, plugins'
-            Font.Color = 13391121
-            ParentFont = False
-            OnClick = LabelTitleOptions8Click
-          end
-          object LabelDoc: TLabel
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = LabelUpdates
-            AnchorSideTop.Side = asrBottom
-            AnchorSideRight.Control = ComboBoxWD
-            Cursor = crHandPoint
-            Left = 113
-            Height = 15
-            Top = 533
-            Width = 155
-            BorderSpacing.Top = 12
-            Caption = 'Documentation, Issue Tracker'
-            Font.Color = 13391121
-            ParentFont = False
-            OnClick = LabelTitleOptions7Click
-          end
-          object Labelogmisc: TLabel
-            AnchorSideLeft.Control = PanelLine1
-            AnchorSideTop.Control = BevelTitleOpt1
-            AnchorSideTop.Side = asrBottom
-            Left = 113
-            Height = 15
-            Top = 96
-            Width = 25
-            BorderSpacing.Top = 48
-            Caption = 'Misc'
-            Font.Style = [fsBold]
+            Caption = 'TOS'
+            Flat = True
+            Spacing = 3
+            OnClick = babouttosClick
             ParentFont = False
           end
         end
@@ -11135,8 +9917,35 @@ object Form_peach: TForm_peach
             Font.Style = [fsBold]
             ParentFont = False
           end
+          object cbautobrowsetar: TComboBox
+            AnchorSideLeft.Control = CheckBoxAutoOpenTar
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = CheckBoxAutoOpenTar
+            AnchorSideTop.Side = asrCenter
+            Left = 319
+            Height = 23
+            Top = 500
+            Width = 120
+            BorderSpacing.Left = 12
+            Color = clNone
+            Constraints.MaxWidth = 600
+            DropDownCount = 4
+            ItemHeight = 15
+            ItemIndex = 1
+            Items.Strings = (
+              '< 100 MB'
+              '< 1 GB'
+              '< 10 GB'
+              'Always'
+            )
+            ParentFont = False
+            Style = csDropDownList
+            TabOrder = 38
+            Text = '< 1 GB'
+            OnChange = cbautobrowsetarChange
+          end
         end
-        object PageOpt7: TScrollBox
+        object PageOpt2: TScrollBox
           AnchorSideLeft.Control = Splitter3
           AnchorSideLeft.Side = asrBottom
           AnchorSideTop.Control = Notebook1
@@ -11148,129 +9957,35 @@ object Form_peach: TForm_peach
           Top = 0
           Width = 843
           HorzScrollBar.Page = 1
-          VertScrollBar.Page = 228
+          VertScrollBar.Page = 552
           Anchors = [akTop, akLeft, akRight, akBottom]
-          AutoSize = True
           BorderStyle = bsNone
           ClientHeight = 552
-          ClientWidth = 843
+          ClientWidth = 826
           ParentBackground = False
           ParentFont = False
-          TabOrder = 4
-          object PanelLine7: TPanel
-            AnchorSideLeft.Control = PageOpt7
+          TabOrder = 10
+          object PanelLine2: TPanel
+            AnchorSideLeft.Control = PageOpt2
             AnchorSideLeft.Side = asrCenter
-            AnchorSideTop.Control = PageOpt7
-            Left = 121
+            AnchorSideTop.Control = PageOpt2
+            Left = 113
             Height = 1
             Top = 0
             Width = 600
             BevelOuter = bvNone
             ParentBackground = False
             ParentFont = False
-            TabOrder = 2
+            TabOrder = 18
           end
-          object MemoAbout: TMemo
-            AnchorSideLeft.Control = PanelLine7
-            AnchorSideTop.Control = baboutlocalhelp
+          object BevelTitleOpt2: TPanel
+            AnchorSideLeft.Control = PanelLine2
+            AnchorSideTop.Control = Labelo2
             AnchorSideTop.Side = asrBottom
-            AnchorSideRight.Control = PanelLine7
-            AnchorSideRight.Side = asrBottom
-            AnchorSideBottom.Control = PageOpt7
-            AnchorSideBottom.Side = asrBottom
-            Left = 121
-            Height = 339
-            Top = 201
-            Width = 600
-            Anchors = [akTop, akLeft, akRight, akBottom]
-            BorderSpacing.Top = 24
-            BorderSpacing.Bottom = 12
-            BorderStyle = bsNone
-            Lines.Strings = (
-              'Tutorial''s translation is missing, please refer to local PDF help file and online resources.'
-            )
-            ParentColor = True
-            ParentFont = False
-            ReadOnly = True
-            ScrollBars = ssAutoBoth
-            TabOrder = 0
-          end
-          object baboutsupport: TSpeedButton
-            AnchorSideLeft.Control = baboutweb
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = BevelTitleOpt7
-            AnchorSideTop.Side = asrBottom
-            Left = 218
-            Height = 19
-            Top = 96
-            Width = 46
-            AutoSize = True
-            BorderSpacing.Left = 12
-            BorderSpacing.Top = 48
-            Caption = 'Support'
-            Flat = True
-            Spacing = 3
-            OnClick = baboutsupportClick
-            ParentFont = False
-          end
-          object baboutfaq: TSpeedButton
-            AnchorSideLeft.Control = baboutsupport
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = baboutsupport
-            AnchorSideTop.Side = asrCenter
-            Left = 276
-            Height = 19
-            Top = 96
-            Width = 26
-            AutoSize = True
-            BorderSpacing.Left = 12
-            Caption = 'FAQ'
-            Flat = True
-            Spacing = 3
-            OnClick = baboutfaqClick
-            ParentFont = False
-          end
-          object babouttracker: TSpeedButton
-            AnchorSideLeft.Control = baboutfaq
-            AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = baboutsupport
-            AnchorSideTop.Side = asrCenter
-            Left = 314
-            Height = 19
-            Top = 96
-            Width = 41
-            AutoSize = True
-            BorderSpacing.Left = 12
-            Caption = 'Tracker'
-            Flat = True
-            Spacing = 3
-            OnClick = babouttrackerClick
-            ParentFont = False
-          end
-          object baboutlocalhelp: TSpeedButton
-            AnchorSideLeft.Control = PanelLine7
-            AnchorSideTop.Control = baboutchangelog
-            AnchorSideTop.Side = asrBottom
-            Left = 121
-            Height = 19
-            Top = 158
-            Width = 130
-            AutoSize = True
-            BorderSpacing.Top = 12
-            Caption = 'Local help file, EN (.pdf)'
-            Flat = True
-            Spacing = 3
-            OnClick = baboutlocalhelpClick
-            ParentFont = False
-          end
-          object BevelTitleOpt7: TPanel
-            AnchorSideLeft.Control = PanelLine7
-            AnchorSideTop.Control = Labelo7
-            AnchorSideTop.Side = asrBottom
-            AnchorSideRight.Control = PanelLine7
+            AnchorSideRight.Control = PanelLine2
             AnchorSideRight.Side = asrBottom
             AnchorSideBottom.Side = asrBottom
-            Left = 121
+            Left = 113
             Height = 1
             Top = 47
             Width = 600
@@ -11282,72 +9997,1386 @@ object Form_peach: TForm_peach
             ParentBackground = False
             ParentColor = False
             ParentFont = False
-            TabOrder = 1
+            TabOrder = 17
           end
-          object Labelo7: TLabel
-            AnchorSideLeft.Control = BevelTitleOpt7
-            AnchorSideTop.Control = PageOpt7
-            Left = 121
+          object ImageInfoDefault2: TImage
+            AnchorSideLeft.Control = CheckBoxEncoding
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = CheckBoxEncoding
+            AnchorSideTop.Side = asrCenter
+            AnchorSideRight.Control = CheckBoxEncoding
+            AnchorSideRight.Side = asrBottom
+            Cursor = crHandPoint
+            Left = 630
+            Height = 16
+            Top = 182
+            Width = 16
+            BorderSpacing.Left = 6
+            OnClick = ImageInfoDefault2Click
+            Transparent = True
+          end
+          object Labelconsoleencoding: TLabel
+            AnchorSideLeft.Control = BevelTitleOpt2
+            AnchorSideTop.Control = ComboBox1
+            AnchorSideTop.Side = asrCenter
+            AnchorSideRight.Control = ComboBox1
+            Left = 113
+            Height = 15
+            Top = 156
+            Width = 156
+            Caption = '7z console text encoding -scc'
+            ParentFont = False
+          end
+          object CheckBoxJobEncoding: TCheckBox
+            AnchorSideLeft.Control = PanelLine2
+            AnchorSideTop.Control = CheckBoxEncoding
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 19
+            Top = 206
+            Width = 207
+            BorderSpacing.Top = 6
+            Caption = 'Encode job definitions as UTF-8 text'
+            ParentFont = False
+            TabOrder = 4
+            Visible = False
+            OnClick = CheckBoxJobEncodingClick
+          end
+          object CheckBoxEncoding: TCheckBox
+            AnchorSideLeft.Control = PanelLine2
+            AnchorSideTop.Control = ComboBox1
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 19
+            Top = 181
+            Width = 511
+            BorderSpacing.Top = 6
+            Caption = 'Display archived object''s name as UTF-8 text; uncheck to replace extended characters with "?"'
+            Checked = True
+            ParentFont = False
+            State = cbChecked
+            TabOrder = 3
+            OnClick = CheckBoxEncodingClick
+          end
+          object ComboBox1: TComboBox
+            AnchorSideLeft.Control = Labelconsoleencoding
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = cbEncoding1
+            AnchorSideTop.Side = asrBottom
+            Left = 281
+            Height = 23
+            Top = 152
+            Width = 100
+            BorderSpacing.Left = 12
+            BorderSpacing.Top = 6
+            ItemHeight = 15
+            ItemIndex = 0
+            Items.Strings = (
+              'UTF-8'
+              'WIN'
+              'DOS'
+            )
+            ParentFont = False
+            Style = csDropDownList
+            TabOrder = 2
+            Text = 'UTF-8'
+            OnChange = ComboBox1Change
+          end
+          object Labeloaenc: TLabel
+            AnchorSideLeft.Control = PanelLine2
+            AnchorSideTop.Control = BevelTitleOpt2
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 15
+            Top = 96
+            Width = 50
+            BorderSpacing.Top = 48
+            Caption = 'Encoding'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object LabelConf: TLabel
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideBottom.Side = asrCenter
+            Left = 776
+            Height = 15
+            Top = 1997472510
+            Width = 3
+            Anchors = []
+            BorderSpacing.Left = 8
+            Caption = ' '
+            ParentFont = False
+            Visible = False
+          end
+          object Labeloaui: TLabel
+            AnchorSideLeft.Control = PanelLine2
+            AnchorSideTop.Control = ComboBoxSD
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 15
+            Top = 479
+            Width = 94
+            BorderSpacing.Top = 48
+            Caption = 'Backend binaries'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object ImageInfoDefault1: TImage
+            AnchorSideLeft.Control = Labeloaui
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = Labeloaui
+            AnchorSideTop.Side = asrCenter
+            Cursor = crHandPoint
+            Left = 213
+            Height = 16
+            Top = 478
+            Width = 16
+            BorderSpacing.Left = 6
+            OnClick = ImageInfoDefault1Click
+            Transparent = True
+          end
+          object RadioGroup4: TComboBox
+            AnchorSideLeft.Control = PanelLine2
+            AnchorSideTop.Control = CheckBoxExtrac32
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 23
+            Top = 672
+            Width = 160
+            BorderSpacing.Top = 6
+            Constraints.MaxWidth = 600
+            ItemHeight = 15
+            ItemIndex = 2
+            Items.Strings = (
+              'console: native interface'
+              'graphic + console'
+              'graphic: wrapped by PeaLauncher'
+            )
+            ParentFont = False
+            Style = csDropDownList
+            TabOrder = 14
+            Text = 'graphic: wrapped by PeaLauncher'
+            OnChange = RadioGroup4Change
+          end
+          object RadioGroup6: TComboBox
+            AnchorSideLeft.Control = PanelLine2
+            AnchorSideTop.Control = RadioGroup4
+            AnchorSideTop.Side = asrBottom
+            AnchorSideRight.Side = asrBottom
+            Left = 113
+            Height = 23
+            Top = 701
+            Width = 360
+            BorderSpacing.Top = 6
+            Constraints.MaxWidth = 600
+            ItemHeight = 15
+            Items.Strings = (
+              '0'
+              '1'
+              '2'
+              '3'
+              '4'
+            )
+            ParentFont = False
+            Style = csDropDownList
+            TabOrder = 15
+            OnChange = RadioGroup6Change
+          end
+          object ComboBoxLibre: TComboBox
+            AnchorSideLeft.Control = PanelLine2
+            AnchorSideTop.Control = RadioGroup6
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 23
+            Top = 730
+            Width = 320
+            BorderSpacing.Top = 6
+            ItemHeight = 15
+            ItemIndex = 0
+            Items.Strings = (
+              '0'
+              '1'
+              '2'
+            )
+            ParentFont = False
+            Style = csDropDownList
+            TabOrder = 16
+            Text = '0'
+            OnChange = ComboBoxLibreChange
+          end
+          object Labelcb17: TLabel
+            AnchorSideLeft.Control = PanelLine2
+            AnchorSideTop.Control = LabelConfigureSendTo
+            AnchorSideTop.Side = asrBottom
+            AnchorSideRight.Control = EditDesk
+            Cursor = crHandPoint
+            Left = 113
+            Height = 15
+            Top = 381
+            Width = 43
+            BorderSpacing.Top = 12
+            Caption = 'Desktop'
+            Font.Color = 13391121
+            ParentFont = False
+            OnClick = Labelcb17Click
+          end
+          object EditDesk: TEdit
+            AnchorSideLeft.Control = Labelcb19
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = Labelcb17
+            AnchorSideTop.Side = asrCenter
+            Left = 237
+            Height = 23
+            Top = 377
+            Width = 360
+            BorderSpacing.Left = 12
+            BorderSpacing.Top = 12
+            ParentFont = False
+            ReadOnly = True
+            TabOrder = 5
+            Visible = False
+          end
+          object ButtonDesk1: TButton
+            AnchorSideLeft.Control = EditDesk
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = EditDesk
+            AnchorSideRight.Side = asrBottom
+            AnchorSideBottom.Control = EditDesk
+            AnchorSideBottom.Side = asrBottom
+            Left = 597
+            Height = 23
+            Top = 377
+            Width = 24
+            Anchors = [akTop, akLeft, akBottom]
+            BorderSpacing.InnerBorder = 4
+            Caption = '...'
+            ParentFont = False
+            TabOrder = 6
+            Visible = False
+            OnClick = ButtonDesk1Click
+          end
+          object LabelcbSD: TLabel
+            AnchorSideLeft.Control = PanelLine2
+            AnchorSideTop.Control = ComboBoxSD
+            AnchorSideTop.Side = asrCenter
+            AnchorSideRight.Control = EditDesk
+            Left = 113
+            Height = 15
+            Top = 412
+            Width = 105
+            BorderSpacing.Top = 12
+            Caption = 'Start browsing from'
+            ParentFont = False
+          end
+          object ComboBoxSD: TComboBox
+            AnchorSideLeft.Control = LabelcbSD
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = Labelcb17
+            AnchorSideTop.Side = asrBottom
+            Left = 230
+            Height = 23
+            Top = 408
+            Width = 240
+            BorderSpacing.Left = 12
+            BorderSpacing.Top = 12
+            ItemHeight = 15
+            ItemIndex = 0
+            Items.Strings = (
+              'Last visited directory'
+              'Computer''s root'
+              'Home'
+              'Desktop'
+              'Custom directory'
+            )
+            ParentFont = False
+            Style = csDropDownList
+            TabOrder = 7
+            Text = 'Last visited directory'
+            OnChange = ComboBoxSDChange
+          end
+          object LabelcbSDcustom: TLabel
+            AnchorSideLeft.Control = ComboBoxSD
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = ComboBoxSD
+            AnchorSideTop.Side = asrCenter
+            AnchorSideRight.Control = EditDesk
+            Cursor = crHandPoint
+            Left = 482
+            Height = 1
+            Top = 419
+            Width = 1
+            BorderSpacing.Left = 12
+            ParentFont = False
+          end
+          object Labelogpaths: TLabel
+            AnchorSideLeft.Control = PanelLine2
+            AnchorSideTop.Control = CheckBoxJobEncoding
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 15
+            Top = 273
+            Width = 30
+            BorderSpacing.Top = 48
+            Caption = 'Paths'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object LabelConf1: TLabel
+            AnchorSideLeft.Control = PanelLine2
+            AnchorSideTop.Control = Labelogpaths
+            AnchorSideTop.Side = asrBottom
+            AnchorSideBottom.Side = asrCenter
+            Cursor = crHandPoint
+            Left = 113
+            Height = 15
+            Top = 300
+            Width = 26
+            BorderSpacing.Top = 12
+            Caption = 'Conf'
+            Font.Color = 13391121
+            ParentFont = False
+            OnClick = LabelConf1Click
+          end
+          object LabelAppPath: TLabel
+            AnchorSideLeft.Control = PanelLine2
+            AnchorSideTop.Control = LabelConf1
+            AnchorSideTop.Side = asrBottom
+            Cursor = crHandPoint
+            Left = 113
+            Height = 15
+            Top = 327
+            Width = 110
+            BorderSpacing.Top = 12
+            Caption = 'Open PeaZip''s folder'
+            Font.Color = 13391121
+            ParentFont = False
+            OnClick = LabelAppPathClick
+          end
+          object LabelConfigureSendTo: TLabel
+            AnchorSideLeft.Control = PanelLine2
+            AnchorSideTop.Control = LabelAppPath
+            AnchorSideTop.Side = asrBottom
+            Cursor = crHandPoint
+            Left = 113
+            Height = 15
+            Top = 354
+            Width = 171
+            BorderSpacing.Top = 12
+            Caption = 'Open user''s SendTo menu folder'
+            Font.Color = 13391121
+            ParentFont = False
+            OnClick = LabelConfigureSendToClick
+          end
+          object cbEncoding1: TComboBox
+            AnchorSideLeft.Control = Labelenc
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = Labeloaenc
+            AnchorSideTop.Side = asrBottom
+            Left = 302
+            Height = 23
+            Top = 123
+            Width = 220
+            BorderSpacing.Left = 12
+            BorderSpacing.Top = 12
+            ItemHeight = 15
+            ItemIndex = 0
+            Items.Strings = (
+              'Local, UTF-8 for extra symbols'
+              'Force UTF-8'
+              'Force local'
+              'Custom codepage'
+            )
+            ParentFont = False
+            Style = csDropDownList
+            TabOrder = 0
+            Text = 'Local, UTF-8 for extra symbols'
+            OnChange = cbEncoding1Change
+          end
+          object EditEncoding: TEdit
+            AnchorSideLeft.Control = cbEncoding1
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = cbEncoding1
+            Left = 534
+            Height = 23
+            Hint = 'I.e:'#13#10'437 IBM PC'#13#10'850 DOS Latin'#13#10'852 DOS Latin II'#13#10'858 DOS Euro'#13#10'866 DOS Russian'#13#10'874 Thai'#13#10'932 Japanese'#13#10'936 Chinese Simplified'#13#10'949 Korean'#13#10'950 Chinese Traditional'#13#10'1250 Central Europe'#13#10'1251 Cyrillic'#13#10'1252 Western'#13#10'1253 Greek'#13#10'1254 Turkish'#13#10'1255 Hebrew'#13#10'1256 Arabic'#13#10'1257 Baltic'#13#10'1258 Vietnamese'#13#10'20866 Russian'#13#10'21866 Ukrainian'#13#10'65001 UTF-8'#13#10'...'
+            Top = 123
+            Width = 72
+            BorderSpacing.Left = 12
+            ParentFont = False
+            TabOrder = 1
+            Visible = False
+          end
+          object Labelenc: TLabel
+            AnchorSideLeft.Control = BevelTitleOpt2
+            AnchorSideTop.Control = cbEncoding1
+            AnchorSideTop.Side = asrCenter
+            Left = 113
+            Height = 15
+            Top = 127
+            Width = 177
+            Caption = '7z / p7zip ZIP filenames encoding'
+            ParentFont = False
+          end
+          object Labelcb18: TLabel
+            AnchorSideLeft.Control = Labelcb17
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = LabelConfigureSendTo
+            AnchorSideTop.Side = asrBottom
+            AnchorSideRight.Control = EditDesk
+            Cursor = crHandPoint
+            Left = 168
+            Height = 15
+            Top = 381
+            Width = 3
+            BorderSpacing.Left = 12
+            BorderSpacing.Top = 12
+            Caption = '|'
+            ParentFont = False
+            OnClick = Labelcb17Click
+          end
+          object Labelcb19: TLabel
+            AnchorSideLeft.Control = Labelcb18
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = LabelConfigureSendTo
+            AnchorSideTop.Side = asrBottom
+            AnchorSideRight.Control = EditDesk
+            Cursor = crHandPoint
+            Left = 183
+            Height = 15
+            Top = 381
+            Width = 42
+            BorderSpacing.Left = 12
+            BorderSpacing.Top = 12
+            Caption = 'Custom'
+            Font.Color = 13391121
+            ParentFont = False
+            OnClick = Labelcb19Click
+          end
+          object CheckBoxExtrac32: TCheckBox
+            AnchorSideLeft.Control = CheckBox7zunrar5
+            AnchorSideTop.Control = CheckBox7zunrar5
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 19
+            Top = 647
+            Width = 148
+            BorderSpacing.Top = 6
+            Caption = '(Windows) Extrac32 CAB'
+            ParentFont = False
+            TabOrder = 13
+            Visible = False
+            OnClick = CheckBoxExtrac32Click
+          end
+          object CheckBox7zunrar5: TCheckBox
+            AnchorSideLeft.Control = Labeloaui
+            AnchorSideTop.Control = ComboBoxSyntaxLevel
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 19
+            Top = 622
+            Width = 116
+            BorderSpacing.Top = 6
+            Caption = '7z / p7zip UNRAR5'
+            Checked = True
+            ParentFont = False
+            State = cbChecked
+            TabOrder = 12
+            OnClick = CheckBox7zunrar5Click
+          end
+          object Labelsyntaxlevel: TLabel
+            AnchorSideLeft.Control = BevelTitleOpt2
+            AnchorSideTop.Control = ComboBoxSyntaxLevel
+            AnchorSideTop.Side = asrCenter
+            AnchorSideRight.Control = ComboBox1
+            Left = 113
+            Height = 15
+            Top = 597
+            Width = 114
+            Caption = '7z / p7zip syntax level'
+            ParentFont = False
+          end
+          object ComboBoxSyntaxLevel: TComboBox
+            AnchorSideLeft.Control = Labelsyntaxlevel
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = Editalias
+            AnchorSideTop.Side = asrBottom
+            Left = 239
+            Height = 23
+            Top = 593
+            Width = 100
+            BorderSpacing.Left = 12
+            BorderSpacing.Top = 6
+            ItemHeight = 15
+            ItemIndex = 0
+            Items.Strings = (
+              'Latest'
+              '23.01'
+              '21.07'
+              '17.05'
+              '16.02'
+            )
+            ParentFont = False
+            Style = csDropDownList
+            TabOrder = 11
+            Text = 'Latest'
+            OnChange = ComboBoxSyntaxLevelChange
+          end
+          object Labelo2: TLabel
+            AnchorSideLeft.Control = BevelTitleOpt2
+            AnchorSideTop.Control = PageOpt2
+            Left = 113
             Height = 23
             Top = 12
-            Width = 38
+            Width = 61
             BorderSpacing.Top = 12
             BorderSpacing.Right = 128
             BorderSpacing.Bottom = 12
-            Caption = 'Help'
+            Caption = 'General'
             Font.Height = -17
             Font.Style = [fsBold]
             ParentFont = False
           end
-          object baboutweb: TSpeedButton
-            AnchorSideLeft.Control = PanelLine7
-            AnchorSideTop.Control = BevelTitleOpt7
-            AnchorSideTop.Side = asrBottom
-            Left = 121
-            Height = 19
-            Top = 96
-            Width = 85
-            AutoSize = True
-            BorderSpacing.Top = 48
-            Caption = 'PeaZip Website'
-            Flat = True
-            Spacing = 3
-            OnClick = baboutwebClick
-            ParentFont = False
-          end
-          object baboutchangelog: TSpeedButton
-            AnchorSideLeft.Control = PanelLine7
-            AnchorSideTop.Control = baboutsupport
-            AnchorSideTop.Side = asrBottom
-            Left = 121
-            Height = 19
-            Top = 127
-            Width = 62
-            AutoSize = True
-            BorderSpacing.Top = 12
-            Caption = 'Changelog'
-            Flat = True
-            Spacing = 3
-            OnClick = baboutchangelogClick
-            ParentFont = False
-          end
-          object babouttos: TSpeedButton
-            AnchorSideLeft.Control = baboutchangelog
+          object ComboBoxMaxArg: TComboBox
+            AnchorSideLeft.Control = labelmaxarg
             AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = baboutsupport
+            AnchorSideTop.Control = ComboBoxSysbin
             AnchorSideTop.Side = asrBottom
-            Left = 195
-            Height = 19
-            Top = 127
-            Width = 24
-            AutoSize = True
+            Left = 230
+            Height = 23
+            Top = 535
+            Width = 92
+            BorderSpacing.Left = 12
+            BorderSpacing.Top = 6
+            ItemHeight = 15
+            ItemIndex = 2
+            Items.Strings = (
+              '32KB'
+              '64KB'
+              '128KB'
+              '256KB'
+              '512KB'
+              '1MB'
+              '1.5MB'
+              '2MB'
+            )
+            ParentFont = False
+            Style = csDropDownList
+            TabOrder = 9
+            Text = '128KB'
+            OnChange = ComboBoxMaxArgChange
+          end
+          object labelmaxarg: TLabel
+            AnchorSideLeft.Control = PanelLine2
+            AnchorSideTop.Control = ComboBoxMaxArg
+            AnchorSideTop.Side = asrCenter
+            Left = 113
+            Height = 15
+            Top = 539
+            Width = 105
+            Caption = 'Max arguments size'
+            ParentFont = False
+          end
+          object Labelalias: TLabel
+            AnchorSideLeft.Control = BevelTitleOpt2
+            AnchorSideTop.Control = Editalias
+            AnchorSideTop.Side = asrCenter
+            AnchorSideRight.Control = ComboBox1
+            Left = 113
+            Height = 15
+            Top = 568
+            Width = 76
+            Caption = '7z / p7zip alias'
+            ParentFont = False
+          end
+          object Editalias: TEdit
+            AnchorSideLeft.Control = Labelalias
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = ComboBoxMaxArg
+            AnchorSideTop.Side = asrBottom
+            Left = 201
+            Height = 23
+            Top = 564
+            Width = 100
+            BorderSpacing.Left = 12
+            BorderSpacing.Top = 6
+            TabOrder = 10
+            Text = '7z'
+          end
+          object ComboBoxSysbin: TComboBox
+            AnchorSideLeft.Control = cbSys7zlin
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = Labeloaui
+            AnchorSideTop.Side = asrBottom
+            Left = 353
+            Height = 23
+            Top = 506
+            Width = 100
             BorderSpacing.Left = 12
             BorderSpacing.Top = 12
-            Caption = 'TOS'
+            ItemHeight = 15
+            ItemIndex = 0
+            Items.Strings = (
+              'No'
+              '7z / p7zip'
+              'All'
+            )
+            ParentFont = False
+            Style = csDropDownList
+            TabOrder = 8
+            Text = 'No'
+            OnChange = ComboBoxSysbinChange
+          end
+          object cbSys7zlin: TLabel
+            AnchorSideLeft.Control = PanelLine2
+            AnchorSideTop.Control = ComboBoxSysbin
+            AnchorSideTop.Side = asrCenter
+            Left = 113
+            Height = 15
+            Hint = 'Requires p7zip-full or equivalent to be installed'
+            Top = 510
+            Width = 228
+            BorderSpacing.Top = 6
+            Caption = 'Use system binaries from $PATH if available'
+            ParentFont = False
+          end
+        end
+        object PageOpt1: TScrollBox
+          AnchorSideLeft.Control = Splitter3
+          AnchorSideLeft.Side = asrBottom
+          AnchorSideTop.Control = Notebook1
+          AnchorSideRight.Control = Notebook1
+          AnchorSideRight.Side = asrBottom
+          AnchorSideBottom.Control = PanelActDefaults
+          Left = 181
+          Height = 552
+          Top = 0
+          Width = 843
+          HorzScrollBar.Page = 656
+          VertScrollBar.Page = 552
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BorderStyle = bsNone
+          ClientHeight = 552
+          ClientWidth = 826
+          ParentBackground = False
+          ParentFont = False
+          TabOrder = 1
+          object PanelLine1: TPanel
+            AnchorSideLeft.Control = PageOpt1
+            AnchorSideLeft.Side = asrCenter
+            AnchorSideTop.Control = PageOpt1
+            Left = 113
+            Height = 1
+            Top = 0
+            Width = 600
+            BevelOuter = bvNone
+            ParentBackground = False
+            ParentFont = False
+            TabOrder = 18
+          end
+          object CheckBoxShowHints: TCheckBox
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = CheckBoxDragDrop
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 19
+            Top = 210
+            Width = 76
+            BorderSpacing.Top = 6
+            Caption = 'Show hints'
+            Checked = True
+            ParentFont = False
+            State = cbChecked
+            TabOrder = 4
+            OnClick = CheckBoxShowHintsClick
+          end
+          object LabelLang2: TLabel
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = ComboBoxLanguage
+            AnchorSideTop.Side = asrCenter
+            Cursor = crHandPoint
+            Left = 113
+            Height = 15
+            Top = 127
+            Width = 63
+            BorderSpacing.Top = 24
+            Caption = 'Localization'
+            Font.Color = 13391121
+            ParentFont = False
+            OnClick = LabelLang2Click
+          end
+          object LabelWD: TLabel
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = ComboBoxWD
+            AnchorSideTop.Side = asrCenter
+            AnchorSideRight.Control = ComboBoxWD
+            Cursor = crHandPoint
+            Left = 113
+            Height = 15
+            Top = 589
+            Width = 95
+            Caption = 'Working directory'
+            Font.Color = 13391121
+            ParentFont = False
+            OnClick = LabelWDClick
+          end
+          object CheckBoxWindowStatus: TCheckBox
+            AnchorSideTop.Side = asrBottom
+            Left = 440
+            Height = 19
+            Top = 137
+            Width = 145
+            BorderSpacing.Top = 6
+            Caption = 'Save main window state'
+            Checked = True
+            ParentFont = False
+            State = cbChecked
+            TabOrder = 16
+            Visible = False
+            OnClick = CheckBoxWindowStatusClick
+          end
+          object CheckBoxParallelArchiving: TCheckBox
+            Left = 440
+            Height = 19
+            Top = 112
+            Width = 216
+            BorderSpacing.Top = 8
+            Caption = 'Execute jobs in parallel when possible'
+            ParentFont = False
+            TabOrder = 17
+            Visible = False
+            OnClick = CheckBoxParallelArchivingClick
+          end
+          object CheckBoxzcopy: TCheckBox
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = CheckBoxBrowseNotVerbose
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 19
+            Top = 412
+            Width = 275
+            BorderSpacing.Top = 6
+            Caption = '(Windows) Copy files in restartable mode, slower'
+            ParentFont = False
+            TabOrder = 9
+            OnClick = CheckBoxzcopyClick
+          end
+          object ComboBoxWD: TComboBox
+            AnchorSideLeft.Control = LabelWD
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = LabelDoc
+            AnchorSideTop.Side = asrBottom
+            Left = 220
+            Height = 23
+            Top = 585
+            Width = 400
+            BorderSpacing.Left = 12
+            BorderSpacing.Top = 12
+            ItemHeight = 15
+            ItemIndex = 0
+            Items.Strings = (
+              'Output'
+              'Output, preview in system temp'
+              'System temp'
+              'Custom'
+              'None, preview in system temp'
+              'None (no preview)'
+            )
+            ParentFont = False
+            Style = csDropDownList
+            TabOrder = 11
+            Text = 'Output'
+            OnChange = ComboBoxWDChange
+          end
+          object CheckBoxnetworkinfo: TCheckBox
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = CheckBoxzcopy
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 19
+            Top = 437
+            Width = 378
+            BorderSpacing.Top = 6
+            Caption = '(Windows) Get volume information for network units, slower startup'
+            ParentFont = False
+            TabOrder = 10
+            OnClick = CheckBoxnetworkinfoClick
+          end
+          object Labelogperf: TLabel
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = CheckBoxShowVolatile
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 15
+            Top = 302
+            Width = 78
+            BorderSpacing.Top = 48
+            Caption = 'Performances'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Labelcb7: TLabel
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = CheckBoxArchiveHistory
+            AnchorSideTop.Side = asrBottom
+            AnchorSideRight.Side = asrBottom
+            Cursor = crHandPoint
+            Left = 113
+            Height = 15
+            Top = 670
+            Width = 105
+            BorderSpacing.Top = 12
+            Caption = 'Reset "Open with..."'
+            Font.Color = 13391121
+            ParentFont = False
+            OnClick = Labelcb7Click
+          end
+          object LabelResetHistory: TLabel
+            AnchorSideLeft.Control = Labelspac4
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = CheckBoxArchiveHistory
+            AnchorSideTop.Side = asrCenter
+            Cursor = crHandPoint
+            Left = 335
+            Height = 15
+            Top = 641
+            Width = 67
+            BorderSpacing.Left = 12
+            Caption = 'Reset history'
+            Font.Color = 13391121
+            ParentFont = False
+            OnClick = LabelResetHistoryClick
+          end
+          object LabelResetBookmarks: TLabel
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = Labelcb7
+            AnchorSideTop.Side = asrBottom
+            Cursor = crHandPoint
+            Left = 113
+            Height = 15
+            Top = 697
+            Width = 90
+            BorderSpacing.Top = 12
+            Caption = 'Reset bookmarks'
+            Font.Color = 13391121
+            ParentFont = False
+            OnClick = LabelResetBookmarksClick
+          end
+          object LabelResetPM: TLabel
+            AnchorSideLeft.Control = Labelspac6
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = LabelResetBookmarks
+            AnchorSideTop.Side = asrBottom
+            Cursor = crHandPoint
+            Left = 230
+            Height = 15
+            Top = 724
+            Width = 131
+            BorderSpacing.Left = 12
+            BorderSpacing.Top = 12
+            Caption = 'Reset Password Manager'
+            Font.Color = 13391121
+            ParentFont = False
+            OnClick = LabelResetPMClick
+          end
+          object Labelogreset: TLabel
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = CheckBoxnetworkinfo
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 15
+            Top = 504
+            Width = 83
+            BorderSpacing.Top = 48
+            Caption = 'Privacy / Reset'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object CheckBoxArchiveHistory: TCheckBox
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = CheckBoxSkipDel
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 19
+            Top = 639
+            Width = 195
+            BorderSpacing.Top = 6
+            Caption = 'Save history of latest used archive'
+            Checked = True
+            ParentFont = False
+            State = cbChecked
+            TabOrder = 13
+            OnClick = CheckBoxArchiveHistoryClick
+          end
+          object LabelResetPtmp: TLabel
+            AnchorSideLeft.Control = Labelspac5
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = CheckBoxSkipDel
+            AnchorSideTop.Side = asrCenter
+            Cursor = crHandPoint
+            Left = 374
+            Height = 15
+            Top = 616
+            Width = 92
+            BorderSpacing.Left = 12
+            Caption = 'Reset peazip-tmp'
+            Font.Color = 13391121
+            ParentFont = False
+            OnClick = LabelResetPtmpClick
+          end
+          object CheckBoxBrowseNotVerbose: TCheckBox
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = ComboBoxPriority
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 19
+            Top = 387
+            Width = 57
+            BorderSpacing.Top = 6
+            Caption = '7z -bb0'
+            Checked = True
+            ParentFont = False
+            State = cbChecked
+            TabOrder = 8
+            OnClick = CheckBoxBrowseNotVerboseClick
+          end
+          object LabelConfigurePeaZip: TLabel
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = ComboBoxLanguage
+            AnchorSideTop.Side = asrBottom
+            Cursor = crHandPoint
+            Left = 113
+            Height = 15
+            Top = 158
+            Width = 317
+            BorderSpacing.Top = 12
+            Caption = 'Configure file associations, context menu and SendTo menu'
+            Font.Color = 13391121
+            ParentFont = False
+            OnClick = LabelConfigurePeaZipClick
+          end
+          object BevelTitleOpt1: TPanel
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = Labelo1
+            AnchorSideTop.Side = asrBottom
+            AnchorSideRight.Control = PanelLine1
+            AnchorSideRight.Side = asrBottom
+            AnchorSideBottom.Side = asrBottom
+            Left = 113
+            Height = 1
+            Top = 47
+            Width = 600
+            Anchors = [akTop, akLeft, akRight]
+            BorderSpacing.Top = 12
+            BevelOuter = bvNone
+            Color = 553621811
+            Constraints.MaxWidth = 800
+            ParentBackground = False
+            ParentColor = False
+            ParentFont = False
+            TabOrder = 15
+          end
+          object Labelspac4: TLabel
+            AnchorSideLeft.Control = CheckBoxArchiveHistory
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = CheckBoxArchiveHistory
+            AnchorSideTop.Side = asrCenter
+            Left = 320
+            Height = 15
+            Top = 641
+            Width = 3
+            BorderSpacing.Left = 12
+            Caption = '|'
+            ParentFont = False
+            OnClick = LabelLang2Click
+          end
+          object ComboBoxprivacy: TComboBox
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = LabelResetPM
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 23
+            Top = 751
+            Width = 400
+            BorderSpacing.Top = 12
+            ItemHeight = 15
+            ItemIndex = 0
+            Items.Strings = (
+              'Don''t ask to set pw'
+              'Ask to set pw'
+              'Ask to set pw (mandatory)'
+            )
+            ParentFont = False
+            Style = csDropDownList
+            TabOrder = 14
+            Text = 'Don''t ask to set pw'
+            OnChange = ComboBoxprivacyChange
+          end
+          object Labelcwd: TLabel
+            AnchorSideLeft.Control = ComboBoxWD
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = ComboBoxWD
+            AnchorSideTop.Side = asrCenter
+            Left = 632
+            Height = 1
+            Top = 596
+            Width = 1
+            BorderSpacing.Left = 12
+            ParentFont = False
+          end
+          object CheckBoxDragDrop: TCheckBox
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = LabelConfigurePeaZip
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 19
+            Top = 185
+            Width = 221
+            BorderSpacing.Top = 12
+            Caption = 'Use native Drag and Drop on Windows'
+            Checked = True
+            ParentFont = False
+            State = cbChecked
+            TabOrder = 2
+            OnClick = CheckBoxDragDropClick
+          end
+          object ComboBoxBrowser: TComboBox
+            AnchorSideLeft.Control = CheckBoxPrebrowse
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = Labelogperf
+            AnchorSideTop.Side = asrBottom
+            Left = 167
+            Height = 23
+            Top = 329
+            Width = 260
+            BorderSpacing.Left = 12
+            BorderSpacing.Top = 12
+            ItemHeight = 15
+            Items.Strings = (
+              '0'
+              '1'
+              '2'
+              '3'
+              '4'
+              '5'
+            )
+            ParentFont = False
+            Style = csDropDownList
+            TabOrder = 6
+            OnChange = ComboBoxBrowserChange
+          end
+          object CheckBoxPrebrowse: TLabel
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = ComboBoxBrowser
+            AnchorSideTop.Side = asrCenter
+            Left = 113
+            Height = 15
+            Top = 333
+            Width = 42
+            Caption = 'Browser'
+            ParentFont = False
+          end
+          object ComboBoxDrag: TComboBox
+            AnchorSideLeft.Control = CheckBoxDragDrop
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = CheckBoxDragDrop
+            AnchorSideTop.Side = asrCenter
+            Left = 346
+            Height = 23
+            Top = 183
+            Width = 200
+            BorderSpacing.Left = 12
+            ItemHeight = 15
+            ItemIndex = 3
+            Items.Strings = (
+              'Do not lock target'
+              'Lock drop target'
+              'Hide drop target'
+              'Lock and hide target'
+            )
+            ParentFont = False
+            Style = csDropDownList
+            TabOrder = 3
+            Text = 'Lock and hide target'
+            OnChange = ComboBoxDragChange
+          end
+          object Lpriority: TLabel
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = ComboBoxPriority
+            AnchorSideTop.Side = asrCenter
+            Left = 113
+            Height = 15
+            Top = 362
+            Width = 68
+            Caption = 'Tasks priority'
+            ParentFont = False
+          end
+          object ComboBoxPriority: TComboBox
+            AnchorSideLeft.Control = Lpriority
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = ComboBoxBrowser
+            AnchorSideTop.Side = asrBottom
+            Left = 193
+            Height = 23
+            Top = 358
+            Width = 120
+            BorderSpacing.Left = 12
+            BorderSpacing.Top = 6
+            ItemHeight = 15
+            ItemIndex = 2
+            Items.Strings = (
+              'Real time'
+              'High'
+              'Normal'
+              'Idle'
+            )
+            ParentFont = False
+            Style = csDropDownList
+            TabOrder = 7
+            Text = 'Normal'
+            OnChange = ComboBoxPriorityChange
+          end
+          object CheckBoxSkipDel: TCheckBox
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = ComboBoxWD
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 19
+            Top = 614
+            Width = 234
+            BorderSpacing.Top = 6
+            Caption = 'Skip delete temporary work files if locked'
+            Checked = True
+            ParentFont = False
+            State = cbChecked
+            TabOrder = 12
+            OnClick = CheckBoxSkipDelClick
+          end
+          object Labelspac5: TLabel
+            AnchorSideLeft.Control = CheckBoxSkipDel
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = CheckBoxSkipDel
+            AnchorSideTop.Side = asrCenter
+            Left = 359
+            Height = 15
+            Top = 616
+            Width = 3
+            BorderSpacing.Left = 12
+            Caption = '|'
+            ParentFont = False
+            OnClick = LabelLang2Click
+          end
+          object ComboBoxLanguage: TComboBox
+            AnchorSideLeft.Control = LabelLang2
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = Labelogmisc
+            AnchorSideTop.Side = asrBottom
+            Left = 188
+            Height = 23
+            Top = 123
+            Width = 120
+            BorderSpacing.Left = 12
+            BorderSpacing.Top = 12
+            DropDownCount = 16
+            ItemHeight = 15
+            ItemIndex = 8
+            Items.Strings = (
+              'ar.txt'
+              'bg.txt'
+              'by-cr.txt'
+              'by-lt.txt'
+              'ca.txt'
+              'chs.txt'
+              'cht.txt'
+              'cz.txt'
+              'default.txt'
+              'de-uml.txt'
+              'en.txt'
+              'en-gb.txt'
+              'es-es.txt'
+              'es-la.txt'
+              'eu.txt'
+              'fi.txt'
+              'fr.txt'
+              'gl.txt'
+              'gr.txt'
+              'he-prototype.txt'
+              'hu.txt'
+              'id.txt'
+              'it.txt'
+              'ja.txt'
+              'ko.txt'
+              'lv.txt'
+              'nl.txt'
+              'no.txt'
+              'pl.txt'
+              'pt-br.txt'
+              'pt-pt.txt'
+              'ro.txt'
+              'ru.txt'
+              'si.txt'
+              'sk.txt'
+              'sl.txt'
+              'sv.txt'
+              'tj.txt'
+              'tr.txt'
+              'uk.txt'
+              'uz.txt'
+              'vn.txt'
+            )
+            ParentFont = False
+            Style = csDropDownList
+            TabOrder = 0
+            Text = 'default.txt'
+            OnCloseUp = ComboBoxLanguageCloseUp
+          end
+          object csvsepchar: TLabel
+            AnchorSideLeft.Control = ComboBoxLanguage
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = LabelLang2
+            AnchorSideTop.Side = asrCenter
+            Left = 321
+            Height = 15
+            Top = 127
+            Width = 73
+            BorderSpacing.Left = 13
+            Caption = 'CSV separator'
+            ParentFont = False
+            Visible = False
+          end
+          object EditCSVsep: TEdit
+            AnchorSideLeft.Control = csvsepchar
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = csvsepchar
+            AnchorSideTop.Side = asrCenter
+            Left = 407
+            Height = 23
+            Top = 123
+            Width = 26
+            BorderSpacing.Left = 13
+            TabOrder = 1
+            Text = ','
+            Visible = False
+          end
+          object Labelo1: TLabel
+            AnchorSideLeft.Control = BevelTitleOpt1
+            AnchorSideTop.Control = PageOpt1
+            Left = 113
+            Height = 23
+            Top = 12
+            Width = 61
+            BorderSpacing.Top = 12
+            BorderSpacing.Right = 128
+            BorderSpacing.Bottom = 12
+            Caption = 'General'
+            Font.Height = -17
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object babouttranslations: TSpeedButton
+            AnchorSideLeft.Control = EditCSVsep
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = EditCSVsep
+            AnchorSideTop.Side = asrCenter
+            Left = 445
+            Height = 19
+            Top = 125
+            Width = 66
+            AutoSize = True
+            BorderSpacing.Left = 12
+            BorderSpacing.Top = 48
+            Caption = 'Translations'
             Flat = True
             Spacing = 3
-            OnClick = babouttosClick
+            OnClick = babouttranslationsClick
             ParentFont = False
+          end
+          object LabelPMpw: TLabel
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = LabelResetBookmarks
+            AnchorSideTop.Side = asrBottom
+            Cursor = crHandPoint
+            Left = 113
+            Height = 15
+            Top = 724
+            Width = 90
+            BorderSpacing.Top = 12
+            Caption = 'Set PM password'
+            Font.Color = 13391121
+            ParentFont = False
+            OnClick = LabelPMpwClick
+          end
+          object Labelspac6: TLabel
+            AnchorSideLeft.Control = LabelPMpw
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = LabelPMpw
+            AnchorSideTop.Side = asrCenter
+            Left = 215
+            Height = 15
+            Top = 724
+            Width = 3
+            BorderSpacing.Left = 12
+            Caption = '|'
+            ParentFont = False
+            OnClick = LabelLang2Click
+          end
+          object LabelUpdates: TLabel
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = Labelogreset
+            AnchorSideTop.Side = asrBottom
+            AnchorSideRight.Control = ComboBoxWD
+            Cursor = crHandPoint
+            Left = 113
+            Height = 15
+            Top = 531
+            Width = 135
+            BorderSpacing.Top = 12
+            Caption = 'Updates, binaries, plugins'
+            Font.Color = 13391121
+            ParentFont = False
+            OnClick = LabelTitleOptions8Click
+          end
+          object LabelDoc: TLabel
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = LabelUpdates
+            AnchorSideTop.Side = asrBottom
+            AnchorSideRight.Control = ComboBoxWD
+            Cursor = crHandPoint
+            Left = 113
+            Height = 15
+            Top = 558
+            Width = 155
+            BorderSpacing.Top = 12
+            Caption = 'Documentation, Issue Tracker'
+            Font.Color = 13391121
+            ParentFont = False
+            OnClick = LabelTitleOptions7Click
+          end
+          object Labelogmisc: TLabel
+            AnchorSideLeft.Control = PanelLine1
+            AnchorSideTop.Control = BevelTitleOpt1
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 15
+            Top = 96
+            Width = 25
+            BorderSpacing.Top = 48
+            Caption = 'Misc'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object CheckBoxShowVolatile: TCheckBox
+            AnchorSideLeft.Control = CheckBoxShowHints
+            AnchorSideTop.Control = CheckBoxShowHints
+            AnchorSideTop.Side = asrBottom
+            Left = 113
+            Height = 19
+            Top = 235
+            Width = 131
+            BorderSpacing.Top = 6
+            Caption = 'Show volatile options'
+            ParentFont = False
+            TabOrder = 5
+            OnClick = CheckBoxShowVolatileClick
           end
         end
         object PageOpt6: TScrollBox
@@ -12200,7 +12229,7 @@ object Form_peach: TForm_peach
             Width = 80
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Top = 12
-            DropDownCount = 9
+            DropDownCount = 10
             ItemHeight = 15
             ItemIndex = 4
             Items.Strings = (
@@ -12212,6 +12241,7 @@ object Form_peach: TForm_peach
               '115'
               '125'
               '150'
+              '175'
               '200'
             )
             ParentFont = False
@@ -15179,7 +15209,7 @@ object Form_peach: TForm_peach
             OnClick = ImageListRootClick
             OnMouseEnter = ImageListRootMouseEnter
             OnMouseLeave = ImageListRootMouseLeave
-            PopupMenu = pmbreadcrumb
+            PopupMenu = pmnavbc
             Transparent = True
           end
         end
@@ -18230,13 +18260,24 @@ object Form_peach: TForm_peach
         Caption = 'Info'
         OnClick = MenuItemInfomenuClick
       end
-      object MenuItemOpen_saveastxt: TMenuItem
-        Caption = 'Save as txt'
-        OnClick = MenuItemOpen_saveastxtClick
-      end
-      object MenuItemOpen_saveascsv: TMenuItem
-        Caption = 'Save as csv'
-        OnClick = MenuItemOpen_saveascsvClick
+      object MenuItemOpen_saveas: TMenuItem
+        Caption = 'Saveas'
+        object MenuItemOpen_saveascsv: TMenuItem
+          Caption = 'CSV ,'
+          OnClick = pmsaveascsvClick
+        end
+        object MenuItemOpen_saveascsvl: TMenuItem
+          Caption = 'CSV ;'
+          OnClick = pmsaveascsvlClick
+        end
+        object MenuItemOpen_saveastsv: TMenuItem
+          Caption = 'TSV'
+          OnClick = pmsaveastsvClick
+        end
+        object MenuItemOpen_saveastxt: TMenuItem
+          Caption = 'TXT'
+          OnClick = pmsaveastxtClick
+        end
       end
       object MenuItemOpen_jump: TMenuItem
         Caption = 'Jump'
@@ -20641,7 +20682,6 @@ object Form_peach: TForm_peach
     end
     object pmqnointdir: TMenuItem
       Caption = 'Smart'
-      Visible = False
       OnClick = pmqnointdirClick
     end
     object pmopenout: TMenuItem
@@ -21612,7 +21652,7 @@ object Form_peach: TForm_peach
     Left = 749
     Top = 176
     Bitmap = {
-      4C7A580000003000000030000000594B00000000000078DAED9D0798DDC4B986
+      4C7A5800000030000000300000005D4B00000000000078DAED9D0798DDC4B986
       9724B45042272124864020D47B430D38841E7249B8D4849046E7866A5AA8063B
       80B18D7BC16030D8049B66D6D818830B6B705BC065DDFBBAAFB7F70ED8FEAF46
       67A5D5392B9DA39166A499B39F9FE77DD65E4BA3F71FCDFC53A43D4B4439043A
@@ -22143,79 +22183,79 @@ object Form_peach: TForm_peach
       01F31F00000000F31FCC1F30FF01000000B263FE83F23B67F900000000E63F28
       1FF31F00000000F31F948FF90F00000080F90FCAC7FC07000000D06BFEA3C2B9
       F0873FFCE10F7FF8C31FFE58BF03CC9F917FE00F7FF8C31FFEF0873FE6CF00F3
-      67F45FF8C31FFEF0873FFCE18FF9330000E0F303E10F7FF8C31FFEF8FC550000
-      C0FC19FEF0873FFCE18FF933000060FE0C7FF8C31FFEF0873F00000080F5173E
-      3F10E5A37C948FF2513E3E7F150080F933F233CA47F9281FE5A37CCC9F010000
-      F919E5A37C948FF2513EE6CF00000000D65F281FE5A37C948FF2513ECA47F928
-      1FE5A37C948FFD430000C0FE0FCA47F9281FE5A37C948FF2513ECA47F9281FE5
-      63FF070000E2E2942B56901B5EC79F3FAD89DC50C93D5D0CE74D6D22375473F7
-      8AE1D786AB1B2ABABBC5D0F59346724355F7D418CEFDB891DC50D9DD19C33953
-      1AC90DD5DD2DCE9ED2E08A0EEE16677DD4D0015DDC2DCE9CDC9044DCEE05252D
-      263CE79C31B9DE264EF7F9C5CD49F09C7BFA87F52671B9E76F6F7685A78C5F4E
-      AAA338DC676F6B4E4BD0312E0AF7995B9B7C11550C3CD799BEA5890BD931F094
-      FFF1A6C640C88A81A7DC0F37368642740C3CE54DD8D028045131F094F35E6183
-      50C2C6C073FEB8750D52081A03CF796FAC6D900A6F0C3CC7BFB6A63E1264CC0D
-      47AEAA8F1491EE2FAEAC8F0511EE4356D479E2B56EE225DD35C2B80F585E9716
-      51FE99AE13C4BDCFD2BA8C88F2F7732D3F79D459E6734B6A331266AD2DE35ACE
-      637A2EAECD88287F51D7721EF3E4A2DA8C88F217752DE7318F2EACC988287F51
-      D7721EF3E0FC9A8C88F217752DE731F77D55931151FEA2AEE53CE6AE2FAB3322
-      CA5FD4B59CC7DC9E5F9D1151FEA2AEE53CE6E679D51911E52FEA5ACE63FE36A7
-      2A23A2FC455DCB79CC9F6757654494BFA86B398FB96E56554644F98BBA96F398
-      2B3FABCC88287F51D7721EF3FB99951911E52FEA5ACE632ECBABCC88287F51D7
-      12359F970DFCD5F417C5EB03F622377479FF04FEF0873FFCE10F7FF8C31FFEF0
-      873FFCE12FC72DA87F1C31FA7113758C0C5E1BB00759785D3B939BF37BA9E545
-      E9EF15433A7F2FF7A8FCFDC4E087B8DC45C410B77B981854710F12836AEE3C31
-      A8EAEE15433A549D4BE8ECEE27065DE6703ABB7BCD33F073AD40A775D317F3AF
-      570A3F6B04F8C31FFEF0873FFC5506FE6AFA030000009D99A9B77D97BC50D979
-      DA1D7B523A771563315D6EFF1E97B72A71CCB86BFF50DE71C630ED8E3D84B947
-      1D8368EF2863E0EDA3AAC520DB5DB4FF8AC772C8A2E0E11C5AF4500E2D786037
-      9A73CF6E34FDF6EF281B03F35DF5F43EE4F44F65D9A339F4E5FDBBD18C3BBEA3
-      8C7FC27BDFB4DE1DE27824873EBB33FE184C9FC7BFCBE56EB1DCB817B3EEDA2D
-      94EFF43BBE479FDDB307CDBE7F4F9AF7D03EC4EBBEF2C93D02B93BDBD3CC7FF2
-      DF87BC3B77A7A53DF7A7F5FD0FA24D830F4962F3B01F9B5F79FA691896FC2B87
-      A6DDE63F862FFEB537150E38B8837707861CE6198728770B969BFCB82F7C625F
-      DA38C8877B0AB2FDD93D70F365798AB5AFCFEFFA0E7DF5F01EB461C081B42980
-      BF3306D1EE16CE7CC47CD9D8C1FA78EA71AB9EFE1E15BEF083C031C8F2FFA25B
-      A20DE5DFB79BAB772AEB9EDF47297F364633779E73D63DBF2F770CC2DD9FD88D
-      563DF53D5AF1A4C1E37CFE2B1ECFA1C27E07C4E2BFF2C9EF5261DF1F24E513F6
-      F7F57DF6A3954F7CC77739AB7BEC11B9FFEAA777A78D03BDF3C8C60107D1AAEE
-      FEC6F595C6FDE3C9A9A1FD8D36B2A1FF8119AFC3728CDF3237F43F80AF0F3FF1
-      BDC0FE6B9FDDDBF7B5D6F4DCD35799857DF78F2C07ADEFBD9FEF6BB1FCE2AFFE
-      0FF4319F383C651CDB2D903FCFD8E3A70DB1BEEEB7FD8B9843ACEFBD2F47FDEF
-      93B1BC35FFDE33D279D09A67F6F27D3D961BC3E682CDC38E4C3B9F0E947F7C8C
-      39EB8D3E99F15EF6D93F50BD878D637DFFF4ED95E5C3954F7A8F61AB7AEC471B
-      061D99B1AFFA75EFB82EDB3DB98F75DFCBFCEA3CCEAC6316C750C363101B7B0F
-      31D7538BBA2772CEC28777A7E54FB0FCD9314F88AA7300000000000000D0991F
-      3DFF221D3E6A6C2CB06B87758FDB3F680CD6B92AF8F3C6E03C4F157FBF31A49E
-      A3927FA618DC8E57CDDF2B06AF6355F44F8D21DD71AAFA5B31643A46657FC671
-      733F0700000000000000000000590C9ED1000000000000208E47EEB88C063D77
-      6B2CB06B87758FDB3F680CD6B92AF8F3C6E03C4F157FBF31A49EA3927FA618DC
-      8E57CDDF2B06AF6355F44F8D21DD71AAFA5B31643A46657FC6F4913703000000
-      000000000000802C06CF6800000000000010C7E14F7E4A47BF383F16D8B5C3BA
-      C7ED1F3406EB5C15FC7963709EA78ABFDF1852CF51C93F530C6EC7ABE6EF1583
-      D7B12AFAA7C690EE3855FDAD18321DA3B23FA3CB9C2A00000000000000000000
-      90C5E0190D000000000000E2B8A0D7FB74FBB8B9B1C0AE1DD63D6EFFA03158E7
-      AAE0CF1B83F33C55FCFDC6907A8E4AFE9962703B5E357FAF18BC8E55D13F3586
-      74C7A9EA6FC590E91895FD1927BE5ECBC55963DEE7E2CC07C77371E2DF6BF980
-      3FFCE10F7FF807F2EF3A6B0E1F930770715E1F3EBAFE7B0E1FF0873FFCE10FFF
-      40FE272EF9868B33664EE663D8875CFC62F0375CC01FFEF0873FFC83F9E3190D
-      00000000000078FF07EFFFE0FD1FBCFF83F77FF0FE4F76BFFFD36D6631C8621E
-      FE5C3FE7A7E694D06B4BCA69C6FA4A5ABCAD8AA6ACADA0171795D163B34A94F6
-      7E2EBF9426AFA9A075A5D554535B4BB50EAA6A6A69757135BDB3A29C9E9CA35E
-      1C831794D186B29A246737585C05C63DE939AF4429F78D3EDC9D2C562406D666
-      3670BA5B2CD852458FC4D827EE37F8645D652077AB4FBC64F4EBB8FC9F9E5BE2
-      D96E2AAA6B69BE51BFACBF2E31DA4A758D7B0C733755D1839FC5E3CF72648D87
-      FBD8E5E576EE6779F3B30DEEF7A9B8B2867A196D300E7F96DFDD9C58BDA7D629
-      732CAAA871CD47AC1EE21857590E71F367759D7A3CEBA7EB4AAA5D8F9FB0AA22
-      96FA67E3AA9BCFB2A2EA0E63EDA0F9A55456D5B1FE59BF1811531F6673822A97
-      7EC99CD83D606D86D57BEF2F4A6949917BDD6F29AFA19E73E3C9A1AC8ED99CC0
-      2B3FB2F6BED668336EEDDE62AA917FEF8F71FC62F9B12660FE67ED69C0FCD258
-      C75F36172BF0E8C7E9606D8CD57D5CB9DF099BC72CE68881B94F3772EF230ACD
-      A7590C6C3E535593B9CDB07A7F44C1B5007362F39939C69C609BD1672BAB13CE
-      E5C65736CF9869E4249647556833E978C0F0633991CDAB471B636BBFAF4AA9BB
-      D14FEEC77A3AEBC0331A000000000000F0FE0FDEFFC1FB3F78FF07EFFFE0FD9F
-      EC7EFF67E89B0000A016ADADAD492006C48018F48D41677FB8C3BD33E61C0000
-      00D90B9ED10000E2E2FF016609F846
+      67F45FF8C31FFEF0873FFCE18FF9330000E0F303E10F7FF8E3F333010098FF20
+      FFC31FFEF0C7FC070080F90FF23FFCE10F7FCC7F000098FF20FFC31FFEF0C7FC
+      070080F90F3E3F10E5A37C948FF90F0000F31F948FF2513ECAC7FC070080F90F
+      CA47F9281FE5030000E63F281FE5A37C940F000098FFA07C948FF2513ECA47F9
+      281FE5A37C948FF2513EF67F000000FB3F281FE5A37C948FF2513ECA47F9281F
+      E5A37C948FFD1F0000888B53AE58416E781D7FFEB426724325F774319C37B589
+      DC50CDDD2B865F1BAE6EA8E8EE1643D74F1AC90D55DD536338F7E34672436577
+      670CE74C6924375477B7387B4A832B3AB85B9CF55143077471B7387372431271
+      BB1794B498F09C73C6E47A9B38DDE7173727C173EEE91FD69BC4E59EBFBDD915
+      9E327E39A98EE2709FBDAD392D41C7B828DC676E6DF2455431F05C67FA96262E
+      64C7C053FEC79B1A03212B069E723FDCD8180AD131F094376143A31044C5C053
+      CE7B850D42091B03CFF9E3D6354821680C3CE7BDB1B6412ABC31F01CFFDA9AFA
+      489031371CB9AA3E5244BABFB8B23E1644B80F5951E789D7BA899774D708E33E
+      60795D5A44F967BA4E10F73E4BEB3222CADFCFB5FCE4516799CF2DA9CD4898B5
+      B68C6B398FE9B9B83623A2FC455DCB79CC938B6A3322CA5FD4B59CC73CBAB026
+      23A2FC455DCB79CC83F36B3222CA5FD4B59CC7DCF7554D4644F98BBA96F398BB
+      BEACCE88287F51D7721E737B7E754644F98BBA96F3989BE755674494BFA86B39
+      8FF9DB9CAA8C88F217752DE7317F9E5D951151FEA2AEE53CE6BA59551911E52F
+      EA5ACE63AEFCAC3223A2FC455DCB79CCEF6756664494BFA86B398FB92CAF3223
+      A2FC455D4BD47C5E36F057D35F14AF0FD88BDCD0E5FD13F8C31FFEF0873FFCE1
+      0F7FF8C31FFEF087BF1CB7A0FE71C4E8C74DD43132786DC01E64E175ED4C6ECE
+      EFA59617A5BF570CE9FCBDDCA3F2F713831FE272171143DCEE616250C53D480C
+      AAB9F3C4A0AABB570CE950752EA1B3BB9F187499C3E9ECEE35CFC0CFB5029DD6
+      4D5FCCBF5E29FCAC11E00F7FF8C31FFEF05719F8ABE90F0000007466A6DEF65D
+      F24265E76977EC49E9DC558CC574B9FD7B5CDEAAC431E3AEFD4379C719C3B43B
+      F610E61E750CA2BDA38C81B78FAA16836C77D1FE2B1ECB218B82877368D14339
+      B4E081DD68CE3DBBD1F4DBBFA36C0CCC77D5D3FB90D33F95658FE6D097F7EF46
+      33EEF88E32FE09EF7DD37A7788E3911CFAECCEF863307D1EFF2E97BBC572E35E
+      CCBA6BB750BED3EFF81E7D76CF1E34FBFE3D69DE43FB10AFFBCA27F708E4EE6C
+      4F33FFC97F1FF2EEDC9D96F6DC9FD6F73F88360D3E2489CDC37E6C7EE5E9A761
+      58F2AF1C9A769BFF18BEF8D7DE5438E0E00EDE1D187298671CA2DC2D586EF2E3
+      BEF0897D69E3201FEE29C8F667F7C0CD97E529D6BE3EBFEB3BF4D5C37BD08601
+      07D2A600FECE1844BB5B38F311F3656307EBE3A9C7AD7AFA7B54F8C20F02C720
+      CBFF8B6E8936947FDF6EAEDEA9AC7B7E1FA5FCD918CDDC79CE59F7FCBEDC3108
+      777F62375AF5D4F768C593068FF3F9AF783C870AFB1D108BFFCA27BF4B857D7F
+      90944FD8DFD7F7D98F563EF11DDFE5ACEEB147E4FEAB9FDE9D360EF4CE231B07
+      1C44ABBAFB1BD7571AF78F27A786F637DAC886FE0766BC0ECB317ECBDCD0FF00
+      BE3EFCC4F702FBAF7D766FDFD75AD3734F5F6516F6DD3FB21CB4BEF77EBEAFC5
+      F28BBFFA3FD0C77CE2F094716CB740FE3C638F9F36C4FABADFF62F620EB1BEF7
+      BE1CF5BF4FC6F2D6FC7BCF48E7416B9ED9CBF7F5586E0C9B0B360F3B32ED7C3A
+      50FEF131E6AC37FA64C67BD967FF40F51E368EF5FDD3B757960F573EE93D86AD
+      EAB11F6D187464C6BEEAD7BDE3BA6CF7E43ED67D2FF3ABF338B38E591C430D8F
+      416CEC3DC45C4F2DEA9EC8390B1FDE9D963FC1F267C73C21AACE010000000000
+      0040677EF4FC8B74F8A8B1B1C0AE1DD63D6EFFA03158E7AAE0CF1B83F33C55FC
+      FDC6907A8E4AFE9962703B5E357FAF18BC8E55D13F358674C7A9EA6FC590E918
+      95FD19C7CDFD1C000000000000000000006431784603000000000080381EB9E3
+      321AF4DCADB1C0AE1DD63D6EFFA03158E7AAE0CF1B83F33C55FCFDC6907A8E4A
+      FE9962703B5E357FAF18BC8E55D13F358674C7A9EA6FC590E91895FD19D347DE
+      0C00000000000000000000B2183CA3010000000000401C873FF9291DFDE2FC58
+      60D70EEB1EB77FD018AC7355F0E78DC1799E2AFE7E63483D4725FF4C31B81DAF
+      9ABF570C5EC7AAE89F1A43BAE354F5B762C8748CCAFE8C2E73AA000000000000
+      00000000401683673400000000000088E3825EEFD3EDE3E6C602BB7658F7B8FD
+      83C6609DAB823F6F0CCEF354F1F71B43EA392AF9678AC1ED78D5FCBD62F03A56
+      45FFD418D21DA7AABF1543A66354F6679CF87A2D17678D799F8B331F1CCFC589
+      7FAFE503FEF0873FFCE11FC8BFEBAC397C4C1EC0C5797DF8E8FAEF397CC01FFE
+      F0873FFC03F99FB8E41B2ECE9839998F611F72F18BC1DF70017FF8C31FFEF00F
+      E68F6734000000000000E0FD1FBCFF83F77FF0FE0FDEFFC1FB3FD9FDFE4FB799
+      C5208B79F873FD9C9F9A5342AF2D29A719EB2B69F1B62A9AB2B6825E5C54468F
+      CD2A51DAFBB9FC529ABCA682D69556534D6D2DD53AA8AAA9A5D5C5D5F4CE8A72
+      7A728E7A710C5E50461BCA6A929CDD60711518F7A4E7BC12A5DC37FA7077B258
+      9118589BD9C0E96EB1604B153D12639FB8DFE093759581DCAD3EF192D1AFE3F2
+      7F7A6E8967BBA9A8AEA5F946FDB2FEBAC4682BD535EE31CCDD54450F7E168F3F
+      CB91351EEE639797DBB99FE5CDCF36B8DFA7E2CA1AEA65B4C138FC597E777362
+      F59E5AA7CCB1A8A2C6351FB17A88635C6539C4CD9FD575EAF1AC9FAE2BA9763D
+      7EC2AA8A58EA9F8DAB6E3ECB8AAA3B8CB583E697525955C7FA67FD62444C7D98
+      CD09AA5CFA257362F780B51956EFBDBF28A52545EE75BFA5BC867ACE8D2787B2
+      3A667302AFFCC8DAFB5AA3CDB8B57B8BA946FEBD3FC6F18BE5C79A80F99FB5A7
+      01F34B631D7FD95CACC0A31FA783B53156F771E57E276C1EB3982306E63EDDC8
+      BD8F28349F6631B0F94C554DE636C3EAFD1105D702CC89CD67E61873826D469F
+      ADAC4E38971B5FD93C63A69193581E55A1CDA4E301C38FE54436AF1E6D8CADFD
+      BE2AA5EE463FB91FEBE9AC03CF68000000000000C0FB3F78FF07EFFFE0FD1FBC
+      FF83F77FB2FBFD9FA16F0200805AB4B6B6268118100362D037069DFDE10EF7CE
+      9873000000642F78460300888BFF079F36B849
     }
   end
   object il_dtheme_tool32: TImageList
@@ -23034,9 +23074,6 @@ object Form_peach: TForm_peach
       Caption = 'options'
       OnClick = pmthemesClick
     end
-    object Separator35: TMenuItem
-      Caption = '-'
-    end
     object mzoom: TMenuItem
       Caption = 'Zoom'
       object mz50: TMenuItem
@@ -23071,9 +23108,35 @@ object Form_peach: TForm_peach
         Caption = '150%'
         OnClick = mz150Click
       end
+      object mz175: TMenuItem
+        Caption = '175%'
+        OnClick = mz175Click
+      end
       object mz200: TMenuItem
         Caption = '200%'
         OnClick = mz200Click
+      end
+    end
+    object Separator35: TMenuItem
+      Caption = '-'
+    end
+    object pmstylepresets: TMenuItem
+      Caption = 'Style'
+      object pmspminimal: TMenuItem
+        Caption = 'pmspminimal'
+        OnClick = pmspminimalClick
+      end
+      object pmspclassic: TMenuItem
+        Caption = 'pmspclassic'
+        OnClick = pmspclassicClick
+      end
+      object pmspmodern: TMenuItem
+        Caption = 'pmspmodern'
+        OnClick = pmspmodernClick
+      end
+      object pmsppostmodern: TMenuItem
+        Caption = 'pmsppostmodern'
+        OnClick = pmsppostmodernClick
       end
     end
     object Separator10: TMenuItem
@@ -23186,11 +23249,11 @@ object Form_peach: TForm_peach
         OnClick = mbkdeClick
       end
       object mbgnome: TMenuItem
-        Caption = 'Gnome'
+        Caption = 'Cinnamon, Mate'
         OnClick = mbgnomeClick
       end
       object mbgnome4: TMenuItem
-        Caption = 'Gnome 4'
+        Caption = 'Gnome'
         OnClick = mbgnome4Click
       end
       object mbmac: TMenuItem
@@ -23365,13 +23428,24 @@ object Form_peach: TForm_peach
     object Separator8: TMenuItem
       Caption = '-'
     end
-    object pmsaveastxt: TMenuItem
-      Caption = 'Save as TXT'
-      OnClick = MenuItemOpen_saveastxtClick
-    end
-    object pmsaveascsv: TMenuItem
-      Caption = 'Save as CSV'
-      OnClick = pmsaveascsvClick
+    object pmsaveas: TMenuItem
+      Caption = 'Save as'
+      object pmsaveascsv: TMenuItem
+        Caption = 'CSV ,'
+        OnClick = pmsaveascsvClick
+      end
+      object pmsaveascsvl: TMenuItem
+        Caption = 'CSV ;'
+        OnClick = pmsaveascsvlClick
+      end
+      object pmsaveastsv: TMenuItem
+        Caption = 'TSV'
+        OnClick = pmsaveastsvClick
+      end
+      object pmsaveastxt: TMenuItem
+        Caption = 'TXT'
+        OnClick = pmsaveastxtClick
+      end
     end
     object pmhcopypath: TMenuItem
       Caption = 'Copy path'

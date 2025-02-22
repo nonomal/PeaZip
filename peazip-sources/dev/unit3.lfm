@@ -1,7 +1,7 @@
 object FormPW: TFormPW
   Left = 220
   Height = 351
-  Top = 357
+  Top = 358
   Width = 700
   AutoSize = True
   BorderIcons = [biSystemMenu]

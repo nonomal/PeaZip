@@ -1,5 +1,5 @@
 object FormImgRes: TFormImgRes
-  Left = 543
+  Left = 544
   Height = 376
   Top = 492
   Width = 600

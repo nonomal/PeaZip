@@ -1,7 +1,7 @@
 object FormComment: TFormComment
   Left = 5
   Height = 378
-  Top = 291
+  Top = 292
   Width = 602
   AllowDropFiles = True
   Caption = 'Comment'

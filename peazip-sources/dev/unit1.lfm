@@ -1,7 +1,7 @@
 object FormAdvf: TFormAdvf
   Left = 79
   Height = 471
-  Top = 472
+  Top = 406
   Width = 750
   AllowDropFiles = True
   AutoSize = True

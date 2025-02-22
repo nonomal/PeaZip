@@ -1,7 +1,7 @@
 object FormPM: TFormPM
   Left = 214
   Height = 501
-  Top = 490
+  Top = 370
   Width = 750
   Caption = 'Password manager'
   ClientHeight = 501

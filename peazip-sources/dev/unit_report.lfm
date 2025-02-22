@@ -171,12 +171,12 @@ object Form_report: TForm_report
     Caption = 'Save report to '
   end
   object LabelSaveTsv: TLabel
-    AnchorSideLeft.Control = LabelSave1
+    AnchorSideLeft.Control = LabelSave3
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = Button2
     AnchorSideTop.Side = asrCenter
     Cursor = crHandPoint
-    Left = 145
+    Left = 191
     Height = 20
     Top = 485
     Width = 18
@@ -190,7 +190,7 @@ object Form_report: TForm_report
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = Button2
     AnchorSideTop.Side = asrCenter
-    Left = 163
+    Left = 209
     Height = 20
     Top = 485
     Width = 12
@@ -205,8 +205,8 @@ object Form_report: TForm_report
     Left = 113
     Height = 20
     Top = 485
-    Width = 20
-    Caption = 'csv'
+    Width = 27
+    Caption = 'csv ,'
     Font.Color = 13391121
     ParentFont = False
     OnClick = LabelSaveCsvClick
@@ -391,7 +391,7 @@ object Form_report: TForm_report
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = Button2
     AnchorSideTop.Side = asrCenter
-    Left = 133
+    Left = 140
     Height = 20
     Top = 485
     Width = 12
@@ -403,7 +403,7 @@ object Form_report: TForm_report
     AnchorSideTop.Control = Button2
     AnchorSideTop.Side = asrCenter
     Cursor = crHandPoint
-    Left = 175
+    Left = 221
     Height = 20
     Top = 485
     Width = 17
@@ -412,10 +412,36 @@ object Form_report: TForm_report
     ParentFont = False
     OnClick = LabelSaveTxtClick
   end
+  object LabelSave3: TLabel
+    AnchorSideLeft.Control = LabelSaveCsv1
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Button2
+    AnchorSideTop.Side = asrCenter
+    Left = 179
+    Height = 20
+    Top = 485
+    Width = 12
+    Caption = ' | '
+  end
+  object LabelSaveCsv1: TLabel
+    AnchorSideLeft.Control = LabelSave1
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Button2
+    AnchorSideTop.Side = asrCenter
+    Cursor = crHandPoint
+    Left = 152
+    Height = 20
+    Top = 485
+    Width = 27
+    Caption = 'csv ;'
+    Font.Color = 13391121
+    ParentFont = False
+    OnClick = LabelSaveCsv1Click
+  end
   object SaveDialog1: TSaveDialog
     Title = 'Save as'
-    Left = 195
-    Top = 469
+    Left = 464
+    Top = 472
   end
   object PopupMenu1: TPopupMenu
     Left = 293

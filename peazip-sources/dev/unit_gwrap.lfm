@@ -872,19 +872,7 @@ object Form_gwrap: TForm_gwrap
             Font.Height = -19
             ParentFont = False
           end
-          object Label7: TLabel
-            AnchorSideTop.Control = Label3
-            AnchorSideTop.Side = asrBottom
-            Left = 0
-            Height = 1
-            Top = 10
-            Width = 1
-            BorderSpacing.Top = 4
-            Font.Height = -19
-            ParentFont = False
-          end
           object Label8: TLabel
-            AnchorSideTop.Control = Label7
             AnchorSideTop.Side = asrBottom
             Left = 0
             Height = 1
@@ -966,6 +954,7 @@ object Form_gwrap: TForm_gwrap
             Height = 20
             Top = 33
             Width = 30
+            BorderSpacing.Top = 4
             Caption = 'path'
             Font.Color = 13391121
             ParentFont = False
@@ -975,7 +964,7 @@ object Form_gwrap: TForm_gwrap
           object l3: TLabel
             AnchorSideLeft.Control = l2
             AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = l1
+            AnchorSideTop.Control = l2
             AnchorSideTop.Side = asrCenter
             AnchorSideRight.Control = Panel2
             AnchorSideRight.Side = asrBottom
@@ -990,7 +979,7 @@ object Form_gwrap: TForm_gwrap
           object l4: TLabel
             AnchorSideLeft.Control = l3
             AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = l1
+            AnchorSideTop.Control = l3
             AnchorSideTop.Side = asrCenter
             AnchorSideRight.Control = Panel2
             AnchorSideRight.Side = asrBottom
@@ -1048,21 +1037,20 @@ object Form_gwrap: TForm_gwrap
           object Label1: TLabel
             AnchorSideLeft.Control = LabelInfo3
             AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = l1
+            AnchorSideTop.Control = LabelInfo3
             AnchorSideTop.Side = asrCenter
             Left = 249
             Height = 1
             Top = 43
             Width = 1
             BorderSpacing.Left = 8
-            BorderSpacing.Top = 8
             BorderSpacing.Right = 15
             ParentFont = False
             Visible = False
           end
           object l7: TLabel
             AnchorSideLeft.Control = Panel2
-            AnchorSideTop.Control = l1
+            AnchorSideTop.Control = LabelInfo3
             AnchorSideTop.Side = asrBottom
             AnchorSideRight.Control = Panel2
             AnchorSideRight.Side = asrBottom
@@ -1343,8 +1331,8 @@ object Form_gwrap: TForm_gwrap
     end
   end
   object PopupMenu3: TPopupMenu
-    Left = 387
-    Top = 192
+    Left = 448
+    Top = 233
     object MenuItem1: TMenuItem
       Caption = 'recycle'
       Visible = False

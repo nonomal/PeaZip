@@ -1,7 +1,7 @@
 object FormSelect: TFormSelect
-  Left = 819
+  Left = 820
   Height = 276
-  Top = 655
+  Top = 640
   Width = 600
   AutoSize = True
   Caption = 'Select'
