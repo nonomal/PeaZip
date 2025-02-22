@@ -1,12 +1,18 @@
 ﻿=== PeaZip language file ===
 Italian - Italiano
-10.2
+10.3
 Tradotto da: Giorgio Tani
 Ultima rev. di: Giorgio Tani
 Ultima rev.: 20241216
 
 === PeaZip text group ===
 
+txt_10_3_classic: Classico
+txt_10_3_ascii: Si consiglia di utilizzare solo caratteri ASCII nelle password per questo formato (minuscole, maiuscole, numeri e caratteri speciali).
+txt_10_3_minimal: Minimalista
+txt_10_3_m: Moderno
+txt_10_3_pm: Postmoderno
+txt_10_3_aw: In alternativa, utilizzare l'opzione "Richiedi la password interattivamente" dal prompt password, o settare Console come modalità per gli eseguibili backend.
 txt_10_2_savecopy: Salva una copia
 txt_10_1_full: Completo
 txt_10_1_kdfw: Carico di lavoro KDF
@@ -161,7 +167,7 @@ txt_8_0_forceconvert: Converti archivi di tipi non canonici
 txt_8_0_defaultactionhint: Azione da eseguire quando da sistema si fa doppio click su un tipo di file associato a PeaZip
 txt_8_0_defaultaction: Azione all'apertura (apri, estrazione automatica...)
 txt_8_0_enableextand: Mostra il submenu "Estrai e apri con"
-txt_8_0_forcetyping: Richiedi sempre la password interattivamente
+txt_8_0_forcetyping: Richiedi la password interattivamente
 txt_8_0_setpwopt: Opzioni password / keyfile
 txt_8_0_forcetypinghelp: Le operazioni saranno eseguite in console, non consente di esplorare archivi con nomi file cifrati. Permette di creare script che richiederanno all'utente di digitare la password interattivamente.
 txt_7_9_spacing: Spaziatura
