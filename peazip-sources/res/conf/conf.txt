@@ -805,3 +805,6 @@ CRC32 CRC64 MD5 RIPEMD160 SHA1 BLAKE2S SHA256 SHA3_256
 
 [KDF type for PEA cascaded encryption]
 0
+
+[Max size of TAR file to be automatically opened for browsing in compressed TAR archives]
+1
