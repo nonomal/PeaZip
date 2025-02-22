@@ -19,7 +19,7 @@ If you can not or want not to link peazip in binaries folder, you can edit the s
 
 App list, open with, and context menu can be customised using .desktop files provided in this folder: 
 - peazip.desktop file provides standard system integration to main application; it is automatically installed with PeaZip installable packages
-- other alternative .desktop files provided here features direct access to specific fuctions (extraction, archiving, force open as archive...) even to DE non supporting .desktop file Actions
+- additional-desktop-files contains other alternative .desktop files for direct access to specific fuctions (extraction, archiving, force open as archive...) even to DE non supporting .desktop file Actions
 
 Desired .desktop file(s) needs to be copied to /usr/share/applications or /usr/local/share/applications (system-wide) ~/.local/share/applications/ (user-specific)
 
@@ -31,26 +31,32 @@ Please note those locations may be different in some distributions and desktop e
 
 Notes for specific Desktop Environments:
 
-2a) Gnome 2/3, Mate, Cinnamon, Budgie
+2a) Gnome, Mate, Cinnamon, Budgie
 
 Some versions may have been configured to use */pixmaps instad of */icons path.
 
-Gnome-derived DE generally allows to customise context menu further use Nautilus scripts; copy 'Archiving' folder from 'Nautilus-scripts' directory, to
+Gnome-derived DE generally allows to customise CONTEXT MENU, use the scripts in 'Nautilus-scripts' directory.
+Copy 'PeaZip' folder (or individual scripts you prefer) from the 'Nautilus-scripts' directory to:
 Gnome 2 .gnome2/nautilus-scripts 
-Gnome 3 ~/.local/share/nautilus/scripts
+Gnome 3 and 4 ~/.local/share/nautilus/scripts
+Make sure "Allow executing file as program" or "Is executable" permission is set for the Nautilus scripts.
 
-With Gome 3 user can alternatively use nautilus-actions extension to customise app's system intergation
+A sh script is available in 'Nautilus-scripts' directory to help installation of PeaZip context menu entries for the current user.
 
-2b) KDE 3/4/5
+2b) KDE
 
 Some versions of KDE may have been configured to use (kde directory)/share/applications/kde instead of standard paths.
 The (kde directory) is specified in $KDEDIR in environment variable and can be overridden by $KDEDIRS.
 
-To customise context menu use Service menus .desktop files from KDE(version) subfolders
+To customise CONTEXT MENU use Service menus .desktop files from KDE(version) subfolders in 'KDE-servicemenus' directory.
 Copy .desktop files from KDE(version) subfolders into, usually:
 KDE 3 (kde directory)/share/apps/konqueror/servicemenus (kde directry usually being /opt/kde3)
 KDE 4 /usr/share/kde4/services/ServiceMenus
-KDE 5 /usr/share/kio/servicemenus or ~/.local/share/kio/servicemenus
+KDE 5 (prior 5.85) /usr/share/kservices5/ServiceMenus or ~/.local/share/kservices5/ServiceMenus
+KDE 5 and KDE 6 /usr/share/kio/servicemenus or ~/.local/share/kio/servicemenus
+"Allow executing file as program" or "Is executable" permission may be needed to be set for the .desktop files in context menu.
+
+A sh script is available in 'KDE-servicemenus' directory to help installation of PeaZip context menu entries for the current user.
 
 2c) Xfce, LXDE 
 
