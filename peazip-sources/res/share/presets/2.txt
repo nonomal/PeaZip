@@ -5,10 +5,10 @@ Displayed name, below, can be edited and will be shown in presets menu in place 
 
 GENERAL OPTIONS
 Type
-*PAQ
-17
+7Z
+0
 Compression level
--1
+5
 Action
 0
 Spanning
@@ -45,15 +45,15 @@ Add timestamp to archive name
 
 BACKEND OPTIONS: 7z/p7zip
 Method
-0
+1
 Dictionary
-0
+12
 Word
-4
+6
 Passes
-0
+-1
 Solid block size
-0
+15
 Sort by name for solid compression
 1
 Compress files open for writing
@@ -206,5 +206,9 @@ Store symbolic links as links (WIM, TAR)
 0
 
 9.9.0 EXTENSION
-Level of extra KDF rounds for PEA cascaded encryption
+KDF work load for PEA cascaded encryption
+0
+
+10.1.0 EXTENSION
+KDF type for PEA cascaded encryption
 0

@@ -1,68 +1,21 @@
 object FormPW: TFormPW
   Left = 220
-  Height = 350
-  Top = 357
+  Height = 351
+  Top = 358
   Width = 700
   AutoSize = True
   BorderIcons = [biSystemMenu]
   Caption = 'FormPW'
-  ClientHeight = 350
+  ClientHeight = 351
   ClientWidth = 700
   Color = clWindow
   Constraints.MinHeight = 275
   Constraints.MinWidth = 700
   DesignTimePPI = 120
-  Icon.Data = {
-    7E0500000000010001001010FF00000000006805000016000000280000001000
-    0000200000000100080000000000000000000000000000000000000000000000
-    0000009F7800009F720000A9770000B87F0000CD890000E3940000E6960000E4
-    9500009E7F0000976C0000AA4F0000B3410000A95000009B6F0000DC910000E2
-    950000A9940000AD4B0000BE390000C1670000BE360000A8520000966E000098
-    6F0000BE820000DD940000B8AD0000B9390000C3780000C9D20000C1640000B5
-    3E0000A6760000DD910000D5930000CCD40000AF480000BF3E0000C379000097
-    6B0000A25B0000A5570000996800009E720000D98F0000CB920000E3FB00009C
-    740000AE4A0000B83900009D630000BE340000BC350000C0910000E6FF0000B7
-    AE0000966D0000C0570000C7BC0000C8C50000C2750000D6930000BF910000DC
-    F0000098730000BD320000C6A20000A6550000BD810000C3910000BDBA00009A
-    670000BD330000C5960000A35900008E6E0000B78C0000E4FD0000A68E0000B0
-    460000BF440000C5980000C6A30000C0580000926D0000836C00009D7B0000DD
-    F10000A94F0000A94000009B4E0000876D0000BC8F0000D9EB00009C640000AC
-    4B0000B6380000B8660000B53500009A500000AC850000B0380000B9770000C0
-    D00000B7630000AA3D00009C7B0000BCB900008D720000A2460000B53C0000B5
-    3800009C4D000091740000E2FF0000CCFF0000B1FF0000A6EF000093AB000087
-    710000A1480000AE380000A0490000846A000089700000DFFF0000D8FF0000BD
-    FF0000ADFF0000ABFF0000A9FB00009ED2000093AA00008C900000877D000088
-    7600000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    00000001020304050606060606060606060708090A0B0C0D030E060606060606
-    060F101112131415161718070606060606191A1B1C1D1E1F1616162021060606
-    062223242526120A2728292A2B2C0606062D2E2F3031113231331434282B2106
-    073536371638381F393A3B3C342A20073D3E363F40163241421D1D3B14431644
-    453E363646164748491D1D3A334A164B4C3E36364D4E164F5051525331275455
-    563E3636365708274F48411F3258595A5B5C363636365D0816475E385F606162
-    63643636363636574E16165465666768696A3636363636364D6B6C556D6E666F
-    7071363636363672737475767778797A7B7C727D7E737F808181818182838485
-    8687000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000
-  }
   OnCreate = FormCreate
   Position = poScreenCenter
   ShowHint = True
-  LCLVersion = '2.2.0.4'
+  LCLVersion = '3.4.0.0'
   object PanelPWOpen: TPanel
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
@@ -70,15 +23,16 @@ object FormPW: TFormPW
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = ButtonPanel1
     Left = 0
-    Height = 290
+    Height = 291
     Top = 0
     Width = 700
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Bottom = 15
     BevelOuter = bvNone
-    ClientHeight = 290
+    ClientHeight = 291
     ClientWidth = 700
+    ParentBackground = False
     TabOrder = 0
     object LableListPath1: TLabel
       AnchorSideTop.Control = EditUn7zaPW
@@ -133,10 +87,10 @@ object FormPW: TFormPW
       BorderSpacing.Top = 30
       BorderSpacing.Right = 15
       EchoMode = emPassword
-      OnChange = EditUn7zaPWChange
-      OnKeyPress = EditUn7zaPWKeyPress
       PasswordChar = '*'
       TabOrder = 0
+      OnChange = EditUn7zaPWChange
+      OnKeyPress = EditUn7zaPWKeyPress
     end
     object EditName3: TEdit
       AnchorSideLeft.Control = EditUn7zaPW
@@ -150,7 +104,7 @@ object FormPW: TFormPW
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Top = 8
       BorderSpacing.Bottom = 8
-      TabOrder = 3
+      TabOrder = 4
     end
     object ButtonEditName3: TButton
       AnchorSideTop.Control = EditName3
@@ -165,9 +119,9 @@ object FormPW: TFormPW
       Anchors = [akTop, akRight, akBottom]
       BorderSpacing.InnerBorder = 5
       Caption = '...'
-      OnClick = ButtonEditName3Click
       PopupMenu = PopupMenupw
-      TabOrder = 2
+      TabOrder = 3
+      OnClick = ButtonEditName3Click
     end
     object EditUn7zaPW1: TEdit
       AnchorSideLeft.Control = EditUn7zaPW
@@ -182,9 +136,9 @@ object FormPW: TFormPW
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Top = 8
       EchoMode = emPassword
-      OnKeyPress = EditUn7zaPWKeyPress
       PasswordChar = '*'
       TabOrder = 1
+      OnKeyPress = EditUn7zaPWKeyPress
     end
     object ButtonEditNamePw: TSpeedButton
       AnchorSideTop.Control = EditUn7zaPW
@@ -209,7 +163,7 @@ object FormPW: TFormPW
       AnchorSideBottom.Control = PanelPWOpen
       AnchorSideBottom.Side = asrBottom
       Left = 30
-      Height = 130
+      Height = 131
       Top = 160
       Width = 670
       Anchors = [akTop, akLeft, akRight, akBottom]
@@ -217,9 +171,10 @@ object FormPW: TFormPW
       BorderSpacing.Left = 30
       BorderSpacing.Top = 30
       BevelOuter = bvNone
-      ClientHeight = 130
+      ClientHeight = 131
       ClientWidth = 670
-      TabOrder = 4
+      ParentBackground = False
+      TabOrder = 5
       object CheckBoxShowPWField: TCheckBox
         AnchorSideLeft.Control = CheckBoxEncFn
         AnchorSideTop.Control = CheckBoxKeepPW
@@ -227,11 +182,11 @@ object FormPW: TFormPW
         Left = 0
         Height = 24
         Top = 84
-        Width = 127
+        Width = 124
         BorderSpacing.Top = 4
         Caption = 'Show password'
+        TabOrder = 3
         OnClick = CheckBoxShowPWFieldClick
-        TabOrder = 1
       end
       object CheckBoxEncFn: TCheckBox
         AnchorSideLeft.Control = PanelPWOpen1
@@ -239,7 +194,7 @@ object FormPW: TFormPW
         Left = 0
         Height = 24
         Top = 0
-        Width = 330
+        Width = 327
         Caption = 'Encrypt filenames (if supported by the format)'
         TabOrder = 0
       end
@@ -250,7 +205,7 @@ object FormPW: TFormPW
         Left = 0
         Height = 24
         Top = 56
-        Width = 274
+        Width = 271
         BorderSpacing.Top = 4
         Caption = 'Keep password for the current session'
         TabOrder = 2
@@ -262,11 +217,11 @@ object FormPW: TFormPW
         Left = 0
         Height = 24
         Top = 28
-        Width = 257
+        Width = 254
         BorderSpacing.Top = 4
         Caption = 'Force typing password interactively'
+        TabOrder = 1
         OnClick = CheckBoxIntPwClick
-        TabOrder = 3
       end
     end
     object PanelKF: TPanel
@@ -282,7 +237,8 @@ object FormPW: TFormPW
       Width = 460
       Anchors = [akTop, akLeft, akRight, akBottom]
       BevelOuter = bvNone
-      TabOrder = 5
+      ParentBackground = False
+      TabOrder = 2
     end
   end
   object ButtonPanel1: TButtonPanel
@@ -293,7 +249,7 @@ object FormPW: TFormPW
     AnchorSideBottom.Side = asrBottom
     Left = 15
     Height = 30
-    Top = 305
+    Top = 306
     Width = 670
     BorderSpacing.Left = 15
     BorderSpacing.Top = 8
@@ -312,6 +268,7 @@ object FormPW: TFormPW
     CancelButton.DefaultCaption = True
     TabOrder = 1
     ShowButtons = [pbOK, pbCancel]
+    ShowGlyphs = []
     ShowBevel = False
   end
   object Shape1: TPanel
@@ -322,10 +279,11 @@ object FormPW: TFormPW
     AnchorSideBottom.Side = asrBottom
     Left = 0
     Height = 1
-    Top = 349
+    Top = 350
     Width = 700
     Anchors = [akLeft, akRight, akBottom]
     BevelOuter = bvNone
+    ParentBackground = False
     TabOrder = 2
   end
   object PopupMenupw: TPopupMenu
