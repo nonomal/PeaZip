@@ -1,6 +1,12 @@
-*.o
-*.ppu
-*.exe
+use/*/
+**/backup/
+**/lib/
+*.res
+*.dbg
+*.lps
 *.compiled
-*.obj
-*.a
+*.o
+*.or
+*.so
+*.ppu
+

@@ -1,12 +1,29 @@
 ﻿=== PeaZip language file ===
 Korean - 한국어
-9.9
+10.3
 번역자: Sleepy, EhangB
-최근 교정: 20240805 by EhangB
+최근 교정: 20250102 by EhangB
 교정 일자: 20110531 by Sleep
 
 === PeaZip text group ===
 
+txt_10_3_classic: Classic
+txt_10_3_ascii: It is recommended to use only ASCII characters in passwords for the current archive format (mixed case letters, numbers, and special characters).
+txt_10_3_minimal: Minimal
+txt_10_3_m: Modern
+txt_10_3_pm: Postmodern
+txt_10_3_aw: Workaround: check "Force typing password interactively" in the password prompt, or set Console mode for backend binaries.
+txt_10_2_savecopy: 사본 저장
+txt_10_1_full: 완전
+txt_10_1_kdfw: KDF 작업량
+txt_10_1_under: 밑줄
+txt_10_0_exptrash: 휴지통 탐색
+txt_10_0_ptarzst: 가장 빠른 압축, TAR.ZST
+txt_10_0_ptarxz: 고압축, TAR.XZ
+txt_10_0_ptargz: 중간 압축, TAR.GZ
+txt_10_0_comp: 순수한 압축 형식은 단일 파일만 입력으로 허용합니다. 소스에 여러 파일이나 폴더가 포함된 경우 아카이브 형식으로의 변환은 실패하며, 이는 사전에 판단할 수 없습니다.
+txt_10_0_save: 저장
+txt_10_0_tp: 텍스트 미리보기
 txt_9_9_uac: 현재 사용자는 이 출력 경로에 쓸 수 없습니다. UAC 권한 상승으로 PeaZip을 실행하시겠습니까?
 txt_9_9_kdf: KDF 라운드
 txt_9_9_utc: 타임스탬프를 UTC로 표시

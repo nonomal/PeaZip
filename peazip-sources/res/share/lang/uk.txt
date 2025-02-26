@@ -1,12 +1,29 @@
 ﻿=== PeaZip language file ===
 Ukrainian - Українська
-9.9
+10.3
 Переклад: Василь Мельник(VMenik, GIT = VMelnikV), Решетнюк В.В.(IxI_JOKER_IxI), Міщенко О.С., sasha[at]mishchenko.tk, Пилипчук О.П., pilipchukap[at]rambler[dot]ru, ViktorOn , Oleksandr (yupiter43@gmail.com)
 Останній раз ред.: Oleksandr (yupiter43@gmail.com)
 Останнє ред.: 19.10.2024
 
 === PeaZip text group ===
 
+txt_10_3_classic: Classic
+txt_10_3_ascii: It is recommended to use only ASCII characters in passwords for the current archive format (mixed case letters, numbers, and special characters).
+txt_10_3_minimal: Minimal
+txt_10_3_m: Modern
+txt_10_3_pm: Postmodern
+txt_10_3_aw: Workaround: check "Force typing password interactively" in the password prompt, or set Console mode for backend binaries.
+txt_10_2_savecopy: Save a copy
+txt_10_1_full: Full
+txt_10_1_kdfw: KDF work load
+txt_10_1_under: Underlined
+txt_10_0_exptrash: Explore Trash
+txt_10_0_ptarzst: Fastest compression, TAR.ZST
+txt_10_0_ptarxz: High compression, TAR.XZ
+txt_10_0_ptargz: Medium compression, TAR.GZ
+txt_10_0_comp: Pure compression formats only accept a single file as input. Archive conversion towards those formats will fail if the source contains multiple files or folders, which cannot be determined in advance.
+txt_10_0_save: Save
+txt_10_0_tp: Text preview
 txt_9_9_uac: Поточний користувач не може писати в цей вихідний шлях. Бажаєте запустити PeaZip з підвищенням UAC?
 TXT_9_9_kdf: KDF раунди
 txt_9_9_utc: Показувати мітки часу як UTC

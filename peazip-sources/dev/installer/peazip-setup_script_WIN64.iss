@@ -1,8 +1,8 @@
 ﻿[Setup]        
 AppId={{5A2BC38A-406C-4A5B-BF45-6991F9A05325}
 AppName=PeaZip
-AppVerName=PeaZip 9.9.1 (WIN64)
-AppVersion=9.9.1
+AppVerName=PeaZip 10.1.0 (WIN64)
+AppVersion=10.1.0
 AppPublisher=Giorgio Tani
 AppPublisherURL=https://peazip.github.io
 AppSupportURL=https://peazip.github.io
@@ -11,9 +11,9 @@ DefaultDirName={pf}\PeaZip
 DisableDirPage=no
 DefaultGroupName=PeaZip
 DisableProgramGroupPage=yes
-LicenseFile=C:\input\peazip-9.9.1.WIN64\res\share\copying\copying.txt
+LicenseFile=C:\input\peazip-10.1.0.WIN64\res\share\copying\copying.txt
 OutputDir=C:\output\
-OutputBaseFilename=peazip-9.9.1.WIN64
+OutputBaseFilename=peazip-10.1.0.WIN64
 SetupIconFile=C:\input\peazip-icon-green.ico
 Compression=lzma2/max
 SolidCompression=yes
@@ -29,10 +29,10 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\input\peazip-9.9.1.WIN64\peazip.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\input\peazip-9.9.1.WIN64\pea.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\input\peazip-9.9.1.WIN64\dragdropfilesdll.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\input\peazip-9.9.1.WIN64\res\*"; DestDir: "{app}\res"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\input\peazip-10.1.0.WIN64\peazip.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\input\peazip-10.1.0.WIN64\pea.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\input\peazip-10.1.0.WIN64\dragdropfilesdll.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\input\peazip-10.1.0.WIN64\res\*"; DestDir: "{app}\res"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [INI]
@@ -45,13 +45,13 @@ Name: "{group}\{cm:ProgramOnTheWeb,PeaZip}"; Filename: "{app}\peazip.url"
 Name: "{group}\{cm:UninstallProgram,PeaZip}"; Filename: "{uninstallexe}"
 Name: "{userdesktop}\PeaZip"; Filename: "{app}\peazip.exe"; Tasks: desktopicon
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\PeaZip"; Filename: "{app}\peazip.exe"; Tasks: quicklaunchicon
-Name: "{group}\Add to archive"; Filename: "{app}\peazip.exe"; Parameters: "-add2archive";  IconFilename: "{app}\res\share\icons\peazip_seven.icl"; IconIndex: 2
+Name: "{group}\Add to archive..."; Filename: "{app}\peazip.exe"; Parameters: "-add2archive";  IconFilename: "{app}\res\share\icons\peazip_seven.icl"; IconIndex: 2
 Name: "{group}\Extract..."; Filename: "{app}\peazip.exe"; Parameters: "-ext2main";  IconFilename: "{app}\res\share\icons\peazip_seven.icl"; IconIndex: 4
 Name: "{group}\Extract here (smart new folder)"; Filename: "{app}\peazip.exe"; Parameters: "-ext2folder";  IconFilename: "{app}\res\share\icons\peazip_seven.icl"; IconIndex: 14
 Name: "{group}\Open as archive"; Filename: "{app}\peazip.exe"; Parameters: "-ext2openasarchive";
 Name: "{group}\Configure PeaZip"; Filename: "{app}\res\bin\Configure PeaZip.exe";
 Name: "{group}\PeaZip"; Filename: "{app}\peazip.exe";
-Name: "{app}\Add to archive"; Filename: "{app}\peazip.exe"; Parameters: "-add2archive";  IconFilename: "{app}\res\share\icons\peazip_seven.icl"; IconIndex: 2
+Name: "{app}\Add to archive..."; Filename: "{app}\peazip.exe"; Parameters: "-add2archive";  IconFilename: "{app}\res\share\icons\peazip_seven.icl"; IconIndex: 2
 Name: "{app}\Extract..."; Filename: "{app}\peazip.exe"; Parameters: "-ext2main";  IconFilename: "{app}\res\share\icons\peazip_seven.icl"; IconIndex: 4
 Name: "{app}\Extract here (smart new folder)"; Filename: "{app}\peazip.exe"; Parameters: "-ext2folder";  IconFilename: "{app}\res\share\icons\peazip_seven.icl"; IconIndex: 14
 Name: "{app}\Open as archive"; Filename: "{app}\peazip.exe"; Parameters: "-ext2openasarchive";
@@ -104,7 +104,7 @@ context_cbcontext7zs_Caption0=Add to 7Z
 context_cbcontextzips_Caption0=Add to ZIP
 context_cbcontexttest_Caption0=Test archive(s)
 context_cbcontextwipe_Caption0=Secure delete
-context_cbcontextadd2archive_Caption0=Add to archive
+context_cbcontextadd2archive_Caption0=Add to archive...
 context_cbcontextadd2archiveseparate_Caption0=Add to separate archive(s)
 context_cbcontextsfx_Caption0=Add to self extracting
 context_CheckBox3f_Caption0=Add to GZ
@@ -135,7 +135,7 @@ Links_cbfunwipe_Caption0=Secure delete
 Links_cbfunext2to_Caption0=Extract...
 Links_CheckBoxbrowsepath_Caption0=Browse path with PeaZip
 Links_CheckBoxcommand_Caption0=Open command prompt here
-Links_cbfunadd_Caption0=Add to archive
+Links_cbfunadd_Caption0=Add to archive...
 Links_cbfunconvert_Caption0=Convert
 Links_cbfunopen_Caption0=Open as archive
 install_Caption=Install PeaZip
@@ -1820,7 +1820,7 @@ end;
 
 procedure clearlinks;
 begin
-deletefile(expandconstant('{sendto}')+'\Add to archive.lnk');
+deletefile(expandconstant('{sendto}')+'\Add to archive....lnk');
 deletefile(expandconstant('{sendto}')+'\Convert.lnk');
 deletefile(expandconstant('{sendto}')+'\Add to 7Z.lnk');
 deletefile(expandconstant('{sendto}')+'\Add to 7Z and send by mail.lnk');
@@ -1842,6 +1842,7 @@ deletefile(expandconstant('{sendto}')+'\Open as archive.lnk');
 deletefile(expandconstant('{sendto}')+'\Browse path with PeaZip.lnk');
 deletefile(expandconstant('{sendto}')+'\Open command prompt here.lnk');
 //legacy
+deletefile(expandconstant('{sendto}')+'\Add to archive.lnk');
 deletefile(expandconstant('{sendto}')+'\Encrypt.lnk');
 deletefile(expandconstant('{sendto}')+'\Add to .7Z.lnk');
 deletefile(expandconstant('{sendto}')+'\Add to .7Z and send by mail.lnk');
@@ -1855,7 +1856,7 @@ end;
 procedure clearcontextlegacy;
 begin
 RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\Directory\Background\shell\Browse path with PeaZip');
-RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\*\shell\Add to archive');
+RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\*\shell\Add to archive...');
 RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\*\shell\Add to GZ');
 RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\*\shell\Add to XZ');
 RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\*\shell\Add to Zstd');
@@ -1884,7 +1885,7 @@ RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\*\shell\Extract here');
 RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\*\shell\Extract here (smart new folder)');
 RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\*\shell\Extract here (in new folder)');
 RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\*\shell\Test archive(s)');
-RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\Directory\shell\Add to archive');
+RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\Directory\shell\Add to archive...');
 RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\Directory\shell\Add to GZ');
 RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\Directory\shell\Add to XZ');
 RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\Directory\shell\Add to Zstd');
@@ -1910,7 +1911,7 @@ RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\Directory\shell\CRC, hash a
 RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\Directory\shell\Extract...');
 //local
 RegDeleteKeyIncludingSubkeys(HKCU, 'SOFTWARE\Classes\Directory\Background\shell\Browse path with PeaZip');
-RegDeleteKeyIncludingSubkeys(HKCU, 'SOFTWARE\Classes\*\shell\Add to archive');
+RegDeleteKeyIncludingSubkeys(HKCU, 'SOFTWARE\Classes\*\shell\Add to archive...');
 RegDeleteKeyIncludingSubkeys(HKCU, 'SOFTWARE\Classes\*\shell\Add to GZ');
 RegDeleteKeyIncludingSubkeys(HKCU, 'SOFTWARE\Classes\*\shell\Add to XZ');
 RegDeleteKeyIncludingSubkeys(HKCU, 'SOFTWARE\Classes\*\shell\Add to Zstd');
@@ -1939,7 +1940,7 @@ RegDeleteKeyIncludingSubkeys(HKCU, 'SOFTWARE\Classes\*\shell\Extract here');
 RegDeleteKeyIncludingSubkeys(HKCU, 'SOFTWARE\Classes\*\shell\Extract here (smart new folder)');
 RegDeleteKeyIncludingSubkeys(HKCU, 'SOFTWARE\Classes\*\shell\Extract here (in new folder)');
 RegDeleteKeyIncludingSubkeys(HKCU, 'SOFTWARE\Classes\*\shell\Test archive(s)');
-RegDeleteKeyIncludingSubkeys(HKCU, 'SOFTWARE\Classes\Directory\shell\Add to archive');
+RegDeleteKeyIncludingSubkeys(HKCU, 'SOFTWARE\Classes\Directory\shell\Add to archive...');
 RegDeleteKeyIncludingSubkeys(HKCU, 'SOFTWARE\Classes\Directory\shell\Add to GZ');
 RegDeleteKeyIncludingSubkeys(HKCU, 'SOFTWARE\Classes\Directory\shell\Add to XZ');
 RegDeleteKeyIncludingSubkeys(HKCU, 'SOFTWARE\Classes\Directory\shell\Add to Zstd');
@@ -1964,6 +1965,10 @@ RegDeleteKeyIncludingSubkeys(HKCU, 'SOFTWARE\Classes\Directory\shell\Secure dele
 RegDeleteKeyIncludingSubkeys(HKCU, 'SOFTWARE\Classes\Directory\shell\CRC, hash and file tools');
 RegDeleteKeyIncludingSubkeys(HKCU, 'SOFTWARE\Classes\Directory\shell\Extract...');
 //legacy
+RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\*\shell\Add to archive');
+RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\Directory\shell\Add to archive');
+RegDeleteKeyIncludingSubkeys(HKCU, 'SOFTWARE\Classes\*\shell\Add to archive');
+RegDeleteKeyIncludingSubkeys(HKCU, 'SOFTWARE\Classes\Directory\shell\Add to archive');
 RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\*\shell\Add to .7Z');
 RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\*\shell\Add to .7Z, fastest');
 RegDeleteKeyIncludingSubkeys(HKLM, 'SOFTWARE\Classes\*\shell\Add to .7Z, normal');
@@ -2228,7 +2233,7 @@ begin
 
       if IsWin64 then s3264:=HKLM64 else s3264:=HKLM32;
 
-        RegWriteStringValue(s3264, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\PeaZip.add2separate', '', '&Add to archive');
+        RegWriteStringValue(s3264, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\PeaZip.add2separate', '', '&Add to archive...');
         RegWriteStringValue(s3264, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\PeaZip.add2separate', 'Icon', ExpandConstant('"{app}\res\share\icons\peazip_seven.icl",2'));
         RegWriteStringValue(s3264, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\PeaZip.add2separate\command', '', ExpandConstant('"{app}\PEAZIP.EXE" "-add2multi" "%1"'));
         RegWriteStringValue(s3264, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\PeaZip.add2separatesingle', '', 'Add to separate archive(s)');
@@ -2324,12 +2329,12 @@ begin
 
     if cbcontextadd2archive.state = cbChecked then
        begin
-       RegWriteStringValue(sLMCU, 'SOFTWARE\Classes\*\shell\Add to archive\command', '', ExpandConstant('"{app}\PEAZIP.EXE" "-add2multi" "%1"'));
-       RegWriteStringValue(sLMCU, 'SOFTWARE\Classes\*\shell\Add to archive', 'MultiSelectModel', 'player');
-       RegWriteStringValue(sLMCU, 'SOFTWARE\Classes\*\shell\Add to archive', '', '&Add to archive');
-       RegWriteStringValue(sLMCU, 'SOFTWARE\Classes\Directory\shell\Add to archive\command', '', ExpandConstant('"{app}\PEAZIP.EXE" "-add2multi" "%1"'));
-       RegWriteStringValue(sLMCU, 'SOFTWARE\Classes\Directory\shell\Add to archive', 'MultiSelectModel', 'player');
-       RegWriteStringValue(sLMCU, 'SOFTWARE\Classes\Directory\shell\Add to archive', '', '&Add to archive');
+       RegWriteStringValue(sLMCU, 'SOFTWARE\Classes\*\shell\Add to archive...\command', '', ExpandConstant('"{app}\PEAZIP.EXE" "-add2multi" "%1"'));
+       RegWriteStringValue(sLMCU, 'SOFTWARE\Classes\*\shell\Add to archive...', 'MultiSelectModel', 'player');
+       RegWriteStringValue(sLMCU, 'SOFTWARE\Classes\*\shell\Add to archive...', '', '&Add to archive...');
+       RegWriteStringValue(sLMCU, 'SOFTWARE\Classes\Directory\shell\Add to archive...\command', '', ExpandConstant('"{app}\PEAZIP.EXE" "-add2multi" "%1"'));
+       RegWriteStringValue(sLMCU, 'SOFTWARE\Classes\Directory\shell\Add to archive...', 'MultiSelectModel', 'player');
+       RegWriteStringValue(sLMCU, 'SOFTWARE\Classes\Directory\shell\Add to archive...', '', '&Add to archive...');
        end;
 
     if cbcontext7zs.state = cbChecked then
@@ -2486,8 +2491,8 @@ begin
     if cbfunadd.state = cbChecked then
       begin
   CreateShellLink(
-  ExpandConstant('{sendto}\Add to archive.lnk'),
-  'PeaZip archiver, add to archive',
+  ExpandConstant('{sendto}\Add to archive....lnk'),
+  'PeaZip archiver, add to archive...',
   ExpandConstant('{app}\peazip.exe'),
   '-add2archive',
   '',

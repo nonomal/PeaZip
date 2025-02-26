@@ -151,6 +151,8 @@ unit Unit_gwrap;
  1.09     20210923  G.Tani      Merged patches for Darwin support
                                 Optimized memory usage for progress and report streams
  1.10     20240204  G.Tani      Improved translations loading
+ 1.11     20241006  G.Tani      10.x GUI update
+ 1.12     20241216  G.Tani      It is now possible to delete input files from Options tab after execution of task, i.e. to delete faulty archive failing test
 
 (C) Copyright 2006 Giorgio Tani giorgio.tani.software@gmail.com
 
@@ -190,7 +192,6 @@ type
   TForm_gwrap = class(TForm)
     ButtonStop1: TSpeedButton;
     ButtonStopAll: TBitBtn;
-    cbAutoOpen: TCheckBox;
     CheckBoxHalt: TCheckBox;
     Image1: TImage;
     ImageButton2: TLabel;
@@ -199,24 +200,22 @@ type
     Button1: TBitBtn;
     ButtonStop: TBitBtn;
     ButtonPause: TBitBtn;
-    Imagestatus: TImage;
+    ldeleteinput: TLabel;
     l1: TLabel;
     l2: TLabel;
     l3: TLabel;
     l4: TLabel;
     l5: TLabel;
     l6: TLabel;
-    Label1: TLabel;
-    Label7: TLabel;
+    l7: TLabel;
     Label8: TLabel;
     LabelInfo3: TLabel;
     Label2: TLabel;
     Label3: TLabel;
-    Labeli: TLabel;
     LabelInfo1: TLabel;
     LabelInfo2: TLabel;
+    Label1: TLabel;
     Labelspac: TLabel;
-    Labelo: TLabel;
     LabelTitle1: TLabel;
     LabelTitle2: TLabel;
     LabelTitle3: TLabel;
@@ -224,11 +223,16 @@ type
     LabelWarning1: TLabel;
     Memo1: TMemo;
     Memo2: TMemo;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
     pmmactm: TMenuItem;
     pmgnometm: TMenuItem;
     pmkdetm: TMenuItem;
     pmtop: TMenuItem;
     pmwintm: TMenuItem;
+    PopupMenu3: TPopupMenu;
     Separator1: TMenuItem;
     pmet: TMenuItem;
     pm2et: TMenuItem;
@@ -294,7 +298,6 @@ type
     TrayIcon1: TTrayIcon;
     procedure ButtonStop1Click(Sender: TObject);
     procedure ButtonStopAllClick(Sender: TObject);
-    procedure cbAutoOpenClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormDestroy(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -323,6 +326,11 @@ type
     procedure LabelTitle4MouseEnter(Sender: TObject);
     procedure LabelTitle4MouseLeave(Sender: TObject);
     procedure LabelWarning1Click(Sender: TObject);
+    procedure ldeleteinputClick(Sender: TObject);
+    procedure MenuItem1Click(Sender: TObject);
+    procedure MenuItem2Click(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);
+    procedure MenuItem4Click(Sender: TObject);
     procedure pm2cancelallClick(Sender: TObject);
     procedure pm2cancelClick(Sender: TObject);
     procedure pm2eiClick(Sender: TObject);
@@ -378,7 +386,7 @@ const
 
 var
   Form_gwrap: TForm_gwrap;
-  pprogn,pjobtype,ptsize,ppsize,pinputfile,poutname,poutnamet,pcl,paction,pcapt,pbackground,psubfun,pfun:ansistring;
+  pprogn,pjobtype,ptsize,ppsize,pinputfile,poutname,poutnamet,pcl,paction,pcapt,pbackground,psubfun,pfun,parcstr:ansistring;
   pprogbar,pprogbarprev,perrors,iperc,ipercp,remtime,temperature,contrast,alttabstyle,highlighttabs,
   modeofuse,max_l,ppriority,autoopen,exit_code,ws_gw_top,ws_gw_left,ws_gw_height,ws_gw_width,
   pbarh,pbarhsmall,pjobcommentrar,pjobuserar,instperc,instdelta:integer;
@@ -389,13 +397,13 @@ var
   cl,cl1,outpath,executable_path,resource_path,binpath,sharepath,graphicsfolder,dummy,Color1,Color2,Color3,
   Color4,Color5,caption_build,delimiter,confpath,peazippath,in_name,rarcomment,ppipepw:ansistring;
   insize,progress,pinsize:qword;
-  opacity,desk_env,pcount,optype,filesizebase,pautoclose:byte;
+  opacity,desk_env,pcount,optype,filesizebase,pautoclose,perasepasses:byte;
   T,conf:text;
   f:file of byte;
   tsin:TTimestamp;
   activelabel_launcher :TLabel;
   //imported strings
-  txt_7_4_recover,txt_rr,txt_7_8_dd,txt_8_2_keep:ansistring;
+  txt_7_4_recover,txt_rr,txt_7_8_dd,txt_8_2_keep,txt_2_5_delete:ansistring;
   //translations
   txt_6_9_remaining,txt_6_5_abort,txt_6_5_error,txt_6_5_no,txt_6_5_yes,txt_6_5_yesall,txt_6_5_warning,
   txt_5_6_update,txt_5_6_cml,txt_5_6_donations,txt_5_6_localization,txt_5_6_runasadmin,
@@ -417,7 +425,7 @@ var
   txt_2_3_keyfile,txt_2_3_kf_not_found_gwrap,txt_2_3_moreoptions,txt_2_3_nopaths,
   txt_2_3_pw,txt_2_3_skipexisting,txt_2_3_overexisting,txt_2_3_renameextracted,
   txt_2_3_renameexisting,txt_2_3_options,
-  txt_status,txt_jobstatus,txt_rating,txt_threads,txt_input,
+  txt_status,txt_jobstatus,txt_rating,txt_threads,txt_input,txt_delete,
   txt_output,txt_time,txt_isrunning,txt_autoclose,txt_halt,txt_report,txt_console,
   txt_explore,txt_ok,txt_stop,txt_pause,txt_rt,txt_high,txt_normal,txt_idle,txt_priority,
   txt_savejob,txt_savelog,txt_bench,txt_saveas,txt_job_success,txt_job1,txt_job2,
@@ -453,7 +461,7 @@ case i of
       Page4.Visible:=false;
       if ImageKeep.Caption=txt_8_2_keep then
          begin
-         Labelspac.Visible:=true;
+         if LabelWarning1.visible=true then Labelspac.Visible:=true;
          ImageKeep.visible:=true;
          end;
       end;
@@ -742,11 +750,7 @@ LabelTitle1.Caption:='      '+txt_status+'      ';
 LabelTitle2.Caption:='      '+txt_report+'      ';
 LabelTitle3.Caption:='      '+txt_console+'      ';
 LabelTitle4.Caption:='      '+txt_2_3_options+'      ';
-Label1.Caption:=txt_isrunning+', ';
-Labeli.Caption:=txt_input+' ';
-Labelo.Caption:=txt_output+' ';
 CheckBoxHalt.Caption:=txt_halt;
-cbAutoOpen.Caption:=txt_2_8_oop;
 Button1.Caption:='   '+txt_ok+'   ';
 ButtonStop.Caption:='   '+txt_2_3_cancel+'   ';
 ButtonStopAll.Caption:='   '+txt_5_5_cancelall+'   ';
@@ -993,15 +997,15 @@ if Form_gwrap.SaveDialog1.Execute then
    for i:=0 to Form_gwrap.StringGrid1.Rowcount-1 do writeln(t,Form_gwrap.StringGrid1.Cells[0,i]);
    writeln(t,'');
    writeln(t,Form_gwrap.l6.Caption);
-   writeln(t,Form_gwrap.l1.Caption+Form_gwrap.l2.Caption+Form_gwrap.l3.Caption+Form_gwrap.l4.Caption);
-   writeln(t,Form_gwrap.Labeli.Caption+Form_gwrap.LabelInfo1.Caption+' '+Form_gwrap.Labelo.Caption+Form_gwrap.LabelInfo2.Caption);
-   writeln(t,Form_gwrap.Label1.Caption+Form_gwrap.LabelInfo3.Caption);
+   writeln(t,Form_gwrap.l1.Caption+Form_gwrap.l2.Caption+Form_gwrap.l3.Caption+Form_gwrap.l4.Caption+Form_gwrap.LabelInfo3.Caption);
+   writeln(t,txt_input+' '+Form_gwrap.LabelInfo1.Caption);
+   writeln(t,txt_output+' '+Form_gwrap.LabelInfo2.Caption);
+   writeln(t,Form_gwrap.Label1.Caption);
    if modeofuse=2 then
       begin
       writeln(t,'');
       writeln(t,Form_gwrap.Label2.Caption);
       writeln(t,Form_gwrap.Label3.Caption);
-      writeln(t,Form_gwrap.Label7.Caption);
       writeln(t,Form_gwrap.Label8.Caption);
       end;
    closefile(t);
@@ -1071,7 +1075,7 @@ if (pfun<>'UN7Z') and (pfun<>'7Z') then umode:=0 else umode:=1;
 
 //On external drives NTFS seems not updating output file size, even using SHChangeNotify
 
-if umode=0 then
+if umode=0 then //not 7z / p7zip
    begin
    tpath:=outpath;
    if (optype=1) and (modeofuse=0) then
@@ -1087,18 +1091,11 @@ if umode=0 then
             if insize<>0 then percentout:=(outsize*1000000) div insize;
          if outsize>0 then
             begin
-            Form_gwrap.Labelo.Visible:=true;
-            Form_gwrap.LabelInfo2.Visible:=true;
             if (percentout>0) then Form_gwrap.LabelInfo2.Caption:=nicenumber(inttostr(outsize),filesizebase)+' ('+inttostr(percentout div 10000)+'%)'
             else Form_gwrap.LabelInfo2.Caption:=nicenumber(inttostr(outsize),filesizebase);
             if tdiff<>0 then speed:=outsize div tdiff * 1000;
             if speed>0 then
                Form_gwrap.LabelInfo2.Caption:=Form_gwrap.LabelInfo2.Caption+' @ '+nicenumber(inttostr(speed),filesizebase)+'/s';
-            end
-         else
-            begin
-            Form_gwrap.Labelo.Visible:=false;
-            Form_gwrap.LabelInfo2.Visible:=false;
             end;
          end;
    except
@@ -1142,7 +1139,7 @@ if umode=0 then
       if ShapeProgress.Width<>0 then
          iperc:=(ShapeProgress.Width *100) div Form_gwrap.Width;
    end
-else
+else //7z / p7zip
    begin
    if Form_gwrap.Width<>0 then
       if (iperc>0) and (iperc<100) then
@@ -1157,25 +1154,19 @@ else
             srcfilesize_multipart(tpath,outsize);
             if outsize>0 then
                begin
-               Form_gwrap.Labelo.Visible:=true;
-               Form_gwrap.LabelInfo2.Visible:=true;
                Form_gwrap.LabelInfo2.Caption:=nicenumber(inttostr(outsize),filesizebase);
 
                if pfun='7Z' then
                   if (insize>0) and (iperc>0) then
                      begin
-                     percentout:=(((outsize*100) div iperc)*1000000) div insize;
-                     Form_gwrap.LabelInfo2.Caption:=Form_gwrap.LabelInfo2.Caption+' ('+inttostr(percentout div 10000)+'%)';
+                     percentout:=(((outsize*100) div iperc)*1000000) div insize; //Compression ratio projection
+                     //percentout:=(outsize*1000000) div insize; //actual input/output ratio
+                     Form_gwrap.LabelInfo2.Caption:=Form_gwrap.LabelInfo2.Caption+' (cr '+inttostr(percentout div 10000)+'%)';
                      end;
 
                if tdiff<>0 then speed:=outsize div tdiff * 1000;
                if speed>0 then
                   Form_gwrap.LabelInfo2.Caption:=Form_gwrap.LabelInfo2.Caption+' @ '+nicenumber(inttostr(speed),filesizebase)+'/s';
-               end
-            else
-               begin
-               Form_gwrap.Labelo.Visible:=false;
-               Form_gwrap.LabelInfo2.Visible:=false;
                end;
             end;
    except
@@ -1192,14 +1183,14 @@ if iperc>0 then
    end;
 
 if (pfun<>'UN7Z') and (pfun<>'7Z') then
-   LabelInfo3.Caption:=nicetime(inttostr(tdiff))
+   LabelInfo3.Caption:=', '+nicetime(inttostr(tdiff))
 else
    begin
    if (iperc>0) and (iperc<100) then
       if iperc>ipercp then
          remtime:=(tdiff*(100-iperc)) div iperc;
-   if remtime>0 then LabelInfo3.Caption:=nicetime(inttostr(tdiff))+', '+txt_6_9_remaining+' '+nicetime(inttostr(remtime))
-   else LabelInfo3.Caption:=nicetime(inttostr(tdiff));
+   if remtime>0 then LabelInfo3.Caption:=', '+nicetime(inttostr(tdiff))+', '+txt_6_9_remaining+' '+nicetime(inttostr(remtime))
+   else LabelInfo3.Caption:=', '+nicetime(inttostr(tdiff));
    end;
 if (iperc>0) and (iperc<100) then ipercp:=iperc;
 if ShapeGlobalProgress.visible=true then gperc:=(ShapeGlobalProgress.Width * 100) div Form_gwrap.Width
@@ -1231,6 +1222,29 @@ Form_gwrap.pm2et.caption:=Form_gwrap.pmet.caption;
 Form_gwrap.pm2eo.caption:=Form_gwrap.pmeo.caption;
 end;
 
+procedure setwrap;
+var lsz:integer;
+begin
+lsz:=0;
+if Form_gwrap.l2.visible=true then lsz:=lsz+Form_gwrap.l2.Width;
+if Form_gwrap.l3.visible=true then lsz:=lsz+Form_gwrap.l3.Width;
+if Form_gwrap.l4.visible=true then lsz:=lsz+Form_gwrap.l4.Width;
+if Form_gwrap.LabelInfo3.visible=true then lsz:=lsz+Form_gwrap.LabelInfo3.Width;
+if Form_gwrap.Label1.visible=true then lsz:=lsz+Form_gwrap.Label1.Width;
+if Form_gwrap.l1.Width>Form_gwrap.Panel2.Width-(lsz) then
+   begin
+   Form_gwrap.l2.AnchorSide[akTop].Side:=asrBottom;
+   Form_gwrap.l2.AnchorSide[akLeft].Control:=Form_gwrap.Panel2;
+   Form_gwrap.l2.AnchorSide[akLeft].Side:=asrLeft;
+   end
+else
+   begin
+   Form_gwrap.l2.AnchorSide[akTop].Side := asrCenter;
+   Form_gwrap.l2.AnchorSide[akLeft].Control:=Form_gwrap.l1;
+   Form_gwrap.l2.AnchorSide[akLeft].Side:=asrRight;
+   end;
+end;
+
 procedure set_form_title;
 var s,s1,s2:ansistring;
 begin
@@ -1243,9 +1257,10 @@ Form_gwrap.l2.Caption:='';
 Form_gwrap.l3.Caption:='';
 Form_gwrap.l4.Caption:='';
 if psubfun='archive' then
-   Form_gwrap.l6.Caption:=paction+' '+upcase(ExtractFileExt(poutname))
+   Form_gwrap.l6.Caption:=paction+' '+upcase(ExtractFileExt(poutname))+parcstr
 else
    Form_gwrap.l6.Caption:=paction;
+parcstr:='';
 Form_gwrap.l2.Hint:='';
 Form_gwrap.l4.Hint:='';
 case modeofuse of
@@ -1266,16 +1281,17 @@ case modeofuse of
    end;
    1,4,5 :
    begin
-   if outpath<>'' then
-      if outpath[length(outpath)]=directoryseparator then s2:=copy(outpath,1,length(outpath)-1)
-      else s2:=outpath;
+   s:=extractfilepath(in_name);
+   if s<>'' then
+      if s[length(s)]=directoryseparator then s:=copy(s,1,length(s)-1);
+   s2:=extractfilename(s);
    {$IFDEF MSWINDOWS}if length(s2) = 2 then else{$ENDIF} s2:=extractfilename(s2);
    Form_gwrap.l1.Caption:=(s1+' '+txt_5_0_in+' ');
-   Form_gwrap.l4.Caption:=(s2);
-   Form_gwrap.l4.Hint:=(extractfilepath(outpath));
-   pcapt:=Form_gwrap.l1.Caption+Form_gwrap.l4.Caption;
+   Form_gwrap.l2.Caption:=s2;
+   Form_gwrap.l2.Hint:=s;
+   pcapt:=Form_gwrap.l1.Caption+Form_gwrap.l2.Caption;
    Form_gwrap.l1.Visible:=true;
-   Form_gwrap.l4.Visible:=true;
+   Form_gwrap.l2.Visible:=true;
    setiomenu;
    exit;
    end;
@@ -1308,8 +1324,11 @@ case optype of
    pcapt:=Form_gwrap.l1.Caption+Form_gwrap.l2.Caption+' '+Form_gwrap.l3.Caption+Form_gwrap.l4.Caption;
    Form_gwrap.l1.Visible:=true;
    Form_gwrap.l2.Visible:=true;
-   Form_gwrap.l3.Visible:=true;
-   Form_gwrap.l4.Visible:=true;
+   if outpath<>extractfilepath(in_name) then
+      begin
+      Form_gwrap.l3.Visible:=true;
+      Form_gwrap.l4.Visible:=true;
+      end;
    end
 else
    begin
@@ -1322,11 +1341,11 @@ else
    s2:=copy(s2,1,length(s2)-1);
    {$IFDEF MSWINDOWS}if length(s2) = 2 then else{$ENDIF} s2:=extractfilename(s2);
    Form_gwrap.l1.Caption:=(s1+' '+txt_5_0_in+' ');
-   Form_gwrap.l4.Caption:=(s2);
-   Form_gwrap.l4.Hint:=(extractfilepath(outpath));
-   pcapt:=Form_gwrap.l1.Caption+Form_gwrap.l4.Caption;
+   Form_gwrap.l2.Caption:=(s2);
+   Form_gwrap.l2.Hint:=(extractfilepath(outpath));
+   pcapt:=Form_gwrap.l1.Caption+Form_gwrap.l2.Caption;
    Form_gwrap.l1.Visible:=true;
-   Form_gwrap.l4.Visible:=true;
+   Form_gwrap.l2.Visible:=true;
    end;
 end;
 if pfromnativedrag=true then
@@ -1383,6 +1402,11 @@ var
    i:integer;
    {$ENDIF}
 begin
+if optype=1 then
+   begin
+   explore_out('');
+   exit;
+   end;
 {$IFDEF MSWINDOWS}
 s:=in_name;
 if s='' then exit;
@@ -1410,12 +1434,14 @@ with Form_gwrap do
    if ppause=true then Label1.Caption:=txt_paused+' '
    else Label1.Caption:=txt_running+' ';
    case ppriority of
-      0: Label1.Caption:=Label1.Caption+txt_rt+', ';
-      1: Label1.Caption:=Label1.Caption+txt_high+', ';
-      2: Label1.Caption:=Label1.Caption+txt_normal+', ';
-      3: Label1.Caption:=Label1.Caption+txt_idle+', ';
+      0: Label1.Caption:=Label1.Caption+txt_rt;
+      1: Label1.Caption:=Label1.Caption+txt_high;
+      2: Label1.Caption:=Label1.Caption+txt_normal;
+      3: Label1.Caption:=Label1.Caption+txt_idle;
       end;
    end;
+Form_gwrap.l7.Caption:=txt_input+' '+Form_gwrap.LabelInfo1.Caption+' '+txt_output+' '+Form_gwrap.LabelInfo2.Caption;
+Form_gwrap.Image1.Hint:=Form_gwrap.Label1.Caption;
 end;
 
 procedure updatereport(M:TMemoryStream; var stri1:ansistring);
@@ -1667,13 +1693,11 @@ end;
 
 function getalignw(ntabs:integer):integer;
 begin
-result:=Form_gwrap.ShapeTitleb1.Width+
-Form_gwrap.ShapeTitleb2.Width+
-Form_gwrap.ShapeTitleb3.Width+
-Form_gwrap.LabelTitle1.BorderSpacing.Left+Form_gwrap.LabelTitle1.BorderSpacing.Left+
-Form_gwrap.LabelTitle2.BorderSpacing.Left+
-Form_gwrap.LabelTitle3.BorderSpacing.Left;
-if ntabs=4 then result:=result+Form_gwrap.ShapeTitleb4.Width+Form_gwrap.LabelTitle4.BorderSpacing.Left;
+result:=Form_gwrap.LabelTitle1.Width+
+Form_gwrap.LabelTitle2.Width+
+Form_gwrap.LabelTitle3.Width+
+Form_gwrap.LabelTitle1.BorderSpacing.Left*4;
+if ntabs=4 then result:=result+Form_gwrap.LabelTitle4.Width+Form_gwrap.LabelTitle4.BorderSpacing.Left;
 end;
 
 procedure launch_cl;
@@ -1694,13 +1718,16 @@ var
 begin
 pstarted:=true;
 Form_gwrap.Panel2.Visible:=true;
+Form_gwrap.Label1.visible:=false;
+Form_gwrap.Image1.hint:='';
 Form_gwrap.PanelBench.Visible:=false;
 Form_gwrap.Shapeprogress.visible:=true;
 Form_gwrap.ShapeProgress.Width:=3;
 progress:=0;
 Form_gwrap.Memo2.Clear;
 Form_gwrap.Memo2.Lines.Append(cl);
-Form_gwrap.LabelTitle4.Visible:=true;
+//Form_gwrap.LabelTitle4.Visible:=false;
+Form_gwrap.ldeleteinput.Visible:=false;
 ipercp:=0;
 iperc:=0;
 remtime:=0;
@@ -1715,7 +1742,7 @@ form_gwrap.shape5.Height:=2;
 form_gwrap.shape4.Height:=2;
 form_gwrap.shape3.Height:=2;
 form_gwrap.shape2.Height:=2;
-form_gwrap.shape1.Height:=2;
+form_gwrap.shape1.Height:=random(pbarhsmall*3)+2;
 form_gwrap.shape12.Visible:=true;
 form_gwrap.shape11.Visible:=true;
 form_gwrap.shape10.Visible:=true;
@@ -1728,7 +1755,6 @@ form_gwrap.shape4.Visible:=true;
 form_gwrap.shape3.Visible:=true;
 form_gwrap.shape2.Visible:=true;
 form_gwrap.shape1.Visible:=true;
-Form_gwrap.Imagestatus.Width:=1;
 if cl='' then
    begin
    pMessageErrorOK(txt_nocl);
@@ -1753,8 +1779,8 @@ if insize>0 then
    else Form_gwrap.LabelInfo1.Caption:=nicenumber(inttostr(insize),filesizebase)
 else Form_gwrap.LabelInfo1.Caption:='--';//nicenumber(inttostr(pinsize),filesizebase);
 set_form_title;
-Form_gwrap.Imagestatus.Picture.Bitmap:=nil;
 if Form_gwrap.Visible=true then Application.ProcessMessages;
+setwrap;
 
 P:=TProcessUTF8.Create(nil);
 P.CommandLine:=(cl);
@@ -1914,7 +1940,7 @@ Form_gwrap.StringGrid1.Rowcount:=1;
          end
       else j:=0;
       if j > 0 then Inc(BytesRead2, j);
-      if (i=0) and (j=0) then sleep(100);
+      //if (i=0) and (j=0) then sleep(100);
       end;
    end;
    M2.Free;
@@ -1926,8 +1952,6 @@ Form_gwrap.Caption:=pprogn+' '+pcapt;
 Form_gwrap.TrayIcon1.Hint:=Form_gwrap.Caption;
 Form_gwrap.pm2restore.Caption:=Form_gwrap.Caption;
 pstarted:=false;
-Form_gwrap.Imagestatus.Cursor:=crDefault;
-Form_gwrap.Imagestatus.Hint:='';
 tsout:=datetimetotimestamp(now);
 Form_gwrap.ShapeProgress.Width:=Form_gwrap.Width-6;//process terminated
 if pproglast=true then Form_gwrap.ShapeGlobalProgress.Width:=Form_gwrap.Width-6;
@@ -2003,11 +2027,15 @@ if stopped=true then exit_code:=255;
 {$ENDIF}
 
 decode_exitcode(exit_code,s);
-if exit_code<>0 then perrors:=perrors+1;
+if exit_code<>0 then
+   begin
+   perrors:=perrors+1;
+   Form_gwrap.Label1.Caption:=s;
+   Form_gwrap.Label1.visible:=true;
+   end;
 
 if modeofuse=4 then begin displayinfo(exit_code,s); exit; end;
 
-Form_gwrap.Label1.Caption:=s+', ';
 outsize:=0;
 try
 if fileexists((outpath)) then
@@ -2021,21 +2049,23 @@ if fileexists((outpath)) then
 except
 end;
 if (outsize>0) then
-   if (insize>0) and (Form_gwrap.labelo.visible=true) then
+   if (insize>0) then
       begin
       cratio:=outsize * 100;
       cratio:=cratio div insize;
       Form_gwrap.LabelInfo2.Caption:=nicenumber(inttostr(outsize),filesizebase)+' ('+inttostr(cratio)+'%)';
       end
    else
-      Form_gwrap.LabelInfo2.Caption:=nicenumber(inttostr(outsize),filesizebase);
-Form_gwrap.Imagestatus.Picture.Bitmap:=Binfo;
+      Form_gwrap.LabelInfo2.Caption:=nicenumber(inttostr(outsize),filesizebase)
+else
+   Form_gwrap.LabelInfo2.Caption:='--';
 //speed
 speed1:=0;
 speed2:=0;
 if tdiff<>0 then speed1:=pinsize div tdiff * 1000;
 if tdiff<>0 then speed2:=outsize div tdiff * 1000;
-Form_gwrap.LabelInfo3.Caption:=nicetime(inttostr(tdiff));
+Form_gwrap.LabelInfo3.Caption:=', '+nicetime(inttostr(tdiff));
+setwrap;
 if speed1>0 then Form_gwrap.LabelInfo1.Caption:=Form_gwrap.LabelInfo1.Caption+' @ '+nicenumber(inttostr(speed1),filesizebase)+'/s';
 if speed2>0 then Form_gwrap.LabelInfo2.Caption:=Form_gwrap.LabelInfo2.Caption+' @ '+nicenumber(inttostr(speed2),filesizebase)+'/s';
 if modeofuse>=20 then
@@ -2043,18 +2073,15 @@ if modeofuse>=20 then
    Form_gwrap.StringGrid1.Rowcount:=5;
    Form_gwrap.StringGrid1.Cells[0,0]:=datetimetostr(timestamptodatetime(tsout))+' - '+s;
    Form_gwrap.StringGrid1.Cells[0,1]:='';
-   Form_gwrap.StringGrid1.Cells[0,2]:=Form_gwrap.Labeli.Caption+' '+Form_gwrap.LabelInfo1.Caption;
-   Form_gwrap.StringGrid1.Cells[0,3]:=Form_gwrap.Labelo.Caption+' '+Form_gwrap.LabelInfo2.Caption;
-   Form_gwrap.StringGrid1.Cells[0,4]:=Form_gwrap.LabelInfo3.Caption;
+   Form_gwrap.StringGrid1.Cells[0,2]:=txt_input+' '+Form_gwrap.LabelInfo1.Caption;
+   Form_gwrap.StringGrid1.Cells[0,3]:=txt_output+' '+Form_gwrap.LabelInfo2.Caption;
+   Form_gwrap.StringGrid1.Cells[0,4]:=Form_gwrap.Label1.Caption+Form_gwrap.LabelInfo3.Caption;
    //Form_gwrap.StringGrid1.AutosizeColumns;
    end;
+Form_gwrap.l7.Caption:=txt_input+' '+Form_gwrap.LabelInfo1.Caption+' '+txt_output+' '+Form_gwrap.LabelInfo2.Caption;
 if exit_code=0 then
-   begin
-   Form_gwrap.Imagestatus.Picture.Bitmap:=Bsuccess;
-   end
 else
    begin
-   Form_gwrap.Imagestatus.Picture.Bitmap:=Berror;
    {$IFDEF MSWINDOWS}
    if okseven=true then
       try
@@ -2089,7 +2116,6 @@ form_gwrap.shape4.Visible:=false;
 form_gwrap.shape3.Visible:=false;
 form_gwrap.shape2.Visible:=false;
 form_gwrap.shape1.Visible:=false;
-Form_gwrap.Imagestatus.Width:=Form_gwrap.Imagestatus.Height;
 case exit_code of
    0: Form_gwrap.Caption:=pprogn+' '+txt_done+' '+pcapt;
    255: Form_gwrap.Caption:=pprogn+' '+txt_halted+' '+pcapt;
@@ -2100,16 +2126,11 @@ case exit_code of
          begin
          Form_gwrap.LabelWarning1.Visible:=true;
          Form_gwrap.labelspac.visible:=true;
-         if Form_gwrap.Page1.Visible=true then
-            if Form_gwrap.ImageKeep.Caption='' then
-               Form_gwrap.labelspac.visible:=false;
          end;
       end;
    end;
 Form_gwrap.TrayIcon1.Hint:=Form_gwrap.Caption;
 Form_gwrap.pm2restore.Caption:=Form_gwrap.Caption;
-if Form_gwrap.LabelInfo2.width>Form_gwrap.LabelInfo3.width then i:=Form_gwrap.LabelInfo2.width
-else i:=Form_gwrap.LabelInfo3.width;
 case modeofuse of
    0: begin
       end;
@@ -2124,7 +2145,6 @@ case modeofuse of
       Form_gwrap.Label2.Caption:=Form_gwrap.Stringgrid1.Cells[0,6];
       Form_gwrap.Label3.Caption:=copy(Form_gwrap.Stringgrid1.Cells[0,9],26,26);
       Form_gwrap.Label8.Caption:='Rating: '+copy(Form_gwrap.Stringgrid1.Cells[0,Form_gwrap.Stringgrid1.RowCount-2],28,7);
-      Form_gwrap.Label7.Caption:='';
       except
       end;
       end;
@@ -2166,8 +2186,10 @@ if Form_gwrap.CheckBoxHalt.State=cbChecked then
 if autoopen=1 then
    if (modeofuse<>1) and (modeofuse<>4) and (modeofuse<>5) and (modeofuse<>2) then
       if (psubfun<>'extract') and (psubfun<>'convert') then explore_out(''); //deferred (in peach unit) to let run move after extraction operations if needed
-Form_gwrap.LabelTitle4.Visible:=false;
-Form_gwrap.PanelTitlePLTabAlign.Width:=getalignw(3);
+//Form_gwrap.LabelTitle4.Visible:=true;
+Form_gwrap.ldeleteinput.caption:=txt_2_5_delete+' '+ExtractFileName(in_name);
+if in_name='' then Form_gwrap.ldeleteinput.visible:=false else Form_gwrap.ldeleteinput.visible:=true;
+Form_gwrap.PanelTitlePLTabAlign.Width:=getalignw(4);
 end;
 
 case pautoclose of
@@ -2332,12 +2354,6 @@ begin
 gostopall;
 end;
 
-procedure TForm_gwrap.cbAutoOpenClick(Sender: TObject);
-begin
-if autoopen=1 then autoopen:=0
-else autoopen:=1;
-end;
-
 procedure TForm_gwrap.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
 needinteraction:=false;
@@ -2365,26 +2381,22 @@ if Form_gwrap.Width <> 0 then
          resperc:=(ShapeProgress.Width * 100 ) div respre;
          ShapeGlobalProgress.Width:=(ShapeGlobalProgress.Width * resperc) div 100;
          end;
+   if Form_gwrap.Visible=true then setwrap;
    end;
 end;
 
 procedure settheme;
 begin
-Form_gwrap.Imagestatus.Picture.Bitmap:=Bp1;
 if color3='clForm' then color3:=ColorToString(PTACOL);
 getpcolors(stringtocolor(color1),stringtocolor(color2),stringtocolor(color3),temperature,contrast);
 Form_gwrap.ShapeTitleb1.Brush.Color:=StringToColor(COLLOW);
 Form_gwrap.ShapeTitleb2.Brush.Color:=StringToColor(COLLOW);
 Form_gwrap.ShapeTitleb3.Brush.Color:=StringToColor(COLLOW);
 Form_gwrap.ShapeTitleb4.Brush.Color:=StringToColor(COLLOW);
-Form_gwrap.Label1.Font.Color:=pGray;
-Form_gwrap.l1.Font.Color:=pGray;
-Form_gwrap.l3.Font.Color:=pGray;
-Form_gwrap.Labeli.Font.Color:=pGray;
-Form_gwrap.Labelo.Font.Color:=pGray;
-Form_gwrap.LabelInfo1.Font.Color:=pGray;
-Form_gwrap.LabelInfo2.Font.Color:=pGray;
-Form_gwrap.LabelInfo3.Font.Color:=pGray;
+//Form_gwrap.Label1.Font.Color:=pGray;
+//Form_gwrap.l1.Font.Color:=pGray;
+//Form_gwrap.l3.Font.Color:=pGray;
+//Form_gwrap.LabelInfo3.Font.Color:=pGray;
 Form_gwrap.Shape1.Brush.Color:=(pgray);
 Form_gwrap.Shape2.Brush.Color:=(pgray);
 Form_gwrap.Shape3.Brush.Color:=(pgray);
@@ -2575,23 +2587,15 @@ case modeofuse of
 
 //get partial and total input size
 pinsize:=0;
+in_name:=pinputfile;
+if in_name='na' then in_name:=''; //for extraction only, for archiving it is only passed poutname for single or multiple output
 try
-insize:=strtoqword(ptsize);
-if pinputfile<>'na' then
-   begin
-   in_name:=pinputfile;
-   if pprogn='' then
-      pinsize:=insize
-   else
-      srcfilesize_multipart(pinputfile,pinsize);
-   end
+insize:=strtoqword(ptsize); //size does not take in account multipart archives (needs to be improved for extractionb tasks)
+if pprogn='' then
+   pinsize:=insize
 else
    begin
-   in_name:='';
-   if pprogn='' then
-      pinsize:=insize
-   else
-      pinsize:=strtoqword(ppsize);
+   pinsize:=strtoqword(ppsize);
    end;
 except
 insize:=0;
@@ -2604,8 +2608,7 @@ if okseven=true then
    end;
 {$ENDIF}
 Form_gwrap.LabelInfo1.Caption:='--';
-Form_gwrap.Labelo.Visible:=false;
-Form_gwrap.LabelInfo2.Visible:=false; //set visible during progress
+Form_gwrap.LabelInfo2.Caption:='--';
 //get output path (finalized only when invoked)
 outpath:=poutname;
 //get cl
@@ -2769,6 +2772,69 @@ else
 s:=s+char($0D)+char($0A)+char($0D)+char($0A)+txt_3_0_details;
 if stopped=true then s:=txt_jobstopped+char($0D)+char($0A)+char($0D)+char($0A)+txt_3_0_details;
 pMessageWarningOK(s);
+end;
+
+procedure erase_fromlauncher(erasemode:integer);//0: quick delete 1: secure delete 2: zero delete 3: recycle (Windows, macOS)
+var
+   P:tprocessutf8;
+   bin_name,in_param,eraselevel,s,cl:ansistring;
+begin
+if in_name='' then exit;
+if erasemode<>3 then
+   if pMessageWarningYesNo(txt_delete+char($0D)+char($0A)+char($0D)+char($0A)+in_name)<>6 then exit;
+P:=tprocessutf8.Create(nil);
+in_param:=stringdelim(escapefilename(in_name,desk_env));
+bin_name:=stringdelim(escapefilename(executable_path,desk_env)+'pea'+EXEEXT);
+if in_param<>'' then
+   if in_param[length(in_param)]='*' then exit;//additional security against unexpected errors: input must be a file
+if in_param<>'' then
+   if in_param[length(in_param)]=DirectorySeparator then exit;//additional security against unexpected errors: input must be a file
+case perasepasses of
+   0: eraselevel:='VERY_FAST';
+   1: eraselevel:='FAST';
+   2: eraselevel:='MEDIUM';
+   3: eraselevel:='SLOW';
+   4: eraselevel:='VERY_SLOW';
+   end;
+if erasemode=0 then eraselevel:='QUICK';
+if erasemode=2 then eraselevel:='ZERO';
+if erasemode=3 then eraselevel:='RECYCLE';
+{$IFDEF MSWINDOWS}P.Options := [poNoConsole, poWaitOnExit];{$ELSE}P.Options := [poWaitOnExit];{$ENDIF}
+cl:=bin_name+' WIPE '+eraselevel+' '+in_param;
+P.CommandLine:=cl;
+if validatecl(cl)<>0 then begin pMessageWarningOK(txt_2_7_validatecl+' '+cl); exit; end;
+P.Execute;
+P.Free;
+end;
+
+procedure TForm_gwrap.ldeleteinputClick(Sender: TObject);
+var
+   p:TPoint;
+begin
+p.x:=ldeleteinput.Left;
+p.y:=page4.top+ldeleteinput.top+ldeleteinput.Height;
+p:=clienttoscreen(p);
+popupmenu3.popup(p.x,p.y);
+end;
+
+procedure TForm_gwrap.MenuItem1Click(Sender: TObject);
+begin
+erase_fromlauncher(3);
+end;
+
+procedure TForm_gwrap.MenuItem2Click(Sender: TObject);
+begin
+erase_fromlauncher(0);
+end;
+
+procedure TForm_gwrap.MenuItem3Click(Sender: TObject);
+begin
+erase_fromlauncher(2);
+end;
+
+procedure TForm_gwrap.MenuItem4Click(Sender: TObject);
+begin
+erase_fromlauncher(1);
 end;
 
 procedure TForm_gwrap.pm2cancelallClick(Sender: TObject);
