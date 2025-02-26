@@ -3,20 +3,20 @@
 10.3
 Перевод: Rytikov Slava, Dmitry Tsvetkov, xoxmodav, ViktorOn , Aleksandr (yupiter43@gmail.com)
 Посл. пров.: ViktorOn
-Посл. ред.: 02.02.2025
+Посл. ред.: 25.02.2025
 
 === PeaZip text group ===
 
-txt_10_3_classic: Classic
-txt_10_3_ascii: It is recommended to use only ASCII characters in passwords for the current archive format (mixed case letters, numbers, and special characters).
-txt_10_3_minimal: Minimal
-txt_10_3_m: Modern
-txt_10_3_pm: Postmodern
-txt_10_3_aw: Workaround: check "Force typing password interactively" in the password prompt, or set Console mode for backend binaries.
+txt_10_3_classic: Классический
+txt_10_3_ascii: Рекомендуется использовать только ASCII-символы в паролях для текущего формата архива (буквы в верхнем и нижнем регистре, цифры и спецсимволы).
+txt_10_3_minimal: Минималистичный
+txt_10_3_m: Модерн
+txt_10_3_pm: Постмодерн
+txt_10_3_aw: Обходной путь: установите флажок «Принудительный ввод паролей в интерактивном режиме» в запросе пароля или включите консольный режим для исполняемых файлов бэкенд.
 txt_10_2_savecopy: Сохранить копию
-txt_10_1_full: Full
+txt_10_1_full: Полностью
 txt_10_1_kdfw: Нагрузка KDF
-txt_10_1_under: Underlined
+txt_10_1_under: Только снизу
 txt_10_0_exptrash: Проверить корзину
 txt_10_0_ptarzst: Быстрейшее сжатие, TAR.ZST
 txt_10_0_ptarxz: Высокое сжатие, TAR.XZ
@@ -99,7 +99,7 @@ txt_8_8_lnk: Ссылка
 txt_8_8_intnote: Обратите внимание, что опция "Интерактивное извлечение" (в меню Параметры > Настройки > Менеджер архивов) игнорируется при выполнении командной строки на вкладке Консоль.
 txt_8_8_snz: Распространить поток Zone.Identifier (Windows)
 txt_8_8_sm: Маленький размер значков
-txt_8_8_solcol: Сплошная строка
+txt_8_8_solcol: Строка навигации
 txt_8_8_snoi: Идентификаторы владельца магазина/группы (TAR, Linux)
 txt_8_8_snon: Имена владельца магазина/группы (TAR, Linux)
 txt_8_8_tab: Вкладка
@@ -758,7 +758,7 @@ txt_all: Все
 txt_all_default: Все (по умолчанию)
 txt_all_type: Все объекты данного типа
 txt_all_date: Все объекты с датой...
-txt_all_psize: Все объекты с упакованным размером...
+txt_all_psize: Все объекты с сжатым размером...
 txt_all_attributes: Все объекты с данными атрибутами
 txt_all_size: Формат файла
 txt_error_input_upx: разрешить одиночные исполняемые файлы на входе
@@ -861,7 +861,7 @@ txt_nocompress: не сжимать
 txt_delete: Вы уверены что хотите удалить выбранный файл(ы)? После этой операции файлы нельзя будет восстановить
 txt_wipe: Вы уверены что хотите надежно удалить выбранный файл(ы)? После этой операции файлы нельзя будет восстановить
 txt_done: Готово
-txt_edit: Правка
+txt_edit: Изменить
 txt_elapsed: прошло:
 txt_error_emptycl: Пустая командная строка!
 txt_encrypt: Зашифровать
@@ -1058,7 +1058,7 @@ txt_oip: выход, вход, параметры
 txt_opi: выход, параметры, вход
 txt_output: выход:
 txt_overwrite: Поверх существующих файлов
-txt_compressed_size: Упаковано
+txt_compressed_size: Сжато
 txt_paqver: Версия PAQ
 txt_type_description_paq: PAQ: медленный, но супермощный архиватор
 txt_pio: параметры, вход, выход
@@ -1079,7 +1079,7 @@ txt_peazip_new: PeaZip (новый экземпляр)
 txt_peazip_help: Онлайн-помощь по PeaZip
 txt_peazip_web: Веб-сайт проекта PeaZip
 txt_performall: Выполнять все поддерживаемые алгоритмы
-txt_name_provide: Пожалуйста, избегайте символов  \ / : * ? ' " < > |
+txt_name_provide: Пожалуйста, избегайте символов \ / : * ? ' " < > |
 txt_upxorstrip: Пожалуйста, выберите Strip и/или UPX на исполняемых файлах
 txt_not_removable_file: Пожалуйста, закройте файл, для того чтобы PeaZip смог удалить его:
 txt_not_removable: Пожалуйста, закройте файл, для того чтобы  PeaZip смог удалить папку:
@@ -1093,11 +1093,11 @@ txt_projectadmin: Администратор проекта:
 txt_type_description_quad: BALZ/QUAD: высокопроизводительный архиватор на основе ROLZ
 txt_quickdelete: Быстрое удаление
 txt_quit: Выход
-txt_unit_ram: RAM диск
+txt_unit_ram: RAM-диск
 txt_read: Открыть:
 txt_recentarchives: Последние архивы   
 txt_rr_hint: Позволяет восстановить архив в случае его повреждения
-txt_search_refine: Фильтр подробного поиска,используйте символы ? и *
+txt_search_refine: Фильтр подробного поиска, принимаются символы ? и *
 txt_fefreshf5: Обновить (F5)
 txt_release: выпуск:
 txt_unit_removable: Сменный блок
