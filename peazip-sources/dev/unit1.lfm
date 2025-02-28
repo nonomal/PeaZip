@@ -1,7 +1,7 @@
 object FormAdvf: TFormAdvf
   Left = 79
   Height = 471
-  Top = 472
+  Top = 406
   Width = 750
   AllowDropFiles = True
   AutoSize = True
@@ -12,57 +12,10 @@ object FormAdvf: TFormAdvf
   Constraints.MinHeight = 375
   Constraints.MinWidth = 750
   DesignTimePPI = 120
-  Icon.Data = {
-    7E0500000000010001001010FF00000000006805000016000000280000001000
-    0000200000000100080000000000000000000000000000000000000000000000
-    0000009F7800009F720000A9770000B87F0000CD890000E3940000E6960000E4
-    9500009E7F0000976C0000AA4F0000B3410000A95000009B6F0000DC910000E2
-    950000A9940000AD4B0000BE390000C1670000BE360000A8520000966E000098
-    6F0000BE820000DD940000B8AD0000B9390000C3780000C9D20000C1640000B5
-    3E0000A6760000DD910000D5930000CCD40000AF480000BF3E0000C379000097
-    6B0000A25B0000A5570000996800009E720000D98F0000CB920000E3FB00009C
-    740000AE4A0000B83900009D630000BE340000BC350000C0910000E6FF0000B7
-    AE0000966D0000C0570000C7BC0000C8C50000C2750000D6930000BF910000DC
-    F0000098730000BD320000C6A20000A6550000BD810000C3910000BDBA00009A
-    670000BD330000C5960000A35900008E6E0000B78C0000E4FD0000A68E0000B0
-    460000BF440000C5980000C6A30000C0580000926D0000836C00009D7B0000DD
-    F10000A94F0000A94000009B4E0000876D0000BC8F0000D9EB00009C640000AC
-    4B0000B6380000B8660000B53500009A500000AC850000B0380000B9770000C0
-    D00000B7630000AA3D00009C7B0000BCB900008D720000A2460000B53C0000B5
-    3800009C4D000091740000E2FF0000CCFF0000B1FF0000A6EF000093AB000087
-    710000A1480000AE380000A0490000846A000089700000DFFF0000D8FF0000BD
-    FF0000ADFF0000ABFF0000A9FB00009ED2000093AA00008C900000877D000088
-    7600000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    00000001020304050606060606060606060708090A0B0C0D030E060606060606
-    060F101112131415161718070606060606191A1B1C1D1E1F1616162021060606
-    062223242526120A2728292A2B2C0606062D2E2F3031113231331434282B2106
-    073536371638381F393A3B3C342A20073D3E363F40163241421D1D3B14431644
-    453E363646164748491D1D3A334A164B4C3E36364D4E164F5051525331275455
-    563E3636365708274F48411F3258595A5B5C363636365D0816475E385F606162
-    63643636363636574E16165465666768696A3636363636364D6B6C556D6E666F
-    7071363636363672737475767778797A7B7C727D7E737F808181818182838485
-    8687000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000
-  }
   OnDropFiles = FormDropFiles
   Position = poScreenCenter
   ShowHint = True
-  LCLVersion = '2.2.0.4'
+  LCLVersion = '3.4.0.0'
   object PanelAdvf: TPanel
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
@@ -79,18 +32,19 @@ object FormAdvf: TFormAdvf
     BevelOuter = bvNone
     ClientHeight = 396
     ClientWidth = 750
+    ParentBackground = False
     TabOrder = 0
     object CheckBoxAdvFilters: TCheckBox
-      Left = 15
+      Left = 16
       Height = 24
       Top = 387
-      Width = 157
+      Width = 154
       Anchors = []
       BorderSpacing.Top = 15
       Caption = 'Use advanced filters'
-      OnClick = CheckBoxAdvFiltersClick
-      TabOrder = 0
+      TabOrder = 5
       Visible = False
+      OnClick = CheckBoxAdvFiltersClick
     end
     object LabelAdvInclude: TLabel
       AnchorSideLeft.Control = PanelAdvf
@@ -106,16 +60,16 @@ object FormAdvf: TFormAdvf
     object CheckBoxAdvRecurse: TCheckBox
       AnchorSideRight.Control = MemoAdvInclude
       AnchorSideRight.Side = asrBottom
-      Left = 501
+      Left = 504
       Height = 24
       Top = 30
-      Width = 234
+      Width = 231
       Anchors = [akTop, akRight]
       BorderSpacing.Top = 30
       Caption = 'Inclusion filters recourse subdirs'
       Checked = True
       State = cbChecked
-      TabOrder = 1
+      TabOrder = 0
     end
     object MemoAdvInclude: TMemo
       AnchorSideLeft.Control = LabelAdvInclude
@@ -133,7 +87,7 @@ object FormAdvf: TFormAdvf
       Constraints.MinHeight = 90
       ParentColor = True
       ScrollBars = ssAutoBoth
-      TabOrder = 2
+      TabOrder = 1
     end
     object LabelAdvExclude: TLabel
       AnchorSideLeft.Control = LabelAdvInclude
@@ -150,16 +104,16 @@ object FormAdvf: TFormAdvf
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = MemoAdvInclude
       AnchorSideRight.Side = asrBottom
-      Left = 498
+      Left = 501
       Height = 24
       Top = 304
-      Width = 237
+      Width = 234
       Anchors = [akTop, akRight]
       BorderSpacing.Top = 15
       Caption = 'Exclusion filters recourse subdirs'
       Checked = True
       State = cbChecked
-      TabOrder = 3
+      TabOrder = 6
     end
     object MemoAdvExclude: TMemo
       AnchorSideLeft.Control = LabelAdvInclude
@@ -193,7 +147,7 @@ object FormAdvf: TFormAdvf
       Constraints.MinHeight = 90
       ParentColor = True
       ScrollBars = ssAutoBoth
-      TabOrder = 5
+      TabOrder = 3
     end
     object LabelAdvIncludeAlso: TLabel
       AnchorSideLeft.Control = LabelAdvInclude
@@ -210,16 +164,16 @@ object FormAdvf: TFormAdvf
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = MemoAdvInclude
       AnchorSideRight.Side = asrBottom
-      Left = 501
+      Left = 504
       Height = 24
       Top = 167
-      Width = 234
+      Width = 231
       Anchors = [akTop, akRight]
       BorderSpacing.Top = 15
       Caption = 'Inclusion filters recourse subdirs'
       Checked = True
       State = cbChecked
-      TabOrder = 6
+      TabOrder = 2
     end
   end
   object ButtonPanel1: TButtonPanel
@@ -247,6 +201,7 @@ object FormAdvf: TFormAdvf
     CancelButton.DefaultCaption = True
     TabOrder = 1
     ShowButtons = [pbOK, pbCancel]
+    ShowGlyphs = []
     ShowBevel = False
     object ImageInfoArchive4: TImage
       AnchorSideLeft.Control = ButtonPanel1
@@ -277,7 +232,7 @@ object FormAdvf: TFormAdvf
     BorderSpacing.InnerBorder = 5
     Caption = 'Clear'
     Constraints.MinWidth = 120
-    OnClick = ButtonClearFiltersClick
     TabOrder = 2
+    OnClick = ButtonClearFiltersClick
   end
 end

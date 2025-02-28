@@ -5,8 +5,8 @@ Displayed name, below, can be edited and will be shown in presets menu in place 
 
 GENERAL OPTIONS
 Type
-7Z
-0
+Custom/RAR
+4
 Compression level
 3
 Action
@@ -45,15 +45,15 @@ Add timestamp to archive name
 
 BACKEND OPTIONS: 7z/p7zip
 Method
-1
+0
 Dictionary
-8
+0
 Word
 4
 Passes
--1
+0
 Solid block size
-13
+0
 Sort by name for solid compression
 1
 Compress files open for writing
@@ -90,9 +90,9 @@ Encryption algorithm (if password and/or keyfile is provided)
 
 BACKEND OPTIONS: Custom
 Executable
-
+C:\Program Files\WinRAR\Rar.exe
 Extension
-
+rar
 Other options
 
 Syntax
@@ -108,9 +108,9 @@ BACKEND OPTIONS: PEA
 Compression
 1
 Object control algorithm
-9
+11
 Volume control algorithm
-3
+4
 Stream control algorithm
 0
 
@@ -124,7 +124,7 @@ Solid block size
 
 BACKEND OPTIONS: Split
 Integrity check
-11
+13
 
 BACKEND OPTIONS: UPX
 Compression
@@ -206,5 +206,9 @@ Store symbolic links as links (WIM, TAR)
 0
 
 9.9.0 EXTENSION
-Level of extra KDF rounds for PEA cascaded encryption
+KDF work load for PEA cascaded encryption
+0
+
+10.1.0 EXTENSION
+KDF type for PEA cascaded encryption
 0

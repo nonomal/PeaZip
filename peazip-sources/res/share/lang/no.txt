@@ -1,12 +1,29 @@
 ﻿=== PeaZip language file ===
 Norwegian - Norsk
-9.9
+10.3
 Oversatt av: Rune C. Akselsen, Arne Hanssen og Imre Kristoffer Eilertsen
 Sist rev. av: Arne Hanssen
-Sist revidert: 20240804
+Sist revidert: 20250114
 
 === PeaZip text group ===
 
+txt_10_3_classic: Classic
+txt_10_3_ascii: It is recommended to use only ASCII characters in passwords for the current archive format (mixed case letters, numbers, and special characters).
+txt_10_3_minimal: Minimal
+txt_10_3_m: Modern
+txt_10_3_pm: Postmodern
+txt_10_3_aw: Workaround: check "Force typing password interactively" in the password prompt, or set Console mode for backend binaries.
+txt_10_2_savecopy: Lagre en kopi
+txt_10_1_full: Full
+txt_10_1_kdfw: KDF belastning
+txt_10_1_under: Understreket
+txt_10_0_exptrash: Sjekk søppelkurv
+txt_10_0_ptarzst: Raskeste komprimering, TAR.ZST
+txt_10_0_ptarxz: Høy komprimering, TAR.XZ
+txt_10_0_ptargz: Middels omprimering, TAR.GZ
+txt_10_0_comp: Rene komprimeringsformater godtar bare en enkel fil som input. Arkiv-konvertering til slike formater vil feile hvis kilden inneholder flere filer eller mapper, noe som ikke kan fastslås på forhånd.
+txt_10_0_save: Lagre
+txt_10_0_tp: Tekst forhåndsvisning
 txt_9_9_uac: Innlogget bruker kan ikke skrive til denne filstien. Vil du kjøre PeaZip med opphøyd UAC?
 TXT_9_9_kdf: KDF runder
 txt_9_9_utc: Vis tidsangivelser som UTC

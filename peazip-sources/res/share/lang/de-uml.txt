@@ -1,12 +1,29 @@
-=== PeaZip language file ===
+﻿=== PeaZip language file ===
 German - Deutsch
-9.9
+10.3
 Translated by: Vacon
 Last rev. by: Andrain
-Last rev.: 20240806
+Last rev.: 20250224
 
 === PeaZip text group ===
 
+txt_10_3_classic: Klassisch
+txt_10_3_ascii: Es wird empfohlen, in Passwörtern für das aktuelle Archivformat nur ASCII-Zeichen zu verwenden (Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen).
+txt_10_3_minimal: Minimalistisch
+txt_10_3_m: Modern
+txt_10_3_pm: Postmodern
+txt_10_3_aw: Workaround: Aktiviere in der Kennwortabfrage „Interaktive Kennworteingabe erzwingen“ oder aktiviere den Konsolenmodus für Back-End-Binärdateien.
+txt_10_2_savecopy: Kopie speichern
+txt_10_1_full: Voll
+txt_10_1_kdfw: KDF-Arbeitslast
+txt_10_1_under: Unterstrichen
+txt_10_0_exptrash: Papierkorb öffnen
+txt_10_0_ptarzst: Schnellste Komprimierung, TAR.ZST
+txt_10_0_ptarxz: Hohe Komprimierung, TAR.XZ
+txt_10_0_ptargz: Mittlere Komprimierung, TAR.GZ
+txt_10_0_comp: Reine Komprimierungsformate akzeptieren nur eine einzige Datei als Eingabe. Die Umwandlung ins Archivformat schlägt fehl, wenn die Quelle mehrere Dateien oder Ordner enthält. Dies kann vorher nicht festgestellt werden.
+txt_10_0_save: Speichern
+txt_10_0_tp: Textvorschau
 txt_9_9_uac: Der aktuelle Benutzer kann nicht in diesen Ausgabepfad schreiben. Möchten Sie PeaZip mit UAC-Administratorrechten ausführen?
 TXT_9_9_kdf: KDF-Runden (Key Derivation Function)
 txt_9_9_utc: Zeitstempel als UTC anzeigen

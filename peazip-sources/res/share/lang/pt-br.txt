@@ -1,14 +1,31 @@
 ﻿=== PeaZip language file ===
 Portuguese (Brazil) - Português
-9.9
+10.3
 Translated by: Havokdan
 Last rev. by: Giorgio Tani
-Last rev.: 20240716
+Last rev.: 20241209
 
 === PeaZip text group ===
 
+txt_10_3_classic: Clássico
+txt_10_3_ascii: Recomenda-se usar apenas caracteres ASCII em senhas para o formato de arquivo atual (letras maiúsculas e minúsculas, números e caracteres especiais).
+txt_10_3_minimal: Mínimo
+txt_10_3_m: Moderno
+txt_10_3_pm: Pós -moderno
+txt_10_3_aw: Solução alternativa: marque "Forçar a digitação de senha interativamente" no prompt de senha ou defina o modo Console para binários de back-end.
+txt_10_2_savecopy: Salvar uma cópia
+txt_10_1_full: Completo
+txt_10_1_kdfw: Carga de trabalho do KDF
+txt_10_1_under: Sublinhado
+txt_10_0_exptrash: Explorar Lixeira
+txt_10_0_ptarzst: Compressão mais rápida, TAR.ZST
+txt_10_0_ptarxz: Alta compressão, TAR.XZ
+txt_10_0_ptargz: Compressão média, TAR.GZ
+txt_10_0_comp: Os formatos de compactação pura aceitam apenas um único arquivo como entrada. A conversão do arquivo para esses formatos falhará se a origem contiver vários arquivos ou pastas, o que não pode ser determinado antecipadamente.
+txt_10_0_save: Salvar
+txt_10_0_tp: Pré-visualizar texto
 txt_9_9_uac: O usuário atual não pode gravar neste caminho de saída. Você deseja executar o PeaZip com elevação UAC?
-TXT_9_9_kdf: KDF rounds
+txt_9_9_kdf: Rodadas KDF
 txt_9_9_utc: Mostrar carimbos de data/hora como UTC
 txt_9_8_alwaysflat: Sempre abrir arquivos em exibição plana
 txt_9_8_fnew: Extrair aqui (em uma nova pasta)
@@ -464,7 +481,7 @@ txt_4_8_t: Transformar
 txt_4_8_w: Largura
 txt_4_7_pk: Criar senha / arquivo-chave aleatório
 txt_4_7_spchar: Limitar os caracteres de letras e números
-txt_4_7_recycleask: Mover o(s) arquivo(s) selecionado(s) para a Lixeira?
+txt_4_7_recycleask: Mover os arquivo(s) selecionado(s) para a Lixeira?
 txt_4_7_recycle: Mover para a Lixeira
 txt_4_7_pcomp: Compressão potencial
 txt_4_6_am: Gerenciador de Arquivos
@@ -841,7 +858,7 @@ txt_dispaly: Exibir resultado como
 txt_displayedmnu_obj: exibidos
 txt_displayedobjects: Objetos exibidos
 txt_nocompress: não comprimir
-txt_delete: Você quer apagar o(s) arquivo(s) selecionado(s)? A operação não pôde ser concluída e os arquivos não serão recuperáveis da lixeira
+txt_delete: Deseja excluir os arquivo(s) selecionado(s)? A operação não pode ser desfeita e os arquivos não poderão ser recuperados da Lixeira
 txt_wipe: Você quer apagar com segurança o(s) arquivo(s) selecionado(s)? A operação não pôde ser concluída e os arquivos não serão recuperáveis.
 txt_done: concluído
 txt_edit: Editar
@@ -1124,7 +1141,7 @@ txt_sendbymail: Enviar via e-mail (se suportado)
 txt_set_defaults: Alterar aplicativo para os parâmetros padrão
 txt_settings: Configurações
 txt_sfx_interface: Interface sfx
-txt_showhints: Mostrar dicas
+txt_showhints: Mostrar dicas e dicas de ferramentas
 txt_show_messages: Mostrar mensagens com informações
 txt_showpw: Mostra campo com conteúdo da senha
 txt_singlevol: Volume único

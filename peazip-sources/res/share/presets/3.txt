@@ -8,7 +8,7 @@ Type
 7Z
 0
 Compression level
-5
+3
 Action
 0
 Spanning
@@ -47,13 +47,13 @@ BACKEND OPTIONS: 7z/p7zip
 Method
 1
 Dictionary
-12
+8
 Word
-6
+4
 Passes
 -1
 Solid block size
-15
+13
 Sort by name for solid compression
 1
 Compress files open for writing
@@ -206,5 +206,9 @@ Store symbolic links as links (WIM, TAR)
 0
 
 9.9.0 EXTENSION
-Level of extra KDF rounds for PEA cascaded encryption
+KDF work load for PEA cascaded encryption
+0
+
+10.1.0 EXTENSION
+KDF type for PEA cascaded encryption
 0

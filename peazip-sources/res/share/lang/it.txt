@@ -1,12 +1,29 @@
 ﻿=== PeaZip language file ===
 Italian - Italiano
-9.9
+10.3
 Tradotto da: Giorgio Tani
 Ultima rev. di: Giorgio Tani
-Ultima rev.: 20240803
+Ultima rev.: 20241216
 
 === PeaZip text group ===
 
+txt_10_3_classic: Classico
+txt_10_3_ascii: Si consiglia di utilizzare solo caratteri ASCII nelle password per questo formato (minuscole, maiuscole, numeri e caratteri speciali).
+txt_10_3_minimal: Minimalista
+txt_10_3_m: Moderno
+txt_10_3_pm: Postmoderno
+txt_10_3_aw: In alternativa, utilizzare l'opzione "Richiedi la password interattivamente" dal prompt password, o settare Console come modalità per gli eseguibili backend.
+txt_10_2_savecopy: Salva una copia
+txt_10_1_full: Completo
+txt_10_1_kdfw: Carico di lavoro KDF
+txt_10_1_under: Sottolineato
+txt_10_0_exptrash: Esplora Cestino
+txt_10_0_ptarzst: Compressione velocissima, TAR.ZST
+txt_10_0_ptarxz: Compressione alta, TAR.XZ
+txt_10_0_ptargz: Compressione media, TAR.GZ
+txt_10_0_comp: I formati di compressione pura accettano un solo file come input. La conversione di archivi verso tali formati fallirà se l'input è composto da più file o da cartelle (non determinabile in anticipo).
+txt_10_0_save: Salva
+txt_10_0_tp: Visualizza come testo
 txt_9_9_uac: L'utente non ha i diritti di scrittura per questa destinazione. Riavviare PeaZip con elevazione UAC?
 TXT_9_9_kdf: Iterazioni KDF
 txt_9_9_utc: Data e ora UTC
@@ -150,7 +167,7 @@ txt_8_0_forceconvert: Converti archivi di tipi non canonici
 txt_8_0_defaultactionhint: Azione da eseguire quando da sistema si fa doppio click su un tipo di file associato a PeaZip
 txt_8_0_defaultaction: Azione all'apertura (apri, estrazione automatica...)
 txt_8_0_enableextand: Mostra il submenu "Estrai e apri con"
-txt_8_0_forcetyping: Richiedi sempre la password interattivamente
+txt_8_0_forcetyping: Richiedi la password interattivamente
 txt_8_0_setpwopt: Opzioni password / keyfile
 txt_8_0_forcetypinghelp: Le operazioni saranno eseguite in console, non consente di esplorare archivi con nomi file cifrati. Permette di creare script che richiederanno all'utente di digitare la password interattivamente.
 txt_7_9_spacing: Spaziatura
@@ -672,7 +689,7 @@ txt_2_4_deletebookmarks: Si desidera cancellare la lista di file e cartelle pref
 txt_2_4_documents: Documenti
 txt_2_4_wenc: Enciclopedia
 txt_2_4_extractfrom: Estrai da
-txt_2_4_hexp: Contenuto esadecimale
+txt_2_4_hexp: Visualizza esadecimale
 txt_2_4_operation: Operazione
 txt_2_4_path: non è scrivibile (mancante o in sola lettura), selezionare un percorso accessibile in scrittura per l'output
 txt_2_4_removefromclipboard: Rimuovi dalla clipboard

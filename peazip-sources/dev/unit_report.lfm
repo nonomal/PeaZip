@@ -8,43 +8,12 @@ object Form_report: TForm_report
   ClientWidth = 1000
   Color = clWindow
   DesignTimePPI = 120
-  Icon.Data = {
-    7E03000000000100010010100000010018006803000016000000280000001000
-    0000200000000100180000000000000300006400000064000000000000000000
-    0000009F78009F7200A97700B87F00CD8900E39400E69600E69600E69600E696
-    00E69600E69600E69600E69600E69600E495009E7F00976C00AA4F00B34100A9
-    50009B6F00B87F00DC9100E69600E69600E69600E69600E69600E69600E69600
-    E29500A99400AD4B00BE3900C16700BE3600A85200966E00986F00BE8200E495
-    00E69600E69600E69600E69600E69600DD9400B8AD00B93900C37800C9D200C1
-    6400B53E00966E00966E00966E00A67600DD9100E69600E69600E69600E69600
-    D59300CCD400AF4800BF3E00C37900BE3900AA4F00976B00A25B00A557009968
-    009E7200D98F00E69600E69600E69600CB9200E3FB009C7400AE4A00B83900AD
-    4B009D6300B83900BE3400BE3600BC3500A25B009E7200DD9100E69600E49500
-    C09100E6FF00B7AE00966E00966D00966D00B53E00C05700C7BC00C8C500C275
-    00BC3500996800A67600E49500D69300BF9100E6FF00DCF000987300966E009D
-    6300BD3200C6A200C9D200C9D200C8C500BE3600A65500966E00BD8100C39100
-    BF9100E6FF00E6FF00BDBA00966E009A6700BD3300C59600C9D200C9D200C7BC
-    00BE3400A35900966E008E6E00B78C00BF9100E6FF00E6FF00E4FD00A68E0096
-    6E00B04600BF4400C59800C6A300C05800B83900976B00926D00836C009D7B00
-    BF9100E6FF00E6FF00E6FF00DDF1009E7F00976B00B04600BD3300BD3200B53E
-    009D6300A94F00A940009B4E00876D00BC8F00E6FF00E6FF00E6FF00E6FF00D9
-    EB009E7F00966E009A67009C6400966D00AC4B00B63800B86600B535009A5000
-    AC8500E6FF00E6FF00E6FF00E6FF00E6FF00DDF100A68E00966E00966E00926D
-    00B03800B97700C0D000B76300AA3D009C7B00E6FF00E6FF00E6FF00E6FF00E6
-    FF00E6FF00E4FD00BCB9008D7200836C00A24600B53C00B97700B538009C4D00
-    917400E6FF00E6FF00E6FF00E6FF00E6FF00E2FF00CCFF00B1FF00A6EF0093AB
-    00877100A14800AE3800A04900846A00897000E2FF00DFFF00D8FF00CCFF00BD
-    FF00ADFF00ABFF00ABFF00ABFF00ABFF00A9FB009ED20093AA008C9000877D00
-    8876000009C300007832000023CF00007E490000615C00007D3F00008A0E0000
-    CA190000D80500002AE90000B2A50000F0670000131300001C5E0000A6810000
-    0E78
-  }
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
   ShowHint = True
-  LCLVersion = '3.0.0.3'
+  LCLVersion = '3.4.0.0'
   object Label4: TLabel
     AnchorSideLeft.Control = Label3
     AnchorSideTop.Control = Label3
@@ -201,7 +170,33 @@ object Form_report: TForm_report
     BorderSpacing.Left = 15
     Caption = 'Save report to '
   end
-  object LabelSaveTxt: TLabel
+  object LabelSaveTsv: TLabel
+    AnchorSideLeft.Control = LabelSave3
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Button2
+    AnchorSideTop.Side = asrCenter
+    Cursor = crHandPoint
+    Left = 191
+    Height = 20
+    Top = 485
+    Width = 18
+    Caption = 'tsv'
+    Font.Color = 13391121
+    ParentFont = False
+    OnClick = LabelSaveTsvClick
+  end
+  object LabelSave2: TLabel
+    AnchorSideLeft.Control = LabelSaveTsv
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Button2
+    AnchorSideTop.Side = asrCenter
+    Left = 209
+    Height = 20
+    Top = 485
+    Width = 12
+    Caption = ' | '
+  end
+  object LabelSaveCsv: TLabel
     AnchorSideLeft.Control = LabelSave
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = Button2
@@ -210,39 +205,11 @@ object Form_report: TForm_report
     Left = 113
     Height = 20
     Top = 485
-    Width = 17
-    Caption = 'txt'
+    Width = 27
+    Caption = 'csv ,'
     Font.Color = 13391121
     ParentFont = False
-    OnClick = LabelSaveTxtClick
-  end
-  object LabelSave2: TLabel
-    AnchorSideLeft.Control = LabelSaveTxt
-    AnchorSideLeft.Side = asrBottom
-    AnchorSideTop.Control = Button2
-    AnchorSideTop.Side = asrCenter
-    Left = 138
-    Height = 20
-    Top = 485
-    Width = 4
-    BorderSpacing.Left = 8
-    Caption = '|'
-  end
-  object LabelSaveTxt1: TLabel
-    AnchorSideLeft.Control = LabelSave2
-    AnchorSideLeft.Side = asrBottom
-    AnchorSideTop.Control = Button2
-    AnchorSideTop.Side = asrCenter
-    Cursor = crHandPoint
-    Left = 150
-    Height = 20
-    Top = 485
-    Width = 20
-    BorderSpacing.Left = 8
-    Caption = 'csv'
-    Font.Color = 13391121
-    ParentFont = False
-    OnClick = LabelSaveTxt1Click
+    OnClick = LabelSaveCsvClick
   end
   object PanelTitleREP: TPanel
     AnchorSideLeft.Control = Owner
@@ -419,14 +386,77 @@ object Form_report: TForm_report
     ParentBackground = False
     TabOrder = 4
   end
+  object LabelSave1: TLabel
+    AnchorSideLeft.Control = LabelSaveCsv
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Button2
+    AnchorSideTop.Side = asrCenter
+    Left = 140
+    Height = 20
+    Top = 485
+    Width = 12
+    Caption = ' | '
+  end
+  object LabelSaveTxt: TLabel
+    AnchorSideLeft.Control = LabelSave2
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Button2
+    AnchorSideTop.Side = asrCenter
+    Cursor = crHandPoint
+    Left = 221
+    Height = 20
+    Top = 485
+    Width = 17
+    Caption = 'txt'
+    Font.Color = 13391121
+    ParentFont = False
+    OnClick = LabelSaveTxtClick
+  end
+  object LabelSave3: TLabel
+    AnchorSideLeft.Control = LabelSaveCsv1
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Button2
+    AnchorSideTop.Side = asrCenter
+    Left = 179
+    Height = 20
+    Top = 485
+    Width = 12
+    Caption = ' | '
+  end
+  object LabelSaveCsv1: TLabel
+    AnchorSideLeft.Control = LabelSave1
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Button2
+    AnchorSideTop.Side = asrCenter
+    Cursor = crHandPoint
+    Left = 152
+    Height = 20
+    Top = 485
+    Width = 27
+    Caption = 'csv ;'
+    Font.Color = 13391121
+    ParentFont = False
+    OnClick = LabelSaveCsv1Click
+  end
   object SaveDialog1: TSaveDialog
     Title = 'Save as'
-    Left = 195
-    Top = 469
+    Left = 464
+    Top = 472
   end
   object PopupMenu1: TPopupMenu
     Left = 293
     Top = 24
+    object MenuItem5: TMenuItem
+      Caption = 'Search hash on Google'
+      OnClick = MenuItem5Click
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'Search hash on VirusTotal'
+      OnClick = MenuItem4Click
+    end
+    object Separator1: TMenuItem
+      Caption = '-'
+    end
     object MenuItem3: TMenuItem
       Caption = 'Save hash values and file names'
       OnClick = MenuItem3Click

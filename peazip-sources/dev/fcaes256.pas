@@ -71,7 +71,7 @@ uses
        CH_INTF, AES_INTF;
      {$endif}
   {$else}
-    Hash, HMAC, Whirl512, KDF, AES_Type, AES_CTR, AES_EAX;
+    Hash, HMAC, Whirl512, KDF, AES_Type, AES_CTR, AES_EAX, scrypt;
   {$endif}
 
 
@@ -102,7 +102,7 @@ type
 
 
 function FCA_EAX256_init(var cx: TAES_EAXContext; pPW: pointer; pLen: word; var hdr: TFCA256Hdr): integer;
-function FCA_EAX256_initP(var cx: TAES_EAXContext; pPW: pointer; pLen: word; var hdr: TFCA256Hdr; niter:byte): integer;
+function FCA_EAX256_initP(var cx: TAES_EAXContext; pPW: pointer; pLen: word; var hdr: TFCA256Hdr; niter:byte; tkdf:ansistring): integer;
   {-Initialize crypt context using password pointer pPW and hdr.salt}
 
 function FCA_EAX256_initS(var cx: TAES_EAXContext; sPW: Str255; var hdr: TFCA256Hdr): integer;
@@ -246,18 +246,44 @@ begin
   fillchar(XKey, sizeof(XKey),0);
 end;
 
-function FCA_EAX256_initP(var cx: TAES_EAXContext; pPW: pointer; pLen: word; var hdr: TFCA256Hdr; niter:byte): integer;
+function FCA_EAX256_initP(var cx: TAES_EAXContext; pPW: pointer; pLen: word; var hdr: TFCA256Hdr; niter:byte; tkdf:ansistring): integer;
   {-Initialize crypt context using password pointer pPW and hdr.salt}
 var
   XKey: TX256Key;
   Err : integer;
-  intiter:longint;
+  intiter,memiter,piter:longint;
 begin
 
   intiter:=(niter*100000)+25000;
+  case niter of
+  1: memiter:=128*1024;
+  2: memiter:=256*1024;
+  3: memiter:=512*1024;
+  4: memiter:=1024*1024;
+  5: memiter:=1024*1024;
+  6: memiter:=1024*1024;
+  7: memiter:=1024*1024;
+  else memiter:=64*1024;
+  end;
+  case niter of
+  5: piter:=2;
+  6: piter:=4;
+  7: piter:=8;
+  else piter:=1;
+  end;
 
   {derive the EAX key / nonce and pw verifier}
-  Err := pbkdf2(FindHash_by_ID(_Whirlpool), pPW, pLen, @hdr.salt, sizeof(TFCA256Salt), intiter, XKey, sizeof(XKey));
+  case tkdf of
+  'hybrid': Err := scrypt_kdf(pPW, pLen, @hdr.salt, sizeof(TFCA256Salt), memiter, 8, piter, XKey, sizeof(XKey));
+  'scrypt': Err := scrypt_kdf(pPW, pLen, @hdr.salt, sizeof(TFCA256Salt), memiter, 8, piter, XKey, sizeof(XKey));
+  'pbkdf2': Err := pbkdf2(FindHash_by_ID(_Whirlpool), pPW, pLen, @hdr.salt, sizeof(TFCA256Salt), intiter, XKey, sizeof(XKey));
+  else
+    begin
+    Err:=-1;
+    FCA_EAX256_initP := Err;
+    exit;
+    end;
+  end;
 
   {init AES EAX mode with ak/hk}
   if Err=0 then Err := AES_EAX_Init(XKey.ak, 8*sizeof(XKey.ak), xkey.hk, sizeof(XKey.hk), cx);;
