@@ -2,17 +2,17 @@
 Korean - 한국어
 10.3
 번역자: Sleepy, EhangB
-최근 교정: 20250102 by EhangB
+최근 교정: 20250227 by EhangB
 교정 일자: 20110531 by Sleep
 
 === PeaZip text group ===
 
-txt_10_3_classic: Classic
-txt_10_3_ascii: It is recommended to use only ASCII characters in passwords for the current archive format (mixed case letters, numbers, and special characters).
-txt_10_3_minimal: Minimal
-txt_10_3_m: Modern
-txt_10_3_pm: Postmodern
-txt_10_3_aw: Workaround: check "Force typing password interactively" in the password prompt, or set Console mode for backend binaries.
+txt_10_3_classic: 클래식
+txt_10_3_ascii: 현재 아카이브 형식에서는 비밀번호에 ASCII 문자만 사용하는 것이 권장됩니다 (대소문자 혼합, 숫자 및 특수 문자).
+txt_10_3_minimal: 미니멀
+txt_10_3_m: 모던
+txt_10_3_pm: 포스트 모던
+txt_10_3_aw: 해결 방법 : 비밀번호 프롬프트에서 "대화형 비밀번호 강제 입력"을 확인하거나 백엔드 바이너리에 대한 콘솔 모드를 설정하십시오.
 txt_10_2_savecopy: 사본 저장
 txt_10_1_full: 완전
 txt_10_1_kdfw: KDF 작업량
